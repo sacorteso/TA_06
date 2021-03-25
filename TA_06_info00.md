@@ -1,5 +1,7 @@
 5.1  aplicaciones relacionadas:
    - treinta / gestion de tu pequeño negocio: es un programa donde puedes registrar productos y en base a estos registrar las ventas y valances en tiempo real y ayuda a mantener un control presiso del inventario de manera sencilla.  
+   - Mi negocio: esta aplicacion nos permite agregar productos a un inventario y registrar su codigo de barras a traves de la camara, images y caducidad del producto ademas nos facilita el registro de ventas en la modalidad por cobrar (fiado) y nos imprime en formato pdf un resivo predeterminado con el valor de la venta.
+   - Inventario y punto de venta: esta aplicacion mantenie los registros de compras y ventas, nos genera un control y seguimiento de los pagos de clientes y a los proveedores, acepta y efectua pagos en multiples monedas, genera seguimiento del trabajo de todos los puntos de venta, y asi nos da el poder de analizar la situacion de la empresa.
 
 5.2 Software open source
 
