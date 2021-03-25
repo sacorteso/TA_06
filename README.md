@@ -1,7 +1,7 @@
 ## TA_06
 
 
-###integrantes:
+### integrantes:
 
    - Juan Carlos Velásquez Gutiérrez
    - Santiago Cortes Ortiz
