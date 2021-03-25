@@ -6,7 +6,7 @@
 5.2 Software open source:
 
 SQLite:
-Es un programa para la gestión de bases de datos relacionales. SQLite es una biblioteca de lenguaje C que implementa un motor de base de datos SQL pequeño, rápido, autónomo, de alta confiabilidad, con todas las funciones. SQLite es el motor de base de datos más utilizado del mundo. SQLite está integrado en todos los teléfonos móviles y la mayoría de los ordenadores y viene incluido dentro de innumerables otras aplicaciones que la gente utiliza todos los días. Más información...
+   Es un programa para la gestión de bases de datos relacionales. SQLite es una biblioteca de lenguaje C que implementa un motor de base de datos SQL pequeño, rápido,   autónomo,   de alta confiabilidad, con todas las funciones. SQLite es el motor de base de datos más utilizado del mundo. SQLite está integrado en todos los teléfonos móviles y la  mayoría de los ordenadores y viene incluido dentro de innumerables otras aplicaciones que la gente utiliza todos los días. Más información...
 El formato de archivo SQLite es estable, multiplataforma y compatible con versiones anteriores y los desarrolladores se comprometen a mantenerlo así durante el año 2050. Los archivos de base de datos SQLite se utilizan comúnmente como contenedores para transferir contenido enriquecido entre sistemas y como formato de archivo a largo plazo para datos. Hay más de 1 billón (1e12) bases de datos SQLite en uso activo.
 El código fuente SQLite es de dominio público y es gratuito para todos los gustos para cualquier propósito.
 
