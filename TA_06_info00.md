@@ -22,7 +22,7 @@ PostgreSQL. Además, la compatibilidad integrada con controladores estándar JDB
 Una base de datos rápida y flexible, Integración completa con otras aplicaciones de LibreOffice
 
 MariaDB:
-Otra solución para gestión de bases de datos es MariaDB, la cual te permite migrar tus bases de datos creadas en MySQL debido a que fue desarrollada por los mismos creadores. La prioridad para los desarrolladores de MariaDB es la seguridad, por lo tanto en cada actualización de su software incluyen los parches de seguridad de MySQL e incluso con mejoras.
+Otra solución para gestión de bases de datos es MariaDB, la cual te permite migrar tus bases de datos creadas en MySQL debido a que fue desarrollada por los mismos creadores. La prioridad pa ra los desarrolladores de MariaDB es la seguridad, por lo tanto en cada actualización de su software incluyen los parches de seguridad de MySQL e incluso con mejoras.
 Este sistema de bases de datos es usado por grandes en la industria tecnológica, entre los que se encuentran Wikipedia, Google y Facebook. MariaDB es open source, ademas de permitir acceso a la información en tiempo real, alta escalabilidad y fácil integración con diferentes programas.
 Esta solución, creada por los desarrolladores originales de MySQL, es empleada por gigantes tecnológicos como Wikipedia, Facebook e incluso Google. MariaDB es un servidor de base de datos que ofrece funcionalidad de sustitución directa para MySQL. La seguridad es prioritaria para los desarrolladores de MariaDB, que incluyen en cada versión los parches de seguridad de MySQL e incluso los mejoran si es necesario.
 
