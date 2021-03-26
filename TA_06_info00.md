@@ -27,4 +27,38 @@ Este sistema de bases de datos es usado por grandes en la industria tecnológica
 Esta solución, creada por los desarrolladores originales de MySQL, es empleada por gigantes tecnológicos como Wikipedia, Facebook e incluso Google. MariaDB es un servidor de base de datos que ofrece funcionalidad de sustitución directa para MySQL. La seguridad es prioritaria para los desarrolladores de MariaDB, que incluyen en cada versión los parches de seguridad de MySQL e incluso los mejoran si es necesario.
 
 
+5.3 Librerías disponibles:
+
+numpy: 
+El popular paquete matemático de Python,. nos proporciona algunas funciones estadísticas que podemos aplicar fácilmente sobre los arrays de Numpy.
+
+scipy.stats:
+Este submodulo del paquete científico Scipy es el complemento perfecto para Numpy, las funciones estadisticas que no encontremos en uno, las podemos encontrar en el otro.
+
+statsmodels: 
+Esta librería nos brinda un gran número de herramientas para explorar datos, estimar modelos estadísticos, realizar pruebas estadísticas y muchas cosas más.
+
+matplotlib: 
+Es la librería más popular en Python para visualizaciones y gráficos. Ella nos va a permitir realizar los gráficos de las distintas distribuciones de datos.
+
+seaborn: 
+Esta librería es un complemento ideal de matplotlib para realizar gráficos estadísticos.
+
+pandas: 
+Cuando se trabaja con datos las estructuras disponibles en Python no son lo suficientemente fáciles de utilizar. Para estas situaciones se debe contar con los dataframes que proporciona la librería pandas. Esta es una librería muy popular que proporciona estructuras de datos de alto nivel intuitivas y fáciles de utilizar. En ella es posible encontrar múltiples métodos para  agrupar, combinar y filtrar datos. Así como para el análisis de series de temporales.
+Pandas también incluye funciones que permiten la importación de datos desde diferentes fuentes. Permitiendo tanto la importación como exportación de datos desde archivos en formatos como CSV, Microsoft Excel o JSON. Además de ofrecer la posibilidad de acceder a diferentes bases de datos SQL.
+
+Pillow
+Pillow es un port de la popular librería Python Imaging, o PIL para abreviar. Pillow puede ser utilizado para crear imágenes complejas, aplicar filtros, modificar la transparencia, añadir textos en imágenes, cambiar la extensión de una imagen, y mucho, mucho más. Si necesitas editar imágenes, Pillow es el camino a seguir.
+
+Matplotlib
+Matplotlib, como su propio nombre indica, es una librería que se utiliza para trabajar con funciones matemáticas y modelos. Extendiendo el poder de Numpy, matplotlib puede crear gráficos, gráficos de barras, gráficos de dispersión, y muchas otras representaciones visuales con sólo un par de líneas de código.
+
+
+Pywin32
+Pywin32, este paquete proporciona muchos módulos que permiten a los desarrolladores acceder a características de bajo nivel de Windows. Con las propiedades de pywin32, un usuario puede manipular fácilmente archivos, gestionar hardware, gestionar permisos, y crear ventanas de la interfaz gráfica de usuario mediante programación.
+
+
+tkinder:
+Es un binding de la biblioteca gráfica Tcl/Tk para el lenguaje de programación Python. Se considera un estándar para la interfaz gráfica de usuario (GUI) para Python y es el que viene por defecto con la instalación para Microsoft Windows. Hoy en día hay otras alternativas disponibles como wxPython, PyQt o PySide y PyGTK que cumplen con todos los estándares de componente visual.
 
