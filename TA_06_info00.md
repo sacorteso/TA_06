@@ -59,6 +59,6 @@ Pywin32
 Pywin32, este paquete proporciona muchos módulos que permiten a los desarrolladores acceder a características de bajo nivel de Windows. Con las propiedades de pywin32, un usuario puede manipular fácilmente archivos, gestionar hardware, gestionar permisos, y crear ventanas de la interfaz gráfica de usuario mediante programación.
 
 
-tkinder:
+tkinter:
 Es un binding de la biblioteca gráfica Tcl/Tk para el lenguaje de programación Python. Se considera un estándar para la interfaz gráfica de usuario (GUI) para Python y es el que viene por defecto con la instalación para Microsoft Windows. Hoy en día hay otras alternativas disponibles como wxPython, PyQt o PySide y PyGTK que cumplen con todos los estándares de componente visual.
 
