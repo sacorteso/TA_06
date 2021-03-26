@@ -54,7 +54,6 @@ Es un port de la popular librería Python Imaging, o PIL para abreviar. Pillow p
 * Matplotlib:
 Como su propio nombre indica, es una librería que se utiliza para trabajar con funciones matemáticas y modelos. Extendiendo el poder de Numpy, matplotlib puede crear gráficos, gráficos de barras, gráficos de dispersión, y muchas otras representaciones visuales con sólo un par de líneas de código.
 
-
 * Pywin32:
 Este paquete proporciona muchos módulos que permiten a los desarrolladores acceder a características de bajo nivel de Windows. Con las propiedades de pywin32, un usuario puede manipular fácilmente archivos, gestionar hardware, gestionar permisos, y crear ventanas de la interfaz gráfica de usuario mediante programación.
 
