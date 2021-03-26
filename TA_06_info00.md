@@ -48,15 +48,15 @@ pandas:
 Cuando se trabaja con datos las estructuras disponibles en Python no son lo suficientemente fáciles de utilizar. Para estas situaciones se debe contar con los dataframes que proporciona la librería pandas. Esta es una librería muy popular que proporciona estructuras de datos de alto nivel intuitivas y fáciles de utilizar. En ella es posible encontrar múltiples métodos para  agrupar, combinar y filtrar datos. Así como para el análisis de series de temporales.
 Pandas también incluye funciones que permiten la importación de datos desde diferentes fuentes. Permitiendo tanto la importación como exportación de datos desde archivos en formatos como CSV, Microsoft Excel o JSON. Además de ofrecer la posibilidad de acceder a diferentes bases de datos SQL.
 
-Pillow
-Pillow es un port de la popular librería Python Imaging, o PIL para abreviar. Pillow puede ser utilizado para crear imágenes complejas, aplicar filtros, modificar la transparencia, añadir textos en imágenes, cambiar la extensión de una imagen, y mucho, mucho más. Si necesitas editar imágenes, Pillow es el camino a seguir.
+Pillow:
+Es un port de la popular librería Python Imaging, o PIL para abreviar. Pillow puede ser utilizado para crear imágenes complejas, aplicar filtros, modificar la transparencia, añadir textos en imágenes, cambiar la extensión de una imagen, y mucho, mucho más. Si necesitas editar imágenes, Pillow es el camino a seguir.
 
-Matplotlib
-Matplotlib, como su propio nombre indica, es una librería que se utiliza para trabajar con funciones matemáticas y modelos. Extendiendo el poder de Numpy, matplotlib puede crear gráficos, gráficos de barras, gráficos de dispersión, y muchas otras representaciones visuales con sólo un par de líneas de código.
+Matplotlib:
+Como su propio nombre indica, es una librería que se utiliza para trabajar con funciones matemáticas y modelos. Extendiendo el poder de Numpy, matplotlib puede crear gráficos, gráficos de barras, gráficos de dispersión, y muchas otras representaciones visuales con sólo un par de líneas de código.
 
 
-Pywin32
-Pywin32, este paquete proporciona muchos módulos que permiten a los desarrolladores acceder a características de bajo nivel de Windows. Con las propiedades de pywin32, un usuario puede manipular fácilmente archivos, gestionar hardware, gestionar permisos, y crear ventanas de la interfaz gráfica de usuario mediante programación.
+Pywin32:
+Este paquete proporciona muchos módulos que permiten a los desarrolladores acceder a características de bajo nivel de Windows. Con las propiedades de pywin32, un usuario puede manipular fácilmente archivos, gestionar hardware, gestionar permisos, y crear ventanas de la interfaz gráfica de usuario mediante programación.
 
 
 tkinter:
