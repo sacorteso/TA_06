@@ -1,9 +1,9 @@
-5.1  aplicaciones relacionadas:
+# 5.1  aplicaciones relacionadas:
    - treinta / gestion de tu pequeño negocio: es un programa donde puedes registrar productos y en base a estos registrar las ventas y valances en tiempo real y ayuda a mantener un control presiso del inventario de manera sencilla.  
    - Mi negocio: esta aplicacion nos permite agregar productos a un inventario y registrar su codigo de barras a traves de la camara, images y caducidad del producto ademas nos facilita el registro de ventas en la modalidad por cobrar (fiado) y nos imprime en formato pdf un resivo predeterminado con el valor de la venta.
    - Inventario y punto de venta: esta aplicacion mantenie los registros de compras y ventas, nos genera un control y seguimiento de los pagos de clientes y a los proveedores, acepta y efectua pagos en multiples monedas, genera seguimiento del trabajo de todos los puntos de venta, y asi nos da el poder de analizar la situacion de la empresa.
 
-5.2 Software open source:
+# 5.2 Software open source:
 
 * SQLite:
    Es un programa para la gestión de bases de datos relacionales. SQLite es una biblioteca de lenguaje C que implementa un motor de base de datos SQL pequeño, rápido,   autónomo,   de alta confiabilidad, con todas las funciones. SQLite es el motor de base de datos más utilizado del mundo. SQLite está integrado en todos los teléfonos móviles y la  mayoría de los ordenadores y viene incluido dentro de innumerables otras aplicaciones que la gente utiliza todos los días. Más información...
@@ -27,7 +27,7 @@ Este sistema de bases de datos es usado por grandes en la industria tecnológica
 Esta solución, creada por los desarrolladores originales de MySQL, es empleada por gigantes tecnológicos como Wikipedia, Facebook e incluso Google. MariaDB es un servidor de base de datos que ofrece funcionalidad de sustitución directa para MySQL. La seguridad es prioritaria para los desarrolladores de MariaDB, que incluyen en cada versión los parches de seguridad de MySQL e incluso los mejoran si es necesario.
 
 
-5.3 Librerías disponibles:
+# 5.3 Librerías disponibles:
 
 * numpy: 
 El popular paquete matemático de Python,. nos proporciona algunas funciones estadísticas que podemos aplicar fácilmente sobre los arrays de Numpy.
