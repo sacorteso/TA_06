@@ -1,11 +1,12 @@
 
 ## informe 03/ 13 horas del viernes 16 de abril.
--Registro de cuentas de usuarios con contraseñas seguras y validas
--creación de páginas para entrada de datos
+ ●Registro de cuentas de usuarios con contraseñas seguras y validas
+ ●creación de páginas para entrada de datos
 
 
-informe 04/ 13 horas del viernes 23 de abril.  
-cración de dataFrame y algunas operaciones básicas
+informe 04/ 13 horas del viernes 23 de abril. 
+ ●entrada a la interfaz de la aplicación con usuario y contraseña
+ ●cración de dataFrame y algunas operaciones básicas
 
 informe 05/ 13 horas del viernes 30 de abril.
 
