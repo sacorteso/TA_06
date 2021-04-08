@@ -1,6 +1,6 @@
 
-# **informe 03/ 13 horas del viernes 16 de abril.
--Registro de cunats de usuarios con contraseñas seguras y validas
+## **informe 03/ 13 horas del viernes 16 de abril.
+-Registro de cuentas de usuarios con contraseñas seguras y validas
 -creación de páginas para entrada de datos
 
 
