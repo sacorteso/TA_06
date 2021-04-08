@@ -15,6 +15,6 @@ informe 07/ 13 horas del viernes 14 de mayo.
 
 informe 08/ 13 horas del viernes 21 de mayo.
 
-informe 09/ 13 horas del viernes 28 de mayo.
+informe 09/ 13 horas del viernes 28 de mayo. (BORRADOR)
 
-informe 10/ 13 horas del viernes 3 junio.
+informe 10/ 13 horas del viernes 3 junio. (entrega DEFINITIVA)
