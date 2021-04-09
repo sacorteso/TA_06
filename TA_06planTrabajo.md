@@ -102,7 +102,7 @@ Cuando el negocio funciona a la perfección se van a empezar agotar los producto
 que están en la bodega porque ya fueron vendidos, entonces hay que tener una base de datos
 de proveedores (fabricas o distribuidores) los cuales nos permitan reemplazar los poductos ya vendidos, 
 para eso tenemos que saber las formas de comunicarnos con ellos, los días de visita, el nombre del
-vendedor, etc; aquí es donde se refleja la importancai de la base.  Al realizar un pedido de
+vendedor, etc; aquí es donde se refleja la importancia de la base.  Al realizar un pedido de
 producto nuevo se genera un valor de dinero el cual es manejado por el departamento de contabilidad,
 además este debe generar los informes de capital, costos de funcionamiento y ganancia neta.
 
