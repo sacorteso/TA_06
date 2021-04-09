@@ -1,5 +1,5 @@
 
-## informe 03/ 13 horas del viernes 16 de abril.
+# informe 03/ 13 horas del viernes 16 de abril.
 - Registro de cuentas de usuarios con contraseñas seguras y válidas
 - Creación de páginas para entrada de datos
 - Creación de Dataframe de usuario
@@ -15,7 +15,7 @@ la página que permita ingresar los datos de estas personas, además las respect
 contraseñas que permitirá identificarlos y registrar sus operaciones diarias.
 
 
-## informe 04/ 13 horas del viernes 23 de abril.
+# informe 04/ 13 horas del viernes 23 de abril.
 
 - Entrada a la interfaz de la aplicación con usuario y contraseña
 - Creación de la página de ingreso de Productos
@@ -35,7 +35,7 @@ y generá reportes visuales de alerta.
 
 
 
-## informe 05/ 13 horas del viernes 30 de abril.
+# informe 05/ 13 horas del viernes 30 de abril.
 - Creación de la página mostrador
 - Enlace con el Dataframe de Bodega
 - operaciones matemáticas
@@ -70,7 +70,7 @@ tanto del negocio como del comportamiento de los clientes.
 
 
   
-## informe 07/ 13 horas del viernes 14 de mayo.
+# informe 07/ 13 horas del viernes 14 de mayo.
 - Creación de la página Contabilidad
 - creación de DataFrame para contabilidad
 - Enlace con el DataFrame Ventas
@@ -87,7 +87,7 @@ la vamos a llamar contabilidad.
 
   
 
-## informe 08/ 13 horas del viernes 21 de mayo.
+# informe 08/ 13 horas del viernes 21 de mayo.
 - Creación de la página Proveedores con su respectivo Dataframe.
 - Enlace con el dataframe de contabilidad.
 - Generación de informes de Capital, costos de funcionamiento y ganancia neta.
@@ -106,7 +106,7 @@ además este debe generar los informes de capital, costos de funcionamiento y ga
 
  
 
-## informe 09/ 13 horas del viernes 28 de mayo. (BORRADOR)
+# informe 09/ 13 horas del viernes 28 de mayo. (BORRADOR)
 - La aplicación debe ser capaz de funcionar correctamente y mostrar los resultados
   esperados teoricamente y debe mostrar los respectivos pantallazos y generar archivos.txt para
   guardar las bases de datos generadas correspondientes a cada DataFrame.
@@ -122,7 +122,7 @@ por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento tot
 
   
   
-## informe 10/ 13 horas del viernes 3 junio. (entrega DEFINITIVA)
+# informe 10/ 13 horas del viernes 3 junio. (entrega DEFINITIVA)
 - La aplicación debe cumplir con as especificaciones del items anterior.
 - Aquí la interfaz gráfica es más elegante y completa.
 - Debe funcionar perfectamente.
