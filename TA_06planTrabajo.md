@@ -135,7 +135,7 @@ por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento tot
   Juan Carlos Velásquez Gutiérrez  
   Hernán Cardona
 
-Aquí se presenta totalmente, completa y terminada la aplicación cumpliendo con los 
+Aquí se presenta completa y terminada la aplicación cumpliendo con los 
 objetivos propuestos.
 
 
