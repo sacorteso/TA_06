@@ -58,7 +58,7 @@ o en el mostrador
 - Operaciones matemáticas
 
 #### Lideres en esta sección:
-  Santiago Cortés Ortiz
+  Santiago Cortés Ortiz \n
   Juan Carlos Velásquez Gutiérrez
 
 
