@@ -39,7 +39,7 @@ y generá reportes visuales de alerta.
 - Creación de la página mostrador
 - Creación de DataFrame para mostrador
 - operaciones matemáticas
-- creación de página de alerta de vencimiento de productos
+- creación de página de alerta de vencimiento de productos (opcional)
 - Enlace con el Dataframe de Bodega
 
 #### Lider de esta sección:
