@@ -128,8 +128,8 @@ por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento tot
 - Debe funcionar perfectamente.
 
 #### Lideres de esta sección:
-  Santiago Cortés Ortiz
-  Juan Carlos Velásquez Gutiérrez
+  Santiago Cortés Ortiz  
+  Juan Carlos Velásquez Gutiérrez  
   Hernán Cardona
 
 Aquí se presenta totalmente, completa y terminada la aplicación cumpliendo con los 
