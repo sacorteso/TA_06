@@ -124,7 +124,7 @@ por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento tot
   
 ## informe 10/ 13 horas del viernes 3 junio. (entrega DEFINITIVA)
 - La aplicación debe cumplir con as especificaciones del items anterior.
-- Aquí la interfaz gráfica es más elegente y completa.
+- Aquí la interfaz gráfica es más elegante y completa.
 - Debe funcionar perfectamente.
 
 #### Lideres de esta sección:
