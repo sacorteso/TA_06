@@ -37,10 +37,10 @@ y generá reportes visuales de alerta.
 
 # informe 05/ 13 horas del viernes 30 de abril.
 - Creación de la página mostrador
-- Enlace con el Dataframe de Bodega
+- Creación de DataFrame para mostrador
 - operaciones matemáticas
 - creación de página de alerta de vencimiento de productos
-- Enlace con Dataframe de Bodega
+- Enlace con el Dataframe de Bodega
 
 #### Lider de esta sección:
   Hernán Cardona
