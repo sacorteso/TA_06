@@ -4,7 +4,7 @@
 - Creación de páginas para entrada de datos
 - Creación de Dataframe de usuario
  
- # Lider de esta sección:
+ ### Lider de esta sección:
    Santiago Cortés Ortiz
 
 
