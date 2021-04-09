@@ -54,8 +54,10 @@ página de alerta de vencimiento de productos, ya sea en bodega o en el mostrado
 # informe 06/ 13 horas del viernes 07 de mayo.
 - Creación de la página Ventas
 - Creación de DataFrame Ventas
-- Enlace con el Dataframe de Mostrador
-- Enlace con el Dataframe de Clientes
+- Creación de la página Clientes
+- Creación de DataFrame Clientes
+- Enlace con el DataFrame de Mostrador
+- Enlace con el DataFrame de Clientes
 - Operaciones matemáticas
 
 #### Lideres en esta sección:
