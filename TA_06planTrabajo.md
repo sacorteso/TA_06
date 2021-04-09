@@ -7,13 +7,11 @@
  #### Lider de esta sección:
    Santiago Cortés Ortiz
 
-
-Como el negocio tiene un administrador y tiene varios empleados,
-se va a crear una base de datos que contenga la información básica 
-del administrador  y de los empleados que van a manipular la aplicación,
-la página que permita ingresar los datos de estas personas, además las respectivas 
-contraseñas que permitirá identificarlos y registrar sus operaciones diarias.
-
+AL entrar al aplicativo,lo primero que va a encotrar el usuaru, es un registro de cuentas,
+donde se va a poder acceder como administrador, o como empleado ( publico en general), esta a
+diferencia del empleado, le muestra una base de datos, que llamaremos contabilidad, la cual 
+muestra toda la parte financiera del negocio
+------------------------------------------------------------------------------------------------
 
 # informe 04/ 13 horas del viernes 23 de abril.
 
@@ -32,8 +30,7 @@ ya adquiridos por el negocio los cuales se dirigen hacia la bodega, la cual
 va ser una base datos y el corazón de la aplicación; además se crea una base de datos
 llamada compras que notificará los productos que hacen falta según su agrupación o clasificación
 y generá reportes visuales de alerta.
-
-
+-------------------------------------------------------------------------------------------------
 
 # informe 05/ 13 horas del viernes 30 de abril.
 - Creación de la página mostrador
@@ -45,11 +42,11 @@ y generá reportes visuales de alerta.
 #### Lider de esta sección:
   Hernán Cardona
 
-Ahora se crea una página para administrar los productos que en tiempo real se van a vender
-( o sea los productos que están en la vitrina y estantes) y su respectiva base de datos 
-llamada mostrador, la cual va representar un porcentaje de la Bodega, además se crea una
-página de alerta de vencimiento de productos, ya sea en bodega o en el mostrador.
-
+Ahora se crea una página para administrar los productos que en tiempo real se van a vender 
+( osea lo que esta en mostrario)y su respectiva base de datos llamada "mostrario" la cual,
+va a representar parte del producto con el que cuenta el establecimiento, ademas , se crea 
+una pagina de alerta de vencimiento de productos, ya sea en bodega o en el mostrador
+---------------------------------------------------------------------------------------------------
 
 # informe 06/ 13 horas del viernes 07 de mayo.
 - Creación de la página Ventas
@@ -64,14 +61,12 @@ página de alerta de vencimiento de productos, ya sea en bodega o en el mostrado
   Santiago Cortés Ortiz  
   Juan Carlos Velásquez Gutiérrez
 
-
 Luego llegamos a la base de datos relacionada con las ventas, aquí vamos a 
 utilizar un poco más de utilidades y operaciones matemáticas, vamos a transformar la cantidad 
 de productos vendidos a una representación de valores en dinero y vamos a registrar e identificar 
 a qué clientes se está vendiendo, lo cual podría permitir utilizar algunas aplicaciones estadísticas
 tanto para el negocio como para el comportamiento de los clientes.
-
-
+-------------------------------------------------------------------------------------------------------
   
 # informe 07/ 13 horas del viernes 14 de mayo.
 - Creación de la página Contabilidad
@@ -82,13 +77,11 @@ tanto para el negocio como para el comportamiento de los clientes.
 #### Lider de esta sección:
   Hernán Cardona
 
-Como los productos vendidos se convierte en dinero y además hay que pagar por los
-nuevos productos estonces se necesita una base da datos que controle la cantidad 
-de dinero que está entrando y la cantidad de dinero que se está utilizando para
-invertir y cumplir con las operaciones de funcionamiento; ha esta base de datos
-la vamos a llamar contabilidad.
-
-  
+luego de tener listo el inventario , y  poder saber el flujo de producto presente o faltante en el negocio
+se crea una base de datos que  se ocupa de guardar toda la parte contable o financiera de  la tienda, arrojando
+asi, valores economicos  de compras, ventas y perdidas de la empresa,  y valances generales y especificos que 
+se puedan sacar del mismo(lo ultimo es opcional)
+----------------------------------------------------------------------------------------------------- 
 
 # informe 08/ 13 horas del viernes 21 de mayo.
 - Creación de la página Proveedores con su respectivo Dataframe.
@@ -105,9 +98,7 @@ para eso tenemos que saber las formas de comunicarnos con ellos, los días de vi
 vendedor, etc; aquí es donde se refleja la importancia de la base.  Al realizar un pedido de
 producto nuevo se genera un valor de dinero el cual es manejado por el departamento de contabilidad,
 además este debe generar los informes de capital, costos de funcionamiento y ganancia neta.
-
-
- 
+--------------------------------------------------------------------------------------------------------
 
 # informe 09/ 13 horas del viernes 28 de mayo. (BORRADOR)
 - La aplicación debe ser capaz de funcionar correctamente y mostrar los resultados
@@ -120,10 +111,11 @@ además este debe generar los informes de capital, costos de funcionamiento y ga
   Santiago Cortés Ortiz
 
 A estas alturas todas la partes de la aplicación ya están ensambladas y ensayadas,
-por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento total.
-
-
-  
+por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento total
+La idea es que en esta etapa del proyecto se puedan subir una cuota minima de productos
+a la base de datos, y que el aplicativo, responda de forma correcta, con la informacion 
+recibida 
+---------------------------------------------------------------------------------------------------------
   
 # informe 10/ 13 horas del viernes 3 junio. (entrega DEFINITIVA)
 - La aplicación debe cumplir con las especificaciones del items anterior.
@@ -137,6 +129,3 @@ por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento tot
 
 Aquí se presenta completa y terminada la aplicación cumpliendo con los 
 objetivos propuestos.
-
-
-   
