@@ -84,7 +84,7 @@ Como los productos vendidos se convierte en dinero y además hay que pagar por l
 nuevos productos estonces se necesita una base da datos que controle la cantidad 
 de dinero que está entrando y la cantidad de dinero que se está utilizando para
 invertir y cumplir con las operaciones de funcionamiento; ha esta base de datos
-la vamos a llamar contabilidad.4
+la vamos a llamar contabilidad.
 
   
 
