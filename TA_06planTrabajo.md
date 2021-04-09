@@ -46,7 +46,7 @@ y generá reportes visuales de alerta.
   Hernán Cardona
 
 Ahora se crea una página para administrar los productos que en tiempo real se van a vender
-( o sea los productos que están en la vitrina y estantes) y su respectiva base de datos 
+( o sea los productos que están en la vitrina y estantes), y su respectiva base de datos 
 llamada mostrador, la cual va representar un porcentaje de la Bodega y donde los productos que 
 esten en ella están destinados para la venta, además se crea una página de alerta de vencimiento 
 de productos, ya sea en bodega o en el mostrador
