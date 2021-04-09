@@ -48,7 +48,7 @@ y generá reportes visuales de alerta.
 Ahora se crea una página para administrar los productos que en tiempo real se van a vender
 ( o sea los productos que están en la vitrina y estantes) y su respectiva base de datos 
 llamada mostrador, la cual va representar un porcentaje de la Bodega, además se crea una
-página de alerta de vencimiento de productos, ya sea en bodega o en el mostrador
+página de alerta de vencimiento de productos, ya sea en bodega o en el mostrador.
 
 
 # informe 06/ 13 horas del viernes 07 de mayo.
@@ -69,7 +69,7 @@ Luego llegamos a la base de datos relacionada con las ventas, aquí vamos a
 utilizar un poco más de utilidades y operaciones matemáticas, vamos a transformar la cantidad 
 de productos vendidos a una representación de valores en dinero y vamos a registrar e identificar 
 a qué clientes se está vendiendo, lo cual podría permitir utilizar algunas aplicaciones estadísticas
-tanto para negocio como para el comportamiento de los clientes.
+tanto para el negocio como para el comportamiento de los clientes.
 
 
   
