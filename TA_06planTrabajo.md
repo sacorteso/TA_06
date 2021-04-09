@@ -4,19 +4,19 @@
 -creación de páginas para entrada de datos
 
 
-informe 04/ 13 horas del viernes 23 de abril.
+## informe 04/ 13 horas del viernes 23 de abril.
 
 -entrada a la interfaz de la aplicación con usuario y contraseña
 -cración de dataFrame y algunas operaciones básicas
 
-informe 05/ 13 horas del viernes 30 de abril.
+## informe 05/ 13 horas del viernes 30 de abril.
 
-informe 06/ 13 horas del viernes 07 de mayo.
+## informe 06/ 13 horas del viernes 07 de mayo.
 
-informe 07/ 13 horas del viernes 14 de mayo.
+## informe 07/ 13 horas del viernes 14 de mayo.
 
-informe 08/ 13 horas del viernes 21 de mayo.
+## informe 08/ 13 horas del viernes 21 de mayo.
 
-informe 09/ 13 horas del viernes 28 de mayo. (BORRADOR)
+## informe 09/ 13 horas del viernes 28 de mayo. (BORRADOR)
 
-informe 10/ 13 horas del viernes 3 junio. (entrega DEFINITIVA)
+## informe 10/ 13 horas del viernes 3 junio. (entrega DEFINITIVA)
