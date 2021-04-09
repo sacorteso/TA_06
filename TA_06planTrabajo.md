@@ -4,7 +4,7 @@
 - Creación de páginas para entrada de datos
 - Creación de Dataframe de usuario
  
- - Lider de esta sección:
+ # Lider de esta sección:
    Santiago Cortés Ortiz
 
 
@@ -24,7 +24,7 @@ contraseñas que permitirá identificarlos y registrar sus operaciones diarias.
 - Creación de DataFrame para compras
 - operaciones matemáticas
 
-- Lider de esta sección:
+# Lider de esta sección:
   Juan Carlos Velásquez Gutiérrez
 
 Aquí se debe crear una forma de ingresar, clasificar y registrar los productos
@@ -42,7 +42,7 @@ y generá reportes visuales de alerta.
 - creación de página de alerta de vencimiento de productos
 - Enlace con Dataframe de Bodega
 
-- Lider de esta sección:
+# Lider de esta sección:
   Hernán Cardona
 
 Ahora se crea una base de datos llamada mostrador, la cual va representar
@@ -57,7 +57,7 @@ o en el mostrador
 - Enlace con el Dataframe de Clientes
 - Operaciones matemáticas
 
-- Lideres en esta sección:
+# Lideres en esta sección:
   Santiago Cortés Ortiz
   Juan Carlos Velásquez Gutiérrez
 
@@ -76,7 +76,7 @@ tanto del negocio como del comportamiento de los clientes.
 - Enlace con el DataFrame Ventas
 - Enlace con dataframe Bodega y compras
 
-- Lider de esta sección:
+# Lider de esta sección:
   Hernán Cardona
 
 Como los productos vendidos se convierte en dinero y además hay que pagar por los
@@ -92,7 +92,7 @@ la vamos a llamar contabilidad.
 - Enlace con el dataframe de contabilidad.
 - Generación de informes de Capital, costos de funcionamiento y ganancia neta.
 
-- Lider de esta sección:
+# Lider de esta sección:
   Juan Carlos Velásquez Gutiérrez
 
 Cuando el negocio funciona a la perfección se van a empezar agotar los productos
@@ -113,7 +113,7 @@ además este debe generar los informes de capital, costos de funcionamiento y ga
   
 - La interfaz gráfica es sencilla. 
 
-- Lider de está sección:
+# Lider de está sección:
   Santiago Cortés Ortiz
 
 A estas alturas todas la partes de la aplicación ya están ensambladas y ensayadas,
@@ -127,7 +127,7 @@ por tal motivo el diseño de la aplicación pasa a la fase de funcionamiento tot
 - Aquí la interfaz gráfica es más elegente y completa.
 - Debe funcionar perfectamente.
 
-- Lideres de esta sección:
+# Lideres de esta sección:
   Santiago Cortés Ortiz
   Juan Carlos Velásquez Gutiérrez
   Hernán Cardona
