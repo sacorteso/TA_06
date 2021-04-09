@@ -68,8 +68,8 @@ página de alerta de vencimiento de productos, ya sea en bodega o en el mostrado
 Luego llegamos a la base de datos relacionada con las ventas, aquí vamos a 
 utilizar un poco más de utilidades y operaciones matemáticas, vamos a transformar la cantidad 
 de productos vendidos a una representación de valores en dinero y vamos a registrar e identificar 
-a qué clientes se está vendiendo, lo cual podría permitir realizar algunas predicciones estadísticas
-tanto del negocio como del comportamiento de los clientes.
+a qué clientes se está vendiendo, lo cual podría permitir utilizar algunas aplicaciones estadísticas
+tanto para negocio como para el comportamiento de los clientes.
 
 
   
