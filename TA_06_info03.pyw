@@ -19,7 +19,37 @@
 #        print(i)
 #      break
 #print(total)      
-#lista de las nuevas contraseñas      
+#lista de las nuevas contraseñas    
+
+
+
+# Creación del menú con sus respectiva opciones
+def menu():
+    os.system('cls')
+    print("Selecciona una opción)
+          print("\t1 - Cambio de clave Global")
+          print("\t2 - Ingreso de nuevo empleado")
+          print("\t3 - Otras opciones")
+          print("\t9 - Terminar con uso de menu")
+          
+# Se crea un una iteración con wile mientras se cumpla la condición
+while True:
+      menu()
+      opcionMenu = input(" Inserte el número de la opción: ")
+          
+      if opcionMenu == "1":
+          print("hola")
+          input("Se ha pulsado la opción 1...\n pulsa una tecla para continuar")
+          
+      if opcionMenu == "2":
+          print("")
+          input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar") 
+          k= input("Ingrese clave Global: ")
+          
+          
+          
+          
+          
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():
