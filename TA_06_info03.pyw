@@ -23,11 +23,11 @@
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():
-      contrainic = input("ingrese su nueva contraseña: ")
-      contrainic2 = input("ingrese nuevamente su contraseña: ")
-     while (contrainic != contrainic2) :
-         contrainic2 = input("error ingrese nuevamente su contraseña: ")
-     return listacontras.append(contrainic))
+    contrainic = input("ingrese su nueva contraseña: ")
+    contrainic2 = input("ingrese nuevamente su contraseña: ")
+    while (contrainic != contrainic2):
+        contrainic2 = input("error ingrese nuevamente su contraseña: ")
+    return listacontras.append(contrainic)
      
 creaciondecontrase()            
 print(listacontras)
