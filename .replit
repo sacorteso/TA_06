@@ -1,2 +1,6 @@
+#language = "bash"
+#run = "python holamundo.py"
+
+
 language = "bash"
-run = "python holamundo.py"
+run = "TA_06_info03.py"
