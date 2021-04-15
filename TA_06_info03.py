@@ -25,12 +25,12 @@
 
 
 
-
+from tkinter import*
 
 def ventana_inicio():
     global ventana_principal
     pestas_color="DarkGrey"
-    ventana_principal=TK()
+    ventana_principal= Tk()
     ventana_principal.geometry("300x250") #Dimensiones de la ventana
     ventana_principal.title("Login con tkinder") # Titulo de la ventana
     Label(text="Escoja su opción", bg="LightGreen", width="300", height="2",font=("Calibri",13)).pack()
@@ -39,5 +39,4 @@ def ventana_inicio():
     Label(text="").pack()
     Button(text="Registrarse", height="2", width="30", bg=pestas_color, command=registro).pack()
     Label(text="").pack()
-    ventana_principal.mainloop()
-      
+    ventana_principal.mainloop()  
