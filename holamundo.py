@@ -1,4 +1,10 @@
-a = ("hola mundo")
-print (a)
-print ("hola")
-print ("modificacion en replit")
+from tkinter import *
+
+# Configuración de la raíz
+root = Tk()
+root.title("Hola mundo")
+root.resizable(1,1)
+root.iconbitmap('hola.ico')
+
+# Finalmente bucle de la aplicación
+root.mainloop()
