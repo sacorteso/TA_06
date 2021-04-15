@@ -31,10 +31,11 @@ def creaciondecontrase():
      
 creaciondecontrase()            
 print(listacontras)
+#confirmacion de prueba para en ingreso a las cuentas
 a = input ("ingese la contraseña:")
 print (a)
-print(a in lista1)
-
+print(a in listacontras)
+####
 from tkinter import*
 
 def ventana_inicio():
