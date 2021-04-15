@@ -21,7 +21,7 @@
 #print(total)      
       
     
-def creaciondecontraseña():
+def creaciondecontrase():
       contrainic = input("ingrese su nueva contraseña: ")
       contrainic2 = input("ingrese nuevamente su contraseña: ")
       listacontras = []
@@ -31,7 +31,7 @@ def creaciondecontraseña():
         listacontras.append(contrainic)
      return print(listacontras)
      
-creaciondecontraseña()            
+creaciondecontrase()            
 
 
 
