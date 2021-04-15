@@ -25,9 +25,11 @@ def creaciondecontraseña():
       contrainic = input("ingrese su nueva contraseña: ")
       contrainic2 = input("ingrese nuevamente su contraseña: ")
       listacontras = []
-      if contrainic == contrainic2:
-            listacontras.append(contrainic)
-      return print(listacontras)
+     while (contrainic != contrainic2) :
+         contrainic2 = input("ingrese nuevamente su contraseña: ")
+     else :
+        listacontras.append(contrainic)
+     return print(listacontras)
      
 creaciondecontraseña()            
 
