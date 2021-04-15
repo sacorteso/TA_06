@@ -3,4 +3,4 @@
 
 
 language = "bash"
-run = "TA_06_info03.py"
+run = "python TA_06_info03.py"
