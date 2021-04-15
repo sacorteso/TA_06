@@ -21,14 +21,15 @@
 #print(total)      
       
     
-def creaciondecontraseña(contrainic):
-      while 
-      contrainic = input("ingrese nueva contraseña: ")
+def creaciondecontraseña():
+      contrainic = input("ingrese su nueva contraseña: ")
+      contrainic2 = input("ingrese nuevamente su contraseña: ")
       listacontras = []
-      listacontras.append(contrainic)
-      contrainic = input("ingrese nueva contraseña: ")
-      print(listacontras)
-            
+      if contrainic == contrainic2:
+            listacontras.append(contrainic)
+      return print(listacontras)
+     
+creaciondecontraseña()            
 
 
 
