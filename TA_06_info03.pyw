@@ -21,7 +21,14 @@
 #print(total)      
       
     
-
+def creaciondecontraseña(contrainic):
+      while 
+      contrainic = input("ingrese nueva contraseña: ")
+      listacontras = []
+      listacontras.append(contrainic)
+      contrainic = input("ingrese nueva contraseña: ")
+      print(listacontras)
+            
 
 
 
