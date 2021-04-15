@@ -19,21 +19,21 @@
 #        print(i)
 #      break
 #print(total)      
-      
-    
+#lista de las nuevas contraseñas      
+listacontras = [] 
+#funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():
       contrainic = input("ingrese su nueva contraseña: ")
       contrainic2 = input("ingrese nuevamente su contraseña: ")
-      listacontras = []
      while (contrainic != contrainic2) :
-         contrainic2 = input("ingrese nuevamente su contraseña: ")
-     else :
-        listacontras.append(contrainic)
-     return print(listacontras)
+         contrainic2 = input("error ingrese nuevamente su contraseña: ")
+     return listacontras.append(contrainic))
      
 creaciondecontrase()            
-
-
+print(listacontras)
+a = input ("ingese la contraseña:")
+print (a)
+print(a in lista1)
 
 from tkinter import*
 
