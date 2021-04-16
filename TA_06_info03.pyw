@@ -6,8 +6,8 @@
 
 # Creación del menú con sus respectiva opciones
 import os
-import pandas as pd
-import numpy as np
+#import pandas as pd #librería para Dataframe
+#import numpy as np  #librería para Dataframe
 # lectura de la clave global desde archivo txt
 with open('Global.txt', 'r') as Ltexto:
      L = Ltexto.readline()
