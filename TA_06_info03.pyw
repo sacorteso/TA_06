@@ -9,7 +9,7 @@
 L= "administrador"
 
 def menu():
-    os.system('cls')
+    #os.system('cls')
     print("Selecciona una opción)
     print("\t1 - Cambio de clave Global")
     print("\t2 - Ingreso de nuevo empleado")
