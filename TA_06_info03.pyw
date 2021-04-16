@@ -64,7 +64,7 @@ while True:
                apellido= input("\nIngrese el apellido: ")
                clave= input("\nIngrese la clave: ")
                usuario= nombre[0:3]+apellido[0:3] #+str(i)
-               os.system('clear')
+              # os.system('clear')
                
                print("\n", "Su nombre es: ", nombre,"\n")
                print("\n", "Su apellido es: ", apellido, "\n")
