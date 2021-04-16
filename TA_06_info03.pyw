@@ -6,7 +6,7 @@
 
 # Creación del menú con sus respectiva opciones
 
-L= "administrador"
+L= ("administrador")
 
 def menu():
    
@@ -19,7 +19,7 @@ def menu():
 # Se crea un una iteración con wile mientras se cumpla la condición
 while True:
       menu()
-      opcionMenu = input(" Inserte el número de la opción: ")
+      opcionMenu = input("Inserte el número de la opción: ")
           
       if opcionMenu == "1":
           print("hola")
@@ -33,7 +33,6 @@ while True:
           Tapellido=[]
           Tclave=[]
           usuario=[]
-          
           while(L==k):
             for i in range(3):
                nombre= input("ingrese el nombre: ")
@@ -42,13 +41,13 @@ while True:
                print(usuario)
                print(i)
             break
-       elif opcionMenu == "3":
+      elif opcionMenu == "3":
               print("")
-              input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar")   
+              input("Se ha pulsado la opción 3...\n pulsa una tecla para continuar")   
           
-        elif opcionMenu == "9":  
+      elif opcionMenu == "9":  
             break
-        else:
+      else:
             print("")
             input("No has elegido ningún valor correcto...\n pulsa una tecla para continuar")
             
