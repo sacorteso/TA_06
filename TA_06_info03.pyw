@@ -1,29 +1,13 @@
 
 
-#k=input("ingrese su clave: ")
-#L="administrador"
-#Tnombre=[]
-#Tapellido=[]
-#Tclave=[]
-#total=[]
-#while(L==k):
-#      for i in range(3):
-#      nombre=input("ingrese su nombre: ")
-#      Tnombre=nombre
-#      apellido=input("ingrese su apellido: ")
-#       Tapellido=apellido
-#        clave= input("ingrese su clave: ")
-#       Tclave= clave
-#  
-
-#        print(i)
-#      break
-#print(total)      
-#lista de las nuevas contraseñas    
+ 
 
 
 
 # Creación del menú con sus respectiva opciones
+
+L= "administrador"
+
 def menu():
     os.system('cls')
     print("Selecciona una opción)
@@ -41,15 +25,36 @@ while True:
           print("hola")
           input("Se ha pulsado la opción 1...\n pulsa una tecla para continuar")
           
-      if opcionMenu == "2":
+      elif opcionMenu == "2":
           print("")
           input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar") 
           k= input("Ingrese clave Global: ")
+          Tnombre=[]
+          Tapellido=[]
+          Tclave=[]
+          usuario=[]
           
+          while(L==k):
+            for i in range(3):
+            nombre= input("ingrese el nombre: ")
+            apellido= input("Ingrese la clave: ")
+            usuario= nombre[0:3]+apellido[0:3]+str(i)
+            print(usuario)
+            print(i)
+          break
+         elif opcionMenu == "3":
+              print("")
+              input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar")   
           
+          elif opcionMenu == "9":  
+            break
+          else:
+            print("")
+            input("No has elegido ningún valor correcto...\n pulsa una tecla para continuar")
+       
           
-          
-          
+'''    
+# SANTIAGO
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():
@@ -66,6 +71,8 @@ a = input ("ingese la contraseña:")
 print (a)
 print(a in listacontras)
 ####
+
+
 from tkinter import*
 
 def ventana_inicio():
@@ -81,3 +88,5 @@ def ventana_inicio():
     Button(text="Registrarse", height="2", width="30", bg=pestas_color, command=registro).pack()
     Label(text="").pack()
     ventana_principal.mainloop()  
+    
+    '''
