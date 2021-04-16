@@ -58,7 +58,7 @@ while True:
             for i in range(1):
                nombre= input("\ningrese el nombre: ")  # para ingresar nombre del empleado
                apellido= input("\nIngrese el apellido: ") # para ingresar el apellido
-               clave= input("\nIngrese la clave, mínimo con 8 carácteres diferentes : ") # para ingresar una clave manual a gusto del empleado
+               clave= input("\nIngrese la clave: ") # para ingresar una clave manual a gusto del empleado
                usuario= nombre[0:3]+apellido[0:3] #+str(i) # permite creae el login de usuario
                os.system('clear') # limpia la pantalla
                
@@ -132,7 +132,8 @@ listacontras = []
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():  
     while True:   # ciclo while para comprobar las contraseñas
-        contrainic= input("ingrese una nueva contraseña con al menos 8 a 15 caracteres: ")
+        #contrainic= input("ingrese una nueva contraseña con al menos 8 a 15 caracteres: ")
+        contrainic= clave  
         longitud1 = len(contrainic)
         print("su contraseña tiene:", longitud1, "caracteres")
         if longitud1 > 7 and longitud1 < 16 :
