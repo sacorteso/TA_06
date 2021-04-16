@@ -11,10 +11,10 @@ L= "administrador"
 def menu():
     os.system('cls')
     print("Selecciona una opción)
-          print("\t1 - Cambio de clave Global")
-          print("\t2 - Ingreso de nuevo empleado")
-          print("\t3 - Otras opciones")
-          print("\t9 - Terminar con uso de menu")
+    print("\t1 - Cambio de clave Global")
+    print("\t2 - Ingreso de nuevo empleado")
+    print("\t3 - Otras opciones")
+    print("\t9 - Terminar con uso de menu")
           
 # Se crea un una iteración con wile mientras se cumpla la condición
 while True:
