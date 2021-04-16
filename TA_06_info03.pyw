@@ -1,12 +1,29 @@
 
 
  
+from tkinter import *
+from tkinter import  messagebox
+
+lista = []
+
+
+
+ventana = Tk()
+
+colorFondo = "#006"
+colorLetra = "#FFF"
+ventana.title("Menú Principal")
+ventana.geometry("700x500")
+ventana.configure(background = colorFondo)
+etiquetaTitulo = Label(ventana, text="Menu Pincipal",bg=colorFondo,
+fg=colorLetra).place(x=270, y=10)
+
 
 
 
 # Creación del menú con sus respectiva opciones
 
-L= ("administrador")
+L= "administrador"
 
 def menu():
    
@@ -19,39 +36,47 @@ def menu():
 # Se crea un una iteración con wile mientras se cumpla la condición
 while True:
       menu()
-      opcionMenu = input("Inserte el número de la opción: ")
+      opcionMenu = input(" Inserte el número de la opción: ")
           
       if opcionMenu == "1":
           print("hola")
-          input("Se ha pulsado la opción 1...\n pulsa una tecla para continuar")
+          input("Se ha pulsado la opción 1...\n pulsa enter para continuar")
           
       elif opcionMenu == "2":
           print("")
-          input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar") 
+          input("Se ha pulsado la opción 2...\n pulsa enter para continuar") 
           k= input("Ingrese clave Global: ")
           Tnombre=[]
           Tapellido=[]
           Tclave=[]
           usuario=[]
+          
           while(L==k):
             for i in range(3):
                nombre= input("ingrese el nombre: ")
-               apellido= input("Ingrese la clave: ")
+               Tnombre.append(nombre)
+               apellido= input("Ingrese el apellido: ")
+               Tapellido.append(apellido)
+               clave= input("Ingrese la clave")
+               Tclave.append(clave)
                usuario= nombre[0:3]+apellido[0:3]+str(i)
                print(usuario)
-               print(i)
+               print(Tnombres)
+               print(Tapellido)
+               print(Tclave)
             break
       elif opcionMenu == "3":
               print("")
-              input("Se ha pulsado la opción 3...\n pulsa una tecla para continuar")   
+              input("Se ha pulsado la opción 2...\n pulsa enter para continuar")   
           
       elif opcionMenu == "9":  
             break
       else:
             print("")
-            input("No has elegido ningún valor correcto...\n pulsa una tecla para continuar")
-            
-'''           
+            input("No has elegido ningún valor correcto...\n pulsa enter para continuar")
+       
+          
+'''    
 # SANTIAGO
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
@@ -88,3 +113,4 @@ def ventana_inicio():
     ventana_principal.mainloop()  
     
     '''
+mainloop()
