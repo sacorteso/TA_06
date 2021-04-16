@@ -9,8 +9,8 @@
 L= "administrador"
 
 def menu():
-    #os.system('cls')
-    print("Selecciona una opción)
+   
+    print("Selecciona una opción")
     print("\t1 - Cambio de clave Global")
     print("\t2 - Ingreso de nuevo empleado")
     print("\t3 - Otras opciones")
@@ -36,19 +36,19 @@ while True:
           
           while(L==k):
             for i in range(3):
-            nombre= input("ingrese el nombre: ")
-            apellido= input("Ingrese la clave: ")
-            usuario= nombre[0:3]+apellido[0:3]+str(i)
-            print(usuario)
-            print(i)
-          break
-         elif opcionMenu == "3":
+               nombre= input("ingrese el nombre: ")
+               apellido= input("Ingrese la clave: ")
+               usuario= nombre[0:3]+apellido[0:3]+str(i)
+               print(usuario)
+               print(i)
+            break
+       elif opcionMenu == "3":
               print("")
               input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar")   
           
-          elif opcionMenu == "9":  
+        elif opcionMenu == "9":  
             break
-          else:
+        else:
             print("")
             input("No has elegido ningún valor correcto...\n pulsa una tecla para continuar")
        
