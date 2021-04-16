@@ -1,25 +1,6 @@
 
 
  
-from tkinter import *
-from tkinter import  messagebox
-
-lista = []
-
-
-
-ventana = Tk()
-
-colorFondo = "#006"
-colorLetra = "#FFF"
-ventana.title("Menú Principal")
-ventana.geometry("700x500")
-ventana.configure(background = colorFondo)
-etiquetaTitulo = Label(ventana, text="Menu Pincipal",bg=colorFondo,
-fg=colorLetra).place(x=270, y=10)
-
-
-
 
 # Creación del menú con sus respectiva opciones
 
@@ -113,4 +94,4 @@ def ventana_inicio():
     ventana_principal.mainloop()  
     
     '''
-mainloop()
+
