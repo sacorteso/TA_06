@@ -49,30 +49,26 @@ while True:
           
       elif opcionMenu == "2": # Opción para ingresar los datos de los empleados, generar login de usuario y claves.
           
-          with open('Clave.txt', 'r') as Cla:
-               LC = list(Cla)
-          with open('Nombre.txt', 'r') as Nom:
-               LN = list(Nom)
-          with open('Usuario.txt', 'r') as Usu:
-               LU = list(Usu)
-          print("")
+         
           input("\nSe ha pulsado la opción 2...\n pulsa enter para continuar ") 
-          k= input("\nIngrese clave Global: ")
+          k= input("\nIngrese clave Global: ") # ingresa clave global para permiti hacer actualizaciones
           
-          Tnombre=[]
-          while(L==k):
+         
+          while(L==k):# permite crear un cilclo para ingresar nuevos empleados
             for i in range(1):
-               nombre= input("\ningrese el nombre: ")
-               apellido= input("\nIngrese el apellido: ")
-               clave= input("\nIngrese la clave: ")
-               usuario= nombre[0:3]+apellido[0:3] #+str(i)
-              # os.system('clear')
+               nombre= input("\ningrese el nombre: ")  # para ingresar nombre del empleado
+               apellido= input("\nIngrese el apellido: ") # para ingresar el apellido
+               clave= input("\nIngrese la clave, mínimo con 8 carácteres diferentes : ") # para ingresar una clave manual a gusto del empleado
+               usuario= nombre[0:3]+apellido[0:3] #+str(i) # permite creae el login de usuario
+               os.system('clear') # limpia la pantalla
                
+               # confirma visualmente los datos ingrsados por el administrador
                print("\n", "Su nombre es: ", nombre,"\n")
                print("\n", "Su apellido es: ", apellido, "\n")
                print("\n", "Su clave es: ", clave, "\n")
                print("\n", "Su Login es: ", usuario,"\n")
-
+               
+               # para crear bases datos (nombre) para dataframe
                LNombre=open("Nombre.txt", "a+")
                LNombre.write(nombre)
                LNombre.write("\n")
@@ -82,7 +78,7 @@ while True:
                     #print(LN)
                LNombre.close()
                             
-                              
+               # para crear bases datos (apellido) para dataframe                
                LApellido=open("Apellido.txt", "a+")
                LApellido.write(apellido)
                LApellido.write('\n')
@@ -92,7 +88,7 @@ while True:
                    # print(LA)
                LApellido.close()
                             
-               
+               # para crear bases datos (clave de usuario) para dataframe
                LClave=open("Clave.txt", "a+")
                LClave.write(clave)
                LClave.write("\n")
@@ -102,6 +98,7 @@ while True:
                    # print(LC)
                LClave.close()
 
+               # para crear bases datos (login de usuario) para dataframe
                LUsuario=open("Usuario.txt", "a+")
                LUsuario.write(usuario)
                LUsuario.write("\n")
@@ -111,24 +108,30 @@ while True:
                     #print(LU,"\n")
                     print("\n")
                LUsuario.close()
-               df= pd.DataFrame(list(zip(LN,LA,LU,LC)), columns =['Nombre','Apellido','Login','Clave'])
-               print(df)
+               
+               # Se crea DataFrame para los datos de los empleados
+               #df= pd.DataFrame(list(zip(LN,LA,LU,LC)), columns =['Nombre','Apellido','Login','Clave'])
+               #print(df)
+               
               # opciones para la administración del negocio 
+              
             break
       elif opcionMenu == "3":
               print("por el momento no hay opciones")
               input("\nSe ha pulsado la opción 3...\n pulsa enter para finalizar")
               break  
+               
+              # finalización del ciclo del menú
       elif opcionMenu == "9":
               print("fin del programa")
               input("\nSe ha pulsado la opción 9...\n pulsa enter para finalizar")
               break
 ###                            
-        
+# validación de contraseñas para manipulación de otras opciones del menú        
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
-def creaciondecontrase():
-    while True:
+def creaciondecontrase():  
+    while True:   # ciclo while para comprobar las contraseñas
         contrainic= input("ingrese una nueva contraseña con al menos 8 a 15 caracteres: ")
         longitud1 = len(contrainic)
         print("su contraseña tiene:", longitud1, "caracteres")
