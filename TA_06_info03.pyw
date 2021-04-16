@@ -5,7 +5,7 @@
 
 
 # Creación del menú con sus respectiva opciones
-
+'''
 L= "administrador"
 
 def menu():
@@ -49,6 +49,53 @@ while True:
         elif opcionMenu == "9":  
             break
         else:
+            print("")
+            input("No has elegido ningún valor correcto...\n pulsa una tecla para continuar")
+            
+ '''           
+       L= "administrador"
+
+def menu():
+   
+    print("Selecciona una opción")
+    print("\t1 - Cambio de clave Global")
+    print("\t2 - Ingreso de nuevo empleado")
+    print("\t3 - Otras opciones")
+    print("\t9 - Terminar con uso de menu")
+          
+# Se crea un una iteración con wile mientras se cumpla la condición
+while True:
+      menu()
+      opcionMenu = input(" Inserte el número de la opción: ")
+          
+      if opcionMenu == "1":
+          print("hola")
+          input("Se ha pulsado la opción 1...\n pulsa una tecla para continuar")
+          
+      elif opcionMenu == "2":
+          print("")
+          input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar") 
+          k= input("Ingrese clave Global: ")
+          Tnombre=[]
+          Tapellido=[]
+          Tclave=[]
+          usuario=[]
+          
+          while(L==k):
+            for i in range(3):
+               nombre= input("ingrese el nombre: ")
+               apellido= input("Ingrese la clave: ")
+               usuario= nombre[0:3]+apellido[0:3]+str(i)
+               print(usuario)
+               print(i)
+            break
+      elif opcionMenu == "3":
+              print("")
+              input("Se ha pulsado la opción 2...\n pulsa una tecla para continuar")   
+          
+      elif opcionMenu == "9":  
+            break
+      else:
             print("")
             input("No has elegido ningún valor correcto...\n pulsa una tecla para continuar")
        
