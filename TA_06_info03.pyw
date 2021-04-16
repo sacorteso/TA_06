@@ -33,7 +33,7 @@ while True:
           usuario=[]
           
           while(L==k):
-            for i in range(3):
+            for i in range(1):
                nombre= input("ingrese el nombre: ")
                Tnombre.append(nombre)
                apellido= input("Ingrese el apellido: ")
