@@ -1,7 +1,5 @@
 
-
- '''
-
+''''
 # Creación del menú con sus respectiva opciones
 
 L= "administrador"
