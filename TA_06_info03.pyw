@@ -116,6 +116,8 @@ while True:
               print("")
               input("\nSe ha pulsado la opción 2...\n pulsa enter para continuar")  
                # SANTIAGO
+
+'''               
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():
@@ -155,7 +157,7 @@ else:
             print("")
             input("No has elegido ningún valor correcto...\n pulsa enter para continuar")
 
-
+'''
 
 
 
