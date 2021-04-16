@@ -52,8 +52,8 @@ while True:
             print("")
             input("No has elegido ningún valor correcto...\n pulsa una tecla para continuar")
             
- '''           
-       L= "administrador"
+'''           
+L= "administrador"
 
 def menu():
    
