@@ -1,6 +1,6 @@
 
 
- 
+ '''
 
 # Creación del menú con sus respectiva opciones
 
@@ -62,20 +62,35 @@ while True:
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():
-    contrainic = input("ingrese su nueva contraseña: ")
+    while True:
+        contrainic= input("ingrese una nueva contraseña con al menos 8 a 15 caracteres: ")
+        longitud1 = len(contrainic)
+        print("su contraseña tiene:", longitud1, "caracteres")
+        if longitud1 > 7 and longitud1 < 16 :
+          print("correcto") 
+          break
+        else:
+           contrainic = input("ingrese nuevamente una contraseña con al menos 8 a 15 caracteres: ")
+           longitud1 = len(contrainic)
+           print("su contraseña tiene:", longitud1, "caracteres")
     contrainic2 = input("ingrese nuevamente su contraseña: ")
     while (contrainic != contrainic2):
         contrainic2 = input("error ingrese nuevamente su contraseña: ")
     return listacontras.append(contrainic)
      
-creaciondecontrase()            
-print(listacontras)
-#confirmacion de prueba para en ingreso a las cuentas
-a = input ("ingese la contraseña:")
-print (a)
-print(a in listacontras)
-####
+creaciondecontrase()
 
+# print(listacontras)
+# confirmacion de prueba para en ingreso a las cuentas
+a = input("ingrese la contraseña para el acceso: ")
+# print(a)
+while a in listacontras:
+  print("acceso correcto")
+  break
+else:
+  print("acceso incorrecto")
+####
+'''
 
 from tkinter import*
 
@@ -93,5 +108,5 @@ def ventana_inicio():
     Label(text="").pack()
     ventana_principal.mainloop()  
     
-    '''
+ '''
 
