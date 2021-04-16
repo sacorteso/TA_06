@@ -11,7 +11,7 @@ with open('Global.txt', 'r') as Ltexto:
      L = Ltexto.readline()
 # inicio de la función menú
 def menu():
-    
+    1
     print("Selecciona una opción \n")
     print("\t1 - Cambio de clave Global")
     print("\t2 - Login y clave para nuevo empleado")
@@ -109,15 +109,17 @@ while True:
                     #print(LU,"\n")
                     print("\n")
                LUsuario.close()
-
-               
             break
       elif opcionMenu == "3":
-              print("")
-              input("\nSe ha pulsado la opción 2...\n pulsa enter para continuar")  
-               # SANTIAGO
-
-'''               
+              print("por el momento no hay opciones")
+              input("\nSe ha pulsado la opción 3...\n pulsa enter para finalizar")
+              break  
+      elif opcionMenu == "9":
+              print("fin del programa")
+              input("\nSe ha pulsado la opción 9...\n pulsa enter para finalizar")
+              break
+###                            
+        
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():
@@ -138,28 +140,12 @@ def creaciondecontrase():
     return listacontras.append(contrainic)
      
 creaciondecontrase()
-
 # print(listacontras)
 # confirmacion de prueba para en ingreso a las cuentas
 a = input("ingrese la contraseña para el acceso: ")
 # print(a)
 while a in listacontras:
-  print("acceso correcto")
-  break
+     print("acceso correcto")
+     break
 else:
-  print("acceso incorrecto")
-
-                
-          
-      elif opcionMenu == "9":  
-            break
-      else:
-            print("")
-            input("No has elegido ningún valor correcto...\n pulsa enter para continuar")
-
-'''
-
-
-
-
-
+    print("acceso incorrecto")
