@@ -6,6 +6,8 @@
 
 # Creación del menú con sus respectiva opciones
 import os
+import pandas as pd
+import numpy as np
 # lectura de la clave global desde archivo txt
 with open('Global.txt', 'r') as Ltexto:
      L = Ltexto.readline()
@@ -109,6 +111,9 @@ while True:
                     #print(LU,"\n")
                     print("\n")
                LUsuario.close()
+               df= pd.DataFrame(list(zip(LN,LA,LU,LC)), columns =['Nombre','Apellido','Login','Clave'])
+               print(df)
+              # opciones para la administración del negocio 
             break
       elif opcionMenu == "3":
               print("por el momento no hay opciones")
