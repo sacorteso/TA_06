@@ -42,7 +42,7 @@ while True:
                Tclave.append(clave)
                usuario= nombre[0:3]+apellido[0:3]+str(i)
                print(usuario)
-               print(Tnombres)
+               print(Tnombre)
                print(Tapellido)
                print(Tclave)
             break
