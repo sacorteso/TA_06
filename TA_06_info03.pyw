@@ -140,9 +140,7 @@ def creaciondecontrase():
           print("correcto") 
           break
         else:
-           contrainic = input("ingrese nuevamente una contraseña con al menos 8 a 15 caracteres: ")
-           longitud1 = len(contrainic)
-           print("su contraseña tiene:", longitud1, "caracteres")
+           contrainic = input("Presione cualquier tecla para reintentar: ")
     contrainic2 = input("ingrese nuevamente su contraseña: ")
     while (contrainic != contrainic2):
         contrainic2 = input("error ingrese nuevamente su contraseña: ")
