@@ -5,7 +5,8 @@
 #dataframe bodega
 #pagina de compras
 #dataframe compras
-
+pip install pandas
+pip install Numpy
 import Pandas as pd
 import Numpy as pn
 
