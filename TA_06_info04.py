@@ -53,7 +53,7 @@ def compra():
 def total():
       while True:
        print("\n\n\t\tTOTAL ACUMULADO EN COMPRAS\n\n")
-       L1=pd.read_csv('compras.csv')
+       L1=pd.read_csv('compras.csv') #lee la base datos de compras
        print(L1)
        #with open("compras.csv", newline="") as file:
        #  reader=csv.reader(file,delimiter=",")
