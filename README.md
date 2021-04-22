@@ -6,4 +6,4 @@
    - Juan Carlos Velásquez Gutiérrez
    - Santiago Cortes Ortiz
    - Heiner Hernan Cardona Polanco
-entrenando
+
