@@ -5,5 +5,5 @@
 #language = "bash"
 #run = "python TA_06_info03.pyw"
 
-language = "python"
+language = "bash"
 run = "python TA_06_info04.py"
