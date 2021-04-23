@@ -1,21 +1,22 @@
 
-
+'''
 # interfaz, usuario con clave
 #Página de ingreso de productos
 #dataframe bodega
 #pagina de compras
 #dataframe compras
+'''
 # librerías para manejar base de datos
 import pandas as pd
 import numpy as np
 import os
 import csv
 
-
+#funcion definida pra el ingreso de los productos a la bodega
 def ingresoproductosbodega():
   while True:
      ig=1
-     #listas definidas para las columnas
+     #listas definidas para el dataframe de bodega
      distribuidor=[]
      producto=[]
      referencia=[]
@@ -24,7 +25,7 @@ def ingresoproductosbodega():
      valorxunidad=[]
      fecompra=[]
      for i in range(ig):
-      #ingreso de los productos para la bodega
+      #ingreso de especificaciones de los productos
        distribuidor1=input("\ningrese el nombre del distribuidor: ")
        producto2= input("\ningrese el nombre del producto: ")
        refproducto2= input("\ningrese la referencia del producto: ")
@@ -34,7 +35,7 @@ def ingresoproductosbodega():
        vxunidad = int (precio2) / int (unidad2)
 
       
-
+#las variables que ingrese el usuario se agregaran a las listass
        distribuidor.append(distribuidor1)
        producto.append(producto2)
        referencia.append(refproducto2)
@@ -44,7 +45,7 @@ def ingresoproductosbodega():
        valorxunidad.append(vxunidad)
 
 
-
+#las listas se convierten en datafreme
        bodega1=(distribuidor, producto, referencia, precio, unidad, valorxunidad,fecompra )
        os.system('clear')
        print("\t\t\t\t PÁGINA DE BODEGA \n\n")
