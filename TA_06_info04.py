@@ -13,8 +13,13 @@ import os
 import csv
 
 #funcion definida pra el ingreso de los productos a la bodega
-K=pd.read_csv('clave_u.csv')
-print(K)
+#K=pd.read_csv('clave_u.csv', index ="")
+#print(K[1])
+
+with open('usuario_u.txt') as CL:
+   K=CL.readlines()
+   print(K)
+
 '''
 def ingresoproductosbodega():
   while True:
