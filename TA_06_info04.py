@@ -13,6 +13,9 @@ import os
 import csv
 
 #funcion definida pra el ingreso de los productos a la bodega
+K=pd.read_csv('clave_u.csv')
+print(K)
+'''
 def ingresoproductosbodega():
   while True:
      ig=1
@@ -31,7 +34,7 @@ def ingresoproductosbodega():
        refproducto2= input("\ningrese la referencia del producto: ")
        precio2= input("\ningrese el precio de la paca: ")
        unidad2= input("\ningrese la cantidad de unidades de la paca: ")
-       fecompra1= input("\ningrese la fecha de compra: ")
+       fecompra1= input("\ningrese la fecha de compra (formato: año mes dia sin espacios): ")
        vxunidad = int (precio2) / int (unidad2)
 
       
@@ -108,7 +111,7 @@ def total():
        print("\n\n")
        break 
 os.system('clear')
-print("\t\t\t\t PÁGINAS DE COMPRAS \n\n")
+print("\t\t\t\t PÁGINA PRINCIPAL \n\n")
 # función para activar el submenu de entrada de la página compras
 def menu():
     
@@ -137,13 +140,15 @@ while True:
        #break
 
       elif opcionMenu == "3":
+             print("¿deseas ingresar productos en bodega?")
+             input("presiona enter para continuar:")
              ingresoproductosbodega()
         
       else:
         break
             
 
-'''
+
 
       elif opcionMenu == "9":  
              os.system('clear')
