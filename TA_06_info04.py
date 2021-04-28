@@ -7,163 +7,161 @@
 #dataframe compras
 '''
 # librerías para manejar base de datos
-import pandas as pd
-import numpy as np
-import os
-import csv
+import pandas as pd # Librería para utilizar y manipular dataframe
+import numpy as np  # Librería para realizar operaciones matemáticas y manejo de matrices
+import os           # Librerías para realizar funciones internas del software
+import csv          # Librería para manipular archivos excel y con extensión .csv 
 
 #funcion definida pra el ingreso de los productos a la bodega
 #K=pd.read_csv('clave_u.csv', index ="")
 #print(K[1])
-
+'''
 with open('usuario_u.txt') as CL:
    K=CL.readlines()
    print(K)
 
 '''
-def ingresoproductosbodega():
-  while True:
-     ig=1
+def ingresoproductosbodega():  # Se crea función para ingresar los productos a la bodega
+  while True:                  # ciclo while para ingresar los productos con sus respectivos datos
+
+     ig=1                      # constante para validar variable
      #listas definidas para el dataframe de bodega
-     distribuidor=[]
-     producto=[]
-     referencia=[]
-     precio=[]
-     unidad=[]
-     valorxunidad=[]
-     fecompra=[]
-     for i in range(ig):
+     distribuidor=[]           # para crear lista vacía para distribuidor
+     producto=[]               # para crear lista vacía para producto
+     referencia=[]             # para crear lista vacía para refernecia
+     precio=[]                 # para crear lista vacía para precio   
+     unidad=[]                 # para crear lista vacía para unidad
+     valorxunidad=[]           # para crear lista vacía para valorxunidad
+     fecompra=[]               # para crear lista vacía para fecha de compra
+
+     for i in range(ig):       # ciclo for para ingressar los datos a las respectivas listas
+
       #ingreso de especificaciones de los productos
-       distribuidor1=input("\ningrese el nombre del distribuidor: ")
-       producto2= input("\ningrese el nombre del producto: ")
-       refproducto2= input("\ningrese la referencia del producto: ")
-       precio2= input("\ningrese el precio de la paca: ")
-       unidad2= input("\ningrese la cantidad de unidades de la paca: ")
-       fecompra1= input("\ningrese la fecha de compra (formato: año mes dia sin espacios): ")
-       vxunidad = int (precio2) / int (unidad2)
+       distribuidor1=input("\ningrese el nombre del distribuidor: ") # se ingresa el nombre del distribuidor
+       producto2= input("\ningrese el nombre del producto: ")        # se ingresa el nombre del producto
+       refproducto2= input("\ningrese la referencia del producto: ") # se ingresa la referencia del producto
+       precio2= input("\ningrese el precio de la paca: ")            # se ingresa el precio por paca del respectivo producto
+       unidad2= input("\ningrese la cantidad de unidades de la paca: ")  # se ingresa la cantidad de unidades de la paca
+       fecompra1= input("\ningrese la fecha de compra (formato: año mes dia sin espacios): ") # Se ingresa la fecha de la compra
+       vxunidad = int (precio2)/int (unidad2)  # se hace la operación para halar el valor individual del producto.
+     
 
       
-#las variables que ingrese el usuario se agregaran a las listass
-       distribuidor.append(distribuidor1)
-       producto.append(producto2)
-       referencia.append(refproducto2)
-       precio.append(precio2)
-       unidad.append(unidad2)
-       fecompra.append(fecompra1)
-       valorxunidad.append(vxunidad)
+#las variables que ingrese el usuario se agregaran a las listas
+
+       distribuidor.append(distribuidor1) # sirve para anexar nuevos valores a la lista de distribuidor
+       producto.append(producto2)         # sirve para anexar nuevos valores a la lista de producto
+       referencia.append(refproducto2)    # sirve para anexar nuevos valores a la lista de referencia
+       precio.append(precio2)             # sirve para anexar nuevos valores a la lista de precio
+       unidad.append(unidad2)             # sirve para anexar nuevos valores a la lista de unidad
+       fecompra.append(fecompra1)         # sirve para anexar nuevos valores a la lista de fecha de compra
+       valorxunidad.append(vxunidad)      # sirve para anexar nuevos valores a la lista de valor x unidad
 
 
 #las listas se convierten en datafreme
-       bodega1=(distribuidor, producto, referencia, precio, unidad, valorxunidad,fecompra )
-       os.system('clear')
-       print("\t\t\t\t PÁGINA DE BODEGA \n\n")
-       df1= pd.DataFrame(bodega1)
-       print("\t\t PRODUCTOS EN BODEGA \n\n")
-       df2=pd.DataFrame.transpose(df1)
-       df2.columns=['distribuidor', 'producto','referencia', 'precio', 'unidad', 'valorxunidad', 'fecompra']
-       print(df2)
-       df2.to_csv('bodega1.csv', mode="a", index="", header="")
-     else:
-       break
+       bodega1=(distribuidor, producto, referencia, precio, unidad, valorxunidad,fecompra ) # se crea una nueva lista para que sea interpretada por el dataframe df1
+       os.system('clear')                      # Sirve para limpiar la pantalla
+       print("\t\t\t\t PÁGINA DE BODEGA \n\n") # para mostrae el titulo de la página bodega
+       df1= pd.DataFrame(bodega1)              # se crea el dataframe Bodega para manipular operaciones con datos más facilmente.
+       print("\t\t PRODUCTOS EN BODEGA \n\n")  # se crea el subtitulo de productos de bodega
+       df2=pd.DataFrame.transpose(df1)         # se crea un nuevo dataframe para transponer los datos de df1, para una mejor visualización
+       df2.columns=['distribuidor', 'producto','referencia', 'precio', 'unidad', 'valorxunidad', 'fecompra'] # Se anexan los titulos de las columnas del dataframe df2
+       print(df2)                              # Se imprime los resultados del dataframe df2
+       df2.to_csv('BDATOS/bodega1.csv', mode="a", index="", header="") # sirve para grabar los datos en la base de datos correspondiente
+     else:                                     # Se crea la segunda opción alternativa
+       break                                   # fInaliza este ciclo con el for
+
 
 # función para crear la pnatalla de compras e ingreso de productos
-def compra():
-   while True:
+def compra():                                 # se define la función para compras
+   while True:                                # se crea un ciclo white para el ingreso de los productos
    
-     N=int(input("ingrese la cantidad total de productos comprados: "))
-     empresa=[]
-     producto=[]
-     precio=[]
-     unidad =[]
-     fcompra =[]
-     Fv =[]
-     for i in range(N):
-       empresa1 = input("\ningrese el nombre de la empresa: ")
-       producto1= input("\ningrese el nombre del producto: ")
-       precio1= input("\ningrese el precio de la paca: ")
-       unidad1= input("\ningrese la cantidad de unidades de la paca: ")
-       fcompra1= input("\ningrese la fecha de compra: ")
-       Fv1= input("\ningrese la fecha de vencimiento: ")
-       print("\n\n")
-       empresa.append(empresa1)
-       producto.append(producto1)
-       precio.append(precio1)
-       unidad.append(unidad1)
-       fcompra.append(fcompra1)
-       Fv.append(Fv1)
-       compras=(empresa, producto, precio, unidad, fcompra, Fv)
-       os.system('clear')
-       print("\t\t\t\t PÁGINA DE COMPRAS \n\n")
-       print("\t\t\t\t Productos comprados \n\n")
-       df= pd.DataFrame(compras )
-       print("\t\t\t\t Productos comprados \n\n")
-       df1=pd.DataFrame.transpose(df)
+     N=int(input("ingrese la cantidad total de productos comprados: ")) # sirve para ingresar el número de la opciones en el menú
+     empresa=[]                               # se crea una lista vacía para ingresar el nombre de la empresa
+     producto=[]                              # se crea una lista vacía para ingresar el nombre del producto
+     precio=[]                                # se crea una lista vacía para ingresar el precio de la paca por producto
+     unidad =[]                               # se crea una lista vacía para ingresar las unidades de la paca
+     fcompra =[]                              # se crea una lista vacía para ingresar la fecha de la compra
+     Fv =[]                                   # se crea una lista vacía para ingresar la feha de vencimiento
+
+
+     for i in range(N):                       # se crea un ciclo for para ingrsar los datos de los productos que entran a la bodega
+       empresa1 = input("\ningrese el nombre de la empresa: ") # se ingresa el nombre de la empresa
+       producto1= input("\ningrese el nombre del producto: ")  # se ingresa el nombre del producto
+       precio1= input("\ningrese el precio de la paca: ")      # se ingresa el precio del rpoducto por paca
+       unidad1= input("\ningrese la cantidad de unidades de la paca: ")    # se ingresa la cantidad de unidades de la paca del respectivo producto
+       fcompra1= input("\ningrese la fecha de compra: ")       # se ingresa la fecha de la compra
+       Fv1= input("\ningrese la fecha de vencimiento: ")       # se ingresa la fecha del vencimiento del producto
+       print("\n\n")                                           # se crean saltos de linea para mejor presentacón
+       empresa.append(empresa1)  # sirve para anexar nuevos valores a la lista de distribuidor
+       producto.append(producto1)# sirve para anexar nuevos valores a la lista de distribuidor
+       unidad.append(unidad1)    # sirve para anexar nuevos valores a la lista de distribuidor
+       precio.append(precio1)    # sirve para anexar nuevos valores a la lista de distribuidor
+       unidad.append(unidad1)    # sirve para anexar nuevos valores a la lista de distribuidor
+       fcompra.append(fcompra1)  # sirve para anexar nuevos valores a la lista de distribuidor
+       Fv.append(Fv1)            # sirve para anexar nuevos valores a la lista de distribuidor 
+       compras=(empresa, producto, precio, unidad, fcompra, Fv) # se crea una nueva lista para que sea interpretada por el dataframe df1
+       os.system('clear')        # para limpiar la pantalla
+       print("\t\t\t\t PÁGINA DE COMPRAS \n\n")    # imprime el titulo de la sección compras
+       print("\t\t\t\t Productos comprados \n\n")  # imprime el titulo del submenú productos comprados
+       df= pd.DataFrame(compras )                  # se crea dataframe para manipular más facilemnte los datos de compras
+       df1=pd.DataFrame.transpose(df)              # se crea un nuevo dataframe para transponer los datos de df, para una mejor visualización
        df1.columns=['empresa', 'producto', 'precio',' unidad',' fcompra', 'Fv']
-       print(df1)
-       df1.to_csv('compras.csv', mode="a", index="", header="")
-     else:
-        break
+       print(df1)                                  # Se imprime los resultados del dataframe df1
+       df1.to_csv('BDATOS/compras.csv', mode="a", index="", header="")   # sirve para grabar los datos en la base de datos correspondiente
+     else:                                         # Se crea la segunda opción alternativa
+        break                                      # fInaliza este ciclo con el for
+
+
 # Función para manejar el total de productos adquiridos    
-def total():
-      while True:
-       print("\n\n\t\tTOTAL ACUMULADO EN COMPRAS\n\n")
-       L1=pd.read_csv('compras.csv') #lee la base datos de compras
-       print(L1)
+def total():                    # se crea una función para manejar los productos adquiridos
+      while True:               # se crea un ciclos while para mostrar la actualización del total de los productos comprados
+       print("\n\n\t\tTOTAL ACUMULADO EN COMPRAS\n\n")   # se imprime titulo de  submenú acumulados de compras
+       L1=pd.read_csv('BDATOS/compras.csv')                     # lee la base datos de compras
+       print(L1)                                         # imprime el dataframe de la base de datos de compras
        #with open("compras.csv", newline="") as file:
        #  reader=csv.reader(file,delimiter=",")
        #  for row in reader:
        #    print(row)
-       print("\n\n")
-       break 
-os.system('clear')
-print("\t\t\t\t PÁGINA PRINCIPAL \n\n")
+       print("\n\n")                                     # se crea saltos de linea
+       break                                             # se finaliza este ciclo while
+os.system('clear')                                       # sirve para limpiar la pantalla
+print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
+
 # función para activar el submenu de entrada de la página compras
-def menu():
+def menu():                                              # se crea un menu para el manejo operativo del negocio
     
-    print("Selecciona una opción \n")
-    print("\t1 - Registro de compras ")
-    print("\t2 - registro total acumulado")
-    print("\t3 - ingreso de bodega")
-    print("\t9 - Terminar con uso de menu")
+    print("Selecciona una opción \n")                    # se imprime mendsaje del menú
+    print("\t1 - Registro de compras ")                  # se imprime registro de compras
+    print("\t2 - registro total acumulado")              # se imprime registro total acumulado
+    print("\t3 - ingreso de bodega")                     # se imprime ingreso abodega
+    print("\t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
           
 # Se crea un una iteración con while mientras se cumpla la condición
-while True:
-      menu()
-      opcionMenu = input("\n Inserte el número de la opción: ")
+while True:                                              # se activa el ciclo while para activar el menú
+      menu()                                             # se activa la función menú
+      opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
                   
-      if opcionMenu == "1":
-          print("\n\nhola\n\n")
-          compra()
-      #else:  
-          #break
-          print("\n regrese a menú e intentelo de nuevo\n")  
+      if opcionMenu == "1":                              # Para activar la función compra
+          print("\n\nhola\n\n")                          # imprime mensaje de saludo
+          compra()                                       # la función compra se ejecuta
+     
+           
 
         
-      elif opcionMenu == "2":
-             total()
-      #else:                     
-       #break
+      elif opcionMenu == "2":                            # Para activar la función total
+             total()                                     # se ejecuta la función total
+      
 
-      elif opcionMenu == "3":
-             print("¿deseas ingresar productos en bodega?")
-             input("presiona enter para continuar:")
-             ingresoproductosbodega()
+      elif opcionMenu == "3":                            # se activa la función bodega
+             print("¿deseas ingresar productos en bodega?")  # mensaje para confirmar la opercación que se va  a realizar
+             input("presiona enter para continuar:")         # se confirma la operación
+             ingresoproductosbodega()                        # se ejecuta la función ingresproductosbodega
         
-      else:
-        break
+     
+ 
+      elif opcionMenu == "9":                            # se elige la activa la opción finalizar menú
+          print("\n\n\t\tSistema finalizado")                    # mensaje que confirma la finalización del menu
+          break                                          # se finaliza el ciclo if del menú
             
 
-
-
-      elif opcionMenu == "9":  
-             os.system('clear')
-      else:
-        break
-            #print("")
-            #input("No has elegido ningún valor correcto...\n pulsa enter para continuar")
-'''
-'''
-print("¿deseas infresar productos en bodega?")
-input("presiona enter para continuar:")
-ingresoproductosbodega()
-'''
