@@ -1,5 +1,7 @@
 
 
+### ADVERTENCIA
+#  La clave global es jefe
 # librerías para manejar base de datos
 import pandas as pd # Librería para utilizar y manipular dataframe
 import numpy as np  # Librería para realizar operaciones matemáticas y manejo de matrices
@@ -27,8 +29,7 @@ def creaciondecontrase():
 contrainic = ()
 
           
-### ADVERTENCIA
-#  La clave global es jefe
+
 
 # Creación del menú con sus respectiva opciones
 import os
@@ -152,9 +153,7 @@ while True:
                #Se crea DataFrame para los datos de los empleados           
                df= pd.DataFrame(list(zip(LN,LA,LC)), columns =['Nombre','Apellido','Clave'])
                print(df)
-               #LNombre.close()  
-               #LApellido.close()  
-               #LClave.close()
+               
                break
 
       elif opcionMenu == "3":
@@ -168,9 +167,4 @@ while True:
               input("\nSe ha pulsado la opción 9...\n pulsa enter para finalizar")
               break
 
-###                            
-# validación de contraseñas para manipulación de otras opciones del menú        
 
-# confirmacion de prueba para en ingreso a las cuentas
-
-#print(listacontras)
