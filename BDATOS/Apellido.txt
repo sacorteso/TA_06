@@ -12,3 +12,5 @@ cortes
 cortes
 cortes
 perez
+uribe
+restrepo

@@ -1,4 +1,12 @@
 
+
+# librerías para manejar base de datos
+import pandas as pd # Librería para utilizar y manipular dataframe
+import numpy as np  # Librería para realizar operaciones matemáticas y manejo de matrices
+import os           # Librerías para realizar funciones internas del software
+import csv          # Librería para manipular archivos excel y con extensión .csv 
+
+
 listacontras = [] 
 #funcion para en ingreso a la lista de contaseñas
 def creaciondecontrase():  
@@ -27,16 +35,17 @@ import os
 #import pandas as pd #librería para Dataframe
 #import numpy as np  #librería para Dataframe
 # lectura de la clave global desde archivo txt
-with open('Global.txt', 'r') as Ltexto:
-     L = Ltexto.readline()
+with open('CLAVES/Global.txt', 'r') as Ltexto:
+  L = Ltexto.readline()
 # inicio de la función menú
 def menu():
     1
     print("Selecciona una opción \n")
-    print("\t1 - Cambio de clave Global")
-    print("\t2 - Login y clave para nuevo empleado")
-    print("\t3 - Otras opciones")
-    print("\t9 - Terminar con uso de menu")
+    print("\t1   -   Cambio de clave Global")
+    print("\t2   -   Login y clave para nuevo empleado")
+    print("\t2.1 -   Base de dtos de empleados")
+    print("\t3   -   Otras opciones")
+    print("\t9   -   Terminar con uso de menu")
           
 # Se crea un una iteración con wile mientras se cumpla la condición
 
@@ -55,7 +64,7 @@ while True:
             K1=input("\nIngrese nuevamente la nueva clave: ") # Solicitud para nueva clave
             if K == K1: # compara que la nueva clave si la recuerda el usuario
               L = K1 # variable adicional
-              Ltexto=open("Global.txt","w+") # se activa la función para eliminar la clave vieja del archivo txt
+              Ltexto=open("CLAVES/Global.txt","w+") # se activa la función para eliminar la clave vieja del archivo txt
               Ltexto.write(L) # se escribe la nueva clave global en el archivo txt
               Ltexto.close() # se cierra el archivo txt que guarda la clave global.
               
@@ -89,54 +98,65 @@ while True:
                print("\n", "Su Login es: ", usuario,"\n")
                
                # para crear bases datos (nombre) para dataframe
-               LNombre=open("Nombre.txt", "a+")
+               LNombre=open("BDATOS/Nombre.txt", "a+")
                LNombre.write(nombre)
                LNombre.write("\n")
                LNombre.close()
-               with open('Nombre.txt', 'r') as Nom:
+               with open('BDATOS/Nombre.txt', 'r') as Nom:
                     LN = Nom.readlines()
                     #print(LN)
                LNombre.close()
                             
                # para crear bases datos (apellido) para dataframe                
-               LApellido=open("Apellido.txt", "a+")
+               LApellido=open("BDATOS/Apellido.txt", "a+")
                LApellido.write(apellido)
                LApellido.write('\n')
                LApellido.close()
-               with open('Apellido.txt', 'r') as Ape:
+               with open('BDATOS/Apellido.txt', 'r') as Ape:
                     LA = Ape.readlines()
                    # print(LA)
                LApellido.close()
                             
                # para crear bases datos (clave de usuario) para dataframe
-               LClave=open("Clave.txt", "a+")
+               LClave=open("CLAVES/Clave.txt", "a+")
                LClave.write(clave)
                LClave.write("\n")
                LClave.close()
-               with open('Clave.txt', 'r') as Cla:
+               with open('CLAVES/Clave.txt', 'r') as Cla:
                     LC = Cla.readlines()
                    # print(LC)
                LClave.close()
 
                # para crear bases datos (login de usuario) para dataframe
-               LUsuario=open("Usuario.txt", "a+")
+               LUsuario=open("BDATOS/Usuario.txt", "a+")
                LUsuario.write(usuario)
                LUsuario.write("\n")
                LUsuario.close()
-               with open('Usuario.txt', 'r') as Usu:
+               with open('BDATOS/Usuario.txt', 'r') as Usu:
                     LU = Usu.readlines()
                     #print(LU,"\n")
                     print("\n")
                LUsuario.close()
-          
-               
-               # Se crea DataFrame para los datos de los empleados
-               #df= pd.DataFrame(list(zip(LN,LA,LU,LC)), columns =['Nombre','Apellido','Login','Clave'])
-               #print(df)
-               
-              # opciones para la administración del negocio 
-              
             break
+      elif opcionMenu == "2.1":      
+               os.system('clear')                      # Sirve para limpiar la pantalla
+               print("\t\t\t\t BASE DE DATOS CON LOS EMPLEADOS \n\n")   
+               
+               with open('BDATOS/Nombre.txt', 'r') as Nom: # se lee base da datos con los nombres
+                    LN = Nom.readlines()                   # lista con los nombres
+               with open('BDATOS/Apellido.txt', 'r') as Ape:# se lee base de datos con los apellidos
+                    LA = Ape.readlines()                    # lista con los apellidos
+               with open('CLAVES/Clave.txt', 'r') as Cla:   # se lee base de datos con las claves de los empleados
+                    LC = Cla.readlines()                    # lista con las claves
+
+               #Se crea DataFrame para los datos de los empleados           
+               df= pd.DataFrame(list(zip(LN,LA,LC)), columns =['Nombre','Apellido','Clave'])
+               print(df)
+               #LNombre.close()  
+               #LApellido.close()  
+               #LClave.close()
+               break
+
       elif opcionMenu == "3":
               print("por el momento no hay opciones")
               input("\nSe ha pulsado la opción 3...\n pulsa enter para finalizar")
@@ -154,10 +174,3 @@ while True:
 # confirmacion de prueba para en ingreso a las cuentas
 
 #print(listacontras)
-a = input("ingrese la contraseña para el acceso: ")
-# print(a)
-while a in listacontras:
-     print("acceso correcto")
-     break
-else:
-    print("acceso incorrecto")
