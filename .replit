@@ -2,8 +2,8 @@
 #run = "python holamundo.py"
 
 
-language = "python3"
-run = "python TA_06_info03.pyw"
-
 #language = "python3"
-#run = "python TA_06_info04.py"
+#run = "python TA_06_info03.py"
+
+language = "python3"
+run = "python TA_06_info04.py"
