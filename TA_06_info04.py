@@ -1,6 +1,6 @@
 
 #  ADVERTENCIA
-# utilizar clave clau5555
+# utilizar clave gabrielawad
 
 # interfaz, usuario con clave
 #Página de ingreso de productos
