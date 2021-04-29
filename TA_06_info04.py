@@ -89,6 +89,9 @@ def ingresoproductosbodega():  # Se crea función para ingresar los productos a 
        df2.columns=['distribuidor', 'producto','referencia', 'precio', 'unidad', 'valorxunidad', 'fecompra'] # Se anexan los titulos de las columnas del dataframe df2
        print(df2)                              # Se imprime los resultados del dataframe df2
        df2.to_csv('BDATOS/bodega1.csv', mode="a", index="", header="") # sirve para grabar los datos en la base de datos correspondiente
+       print("\n\n\t\tTOTAL ACUMULADO EN COMPRAS\n\n")   # se imprime titulo de  submenú acumulados de compras
+       L5=pd.read_csv('BDATOS/bodega1.csv')                     # lee la base datos de compras
+       print(L5) 
      else:                                     # Se crea la segunda opción alternativa
        break                                   # fInaliza este ciclo con el for
 
