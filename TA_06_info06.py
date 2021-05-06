@@ -12,7 +12,7 @@ z= input("ingrese la cantidad de productos que se van a vender: ")
 z=int(z)
 zz1=0
 Ptotal=0
-compras=pd.DataFrame()
+#compras=pd.DataFrame()
 subtotal=[]
 for k in range(z):
   print(k)
@@ -28,20 +28,28 @@ for k in range(z):
       print("\n\nPrecio individual de", L6.iloc[kk,0],  zz1)
       Ptotal= zz1*can
       print("\n\nPrecio total por producto", L6.iloc[kk,0], Ptotal)
-      subtotal=(Ptotal)
+      #subtotal=(Ptotal)
+      compras=pd.read_csv("BDATOS/ventas.csv")
+      print(compras) 
       #c1=Ref
       #c2=L6.iloc[kk,0]
       #c3=zz1
       #c4=can
       #c5=Ptotal
-      compras[kk,0]=Ref
-      compras[kk,1]=L6.iloc[kk,0]
-      compras[kk,2]=zz1
-      compras[kk,3]=can
-      compras[kk,4]=Ptotal
-      
+      #compras[compras['Rerencia']]=Ref
+      #compras[compras['Nproducto']]=L6.iloc[kk,0]
+      #compras[compras['Preciopro']]=zz1
+      #compras[compras['Cantidad']]=can
+      #compras[compras['Subtotal']]=Ptotal
+      compras[1,1]=Ref
+      #compras.iloc[kk,1]=L6.iloc[kk,0]
+      #compras.iloc[kk,2]=zz1
+      #compras.iloc[kk,3]=can
+      #compras.iloc[kk,4]=Ptotal
+
       #compras=pd.DataFrame(list(zip(c1,c2,c3,c4,c5)), columns=['Referencia','Nproducto','Preciopro','Cantidad','Subtotal'])
-      compras.to_csv('BDATOS/ventas.csv',mode="w", index="", header="True")
-
-
+      #print(compras)
+      compras.to_csv('BDATOS/ventas.csv', mode="w", index="", header="True")
+      compras=pd.read_csv("BDATOS/ventas.csv")
+      print(compras)
   #Pindividual=L6.iloc
