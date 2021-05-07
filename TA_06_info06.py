@@ -1,11 +1,11 @@
 
 
 # ADVERTENCIA
-# En la opción 6.5 se recomienda utilizar número de cédiula : 123
+# En la opción 6.5 se recomienda utilizar número de cédula : 123
 
 
 
-from datetime import date as dt #librería para maejar fechas
+from datetime import date as dt #librería para manejar fechas
 from datetime import datetime as dtt  #librería para manejar el tiempo
 from datetime import timedelta        #librearía para realizar operaciones matemáticas con el tiempo
 import pandas as pd # Librería para utilizar y manipular dataframe
@@ -22,7 +22,8 @@ f55=int(f5)                 # para convertir la fecha en un entero para opercion
 print(f55)                  # para imprimir la hora
 f56=time.strftime('%H:%M:%S') # pra modificar el foramto de la hora
 print(f56)                    # para imprimir la hora
-
+ce=0
+ff7=0
 def venta():
   while True:
     ce=[] # Se crea lista para almacenar la identificación del cliente
@@ -36,8 +37,8 @@ def venta():
 
     cc= input("\n\nIngrese la identificación del cliente: ") # ingreso de la identificación del cliente
     cc=int(cc)                 # se convierte el valor de la identificación en un entero
-
-    z1= input("\n\ningrese la cantidad de productos que se van a vender: ") # para crear un ciclo en donde se estima la cantidad de productos que hay que registrar
+    
+    z1= input("\n\ningrese la cantidad de ventas que se van a realizar: ") # para crear un ciclo en donde se estima la cantidad de productos que hay que registrar
     z=int(z1)                  # Se convierte el valor del ciclo en un entero
     zz1=0                      # para generar variable para el nombre
     zz2=0                      # para generar variable para el precio individual del producto
@@ -105,19 +106,12 @@ def venta():
                mm2=pd.read_csv("BDATOS/mostrador.csv") # se lee la base de datos de mostardor con los nuevos datos
                print("\n\n\n\n")                       # salto de línea
                print(mm2)                              # Se imprime la nueva base de datos mostrador
-    
-       #ventas=(ce,ff7,f55,f56)                     # Se crea lista para ventas totales
-       #ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
-       #ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
-       #ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las columnas
-       #ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
-       #ventas2= pd.read_csv('BDATOS/ventas.csv')
+             
+    break
+       
    
     
-  #else:
-  #break
-  #return c1
-  #return c2
+                   
 
 
 
@@ -127,18 +121,28 @@ def Factura():
     factura22=pd.read_csv('BDATOS/factura.csv')   # Para leer la base de datos de factura
     Vtotal=temporal22['Subtotal'].sum()  # para sumar el valor total de la compra de productos
     tem=temporal22.drop(['Fecha','Hora'], axis=1) # Para eliminar columnas de la fecha y hora
-    #c1= int(cc)                                # variable para la identificcaión del cliente
-    c2= Vtotal                           # variable para el valor total de la compra
-    #return c2
+                                  # variable para la identificcaión del cliente
+                              # variable para el valor total de la compra
+    ventas=(ce,Vtotal,f55,f56)                     # Se crea lista para ventas totales
+    ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
+    ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
+    ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las columnas
+    ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
+    ventas2= pd.read_csv('BDATOS/ventas.csv')
+    #cont=pd.read_csv('BDATOS/contador.csv')
+    #cont1=cont.iloc[0:0]
+    #cont2=cont1+1
+    #cont2.to_csv('BDATOS/contador.csv', mode="w", index="", header="") 
     #os.system('clear')                         # para limpiar la pantalla
     print("\n\n\n\n\t\t\t\t\t                  FACTURA DE VENTA") # titulo de la página factura de venta
     print("\n\n\n\n")                          #salto de linea                    
-    print("Cédula: ", "\t\t\t\t\tFecha: " ,       f55,   "\t\t\t\t\tHora: ",        f56) # para insertar cédula, fecha , hora
+    print("Cédula: ",ce, "\t\tFecha: " ,       f55,   "\t\tHora: ",        f56,     "Factura nro.: ") # para insertar cédula, fecha , hora
     print("\n\n\n\n")                          # salto de línea
     print(tem)                                 # Se imprime datos de la compra para la factura
     print("\n\n")                              # salto de linea
     print("\n\n\t\t           Valor total de la venta: ", Vtotal)  # se imprime el valor total de la venta\n
   #else:
+    
     break
   
 #c1= (c1)
@@ -241,10 +245,9 @@ while True:                                              # se activa el ciclo wh
       menu()                                             # se activa la función menú
       opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
                  
-      if opcionMenu == "6.1": 
-                                     # Para activar la función compra
+      if opcionMenu == "6.1":               # Para activar la función compra
           print("\n\nhola\n\n")             # imprime mensaje de saludo
-          venta()                           # la función venta se ejecuta
+          venta()                          # la función venta se ejecuta
      
            
 
