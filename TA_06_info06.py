@@ -1,3 +1,10 @@
+
+
+# ADVERTENCIA
+# En la opción 6.5 se recomienda utilizar número de cédiula : 123
+
+
+
 from datetime import date as dt #librería para maejar fechas
 from datetime import datetime as dtt  #librería para manejar el tiempo
 from datetime import timedelta        #librearía para realizar operaciones matemáticas con el tiempo
@@ -176,6 +183,7 @@ def menu():                                              # se crea un menu para 
 
 def clientes():
   while True:
+
     CA=[]#se crea lista para almacenar la indentificacion del cliente
     PP1=[]#se crea lista para almacenar la referencia del producto
     PP2=[]#se crea lista para almacenar el nombre del producto
@@ -184,47 +192,50 @@ def clientes():
     PP5=[]#se crea lista para almacenar el subtotal de la compra por referencia de producto
     PP6=[]#se crea lista para almacenar la fecha
     PP7=[]#se crea lista para almacenar la hora
-
-    PPP1=input("Ingrese el numero de cedula")
-    PPP2=input("Ingrese el nombre del cliente")
-    PPP3=input("Ingrese el primer apellido")
-    PPP4=input("Ingrese el segundo apellido")
-    PPP5=input("Ingrese el numero de celular")
-    PPP6=input("Ingrese el numero fijo")
+    print("\n\n\n\n\t\t\t\t\t              PÁGINA CLIENTES") # titulo de la página de clientes
+    PPP1=input("\n\nIngrese el numero de cedula: ")          # Para ingrese la identificación
+    PPP2=input("\n\nIngrese el nombre del cliente: ")        # Para ingresar el nombre del cliente
+    PPP3=input("\n\nIngrese el primer apellido: ")           # Para ingresar el primer apellido del cliente
+    PPP4=input("\n\nIngrese el segundo apellido: ")          # Para ingresar el segundo apellido del cliente
+    PPP5=input("\n\nIngrese el numero de celular: ")         # para ingresasar el número del celular
+    PPP6=input("\n\nIngrese el numero fijo: ")               # para ingresar el número del teléfono fijo
     CA.append(PPP1) #se crea lista para almacenar la identificacion del cliente
     PP1.append(PPP2) #se crea lista para almacenar la identificacion del cliente
     PP2.append(PPP3) #se crea lista para almacenar la identificacion del cliente
     PP3.append(PPP4) #se crea lista para almacenar la identificacion del cliente
     PP4.append(PPP5) #se crea lista para almacenar la identificacion del cliente
     PP5.append(PPP6) #se crea lista para almacenar la identificacion del cliente
-    CL=(CA,PP1,PP2,PP3,PP4,PP5)
-    PL1=pd.DataFrame(CL)
-    PL2=pd.DataFrame.transpose(PL1)
-    PL2.to_csv('BDATOS/clientes.csv', mode="a", index="", header="")
-    PL3=pd.read_csv('BDATOS/clientes.csv')
-    print(PL3)
+    CL=(CA,PP1,PP2,PP3,PP4,PP5)      # se crea lista con los datos del cliente
+    PL1=pd.DataFrame(CL)             # Se crea DataFrame con los datos del cliente
+    PL2=pd.DataFrame.transpose(PL1)  # se transpone el DataFrame
+    PL2.to_csv('BDATOS/clientes.csv', mode="a", index="", header="") # se graba la información del cliente en la base de datos clientes
+    PL3=pd.read_csv('BDATOS/clientes.csv')  # se lee la base e datos de cliente
+    print(PL3)                              # Se imprime la base de datos cliente
+  #else:
+    break
+
 def compra_cliente():
    while True:
-  
-    CA=[]#se crea lista para almacenar la indentificacion del cliente
-    PPP1=input("Ingrese el numero de cedula")
-    CA.append(PPP1) #se crea lista para almacenar la identificacion del cliente
+    print("\n\n\n\n\t\t\t\t\t              PÁGINA COMPRA DE CLIENTES") # titulo de la página de clientes
+    CA=[]                   # se crea lista para almacenar la indentificacion del cliente
+    PPP1=input("\n\n\n\nIngrese el numero de cedula: ")
+    CA.append(PPP1)         # se crea lista para almacenar la identificacion del cliente
 
-    PPPP = int(PPP1)
-    print("\n\n\n\n")
-    factura22=pd.read_csv('BDATOS/factura.csv')
-    print(factura22)
+    PPPP = int(PPP1)        # Se convierte el valor de la identificación del cliente entero 
+    print("\n\n")       # Salto de linea
+    factura22=pd.read_csv('BDATOS/factura.csv')  # Para leer la base de datos de factura
+    #print(factura22)                            # Para imprimir la base de datos de factura
     
-    LK=0
-    for AA in range(len(factura22)):
-      if(factura22.iloc[AA, 0]==PPPP):
-        factura22=pd.read_csv('BDATOS/factura.csv')
-        LK=factura22.iloc[AA, :]
-        LK1=pd.DataFrame(LK)
-        LK2=pd.DataFrame.transpose(LK1)
-        print("\n\n\n\n")
-        print(LK2)
-   
+    LK=0                                         # Se crea variable pata manejo de DataFrame
+    for AA in range(len(factura22)):             # Se crea ciclo para leer la base datos factura respecto a la identificación de clientes
+      if(factura22.iloc[AA, 0]==PPPP):           # Condición para leer la base  de adtos de factura
+        factura22=pd.read_csv('BDATOS/factura.csv')  # Se lee la base de datos de factura
+        LK=factura22.iloc[AA, :]                     # Se busca la identificación especifica
+        LK1=pd.DataFrame(LK)                         # Se crea un DataFrame para leer los datos del cliente de las compras que ha realizado
+        LK2=pd.DataFrame.transpose(LK1)              # Se transpone el DataFrame
+        print("\n\n\n\n")                            # Salto de linea
+        print(LK2)                                   # Se imprime los resultados de las compras del cliente.
+    break
 # Se crea un una iteración con while mientras se cumpla la condición
 while True:                                              # se activa el ciclo while para activar el menú
       menu()                                             # se activa la función menú
@@ -232,25 +243,25 @@ while True:                                              # se activa el ciclo wh
                  
       if opcionMenu == "6.1": 
                                      # Para activar la función compra
-          print("\n\nhola\n\n")                          # imprime mensaje de saludo
-          venta()                                     # la función compra se ejecuta
+          print("\n\nhola\n\n")             # imprime mensaje de saludo
+          venta()                           # la función venta se ejecuta
      
            
 
         
-      elif opcionMenu == "6.2":                            # Para activar la función total
-             Factura()                                  # se ejecuta la función total
+      elif opcionMenu == "6.2":              # Para activar la función factura
+             Factura()                       # se ejecuta la función factura
       
 
-      elif opcionMenu == "6.3":                            # se activa la función bodega
-             Venta_acum()
+      elif opcionMenu == "6.3":              # se activa la función venta acunulada
+             Venta_acum()                    # se ejecuta la función venta acumulada
 
-      elif opcionMenu == "6.4":
-             clientes() 
+      elif opcionMenu == "6.4":              # se activa la función clientes
+             clientes()                      # se ejecuta la función clients
 
 
-      elif opcionMenu == "6.5":
-             compra_cliente()   
+      elif opcionMenu == "6.5":              # Se activa la función compras de cada cliente
+             compra_cliente()                # se ejecuta la  función compra de clientes
 
       elif opcionMenu == "6.7":    
             break      
