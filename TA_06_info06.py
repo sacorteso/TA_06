@@ -75,8 +75,29 @@ for k in range(z):         # se crea una iteración para registrar las los produ
       
       # Se graban los datos para la factura en la base de datos factura para consultas en el futuro
       factura2.to_csv('BDATOS/factura.csv', mode="a", index="", header="")
-  
-temporal22=pd.read_csv('BDATOS/factura.csv')  # Para leer la base de datos temporal
+     
+      # Para actualizar las unidades en el mostrador
+      mm2=pd.read_csv("BDATOS/mostrador.csv")
+      
+      # Nueva cantidad de unidades del producto para mostrador
+      mu1= can                     # Se elige la cantidad de unidades para descontar en mostrador
+      mt=0                         # variable para operaciones matemáticas
+      for TM in range(len(mm2)):   # se crea un ciclo para recorrer toda la base de mostrador
+        if (mm2.iloc[TM, 1]==Ref1):# Se crea un filtro para eliger la referencia correcta
+                   
+          mm2=pd.read_csv("BDATOS/mostrador.csv") # Se lee la base de datos de mostardor
+          print(mm2)                              # Se imprime la base de datos de mostardor antes de descontar las unidades del producto
+          mt= mm2.iloc[TM, 7]                     # Se selecciona el acumulado disponible del producto ubicado en el mostrador
+          
+          mt=mt-mu1                               # se descuenta las respectivas unidades del producto
+          mm2.iloc[TM, 7]=mt                      # se actualiza el acumulado con el nueva cantidad de productos
+          mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True") # se graba los nuevos datos en la base de datos de mostrador
+                                   
+          mm2=pd.read_csv("BDATOS/mostrador.csv") # se lee la base de datos de mostardor con los nuevos datos
+          print("\n\n\n\n")                       # salto de línea
+          print(mm2)                              # Se imprime la nueva base de datos mostrador
+          
+temporal22=pd.read_csv('BDATOS/temporal.csv')  # Para leer la base de datos temporal
   
 factura22=pd.read_csv('BDATOS/factura.csv')   # Para leer la base de datos de factura
   
@@ -101,3 +122,6 @@ ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las col
 ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
 ventas2= pd.read_csv('BDATOS/ventas.csv')  # para leer el contenido del archivo de ventas totales
 print("\n\n\n\n",ventas2)                  # se imprime el contenido del archivo de ventas totales
+
+
+#temporal.to_csv('BDATOS/temporal.csv', mode="w", index="", header="")
