@@ -23,7 +23,8 @@ c4=[] # Se crea lista para almacenar la cantidad de productos que se va a compra
 c5=[] # Se crea lista para almacenar el subtotatal de la compra por referencia de producto
 c6=[] # Se crea lista para almacenar la fecha
 c7=[] # Se crea lista para almacenar la hora
-cc= input("\n\nIngrese la identificcaión del cliente: ")
+cc= input("\n\nIngrese la identificación del cliente: ")
+cc=int(cc)
 
 z1= input("\n\ningrese la cantidad de productos que se van a vender: ")
 z=int(z1)
@@ -36,21 +37,16 @@ for k in range(z):
   print(k)
   L6 =pd.read_csv("BDATOS/mostrador.csv") 
   print(L6.iloc[:,0:2])
-  Ref=input("\n\nIngrese la referencia del producto: ")
-  Ref=str(Ref)
-  can=input("\n\nIngrese la cantidad de producto:  ")
+  Ref1= input("\n\nIngrese la referencia del producto: ")
+  Ref= str(Ref1)
+  can= input("\n\nIngrese la cantidad de producto:  ")
   can= int(can)
   for kk in range(len(L6)):
     if(L6.iloc[kk,1]==Ref):
-      
       zz1= L6.iloc[kk,0]
       zz2= L6.iloc[kk,6]
-      print("\n\nPrecio individual de", L6.iloc[kk,0],  zz1)
       subtotal= zz2*can
-      print("\n\nPrecio total por producto", L6.iloc[kk,0], subtotal)
-      #subtotal=(Ptotal)
-      compras=pd.read_csv("BDATOS/ventas.csv")
-      print(compras) 
+
       ce.append(cc)
       c1.append(Ref)
       c2.append(zz1)
@@ -64,35 +60,31 @@ for k in range(z):
       factura1=pd.DataFrame(factura)
       factura2=pd.DataFrame.transpose(factura1)
       factura2.columns=['Cedula','Referencia','Nproducto','Punitario','Cantidad','Subtotal','Fecha','Hora']
-      print(factura2)
-      factura2.to_csv('BDATOS/factura.csv', mode="a", index="", header="True")
+      
+      temporal=pd.DataFrame.transpose(factura1)
+      temporal.columns=['Cedula','Referencia','Nproducto','Punitario','Cantidad','Subtotal','Fecha','Hora']
+      
+      temporal.to_csv('BDATOS/temporal.csv', mode="a", index="", header="")
+      
+
+
+      factura2.to_csv('BDATOS/factura.csv', mode="a", index="", header="")
+  
+  temporal22=pd.read_csv('BDATOS/factura.csv')
+  #print(temporal22)
+  factura22=pd.read_csv('BDATOS/factura.csv')
+  #print(factura22)
+  Vtotal=temporal22['Subtotal'].sum()
+  tem=temporal22.drop(['Fecha','Hora'], axis=1)
+  c1=cc
+  os.system('clear') 
+  print("\n\n\n\n\t\t\t\t\t                  FACTURA DE VENTA")
+  print("\n\n\n\n")
+  print("Cédula: ",c1, "\t\t\t\t\tFecha: " ,       f55,   "\t\t\t\t\tHora: ",        f56)
+  print("\n\n\n\n")
+  print(tem)
+  print("\n\n")
+  print("\n\n\t\t           Valor total de la venta: ", Vtotal)
 
 
 
-
-
-
-'''
-
-      #c1=Ref
-      #c2=L6.iloc[kk,0]
-      #c3=zz1
-      #c4=can
-      #c5=Ptotal
-      #compras[compras['Rerencia']]=Ref
-      #compras[compras['Nproducto']]=L6.iloc[kk,0]
-      #compras[compras['Preciopro']]=zz1
-      #compras[compras['Cantidad']]=can
-      #compras[compras['Subtotal']]=Ptotal
-      compras[1,1]=Ref
-      #compras.iloc[kk,1]=L6.iloc[kk,0]
-      #compras.iloc[kk,2]=zz1
-      #compras.iloc[kk,3]=can
-      #compras.iloc[kk,4]=Ptotal
-
-      #compras=pd.DataFrame(list(zip(c1,c2,c3,c4,c5)), columns=['Referencia','Nproducto','Preciopro','Cantidad','Subtotal'])
-      #print(compras)
-      compras.to_csv('BDATOS/ventas.csv', mode="w", index="", header="True")
-      compras=pd.read_csv("BDATOS/ventas.csv")
-      print(compras)
-'''
