@@ -99,12 +99,12 @@ def venta():
                print("\n\n\n\n")                       # salto de línea
                print(mm2)                              # Se imprime la nueva base de datos mostrador
     
-       ventas=(ce,c2,f55,f56)                     # Se crea lista para ventas totales
-       ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
-       ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
-       ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las columnas
-       ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
-       ventas2= pd.read_csv('BDATOS/ventas.csv')
+       #ventas=(ce,ff7,f55,f56)                     # Se crea lista para ventas totales
+       #ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
+       #ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
+       #ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las columnas
+       #ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
+       #ventas2= pd.read_csv('BDATOS/ventas.csv')
    
     
   #else:
@@ -130,7 +130,7 @@ def Factura():
     print("\n\n\n\n")                          # salto de línea
     print(tem)                                 # Se imprime datos de la compra para la factura
     print("\n\n")                              # salto de linea
-    print("\n\n\t\t           Valor total de la venta: ", Vtotal)  # se imprime el valor total de la venta
+    print("\n\n\t\t           Valor total de la venta: ", Vtotal)  # se imprime el valor total de la venta\n
   #else:
     break
   
@@ -169,6 +169,36 @@ def menu():                                              # se crea un menu para 
     print("\t            6.3 - Venta acumulada")                     # se imprime ingreso abodega
     print("\t            6.4 - Página de clientes")              # se imprime finalizacón de menú
              
+def clientes():
+  while True:
+    CA=[]#se crea lista para almacenar la indentificacion del cliente
+    PP1=[]#se crea lista para almacenar la referencia del producto
+    PP2=[]#se crea lista para almacenar el nombre del producto
+    PP3=[]#se crea lista para almacenar el valor unitario del producto
+    PP4=[]#se crea lista para almacenar la cantidad de productos que se va a comprar un cliente respecto a una referencia determinada 
+    PP5=[]#se crea lista para almacenar el subtotal de la compra por referencia de producto
+    PP6=[]#se crea lista para almacenar la fecha
+    PP7=[]#se crea lista para almacenar la hora
+
+    PPP1=input("Ingrese el numero de cedula")
+    PPP2=input("Ingrese el nombre del cliente")
+    PPP3=input("Ingrese el primer apellido")
+    PPP4=input("Ingrese el segundo apellido")
+    PPP5=input("Ingrese el numero de celular")
+    PPP6=input("Ingrese el numero fijo")
+    CA.append(PPP1) #se crea lista para almacenar la identificacion del cliente
+    PP1.append(PPP2) #se crea lista para almacenar la identificacion del cliente
+    PP2.append(PPP3) #se crea lista para almacenar la identificacion del cliente
+    PP3.append(PPP4) #se crea lista para almacenar la identificacion del cliente
+    PP4.append(PPP5) #se crea lista para almacenar la identificacion del cliente
+    PP5.append(PPP6) #se crea lista para almacenar la identificacion del cliente
+    CL=(CA,PP1,PP2,PP3,PP4,PP5)
+    PL1=pd.DataFrame(CL)
+    PL2=pd.DataFrame.transpose(PL1)
+    PL2.to_csv('BDATOS/clientes.csv', mode="a", index="", header="")
+    PL3=pd.read_csv('BDATOS/clientes.csv')
+    print(PL3)
+  
 # Se crea un una iteración con while mientras se cumpla la condición
 while True:                                              # se activa el ciclo while para activar el menú
       menu()                                             # se activa la función menú
@@ -189,10 +219,14 @@ while True:                                              # se activa el ciclo wh
       elif opcionMenu == "6.3":                            # se activa la función bodega
              Venta_acum()
 
-      elif opcionMenu == "6.4": 
-        break      
+      elif opcionMenu == "6.4":
+             clientes() 
 
-   
+
+      elif opcionMenu == "6.5":    
+            break      
+
+
    
    
 
