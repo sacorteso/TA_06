@@ -168,7 +168,12 @@ def menu():                                              # se crea un menu para 
     print("\t            6.2 - Factura")              # se imprime registro total acumulado
     print("\t            6.3 - Venta acumulada")                     # se imprime ingreso abodega
     print("\t            6.4 - Página de clientes")              # se imprime finalizacón de menú
-             
+    print("\t            6.5 - Página de Compras de cada cliente")              # se imprime finalizacón de menú         
+    print("\t            6.7 - Otras opciones")              # se imprime finalizacón de menú
+
+
+
+
 def clientes():
   while True:
     CA=[]#se crea lista para almacenar la indentificacion del cliente
@@ -198,7 +203,28 @@ def clientes():
     PL2.to_csv('BDATOS/clientes.csv', mode="a", index="", header="")
     PL3=pd.read_csv('BDATOS/clientes.csv')
     print(PL3)
+def compra_cliente():
+   while True:
   
+    CA=[]#se crea lista para almacenar la indentificacion del cliente
+    PPP1=input("Ingrese el numero de cedula")
+    CA.append(PPP1) #se crea lista para almacenar la identificacion del cliente
+
+    PPPP = int(PPP1)
+    print("\n\n\n\n")
+    factura22=pd.read_csv('BDATOS/factura.csv')
+    print(factura22)
+    
+    LK=0
+    for AA in range(len(factura22)):
+      if(factura22.iloc[AA, 0]==PPPP):
+        factura22=pd.read_csv('BDATOS/factura.csv')
+        LK=factura22.iloc[AA, :]
+        LK1=pd.DataFrame(LK)
+        LK2=pd.DataFrame.transpose(LK1)
+        print("\n\n\n\n")
+        print(LK2)
+   
 # Se crea un una iteración con while mientras se cumpla la condición
 while True:                                              # se activa el ciclo while para activar el menú
       menu()                                             # se activa la función menú
@@ -223,7 +249,10 @@ while True:                                              # se activa el ciclo wh
              clientes() 
 
 
-      elif opcionMenu == "6.5":    
+      elif opcionMenu == "6.5":
+             compra_cliente()   
+
+      elif opcionMenu == "6.7":    
             break      
 
 
