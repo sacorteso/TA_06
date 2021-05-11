@@ -1,7 +1,7 @@
 
 
 # ADVERTENCIA
-# En la opción 6.5 se recomienda utilizar número de cédula : 123
+# En la opción 6.5 se recomienda utilizar número de cédula : 123 
 
 
 
