@@ -14,46 +14,182 @@ import csv          # Librería para manipular archivos excel y con extensión .
 # Para cambiar el porcentaje de forma individual
 def ganancia():
   while True:
-    print("\n\n\t\tPÁGINA PARA CAMBIAR EL PORCENTAJE DE GANANCIA EN FORMA INDIVIDUAL")
-    print("\n\n\t\tReferencia en productos en Bodega\n\n")
+    print("\n\n\t\tPÁGINA PARA CAMBIAR EL PORCENTAJE DE GANANCIA EN FORMA INDIVIDUAL") # Titulo para cambiar el porcentaje de ganancia del producto
+    print("\n\n\t\tReferencia en productos en Bodega\n\n")      # Subtitulo para ver las referencia de los productos
 
-    m2=pd.read_csv("BDATOS/mostrador.csv")
-    m22=m2.iloc[:,0:2]
-    print(m22)
+    m2=pd.read_csv("BDATOS/mostrador.csv") # Para leer la base de datos mostrador
+    m22=m2.iloc[:,0:2]                     # De la base de datos mostrador se escoge los nombres y las referencias de los productos                   
+    print(m22)                             # Se imprime el nombre y la referencia de los productos
 
-    g2=input("\n\n\n\ningrese la referencia del producto: ")
-    g3= str(g2)
+    g2=input("\n\n\n\ningrese la referencia del producto: ")  # mensaje para ingresar la referencia del producto
+    g3= str(g2)                                               # se transforma el tipo de datos a string
 
-    m5= m2[m2['Referencia']==g3]
-    print("\n\n\n\n   Datos de  Referencia ingresada \n\n",  m5)
-
-
-    mg=input("\n\n\n\nIngrese el nuevo porcentaje de ganancia del producto: ")
-    mg1= (mg)
-    print("\n\n\n\n            Porcentaje de ganancia ingresado:",  mg1)
+    m5= m2[m2['Referencia']==g3]          # Se crea una lista para guardar las referencias elegidas
+    print("\n\n\n\n   Datos de  Referencia ingresada \n\n",  m5) # Confirma que la referencia ingresada es seleccionada
 
 
-    float()
-    z1= 97
-    for TM in range(len(m2)):
+    mg=input("\n\n\n\nIngrese el nuevo porcentaje de ganancia del producto: ")  # Mensaje para ingresar el nuevo porcentaje
+    mg1= (mg)                                                                   # Se crea una lista con el nuevo porcentaje
+    print("\n\n\n\n            Porcentaje de ganancia ingresado:",  mg1)        # Confirma que el porcenatje ingresado es seleccionado
+
+
+    float()           # se tranforma los datos a tipo float
+    z1= 97            # Se crea una variable para operaciones matemáticas
+    for TM in range(len(m2)):   # Se crea una iteración para revisar todas las refrencias
      # ciclo para comparar con todas las claves con la base de datos
      #TM=m2.iloc[TM,5]
      #print(TM)                    # Permite hallar una clave  en una posición determinada
-     if (m2.iloc[TM,1]==g3):
-          m2.iloc[TM, 5]=mg
-          m2.to_csv('BDATOS/mostrador.csv', mode="w",index="", header="True")
-          m2.iloc[TM, 6]= z1
-          m2=pd.read_csv("BDATOS/mostrador.csv")
-          z1=m2.iloc[TM,3]
-          z2=m2.iloc[TM,5]
-          zz= (z1*z2/100)+z1
-          m2.iloc[TM,6]=zz
-          m2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True")
+     if (m2.iloc[TM,1]==g3):     # Se crea un ciclo de confirmación de referencia seleccionada
+          m2.iloc[TM, 5]=mg      # Se selecciona la columna de ganancia en la base de datos mostrador y se cambia por la nuevo porcentaje de ganancia
+          m2.to_csv('BDATOS/mostrador.csv', mode="w",index="", header="True") # Se graba los nuevos datos en el archivo mostardor
+          m2.iloc[TM, 6]= z1     # Se actualiza el precio de venta de los productos en mostrador
+          m2=pd.read_csv("BDATOS/mostrador.csv") # Se lee la base de datos de mostrador
+          z1=m2.iloc[TM,3]       # Se selecciona la columna precio de compra
+          z2=m2.iloc[TM,5]       # Se selecciona la columna de ganancia de producto
+          zz= (z1*z2/100)+z1     # Se calcula el precio de venta
+          m2.iloc[TM,6]=zz       # Se actualiza el precio de venta en la base de datos mostrador
+          m2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True") # Se graba los nuevos datos de el archivo mostrador.
           #print(zz)
           
-          aa5 =pd.read_csv("BDATOS/mostrador.csv")  
-          print(aa5)
-    else:
-      break     
+          aa5 =pd.read_csv("BDATOS/mostrador.csv")   # Se lee la base de datos mostardor con la información actualizada
+          print(aa5)                                 # Se imprime la base de datos mostrador actualizada
+    else:                                            # otra opción en el ciclo
+          break                                      # cierra el ciclo
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
+
+# función para activar el submenu de entrada de la página compras
+def menu():                                              # se crea un menu para el manejo operativo del negocio
+    
+    print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
+    print("\t1 - Cambio de porcentaje de ganancia ")                  # se imprime registro de compras
+    print("\t2 - Para llenar el mostrador con productos")              # se imprime registro total acumulado
+    print("\t3 - Vencimiento de productos")                     # se imprime ingreso abodega
+    print("\t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
+          
+# Se crea un una iteración con while mientras se cumpla la condición
+while True:                                              # se activa el ciclo while para activar el menú
+      menu()                                             # se activa la función menú
+      opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
+                  
+      if opcionMenu == "1":                              # Para activar la función compra
+          print("\n\nhola\n\n")                          # imprime mensaje de saludo
+          ganancia()                                     # la función compra se ejecuta
+     
+           
+
+        
+      elif opcionMenu == "2":                            # Para activar la función total
+             unidades()                                     # se ejecuta la función total
+      
+
+      elif opcionMenu == "3":                            # se activa la función bodega
+             vencimiento()
+        
+     
+
+      elif opcionMenu == "9":                            # se elige la activa la opción finalizar menú
+          print("\n\n\t\tSistema finalizado")                    # mensaje que confirma la finalización del menu
+          break                                          # se finaliza el ciclo if del menú
+            
