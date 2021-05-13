@@ -56,14 +56,73 @@ def ganancia():
     else:                                            # otra opción en el ciclo
           break                                      # cierra el ciclo
 
-  
 
 
 
 
 
 
+#listo para funcionamiento
+# Para cambiar las unidades de forma individual
+def unidades():
+  while True:
+    os.system('clear')
+    print("\n\nPAGINA MOSTRADOR")
+    print("\n\n\t\t PAGINA PARA CAMBIAR LAS UNIDADES EN FORMA INDIVIDUAL")
+    print("\n\n\t\t Referencia en productos en Bodega\n\n")
 
+    mm2=pd.read_csv("BDATOS/mostrador.csv")
+    LL5=pd.read_csv('BDATOS/bodega1.csv')
+    print(LL5)
+
+    print("\n\n\n\n Mostrador actual")
+    print("\n\n",mm2)
+
+
+    g2=input("\n\n\n\nIngrese la referencia del producto")
+    g3=str(g2)
+
+
+    g4=input("\n\ningrese la fecha de compra del producto:   ")
+    g5=int(g4)
+    m5= LL5[LL5['Referencia']==g3]
+    m6= LL5[LL5['Fcompra']==g5]
+    os.system('clear')
+    print("\n\n\n\nDatos de la bodega \n\n", m5)
+
+
+    mu=input("\n\n\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")
+    mu1= int(mu)
+
+
+    mt=0
+    for TM in range (len(mm2)):
+      if (LL5.iloc[TM,2]==g3 and LL5.iloc[TM,6]==g5):
+        LL5=pd.read_csv('BDATOS/bodega1.csv')
+        mm2=pd.read_csv("BDATOS/mostrador.csv")
+
+        mt= mm2.iloc[TM, 7]
+        g6= LL5.iloc[TM, 4]
+        mm2.iloc[TM, 4]=mu1
+        mt=mu1+mt
+        mm2.iloc[TM, 7]=mt
+        mm2.to_csv('BDATOS/mostrador.cvs', mode="w", index="", header="True")
+        g7=g6-mu1
+        LL5.iloc[TM, 4]=g7
+        mm2.iloc[TM, 4]=g7
+        mm2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True")
+        LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")
+        LL5=pd.read_csv('BDATOS/bodega1.csv')
+        mm2=pd.read_csv('BDATOS/mostrador.csv')
+        
+
+
+    print("\n\n\n\n***************   Bodega actualizada    *******************)
+    print("\n\n\n\n", LL5)
+    print("\n\n\n\n***************   Mostrador actualizado   ****************")
+    print("\n\n",mm2)
+    
+    break
 
 
 
