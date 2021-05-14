@@ -42,10 +42,32 @@ def bodegacom():              # Se crea una función para hallar el valor total 
     print("\n\n\n\nEl total pagado por bodega es: $",Vtotalbodega,"\n\n\n\n") # Se imprime el resultado total con enunciado.
     break                                # Se termina el ciclo de la función
 
+def bodegafecha():
+  while True:
+    print("\n\n\n\n Pagina de costos en dinero por compra en bodega")
+    print("\n\n Sistema por fechas \n\n\n\n")
 
+    co=pd.read_csv("Bdatos/bodega1.csv")
+    co2=co.iloc[:,3]
+    co3=co.iloc[:,6]
+    F=[co2,co3]
+    F1=pd.DataFrame(F)
+    F2=F1.transpose()
+    print(F2)
 
+    
+    f1= int(input("\n\n\n\nIngrese la fecha inicial: "))
+    f2= int(input("\n\nIngrese la fecha final: "))
+    
+    F3= F2[(F2['Fcompra']>=f1) & (F2['Fcompra']<=f2)]
+    F4=pd.DataFrame(F3)
+    F5=F4['Ppaca'].sum() # valor en dinero de compras en la bodega entre un intervalo de tiempo
+    
+    print("\n\n\n\nEntre las fechas  ", f1," y ",f2)
 
+    print("\n\n\n\nEl total pagado por bodega es:     $",F5,"\n\n\n\n")
 
+    break
 
 
 
@@ -131,52 +153,48 @@ def bodegacom():              # Se crea una función para hallar el valor total 
 
 
 
+def costosff():            # Se crea función para costos fijos por fecha específica
+  while True:              # Se cre ciclo para activar la función de costsos fijos por fecha específica
+    print("\n\n\n\n             Página de costos fijos en dinero")    # Título de esta sección
+    print("\n\n                   Sistema por fechas\n\n\n\n")        # Subtitulos de esta función
+    gb2=pd.read_csv("BDATOS/costosm.csv")                             # Se lee la base de datos de costos fijos
+    print(gb2)                                                        # se imprime la base de datos de ventas
+    fc1=int(input("\n\ningrese la fecha inicial:  "))                 # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
+    fc2=int(input("\n\ningrese la fecha final:  "))                   # Sirve para ingresar la fecha final para crear un intervalo de búsqueda
 
+    F33=gb2[(gb2['Fecha']>=fc1) & (gb2['Fecha']<=fc2)]                # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
+    F7=pd.DataFrame(F33)                                              # Se crea un nuevo DataFrame con los datos encontrados
 
+    print("\n\n",F7)                                                  # Seimprime el nuevo Dataframe
 
 
+    st11=F7['Nómina'].sum()                  # Suma todos los costos de nómina
+    st21=F7['Spúblicos'].sum()               # Suma tosdos los valores de servicios públicos
+    st31=F7['Arriendo'].sum()                # Suma todos los valores de arriendo
+    st41=F7['Seguros'].sum()                 # Suma todos los valores de seguros
+    st51=F7['mantenimiento'].sum()           # Suma todos los valores de mantenimiento
+    st61=F7['Impuestos'].sum()               # suma todos los valores de impuestos
+    st71=F7['Transporte'].sum()              # suma todos los valores de transporte
+    st81=F7['Otroscostos'].sum()             # suma todos los valores de otros costos
 
 
+    print("\n\n\n\n Subtotales")             # Se imprime menasje de Subtotales
 
+    print("\n\n\n\nEntre las fechas: ",fc1, " y ",fc2) # se imprime el intervalo de la fechas
+    # Se imprime el valor de dinero localizado por costos fijos
+    print("\n\nNómina: $",st11,"\n\nSpúblicos: $",st21,"\n\nArriendo: $",st31,"\n\nSeguros: $",st41,
+          "\n\nmantenimiento: $",st51,"\n\nImpuestos: $",st61,"\n\nTrnasporte: $",st71,"\n\nOtros costos: $",st81)
 
+    TotalCFF= st11+st21+st31+st41+st51+st61+st71+st81  # Suma el valor en dinero de costos fijos entre un intervalo de tiempo
 
+    print("\n\n\n\n Total de costos fijos: ",TotalCFF)   # Total de costos fijos por fecha específica
 
+    break            # Finalización del ciclo de esta función
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def ingventasT():    # Se crea función para sumar el total ingresos en dinero por ventas por forma completa
+def ingventasT():     # Se crea función para sumar el total ingresos en dinero por ventas por forma completa
   while True:         # Se activa el ciclo para ejecutar la función de ingreso de dinero por ventas por forma completa
 
     print("\n\n\n\n Página de ingresos en dinero por ventas\n\n")   # Se imprime titulo de esta sección
@@ -198,8 +216,8 @@ def ingventasT():    # Se crea función para sumar el total ingresos en dinero p
 
    print("\n\n\n\nHasta fecha actual ", f55)  # Se imprime la fecha del informe
 
-   print("\n\nEl total de dinero ingresado por ventas: $",Vtotalventas,"\n\n")
-   break
+   print("\n\nEl total de dinero ingresado por ventas: $",Vtotalventas,"\n\n") # Se imprime el valor total en dinero de todas las ventas
+   break                                      # Finaliza el ciclo de esta función
 
 
 def ingventasTF():    # Se crea función para sumar el total ingresos en dinero por ventas por fecha específica
