@@ -123,7 +123,24 @@ def unidades():
     print("\n\n",mm2)
     
     break
-
+def vencimiento():
+  while True:
+    today=dt.today()
+    print(today)
+    f5=today.strftime('%Y%m%d')
+    f55=int(f5)
+    print(f55)
+    f25=today-timedelta(10)
+    print(f25)
+    f25=today.strftime('%Y%m%d')
+    print(f25)
+    f255=int(f25)
+    print(f255)
+    print("\n\n\n\n************   ALERTA DE PRODUCTO VENCIDO     ************")
+    L5=pd.read_csv('BDATOS/bodega1.csv')
+    for i in range(len(L5)):
+      if(L5.iloc[i, 7]<=f55):
+        print("\n\nproducto con nombre: ", L5.iloc[i, 1], " y referencia: "L5.iloc[i, 2]"    con fecha de compra: ",L5.iloc[i, 6] ) print"\n\n  
 
 
 
