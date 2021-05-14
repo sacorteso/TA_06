@@ -176,58 +176,57 @@ def bodegacom():              # Se crea una función para hallar el valor total 
 
 
 
+def ingventasT():    # Se crea función para sumar el total ingresos en dinero por ventas por forma completa
+  while True:         # Se activa el ciclo para ejecutar la función de ingreso de dinero por ventas por forma completa
+
+    print("\n\n\n\n Página de ingresos en dinero por ventas\n\n")   # Se imprime titulo de esta sección
+    print("\n\n Sistema completo\n\n\n\n")                          # Se imprime subtitulo de esta scción
+    
+
+    cv=pd.read_csv("BDATOS/ventas.csv")       # Se lee l base de datos de ventas
+    print(cv)                                 # Se imprimen los datos
+    cv1=cv.iloc[:,1]                          # Se crea una lista con los valores en dinero por ventas
+    cv2=cv.iloc[:,2]                          # Se crea una lista con las fechas
 
 
+   CE=[cv1,cv2]                               # Se crea una lista principal con las antriores listas
+
+   cce2=pd.DataFrame(CE)                      # Se crea una nuevo DataFrame con los datos anteriores
+   cce3=cce2.transpose()                      # Se transpone el DataFrame
+
+   Vtotalventas=cce3['Vtotal'].sum()          # Se suma todos los valores de la ventas
+
+   print("\n\n\n\nHasta fecha actual ", f55)  # Se imprime la fecha del informe
+
+   print("\n\nEl total de dinero ingresado por ventas: $",Vtotalventas,"\n\n")
+   break
 
 
+def ingventasTF():    # Se crea función para sumar el total ingresos en dinero por ventas por fecha específica
+  while True:         # Se activa el ciclo para ejecutar la función de ingreso de dinero por ventas por fecha específica
+    print("\n\n\n\n Página de ingresos en dinero por ventas\n\n")   # Se imprime titulo de esta sección
+    print("\n\n Sistema para fechas\n\n\n\n")                      # Se imprime subtitulo de esta scción
 
 
+    ing=pd.read_csv("BDATOS/ventas.csv")   # Se lee la base de datos de ventas   
+    print(ing)                             # Se imprime la base de datos de ventas
+
+    if1=int(input("\n\n\n\nIngrese la fecha inicial: "))  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
+    if2=int(input("\n\n\n\nIngrese la fecha final: "))    # Sirve para ingresar la fecha final para crear un intervalo de búsqueda
 
 
+    ing2=ing[(ing['Fecha']>=if1) & (ing['Fecha']<=if2)]   # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
+    ing3=pd.DataFrame(ing2)                               # Se crea un nuevo DataFrame con los datos encontrados
 
 
+    ing5=ing3['Vtotal'].sum()                 # Suma el valor en dinero de ventas entre un intervalo de tiempo
+
+    print("\n\n\n\nEntre las fechas ", if1," y ",if2) # Se imprime las fechas del intervalo
+    print("\n\nEl total de dinero ingresado por ventas es: $",ing5,"\n\n\n\n") # Se imprime el valor de dinero localizado por ventas
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    break                                    # Se termina el ciclo de esta función
 
 
 def contabilidad():       # se crea la función que controla toda la contabilidad general del negocio

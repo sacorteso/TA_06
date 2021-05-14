@@ -140,99 +140,21 @@ def vencimiento():
     L5=pd.read_csv('BDATOS/bodega1.csv')
     for i in range(len(L5)):
       if(L5.iloc[i, 7]<=f55):
-        print("\n\nproducto con nombre: ", L5.iloc[i, 1], " y referencia: "L5.iloc[i, 2]"    con fecha de compra: ",L5.iloc[i, 6] ) print"\n\n  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        print("\n\nproducto con nombre: ", L5.iloc[i, 1], " y referencia: "L5.iloc[i, 2]"    con fecha de compra: ",L5.iloc[i, 6] ) 
+        print("\n\n                                                                          Esta vencido - reemplazar")
+
+    print("\n\n\n\n***********     Alerta de producto cercano a vencerse    ******************")
+    for i in range(len(L5)):
+      L5=pd.read_csv('BDATOS/bodega1.csv')
+      k=(L5.iloc[i,7])
+      if( k>f225 ):
+        if(<f55):
+          print("HOLA")
+          print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"     con fecha de compra: ", L5.iloc[i,6])
+          print("\n\n")
+    break  
+
+'''
 print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
 
 # función para activar el submenu de entrada de la página compras
@@ -267,5 +189,5 @@ while True:                                              # se activa el ciclo wh
 
       elif opcionMenu == "9":                            # se elige la activa la opción finalizar menú
           print("\n\n\t\tSistema finalizado")                    # mensaje que confirma la finalización del menu
-          break                                          # se finaliza el ciclo if del menú
-            
+          break                                          # se finaliza el ciclo if del menú         
+'''
