@@ -1,4 +1,7 @@
 #ADVERTENCIA
+# En la opción 7.2, ingrese fecha INICIAL 20210305 Y fecha final 20210423
+# En la opción 7.5, ingrese fecha INICIAL 20210513 Y fecha final 20210513
+# En la opción 7.7, ingrese fecha INICIAL 20210513 Y fecha final 20210513
 # En la opción 7.8, ingrese fecha operación utilizar 20210513
 
 from datetime import date as dt #librería para manejar fechas
@@ -42,116 +45,105 @@ def bodegacom():              # Se crea una función para hallar el valor total 
     print("\n\n\n\nEl total pagado por bodega es: $",Vtotalbodega,"\n\n\n\n") # Se imprime el resultado total con enunciado.
     break                                # Se termina el ciclo de la función
 
-def bodegafecha():
-  while True:
-    print("\n\n\n\n Pagina de costos en dinero por compra en bodega")
-    print("\n\n Sistema por fechas \n\n\n\n")
+def bodegafecha():    # Se crea función para compras en la bodega con fecha específica
+  while True:         # Se crea ciclos para activar la función para compras en la bodega con fecha específica
+    print("\n\n\n\n Pagina de costos en dinero por compra en bodega")  # Titulo de la sección
+    print("\n\n Sistema por fechas \n\n\n\n")                          # Subtitulo de la sección
 
-    co=pd.read_csv("Bdatos/bodega1.csv")
-    co2=co.iloc[:,3]
-    co3=co.iloc[:,6]
-    F=[co2,co3]
-    F1=pd.DataFrame(F)
-    F2=F1.transpose()
-    print(F2)
+    co=pd.read_csv("BDATOS/bodega1.csv")                               # Se lee la base de datos de Bodega y se crea DataFrame
+    co2=co.iloc[:,3]                                                   # Se crea una lista con los valores de los productos por paca                                      
+    co3=co.iloc[:,6]                                                   # secrea una lista con la fecha de compras de los productos
+    F=[co2,co3]                                                        # Se crea una nueva lista con los datos anteriores
+    F1=pd.DataFrame(F)                                                 # Se crea un nuevo dataFrame con los valores anteriores
+    F2=F1.transpose()                                                  # Se transpone el DataFrame anterior
+    print(F2)                                                          # Se imprime el nuevo DataFrame
 
     
-    f1= int(input("\n\n\n\nIngrese la fecha inicial: "))
-    f2= int(input("\n\nIngrese la fecha final: "))
+    f1= int(input("\n\n\n\nIngrese la fecha inicial: "))               # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
+    f2= int(input("\n\nIngrese la fecha final: "))                     # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
     
-    F3= F2[(F2['Fcompra']>=f1) & (F2['Fcompra']<=f2)]
-    F4=pd.DataFrame(F3)
-    F5=F4['Ppaca'].sum() # valor en dinero de compras en la bodega entre un intervalo de tiempo
+    F3= F2[(F2['Fcompra']>=f1) & (F2['Fcompra']<=f2)]                  # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
+    F4=pd.DataFrame(F3)                                                # Se crea un nuevo DataFrame con los datos encontrados
+
+    F5=F4['Ppaca'].sum()                               # valor en dinero de compras en la bodega entre un intervalo de tiempo
     
-    print("\n\n\n\nEntre las fechas  ", f1," y ",f2)
-
-    print("\n\n\n\nEl total pagado por bodega es:     $",F5,"\n\n\n\n")
-
-    break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print("\n\n\n\nEntre las fechas  ", f1," y ",f2)   # se imprime el intervalo de la fechas
+
+    print("\n\n\n\nEl total pagado por bodega es:     $",F5,"\n\n\n\n") # Total de costos por compras para bodega
+
+    break                                             # Finalización del ciclo de función
+
+
+
+def ingcostosf():        # se crea función para ingresar datos adicionales para la base de datos de costos fijos
+  while True:            # Se crea un ciclo para activar esta función
+    print("\n\n\n\n Página de Ingreso de datos de costos fijos\n\n\n\n")  # se imprime Titulo de sección
+    
+    g11= input("\n\nIngrese el valor Total de nómina: ")             # Para ingresar los datos de pago de nómina
+    
+    g21= input("\n\nIngrese el valor Total de servicios públicos: ") # Para ingresar los datos de pago de servicios públicos
+    
+    g31= input("\n\nIngrese el valor Total de arriendo: ")           # Para ingresar los datos de pago de arriendo
+    
+    g41= input("\n\nIngrese el valor Total de seguros: ")            # Para ingresar los datos de pago de seguros
+    
+    g51= input("\n\nIngrese el valor Total de mantenimiento: ")      # Para ingresar los datos de pago de mantenimiento
+    
+    g61= input("\n\nIngrese el valor Total de impuestos: ")          # Para ingresar los datos de pago de impuestos
+    
+    g71= input("\n\nIngrese el valor Total de transporte: ")         # Para ingresar los datos de pago de transporte
+    
+    g81= input("\n\nIngrese el valor Total de otros gastos: ")       # Para ingresar los datos de pago de otros gastos
+    
+    
+    g= [f55,g11,g21,g31,g41,g51,g61,g71,g81]   # se crea una lista con los valores antes mencionados
+    gb=pd.DataFrame(g)                         # Se crea un DataFrame con estos avlores
+    gb1=pd.DataFrame.transpose(gb)             # Se transpone el DataFrame
+    # Se coloca nombres a las columnas
+    gb1.columns=['Fecha','Nómina','Spúblicos','Arriendo','Seguros','mantenimiento','Impuestos','Transporte','Otroscostos']
+    gb1.to_csv("BDATOS/costosm.csv",  mode="a", index="", header="") # Se graba los nuevos datos en la base costos fijos
+    gb2=pd.read_csv("BDATOS/costosm.csv")                            # Se lee la base de datos de costos fijos con los nuevos cambios
+    print("\n\n\n\n                Página de Ingreso de datos de costos fijos\n") # Se imprime titulo de l sección
+    print("\n\n",gb2.iloc[:,0:5])    # Se imprime la primer parte de los resultados
+    print("\n\n",gb2.iloc[:,5:9])    # Se imprime la segunada parte de los resultados
+    break                            # Se finaliza el ciclo de esta función
+
+def costosf():    # SE crea una función para los costos fijos completos
+  while True:     # Se crea un ciclo para activar la función de costos fijos completos
+       ## Informe mensual
+    #para costos fijos
+    print("\n\n\n\n              Página de costos fijos en dinero")  # Titulo de la sección
+    print("\n\n                   Sistema completo\n\n\n\n")         # subtitulo de la sección
+    gb2=pd.read_csv("BDATOS/costosm.csv")        # se lee la base de datos de costos fijos y se crea un DataFrame
+    print(gb2)                                   # Se imprime la base de datos
+
+    
+    st1=gb2['Nómina'].sum()           # Suma todos los costos de nómina
+    st2=gb2['Spúblicos'].sum()        # Suma tosdos los valores de servicios públicos
+    st3=gb2['Arriendo'].sum()         # Suma todos los valores de arriendo
+    st4=gb2['Seguros'].sum()          # Suma todos los valores de seguros
+    st5=gb2['mantenimiento'].sum()    # Suma todos los valores de mantenimiento
+    st6=gb2['Impuestos'].sum()        # suma todos los valores de impuestos
+    st7=gb2['Transporte'].sum()       # suma todos los valores de transporte
+    st8=gb2['Otroscostos'].sum()      # suma todos los valores de otros costos
+
+
+    TotalCF= st1+st2+st3+st4+st5+st6+st7+st8  # Suma el valor en dinero de todos los costos fijos 
+   
+
+    print("\n\n\n\n Subtotales")              # mensaje de subtitulos
+
+    print("\n\n\n\nHasta la Fecha: ",f55)     # fecha en el momento del reporte
+    print("\n\nEstos son los costos fijos")   # mensaje
+    # totales por área en costos fijos
+    print("\n\nNómina: $",st1,"\n\nSpúblicos: $",st2,"\n\nArriendo: $",st3,"\n\nSeguros: $",st4,
+           "\n\nmantenimiento: $",st5,"\n\nImpuestos: $",st6,"\n\nTransporte: $",st7,"\n\nOtros costos: $",st8)
+
+    
+    print("\n\n\n\n Total de costos fijos: $",TotalCF) # Total de costos fijos
+    break                                              # Se finaliza el ciclo de esta función
+      
+  
 
 def costosff():            # Se crea función para costos fijos por fecha específica
   while True:              # Se cre ciclo para activar la función de costsos fijos por fecha específica
@@ -207,17 +199,17 @@ def ingventasT():     # Se crea función para sumar el total ingresos en dinero 
     cv2=cv.iloc[:,2]                          # Se crea una lista con las fechas
 
 
-   CE=[cv1,cv2]                               # Se crea una lista principal con las antriores listas
+    CE=[cv1,cv2]                               # Se crea una lista principal con las antriores listas
 
-   cce2=pd.DataFrame(CE)                      # Se crea una nuevo DataFrame con los datos anteriores
-   cce3=cce2.transpose()                      # Se transpone el DataFrame
+    cce2=pd.DataFrame(CE)                      # Se crea una nuevo DataFrame con los datos anteriores
+    cce3=cce2.transpose()                      # Se transpone el DataFrame
 
-   Vtotalventas=cce3['Vtotal'].sum()          # Se suma todos los valores de la ventas
+    Vtotalventas=cce3['Vtotal'].sum()          # Se suma todos los valores de la ventas
 
-   print("\n\n\n\nHasta fecha actual ", f55)  # Se imprime la fecha del informe
+    print("\n\n\n\nHasta fecha actual ", f55)  # Se imprime la fecha del informe
 
-   print("\n\nEl total de dinero ingresado por ventas: $",Vtotalventas,"\n\n") # Se imprime el valor total en dinero de todas las ventas
-   break                                      # Finaliza el ciclo de esta función
+    print("\n\nEl total de dinero ingresado por ventas: $",Vtotalventas,"\n\n") # Se imprime el valor total en dinero de todas las ventas
+    break                                      # Finaliza el ciclo de esta función
 
 
 def ingventasTF():    # Se crea función para sumar el total ingresos en dinero por ventas por fecha específica
