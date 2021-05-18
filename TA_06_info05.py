@@ -154,6 +154,10 @@ def vencimiento():
           print("\n\n")
     break  
 
+
+ F33=gb2[(gb2['Fecha']>=fc1) & (gb2['Fecha']<=fc2)]                # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
+ F7=pd.DataFrame(F33)                                              # Se crea un nuevo DataFrame con los datos encontrados
+
 '''
 print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
 
