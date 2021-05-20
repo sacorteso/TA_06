@@ -9,7 +9,7 @@ import pandas as pd # Librería para utilizar y manipular dataframe
 import numpy as np  # Librería para realizar operaciones matemáticas y manejo de matrices
 import os           # Librerías para realizar funciones internas del software
 import csv          # Librería para manipular archivos excel y con extensión .csv 
-
+from tabulate import tabulate   # Librería pararealizar tabulaciones al imprimir los resultados
 # listo para funcionamiento
 # Para cambiar el porcentaje de forma individual
 def ganancia():
@@ -64,31 +64,31 @@ def ganancia():
 
 #listo para funcionamiento
 # Para cambiar las unidades de forma individual
-def unidades():
-  while True:
-    os.system('clear')
-    print("\n\nPAGINA MOSTRADOR")
-    print("\n\n\t\t PAGINA PARA CAMBIAR LAS UNIDADES EN FORMA INDIVIDUAL")
-    print("\n\n\t\t Referencia en productos en Bodega\n\n")
+def unidades():  # función para elegir la cantidad de productos para la venta según la referencia
+  while True:    # Activar el ciclo para elegir la cantidad de productos para la venta según la referencia
+    os.system('clear') # para limpiar la pantalla
+    print("\n\nPAGINA MOSTRADOR") # Titulo para la página principal de mostrador
+    print("\n\n\t\t PAGINA PARA CAMBIAR LAS UNIDADES EN FORMA INDIVIDUAL") # subtitulos para cambiar las unidades en forma individual
+    print("\n\n\t\t Referencia en productos en Bodega\n\n")   # Subtitulos para referencia
 
-    mm2=pd.read_csv("BDATOS/mostrador.csv")
-    LL5=pd.read_csv('BDATOS/bodega1.csv')
-    print(LL5)
+    mm2=pd.read_csv("BDATOS/mostrador.csv")   # Se lee base de datos mostrador
+    LL5=pd.read_csv('BDATOS/bodega1.csv')     # Se lee la base de datos de bodega
+    print(LL5)                                # Se imprime la bese de datos de bodega
 
-    print("\n\n\n\n Mostrador actual")
-    print("\n\n",mm2)
-
-
-    g2=input("\n\n\n\nIngrese la referencia del producto")
-    g3=str(g2)
+    print("\n\n\n\n Mostrador actual")        # Se imprime mensaje
+    print("\n\n",mm2)                         # Se imprime los productos que están listos para la venta
 
 
-    g4=input("\n\ningrese la fecha de compra del producto:   ")
-    g5=int(g4)
-    m5= LL5[LL5['Referencia']==g3]
-    m6= LL5[LL5['Fcompra']==g5]
-    os.system('clear')
-    print("\n\n\n\nDatos de la bodega \n\n", m5)
+    g2=input("\n\n\n\nIngrese la referencia del producto") # Se imprime mensaje para referencia de producto
+    g3=str(g2)                                             # se crea una variable tipo string
+
+
+    g4=input("\n\ningrese la fecha de compra del producto:   ") # Se ingresa la fecha de compra del producto
+    g5=int(g4)                                                  # Se convirta la variable anterior en una variable tipo entero
+    m5= LL5[LL5['Referencia']==g3]                              # Se buscan las referencias correspondientes en el DataFrame
+    m6= LL5[LL5['Fcompra']==g5]                                 # Se buscan la fecha de compra en el DataFrame
+    os.system('clear')                                          # Se limpia la pantalla
+    print("\n\n\n\nDatos de la bodega \n\n", m5)                # Se imprime los resultados de las referencias encontradas
 
 
     mu=input("\n\n\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")
