@@ -9,12 +9,12 @@
 #run = "python TA_06_info04.py"
 
 
-#language = "python3"
-#run = "python TA_06_info05.py"
+language = "python3"
+run = "python TA_06_info05.py"
 
 #language = "python3"
 #run = "python TA_06_info06.py"
 
-language = "python3"
-run = "python TA_06_info07.py"
+#language = "python3"
+#run = "python TA_06_info07.py"
 

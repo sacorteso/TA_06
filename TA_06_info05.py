@@ -117,81 +117,120 @@ def unidades():
         
 
 
-    print("\n\n\n\n***************   Bodega actualizada    *******************)
+    print("\n\n\n\n***************   Bodega actualizada    *******************")
     print("\n\n\n\n", LL5)
     print("\n\n\n\n***************   Mostrador actualizado   ****************")
     print("\n\n",mm2)
     
     break
-def vencimiento():
-  while True:
-    today=dt.today()
-    print(today)
+def vencimiento():   # Función para avisar cuando hay un producto cercano para vencerse  o  vencido
+  while True:        # Activa el ciclo para avisar cuando hay un producto cercano para vencerse  o  vencido
+    today=dt.today() # Muestra la fecha actual
+    #print(today)
     f5=today.strftime('%Y%m%d')
     f55=int(f5)
-    print(f55)
-    f25=today-timedelta(10)
-    print(f25)
-    f25=today.strftime('%Y%m%d')
-    print(f25)
-    f255=int(f25)
-    print(f255)
-    print("\n\n\n\n************   ALERTA DE PRODUCTO VENCIDO     ************")
+    #print(f55)
+    f25=today-timedelta(15)
+    f255=f25.strftime('%Y%m%d')
+    f257=int(f255)
+    
+    
+    print("\n\n*****************************************************************************************************")
+    print("*************************       ALERTA DE PRODUCTO VENCIDO     ******************************************")
+    print("*********************************************************************************************************")
     L5=pd.read_csv('BDATOS/bodega1.csv')
+    
     for i in range(len(L5)):
-      if(L5.iloc[i, 7]<=f55):
-        print("\n\nproducto con nombre: ", L5.iloc[i, 1], " y referencia: "L5.iloc[i, 2]"    con fecha de compra: ",L5.iloc[i, 6] ) 
-        print("\n\n                                                                          Esta vencido - reemplazar")
+      if(L5.iloc[i,7]<=f55):
+        #print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"       con fecha de compra: ",L5.iloc[i,6] )
+        print("\n\n")
+        print("\nProducto con nombre: ", L5.iloc[i,1])
+        print("\n         referencia: ", L5.iloc[i,2])
+        print("\ncon fecha de compra: ", L5.iloc[i,6])
+        print("\n\n                                   Está vencido - reemplazar")
+        print("\n\n---------------------------------------------------------------------------------------")                                                                      
+    print("\n\n******************************************************************************************************")
+    print("\n\n**************************       ALERTA DE PRODUCTO CERCANO A VENCERSE   *****************************")
+    print("\n\n******************************************************************************************************")
+    L5=pd.read_csv('BDATOS/bodega1.csv')
+    
+    L57=pd.DataFrame(L5['Fv'])
+    #print(L57)
 
-    print("\n\n\n\n***********     Alerta de producto cercano a vencerse    ******************")
-    for i in range(len(L5)):
-      L5=pd.read_csv('BDATOS/bodega1.csv')
-      k=(L5.iloc[i,7])
-      if( k>f225 ):
-        if(<f55):
-          print("HOLA")
-          print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"     con fecha de compra: ", L5.iloc[i,6])
-          print("\n\n")
-    break  
+    L57['Fv']= pd.to_datetime(L57['Fv'], format="%Y%m%d")
+    #print(L57)
+    
+    for kkk in range(1):
+      L9=L57.iloc[kkk:,0]
+      T4=L9-timedelta(15)
+      LL9=pd.DataFrame(T4)
+      LL9.columns=['Fv1']
+     
 
 
- F33=gb2[(gb2['Fecha']>=fc1) & (gb2['Fecha']<=fc2)]                # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
- F7=pd.DataFrame(F33)                                              # Se crea un nuevo DataFrame con los datos encontrados
+    for k9 in range(len(L57)):
+      if(LL9.iloc[k9,0]<=today and today<L57.iloc[k9,0]):
+        
+        TT=L5.iloc[k9,2]
+        
+        #print("\n\nProducto con nombre: ", L5.iloc[k9,1], " y referencia: ",L5.iloc[k9,2],"       con fecha de compra: ",L5.iloc[k9,6] )
+        print("\n\n")
+        print("\nProducto con nombre: ", L5.iloc[k9,1])
+        print("\n         referencia: ", L5.iloc[k9,2])
+        print("\ncon fecha de compra: ", L5.iloc[k9,6])
+        print("\n\n                                   Está cercano a vencerse - tener cuidado")
+        print("\n\n--------------------------------------------------------------------------------------------------") 
+        
+        #print("\n\n                                                                             Está cercano a vencerse - tener cuidado")
+        print("\n\n")  
+    break
 
-'''
-print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
-
+# hasta aqui fecha  
+os.system('clear')
+print("\n\n*********************************************************************************************************")      
+print("\n\t\t\t\t                          PÁGINA PRINCIPAL DE MOSTRADOR ")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
+print("\n\n*********************************************************************************************************")
+today=dt.today()
+print(today)
 # función para activar el submenu de entrada de la página compras
 def menu():                                              # se crea un menu para el manejo operativo del negocio
     
-    print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-    print("\t1 - Cambio de porcentaje de ganancia ")                  # se imprime registro de compras
-    print("\t2 - Para llenar el mostrador con productos")              # se imprime registro total acumulado
-    print("\t3 - Vencimiento de productos")                     # se imprime ingreso abodega
-    print("\t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
+    print("          \n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
+    print("                  \t5.1 - Cambio de porcentaje de ganancia ")                  # se imprime registro de compras
+    print("                  \t5.2 - Para llenar el mostrador con productos")              # se imprime registro total acumulado
+    print("                  \t5.3 - Vencimiento de productos")                     # se imprime ingreso abodega
+    print("                  \t5.4 - Agotamiemnto de productos")                     # se imprime ingreso abodega
+    print("                  \t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
           
 # Se crea un una iteración con while mientras se cumpla la condición
 while True:                                              # se activa el ciclo while para activar el menú
       menu()                                             # se activa la función menú
       opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
-                  
-      if opcionMenu == "1":                              # Para activar la función compra
+      os.system('clear')             
+      if opcionMenu == "5.1":                              # Para activar la función compra
           print("\n\nhola\n\n")                          # imprime mensaje de saludo
           ganancia()                                     # la función compra se ejecuta
      
            
 
         
-      elif opcionMenu == "2":                            # Para activar la función total
+      elif opcionMenu == "5.2":                            # Para activar la función total
              unidades()                                     # se ejecuta la función total
       
 
-      elif opcionMenu == "3":                            # se activa la función bodega
+      elif opcionMenu == "5.3":                            # se activa la función bodega
              vencimiento()
+
+      elif opcionMenu == "5.4":                            # se activa la función bodega
+             agotado()
+        
         
      
 
       elif opcionMenu == "9":                            # se elige la activa la opción finalizar menú
           print("\n\n\t\tSistema finalizado")                    # mensaje que confirma la finalización del menu
-          break                                          # se finaliza el ciclo if del menú         
-'''
+          break                                          # se finaliza el ciclo if del menú
+                  
+     
+    
+    
