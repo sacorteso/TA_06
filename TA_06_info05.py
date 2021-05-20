@@ -121,8 +121,48 @@ def unidades():
     print("\n\n\n\n", LL5)
     print("\n\n\n\n***************   Mostrador actualizado   ****************")
     print("\n\n",mm2)
-    
     break
+
+def agotado():  # Se crea función para controlar el agotamiento de productos en la bodega
+  while True:   # Se activa función para controlar el agotamiento de productos en la bodega
+    print("\n\n*******************************************************************************************************") # Decoración de titulo de pantalla
+    print("\n\n******************************        ALERTA DE PRODUCTO AGOTADO         ******************************") # Titulo de alerta de producto agotado
+    print("\n\n*******************************************************************************************************") # Decoración de titulo de pantalla
+    L5=pd.read_csv('BDATOS/bodega1.csv')
+    for i in range(len(L5)):
+       if(L5.iloc[i,4]==0):
+
+         #print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"       con fecha de compra: ",L5.iloc[i,6] )
+         #print("\n\n")
+         #print("\n\n                                                                             Está agotado")
+         print("\nProducto con nombre: ", L5.iloc[i,1])
+         print("\n         referencia: ", L5.iloc[i,2])
+         print("\ncon fecha de compra: ", L5.iloc[i,6])
+         print("\n\n                                   Está agotado")
+         print("\n\n------------------------------------------------------------------------------------------------") 
+         
+         
+    break
+
+
+
+  while True:
+    print("\n\n*******************************************************************************************************")
+    print("\n\n************************      ALERTA DE PRODUCTO CERCANO A AGOTARSE    ********************************")
+    print("\n\n*******************************************************************************************************")
+    L5=pd.read_csv('BDATOS/bodega1.csv')
+    for i in range(len(L5)):
+        if(L5.iloc[i,4]==2):
+          #print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"       con fecha de compra: ",L5.iloc[i,6] )
+          #print("\n\n                                                                                      Está cercano a agotarse  ")
+          print("\nProducto con nombre: ", L5.iloc[i,1])
+          print("\n         referencia: ", L5.iloc[i,2])
+          print("\ncon fecha de compra: ", L5.iloc[i,6])
+          print("\n\n                                    Está cercano a agotarse")
+          print("\n\n-------------------------------------------------------------------------------------------------") 
+                                                                                     
+    break
+
 def vencimiento():   # Función para avisar cuando hay un producto cercano para vencerse  o  vencido
   while True:        # Activa el ciclo para avisar cuando hay un producto cercano para vencerse  o  vencido
     today=dt.today() # Muestra la fecha actual
