@@ -1,6 +1,11 @@
+#Advertencia
+# En la opción 5.1 en ingrese la referencia del producto utilizar c500ml
+#    en ingrese el nuevo porcentaje de ganancia del producto utilizar 35 
 
-
-
+# En la opción 5.2 en ingrese la referencia del producto utilizar CL1000
+#     en ingrese la fecha de compra del producto utilizar 20210428
+#     ingrese la nueva cantidades de unidades del producto para mostrador
+#     utilizar 5 o máximo las unidades que muestra los datos de la bodega
 
 # librerías para manejar base de datos
 from datetime import date as dt       # Librería para manejar fechas
