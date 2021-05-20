@@ -8,6 +8,7 @@ authors = ["sacorteso <<>>"]
 python = "^3.8"
 pandas = "^1.2.4"
 numpy = "^1.20.2"
+tabulate = "^0.8.9"
 
 [tool.poetry.dev-dependencies]
 
