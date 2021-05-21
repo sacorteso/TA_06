@@ -53,17 +53,27 @@ def proveedor(): # se crea funcion proveedor
   #else:
     break
 
+def Bproveedores(): #Funcion para crear un resumen de la base de datos de proveedores
+  while True: # se activa ciclo para activar la funcion anterior
+    os.system('clear') #limpiar pantalla
+    PL03=pd.read_csv('BDATOS/proveedor.csv') # para leer la base de datos de proveedores
+    print("\n\n\n\n*****************************************************************************")
+    print("\n\n**********************  PAGINA PRINCIPAL DE PROVEEDORES  ************************")
+    print("\n\n*****************************************************************************")
+    print("\n\n", PL03) # para imprimir la base de datos de proveedores 
+    break # para finalizar el ciclo de esta funcion 
+os.system('clear') #limpiar pantalla
 print("\t\t\t\t PÁGINA PRINCIPAL DE PROVEEDORES\n\n")    # se imprime el titulo de la página del menu del manejo operativo del negocio
 
 
 def menu():                                                # se crea un menu para el manejo operativo del negocio
     
     print("\n\n\n\nSelecciona una opción \n")              # se imprime mensaje del menú
-    print("\t8.1 - Costos de Bodega completa ")            # se imprime registro de costos de bodega forma completa
-    print("\t7.2 - Costos de bodega por fechas")           # se imprime registro de costos de bodega forma fechas específicas
-    print("\t7.3 - Ingreso de datos para costos fijos")    # se imprime opción para anexar datos de costsos fijos
-    print("\t7.4 - Costos fijos completos")                # se imprime el registro de costos fijos la base completa
-    print("\t7.5 - Costos fijos por fecha")                # se imprme el registro  de costos fijos la base por fecha específica
+    print("\t8.1 - ingreso de proveedores ")           # se imprime registro de costos de bodega forma completa
+    print("\t8.2 - para leer base de datos de proveedores")           # se imprime registro de costos de bodega forma fechas específicas
+    print("\t8.3 - valor de productos por paca")    # se imprime opción para anexar datos de costsos fijos
+    print("\t8.4 - valor de las ventas por fechas")                # se imprime el registro de costos fijos la base completa
+    print("\t8.5 - informe total de contabilidad ")                # se imprme el registro  de costos fijos la base por fecha específica
     print("\t7.6 - Ingresos por ventas - completa")        # se imprime el registro de ventas la base completa
     print("\t7.7 - Ingresos por ventas - manejo por fechas") # Se imprime el registro de ventas la base por fecha específica
     print("\t7.8 - CONTABILIDAD")                          # se imprime la opción del control toal de la contabilidad
@@ -81,17 +91,17 @@ while True:                                              # se activa el ciclo wh
            
 
         
-      elif opcionMenu == "7.2":                          # Para activar la función costos de bodega forma por fechas específicas
-             bodegafecha()                               # la función costos de bodega de forma por fechas específicas se ejecuta
+      elif opcionMenu == "8.2":                          # Para activar la función costos de bodega forma por fechas específicas
+             Bproveedores()                               # la función costos de bodega de forma por fechas específicas se ejecuta
       
 
-      elif opcionMenu == "7.3":                          # se activa la función ingresos de datos para costos fijos
+      elif opcionMenu == "8.3":                          # se activa la función ingresos de datos para costos fijos
              ingcostosf()                                # Se ejecuta la función ingresos de datos para costos fijos
         
-      elif opcionMenu == "7.4":                          # se activa la función costos fijos forma completa
+      elif opcionMenu == "8.4":                          # se activa la función costos fijos forma completa
             costosf()                                    # Se ejecuta la función costos fijos forma completa
 
-      elif opcionMenu == "7.5":                          # se activa la función costos fijos forma fecha específica
+      elif opcionMenu == "8.5":                          # se activa la función costos fijos forma fecha específica
              costosff()                                  # Se ejecuta la función costos fijos forma fecha específica
 
 
