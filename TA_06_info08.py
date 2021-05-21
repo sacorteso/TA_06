@@ -6,6 +6,9 @@ import numpy as np  # Librería para realizar operaciones matemáticas y manejo 
 import os           # Librerías para realizar funciones internas del software
 import csv          # Librería para manipular archivos con extensión csv
 import time         # Librería para manipular el tiempo
+#import matplotlib.pyplot as plt
+#import openpyxl
+
 
 def proveedor(): # se crea funcion proveedor
   while True:
@@ -18,6 +21,8 @@ def proveedor(): # se crea funcion proveedor
     PP05=[]#se crea lista para almacenar el subtotal de la compra por referencia de producto
     PP06=[]#se crea lista para almacenar la fecha
     PP07=[]#se crea lista para almacenar la hora
+    PP08=[]
+  
     print("\n\n\n\n\t\t\t\t\t              PÁGINA PROVEEDORES") # titulo de la página de clientes
     PPP01=input("\n\nIngrese el nombre de la empresa: ")          # Para ingrese la identificación
     PPP02=input("\n\nIngrese el nombre del vendedor: ")        # Para ingresar el nombre del cliente
@@ -34,15 +39,74 @@ def proveedor(): # se crea funcion proveedor
     PP03.append(PPP04) #se crea lista para almacenar la identificacion del cliente
     PP04.append(PPP05) #se crea lista para almacenar la identificacion del cliente
     PP05.append(PPP06) #se crea lista para almacenar la identificacion del cliente
-    CL0=(CA,PP01,PP02,PP03,PP04,PP05)      # se crea lista con los datos del cliente
+    PP06.append(PPP07)
+    PP07.append(PPP08)
+    PP08.append(PPP09)
+  
+    CL=(CA0,PP01,PP02,PP03,PP04,PP05,PP06,PP07,PP08)      # se crea lista con los datos del cliente
     PL01=pd.DataFrame(CL)             # Se crea DataFrame con los datos del cliente
     PL02=pd.DataFrame.transpose(PL01)  # se transpone el DataFrame
-    PL02.to_csv('BDATOS/clientes.csv', mode="a", index="", header="") # se graba la información del cliente en la base de datos clientes
-    PL03=pd.read_csv('BDATOS/clientes.csv')  # se lee la base e datos de cliente
+    PL02.columns=["Empresa","NVendedor","Papellido","Sapellido","Celular","Fijo","Correo","Pvisita","Svisita"]
+    PL02.to_csv('BDATOS/proveedor.csv', mode="a", index="", header="") # se graba la información del cliente en la base de datos clientes
+    PL03=pd.read_csv('BDATOS/proveedor.csv')  # se lee la base e datos de cliente
     print(PL03)                              # Se imprime la base de datos cliente
   #else:
     break
 
+print("\t\t\t\t PÁGINA PRINCIPAL DE PROVEEDORES\n\n")    # se imprime el titulo de la página del menu del manejo operativo del negocio
+
+
+def menu():                                                # se crea un menu para el manejo operativo del negocio
+    
+    print("\n\n\n\nSelecciona una opción \n")              # se imprime mensaje del menú
+    print("\t8.1 - Costos de Bodega completa ")            # se imprime registro de costos de bodega forma completa
+    print("\t7.2 - Costos de bodega por fechas")           # se imprime registro de costos de bodega forma fechas específicas
+    print("\t7.3 - Ingreso de datos para costos fijos")    # se imprime opción para anexar datos de costsos fijos
+    print("\t7.4 - Costos fijos completos")                # se imprime el registro de costos fijos la base completa
+    print("\t7.5 - Costos fijos por fecha")                # se imprme el registro  de costos fijos la base por fecha específica
+    print("\t7.6 - Ingresos por ventas - completa")        # se imprime el registro de ventas la base completa
+    print("\t7.7 - Ingresos por ventas - manejo por fechas") # Se imprime el registro de ventas la base por fecha específica
+    print("\t7.8 - CONTABILIDAD")                          # se imprime la opción del control toal de la contabilidad
+    print("\t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
+          
+# Se crea un una iteración con while mientras se cumpla la condición
+while True:                                              # se activa el ciclo while para activar el menú
+      menu()                                             # se activa la función menú
+      opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
+                  
+      if opcionMenu == "8.1":                            # Para activar la función costos de bodega forma completa
+          print("\n\nhola\n\n")                          # imprime mensaje de saludo
+          proveedor()                                    # la función costos de bodega de forma completa se ejecuta
+     
+           
+
+        
+      elif opcionMenu == "7.2":                          # Para activar la función costos de bodega forma por fechas específicas
+             bodegafecha()                               # la función costos de bodega de forma por fechas específicas se ejecuta
+      
+
+      elif opcionMenu == "7.3":                          # se activa la función ingresos de datos para costos fijos
+             ingcostosf()                                # Se ejecuta la función ingresos de datos para costos fijos
+        
+      elif opcionMenu == "7.4":                          # se activa la función costos fijos forma completa
+            costosf()                                    # Se ejecuta la función costos fijos forma completa
+
+      elif opcionMenu == "7.5":                          # se activa la función costos fijos forma fecha específica
+             costosff()                                  # Se ejecuta la función costos fijos forma fecha específica
+
+
+      elif opcionMenu == "7.6":                          # se activa la función ventas en forma completa
+             ingventasT()                                # se ejecuta la función ventas en forma fechas específica
+
+      elif opcionMenu == "7.7":                          # se activa la función ventas en forma fechas específica
+              ingventasTF()                              # se ejecuta la función ventas en forma fechas específica
+
+      elif opcionMenu == "7.8":                          # se activa la función contabilidad total del negocio
+             contabilidad()                              # se ejecuta la función contabilidad total del negocio
+
+      #elif opcionMenu == "9":                           # se elige la activa la opción finalizar menú
+          #print("\n\n\t\tSistema finalizado")           # mensaje que confirma la finalización del menu
+         # break                                         # se finaliza el ciclo if del menú
 
 
 
@@ -52,17 +116,6 @@ def proveedor(): # se crea funcion proveedor
 
 
 
-from datetime import date as dt
-from datetime import datetime as dtt
-from datetime import timedelta
-import pandas as pd  # Librería para utilizar y manipular dataframe
-import numpy as np  # Librería para realizar operaciones matemáticas y manejo de matrices
-import os  # Librerías para realizar funciones internas del software
-import csv  # Librería para manipular archivos excel y con extensión .csv
-import time
-#import tkinter as tk
-import matplotlib.pyplot as plt
-import openpyxl
 '''
 #funcionando
 # Valor de productos por paca
@@ -184,19 +237,19 @@ print(LC58)
 '''
 #IF,capitalbase,CBodega,Cfijos,Ventas,EntrdaExtra,porc,ganancianeta,Disponible
 
-inf= pd.read_csv("BDATOS/contabilidad1.csv")
-print(inf)
-inf1=inf['IF']
-inf2=inf['capitalbase']
-inf3=inf['CBodega']
-inf4=inf['Cfijos']
-inf5=inf['ganancianeta']
+###inf= pd.read_csv("BDATOS/contabilidad1.csv")
+###print(inf)
+###inf1=inf['IF']
+###inf2=inf['capitalbase']
+###inf3=inf['CBodega']
+###inf4=inf['Cfijos']
+###inf5=inf['ganancianeta']
 
-print(inf1)
-print(inf2)
-print(inf3)
-print(inf4)
-print(inf5)
+###print(inf1)
+###print(inf2)
+###print(inf3)
+###print(inf4)
+###print(inf5)
 #FUNCIONA
 # CAPITAL BASE
 '''
@@ -279,9 +332,9 @@ plt.show()
 '''
 
 
-C41=[inf1,inf2,inf3,inf4,inf5]
+###C41=[inf1,inf2,inf3,inf4,inf5]
 
-C411=pd.DataFrame(C41)
-C43=pd.DataFrame.transpose(C411)
-C43.plot(x="IF", y=["capitalbase","CBodega","Cfijos","ganancianeta"],kind='bar')
-plt.show()
+###C411=pd.DataFrame(C41)
+###C43=pd.DataFrame.transpose(C411)
+###C43.plot(x="IF", y=["capitalbase","CBodega","Cfijos","ganancianeta"],kind='bar')
+###plt.show()
