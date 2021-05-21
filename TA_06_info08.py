@@ -1,3 +1,9 @@
+#Advertencia:
+# Si hay una gráfica abierta para poder volver al menú de opciones debe primero cerrar
+# la gráfica en el cuadro superior derecho en la X y luego en la ventana de la consola 
+# utilizar el scroll del mouse,  ir la final de la pantalla y encontrará el menú disponible.
+
+
 from datetime import date as dt       #librería para manejar fechas
 from datetime import datetime as dtt  #librería para manejar el tiempo
 from datetime import timedelta        #librearía para realizar operaciones matemáticas con el tiempo
@@ -61,12 +67,12 @@ def proveedor(): # se crea funcion proveedor
 
 def Bproveedores():     # Función para crear un resumen de la base de datos de proveedores
   while True:           # se activa ciclo para activar la funcion anterior
-    os.system('clear')  # Para limpiar pantalla
+    #os.system('clear')  # Para limpiar pantalla
     PL03=pd.read_csv('BDATOS/proveedor.csv')  # para leer la base de datos de proveedores
     print("\n\n\n\n*****************************************************************************") # Decoración de pantalla
     print("\n\n**********************  PAGINA PRINCIPAL DE PROVEEDORES  ************************") # Titulo de la página principal de proveedores
     print("\n\n*****************************************************************************")     # Decoración de pantalla
-    print("\n\n",tabulate(PL03)) # para imprimir la base de datos de proveedores 
+    print("\n\n",PL03)  # para imprimir la base de datos de proveedores 
     break               # para finalizar el ciclo de esta función 
 
 
@@ -98,9 +104,8 @@ def PRpaca():      # Se crea función para realizar informe de los precios de la
     plt.ylabel('Precio en pesos')                                    # se agrega titulo al eje Y
     plt.xlabel('Producto')                                           # Se agrega titulo al eje X
     plt.show()                                                       # Se muestra la gráfica generada
-    
     break                                                            # Se finaliza el ciclo para esta función
-
+    
 
 # funcionando
 # Para ventas
@@ -113,11 +118,11 @@ def Ifventas():   # Se crea función para realizar informe de las ventas diarias
     C1=[f1,f2]                                 # Se crea una lista con los datos anteriores
     ffventas=pd.DataFrame(C1)                  # Se crea un DataFrame con los datos anteriormente seleccionados
     ff1ventas=pd.DataFrame.transpose(ffventas) # Se transpone el DataFrame anterior
-    #print(ff1ventas)                           # Se imprime los datos del DataFrame anterior
+    #print(ff1ventas)                          # Se imprime los datos del DataFrame anterior
     ff1ventas.set_index('Fecha',inplace=True)  # Las fechas se convierten en index para el DataFrame
-    #print(ff1ventas)                           # Se imprime el DataFrame modificado
+    #print(ff1ventas)                          # Se imprime el DataFrame modificado
     print("\n\n**************************************************************************************") # Decoración de pantalla
-    print("\n\n Informe estadístico de ventas diarias") # Se imprime mensaje para informe estadístico
+    print("\n\n                             Informe estadístico de ventas diarias") # Se imprime mensaje para informe estadístico
     print("\n\n**************************************************************************************") # Decoración de pantalla
     GF=f1.describe()                           # Se crea el informe estadístico
     print("\n\n")                           # salto de línea
@@ -144,9 +149,9 @@ def Ubodega():    # Se crea función para realizar informe de La cantidad de uni
     co6=pd.DataFrame(C)                     # Se crea un DataFrame con los datos anteriormente seleccionados
     co7=pd.DataFrame.transpose(co6)         # Se transpone el DataFrame anterior
     co7.set_index('Producto',inplace=True)  # Los nombres de los productos se convierten en index para el DataFrame
-    #print(co7)                              # Se imprime el DataFrame modificado
+    #print(co7)                             # Se imprime el DataFrame modificado
     print("\n\n**************************************************************************************") # Decoración de pantalla
-    print("\n\n Informe estadístico de unidades disponibles en bodega") # Se imprime mensaje para informe estadístico
+    print("\n\n                           Informe estadístico de unidades disponibles en bodega") # Se imprime mensaje para informe estadístico
     print("\n\n**************************************************************************************") # Decoración de pantalla
     GU=cco2.describe()                      # Se crea el informe estadístico
     print("\n\n")                           # salto de línea
@@ -175,25 +180,31 @@ def infcontabilidad():   # Se crea función para realizar informe Total de los p
     inf4=inf['Cfijos']                           # Se extrae los costos fijos de funcionamiento
     inf5=inf['ganancianeta']                     # Se extrae los extrae la ganancia neta
     print("\n\n**************************************************************************************") # Decoración de pantalla
-    print("\n\n Informe estadístico de capital base") # Se imprime mensaje para informe estadístico 
-    print("\n\n**************************************************************************************") # Decoración de pantalla
+    print("\n                            INFORME DE CONTABILIDAD") # Se imprime mensaje para informe estadístico 
+    print("\n **************************************************************************************") # Decoración de pantalla
+    print("\n\n--------------------------------------------------------------------------------------") # Decoración de pantalla
+    print("\n                        Informe estadístico de capital base") # Se imprime mensaje para informe estadístico 
+    print("\n--------------------------------------------------------------------------------------") # Decoración de pantalla
     G2=inf2.describe()                                    # Se crea el informe estadístico para capital base
     print("\n\n")                           # salto de línea
     print(G2)                                             # Se imprime los resultados en el informe estadístico
     
-
-    print("\n\n Informe estadístico de costos de bodega\n\n") # Se imprime mensaje para informe estadístico 
+    print("\n\n\n--------------------------------------------------------------------------------------") # Decoración de pantalla
+    print("\n                         Informe estadístico de costos de bodega") # Se imprime mensaje para informe estadístico 
+    print("\n--------------------------------------------------------------------------------------")
     G3=inf3.describe()                                        # Se crea el informe estadístico para costos de bodega
     print("\n\n")                           # salto de línea
     print(G3)                                                 # Se imprime los resultados en el informe estadístico
 
-
-    print("\n\n Informe estadístico de costos de fijos\n\n") # Se imprime mensaje para informe estadístico 
+    print("\n\n\n--------------------------------------------------------------------------------------")
+    print("\n                         Informe estadístico de costos de fijos") # Se imprime mensaje para informe estadístico 
+    print("\n--------------------------------------------------------------------------------------")
     G4=inf4.describe()                                       # Se crea el informe estadístico costos fijos de funcionamiento
     print("\n\n")                           # salto de línea
     print(G4)                                                # Se imprime los resultados en el informe estadístico
-
-    print("\n\n Informe estadístico de ganancia neta\n\n") # Se imprime mensaje para informe estadístico 
+    print("\n\n\n--------------------------------------------------------------------------------------")
+    print("\n                         Informe estadístico de ganancia neta") # Se imprime mensaje para informe estadístico 
+    print("\n-------------------------------------------------------------------------------------")
     G5=inf5.describe()                                     # Se crea el informe estadístico para ganancia neta
     print("\n\n")                           # salto de línea
     print(G5)                                              # Se imprime los resultados en el informe estadístico
