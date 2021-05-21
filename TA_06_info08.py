@@ -6,8 +6,8 @@ import numpy as np  # Librería para realizar operaciones matemáticas y manejo 
 import os           # Librerías para realizar funciones internas del software
 import csv          # Librería para manipular archivos con extensión csv
 import time         # Librería para manipular el tiempo
-#import matplotlib.pyplot as plt
-#import openpyxl
+import matplotlib.pyplot as plt
+import openpyxl
 
 
 def proveedor(): # se crea funcion proveedor
@@ -62,188 +62,86 @@ def Bproveedores(): #Funcion para crear un resumen de la base de datos de provee
     print("\n\n*****************************************************************************")
     print("\n\n", PL03) # para imprimir la base de datos de proveedores 
     break # para finalizar el ciclo de esta funcion 
-os.system('clear') #limpiar pantalla
-print("\t\t\t\t PÁGINA PRINCIPAL DE PROVEEDORES\n\n")    # se imprime el titulo de la página del menu del manejo operativo del negocio
-
-
-def menu():                                                # se crea un menu para el manejo operativo del negocio
-    
-    print("\n\n\n\nSelecciona una opción \n")              # se imprime mensaje del menú
-    print("\t8.1 - ingreso de proveedores ")           # se imprime registro de costos de bodega forma completa
-    print("\t8.2 - para leer base de datos de proveedores")           # se imprime registro de costos de bodega forma fechas específicas
-    print("\t8.3 - valor de productos por paca")    # se imprime opción para anexar datos de costsos fijos
-    print("\t8.4 - valor de las ventas por fechas")                # se imprime el registro de costos fijos la base completa
-    print("\t8.5 - informe total de contabilidad ")                # se imprme el registro  de costos fijos la base por fecha específica
-    print("\t7.6 - Ingresos por ventas - completa")        # se imprime el registro de ventas la base completa
-    print("\t7.7 - Ingresos por ventas - manejo por fechas") # Se imprime el registro de ventas la base por fecha específica
-    print("\t7.8 - CONTABILIDAD")                          # se imprime la opción del control toal de la contabilidad
-    print("\t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
-          
-# Se crea un una iteración con while mientras se cumpla la condición
-while True:                                              # se activa el ciclo while para activar el menú
-      menu()                                             # se activa la función menú
-      opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
-                  
-      if opcionMenu == "8.1":                            # Para activar la función costos de bodega forma completa
-          print("\n\nhola\n\n")                          # imprime mensaje de saludo
-          proveedor()                                    # la función costos de bodega de forma completa se ejecuta
-     
-           
-
-        
-      elif opcionMenu == "8.2":                          # Para activar la función costos de bodega forma por fechas específicas
-             Bproveedores()                               # la función costos de bodega de forma por fechas específicas se ejecuta
-      
-
-      elif opcionMenu == "8.3":                          # se activa la función ingresos de datos para costos fijos
-             ingcostosf()                                # Se ejecuta la función ingresos de datos para costos fijos
-        
-      elif opcionMenu == "8.4":                          # se activa la función costos fijos forma completa
-            costosf()                                    # Se ejecuta la función costos fijos forma completa
-
-      elif opcionMenu == "8.5":                          # se activa la función costos fijos forma fecha específica
-             costosff()                                  # Se ejecuta la función costos fijos forma fecha específica
-
-
-      elif opcionMenu == "7.6":                          # se activa la función ventas en forma completa
-             ingventasT()                                # se ejecuta la función ventas en forma fechas específica
-
-      elif opcionMenu == "7.7":                          # se activa la función ventas en forma fechas específica
-              ingventasTF()                              # se ejecuta la función ventas en forma fechas específica
-
-      elif opcionMenu == "7.8":                          # se activa la función contabilidad total del negocio
-             contabilidad()                              # se ejecuta la función contabilidad total del negocio
-
-      #elif opcionMenu == "9":                           # se elige la activa la opción finalizar menú
-          #print("\n\n\t\tSistema finalizado")           # mensaje que confirma la finalización del menu
-         # break                                         # se finaliza el ciclo if del menú
+#os.system('clear') #limpiar pantalla
 
 
 
-
-
-
-
-
-
-'''
 #funcionando
 # Valor de productos por paca
-co = pd.read_csv("BDATOS/bodega1.csv")
-cp=co['Producto']
-co2=co['Ppaca']
-C=[cp,co2]
+
+def PRpaca():
+  while True:
+    co = pd.read_csv("BDATOS/bodega1.csv")
+    cp=co['Producto']
+    co2=co['Ppaca']
+    C=[cp,co2]
+    co5=pd.DataFrame(C)
+    co6=pd.DataFrame.transpose(co5)
+    print(co6)
+    co6.set_index('Producto',inplace=True)
+    print(co6)
+
+    co6.plot( kind = 'bar')
+    plt.title("INFORME DE BODEGA\n VALOR DE LOS PRODUCTOS POR PACA")
+    plt.ylabel('Precio en pesos')
+    plt.xlabel('Producto')
+    plt.show()
+    break
 
 
-co5=pd.DataFrame(C)
-co6=pd.DataFrame.transpose(co5)
-print(co6)
-co6.set_index('Producto',inplace=True)
-print(co6)
-
-co6.plot( kind = 'bar')
-plt.title("INFORME DE BODEGA\n VALOR DE LOS PRODUCTOS POR PACA")
-plt.ylabel('Precio en pesos')
-plt.xlabel('Producto')
-
-plt.show()
-'''
-'''
 # funcionando
 # Para ventas
-fventas = pd.read_csv("BDATOS/ventas.csv")
 
-f1=fventas['Vtotal']
-f2=fventas['Fecha']
-C1=[f1,f2]
+def Ifventas():
+  while True:
+    fventas = pd.read_csv("BDATOS/ventas.csv")
+    f1=fventas['Vtotal']
+    f2=fventas['Fecha']
+    C1=[f1,f2]
+
+    ffventas=pd.DataFrame(C1)
+    print(ffventas)
+    ff1ventas=pd.DataFrame.transpose(ffventas)
+    #ff1ventas=ff1ventas.groupby(['Fecha']).mean()
+    print(ff1ventas)
+    ff1ventas.set_index('Fecha',inplace=True)
+    print(ff1ventas)
+
+    ff1ventas.plot( kind = 'bar')
+    plt.title("INFORME DE VENTAS\nVALOR DE LAS VENTAS POR FECHAS")
+    plt.ylabel('Precio en pesos')
+    plt.xlabel('Fecha')
+
+    plt.show()
+    break
 
 
-ffventas=pd.DataFrame(C1)
-print(ffventas)
-ff1ventas=pd.DataFrame.transpose(ffventas)
-#ff1ventas=ff1ventas.groupby(['Fecha']).mean()
-print(ff1ventas)
-ff1ventas.set_index('Fecha',inplace=True)
-print(ff1ventas)
 
-
-
-ff1ventas.plot( kind = 'bar')
-plt.title("INFORME DE VENTAS\nVALOR DE LAS VENTAS POR FECHAS")
-plt.ylabel('Precio en pesos')
-plt.xlabel('Fecha')
-
-plt.show()
-'''
-
-'''
 # Funcionando
 # unidades en bodega
-co = pd.read_csv("BDATOS/bodega1.csv")
-cpp=co['Producto']
-cco2=co['unidades']
-C=[cpp,cco2]
+
+def Ubodega():
+  while True:
+    co = pd.read_csv("BDATOS/bodega1.csv")
+    cpp=co['Producto']
+    cco2=co['unidades']
+    C=[cpp,cco2]
+
+    co6=pd.DataFrame(C)
+    co7=pd.DataFrame.transpose(co6)
+    
+    co7.set_index('Producto',inplace=True)
+    print(co7)
+
+    co7.plot( kind = 'bar')
+    plt.title("INFORME DE BODEGA\n Cantidad de unidades por producto")
+    plt.ylabel('Cantidad de unidades')
+    plt.xlabel('Producto')
+
+    plt.show()
+    break
 
 
-co6=pd.DataFrame(C)
-co7=pd.DataFrame.transpose(co6)
-print(co7)
-co7.set_index('Producto',inplace=True)
-print(co7)
-
-co7.plot( kind = 'bar')
-plt.title("INFORME DE BODEGA\n Cantidad de unidades por producto")
-plt.ylabel('Cantidad de unidades')
-plt.xlabel('Producto')
-
-plt.show()
-'''
-'''
-#calendario
-print('ingrese el número del mes y el día: ', end='')
-mes, dia = map(int, input().split())
-
-
-semana={1:'Lunes', 2:'Martes', 3:'Miércoles', 4:'Jueves',
-        5:'Viernes', 6:'Sábado', 7:'Domingo'}
-
-L58=pd.read_csv('BDATOS/ventas.csv')
-L58=pd.DataFrame(L58['Fecha'])
-print(L58)
-
-L58['Fecha']= pd.to_datetime(L58['Fecha'], format="%Y%m%d" )
-print(L58)
-
-#L58['Fecha']= pd.to_datetime(L58['Fecha'], format="%U" )
-print(L58)
-LA58=[]
-LB58=[]
-LC58=[]
-
-
-#L58.strftime()
-
-LA58 = [L58['Fecha'].dt.year]
-LA58=str(LA58)
-LB58 = [L58['Fecha'].dt.month]
-LB58=str(LB58)
-LC58 = [L58['Fecha'].dt.day]
-LC58=str(LC58)
-
-print(LA58)
-print(LB58)
-print(LC58)
-
-
-
-
-#numero_dia=dt.isoweekday(dt(LA58,LB58,LC58))
-
-
-
-#numero_dia=dt.isoweekday(dt(2021,mes,dia))
-
-#print('El nombre del día es: %s' % semana[numero_dia])
 '''
 #IF,capitalbase,CBodega,Cfijos,Ventas,EntrdaExtra,porc,ganancianeta,Disponible
 
@@ -262,6 +160,8 @@ print(LC58)
 ###print(inf5)
 #FUNCIONA
 # CAPITAL BASE
+'''
+
 '''
 C11=[inf1,inf2]
 
@@ -332,19 +232,104 @@ print(C43)
 
 #plt.show()
 
-
-
-fig,(ax1)=plt.figure()
-C43.plot( ax=ax1, kind = 'bar')
-ax=fig.add_subplot(221)
-ax.plot(ax1, color="blue")
-plt.show()
 '''
+def infcontabilidad():
+  while True:
+
+    inf= pd.read_csv("BDATOS/contabilidad1.csv")
+    print(inf)
+
+    inf1=inf['IF']
+    inf2=inf['capitalbase']
+    inf3=inf['CBodega']
+    inf4=inf['Cfijos']
+    inf5=inf['ganancianeta']
+
+    ###print(inf1)
+    ###print(inf2)
+    ###print(inf3)
+    ###print(inf4)
+    ###print(inf5)
 
 
-###C41=[inf1,inf2,inf3,inf4,inf5]
+    
+    C41=[inf1,inf2,inf3,inf4,inf5]
 
-###C411=pd.DataFrame(C41)
-###C43=pd.DataFrame.transpose(C411)
-###C43.plot(x="IF", y=["capitalbase","CBodega","Cfijos","ganancianeta"],kind='bar')
-###plt.show()
+    C411=pd.DataFrame(C41)
+    C43=pd.DataFrame.transpose(C411)
+    C43.plot(x="IF", y=["capitalbase","CBodega","Cfijos","ganancianeta"],kind='bar')
+    plt.title("INFORME DE CONTABILIDAD\n ")
+    plt.ylabel('DINERO EN MILLONES')
+    plt.xlabel('\nFECHA')
+    plt.legend(loc="lower left", bbox_to_anchor=(0.8,0.9))
+
+    
+    plt.show()
+    
+    break
+    break
+
+
+print("\t\t\t\t PÁGINA PRINCIPAL DE PROVEEDORES\n\n")    # se imprime el titulo de la página del menu del manejo operativo del negocio
+
+
+def menu():                                                # se crea un menu para el manejo operativo del negocio
+    
+    print("\n\n\n\nSelecciona una opción \n")              # se imprime mensaje del menú
+    print("\t8.1 - Ingreso de proveedores ")           # se imprime registro de costos de bodega forma completa
+    print("\t8.2 - Base de datos de proveedores")           # se imprime registro de costos de bodega forma fechas específicas
+    print("\t8.3 - Informe del valor de productos por paca")    # se imprime opción para anexar datos de costsos fijos
+    print("\t8.4 - Informe del valor de las ventas por fechas")                # se imprime el registro de costos fijos la base completa
+    print("\t8.5 - Informe total de unidades en bodega")                # se imprme el registro  de costos fijos la base por fecha específica
+    print("\t8.6 - Informe total de contabilidad")        # se imprime el registro de ventas la base completa
+    print("\t7.7 - Ingresos por ventas - manejo por fechas") # Se imprime el registro de ventas la base por fecha específica
+    print("\t7.8 - CONTABILIDAD")                          # se imprime la opción del control toal de la contabilidad
+    print("\t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
+          
+# Se crea un una iteración con while mientras se cumpla la condición
+while True:                                              # se activa el ciclo while para activar el menú
+      menu()                                             # se activa la función menú
+      opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
+                  
+      if opcionMenu == "8.1":                            # Para activar la función costos de bodega forma completa
+          print("\n\nhola\n\n")                          # imprime mensaje de saludo
+          proveedor()                                    # la función costos de bodega de forma completa se ejecuta
+     
+           
+
+        
+      elif opcionMenu == "8.2":                          # Para activar la función costos de bodega forma por fechas específicas
+             Bproveedores()                               # la función costos de bodega de forma por fechas específicas se ejecuta
+      
+
+      elif opcionMenu == "8.3":                          # se activa la función ingresos de datos para costos fijos
+             PRpaca()                                # Se ejecuta la función ingresos de datos para costos fijos
+        
+      elif opcionMenu == "8.4":                          # se activa la función costos fijos forma completa
+            Ifventas()                                    # Se ejecuta la función costos fijos forma completa
+
+      elif opcionMenu == "8.5":                          # se activa la función costos fijos forma fecha específica
+             Ubodega()                                  # Se ejecuta la función costos fijos forma fecha específica
+
+
+      elif opcionMenu == "8.6":                          # se activa la función ventas en forma completa
+             infcontabilidad()                                # se ejecuta la función ventas en forma fechas específica
+
+      elif opcionMenu == "7.7":                          # se activa la función ventas en forma fechas específica
+              ingventasTF()                              # se ejecuta la función ventas en forma fechas específica
+
+      elif opcionMenu == "7.8":                          # se activa la función contabilidad total del negocio
+             contabilidad()                              # se ejecuta la función contabilidad total del negocio
+
+      elif opcionMenu == "9":                           # se elige la activa la opción finalizar menú
+          print("\n\n\t\tSistema finalizado")           # mensaje que confirma la finalización del menu
+          break                                         # se finaliza el ciclo if del menú
+
+
+
+
+
+
+
+
+
