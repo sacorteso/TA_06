@@ -176,87 +176,7 @@ while True:
   
 
 
-def menu(): 
-  #os.system('clear') #limpiar pantalla
-  print("\n\n")
-  tituloG = "PÁGINA PRINCIPAL DE ADMINISTRADOR"
-  print(tituloG.center(100," "))
-  print("\n\n")
-                                           # se crea un menu para el manejo operativo del negocio
-    
-  print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-  print("                                  \t3 - Empleados ")                  # se imprime registro de compras
-  print("                                  \t4 - Compras y Bodega")              # se imprime registro total acumulado
-  print("                                  \t5 - Mostrador")  
-  print("                                  \t6 - Ventas y Clientes") 
-  print("                                  \t7 - Contabilidad") 
-  print("                                  \t8 - Reportes") 
-  print("                                  \t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
-          
-# Se crea un una iteración con while mientras se cumpla la condición
-while True: 
-  menu()                                             # se activa la función menú
-  opcionMenu = input("\n Inserte el número de la opción del menú: ")   # sirve para ingresar el valor de la opción seleccionada
-  if opcionMenu == "3": 
-    #os.system('clear') #limpiar pantalla
-    print("\n\n") 
-        
-    subtitulo = " SUBMENÚ DE EMPLEADOS"
-    print("\n\n")
-    print(subtitulo.center(100," "))
-    print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-    print("                                  \t3.1 - ")                  # se imprime registro de compras
-    print("                                  \t3.2 - ")              # se imprime registro total acumulado
-    print("                                  \t3.3 - ")  
-    print("                                  \t3.4 - ") 
-    print("                                  \t3.5 - ") 
-    print("                                  \t3.6 - ") 
-    print("                                  \t3.7 - ")
-    print("                                  \t3.8 - ")
-    print("                                  \t9   - ")              # se imprime finalizacón de menú
-          
-    opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-    if opcionmenu== "3.1":
-      print("\n\nhola\n\n")                          # imprime mensaje de saludo
-      #bodegacom()   
-      #mensaje="HOLA"
-      #os.system('clear') #limpiar pantalla
-      print("\n\n")
-      print("3.1".center(100," "))                                  # la función compra se ejecuta
-        
 
-       
-    elif opcionmenu == "3.2":
-          print("3.2")
-                                                 # se ejecuta la función total
-      
-
-    elif opcionmenu == "3.3":                            # se activa la función bodega
-             print("3.3")
-            
-    elif opcionmenu == "3.4":                            # se activa la función bodega
-              print("3.4")
-              
-
-    elif opcionmenu == "3.5":                            # se activa la función bodega
-             print("3.5")
-           
-              
-
-
-    elif opcionmenu == "3.6":                            # se activa la función bodega
-             print("3.6")
-             
-             
-
-    elif opcionmenu == "3.7":                            # se activa la función bodega
-             print("3.7") 
-            
-              
-
-    elif opcionmenu == "3.8":                            # se activa la función bodega
-             print("3.8") 
-             
 
 # informe 4
 def ingresoproductosbodega():  # Se crea función para ingresar los productos a la bodega
@@ -1378,7 +1298,68 @@ today=dt.today()      # Selecciona la fecha actual
 print(today)          # imprime la fecha actual
 
 
+def menu(): 
+  #os.system('clear') #limpiar pantalla
+  print("\n\n")
+  tituloG = "PÁGINA PRINCIPAL DE ADMINISTRADOR"
+  print(tituloG.center(100," "))
+  print("\n\n")
+                                           # se crea un menu para el manejo operativo del negocio
+    
+  print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
+  print("                                  \t3 - Empleados ")                  # se imprime registro de compras
+  print("                                  \t4 - Compras y Bodega")              # se imprime registro total acumulado
+  print("                                  \t5 - Mostrador")  
+  print("                                  \t6 - Ventas y Clientes") 
+  print("                                  \t7 - Contabilidad") 
+  print("                                  \t8 - Reportes") 
+  print("                                  \t9 - Terminar con uso de menu")              # se imprime finalizacón de menú
+          
+# Se crea un una iteración con while mientras se cumpla la condición
+while True: 
+  menu()                                             # se activa la función menú
+  opcionMenu = input("\n Inserte el número de la opción del menú: ")   # sirve para ingresar el valor de la opción seleccionada
+  if opcionMenu == "3": 
+    #os.system('clear') #limpiar pantalla
+    print("\n\n") 
+        
+    subtitulo = " SUBMENÚ DE EMPLEADOS"
+    print("\n\n")
+    print(subtitulo.center(100," "))
+    print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
+    print("                                  \t3.1 - Cambio de clave Global ")                  # se imprime registro de compras
+    print("                                  \t3.2 - Login y clave para nuevo empleado")              # se imprime registro total acumulado
+    print("                                  \t3.3 - Base de datos de empleados")  
+    print("                                  \t3.4 - Otras opciones ") 
+    print("                                  \t3.5 - terminar con uso de submenú") 
+  
+    opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
+    if opcionmenu== "3.1":
+      print("\n\nhola\n\n")                          # imprime mensaje de saludo
+      #bodegacom()   
+      #mensaje="HOLA"
+      #os.system('clear') #limpiar pantalla
+      print("\n\n")
+      print("3.1".center(100," "))                                  # la función compra se ejecuta
+        
 
+       
+    elif opcionmenu == "3.2":
+          print("3.2")
+                                                 # se ejecuta la función total
+      
+
+    elif opcionmenu == "3.3":                            # se activa la función bodega
+             print("3.3")
+            
+    elif opcionmenu == "3.4":                            # se activa la función bodega
+              print("3.4")
+              
+
+    elif opcionmenu == "3.5":                            # se activa la función bodega
+             print("3.5")
+           
+           
 
 os.system('clear')                                       # sirve para limpiar la pantalla
 print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
@@ -1392,15 +1373,10 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
      print("\n\n")
      print(subtitulo.center(100," "))
      print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-     print("                                  \t4.1 - ")                  # se imprime registro de compras
-     print("                                  \t4.2 - ")              # se imprime registro total acumulado
-     print("                                  \t4.3 - ")  
-     print("                                  \t4.4 - ") 
-     print("                                  \t4.5 - ") 
-     print("                                  \t4.6 - ") 
-     print("                                  \t4.7 - ")
-     print("                                  \t4.8 - ")
-     print("                                  \t9   - ")              # se imprime finalizacón de menú
+    print("                                  \t4.1 - Registro de compras")                  # se imprime registro de compras
+     print("                                  \t4.2 - Registro total acumulado")              # se imprime registro total acumulado
+     print("                                  \t4.3 - Ingreso de bodega")  
+     print("                                  \t4.4 - Terminar con uso de suubmenú") 
           
      opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
      if opcionmenu== "4.1": 
@@ -1426,23 +1402,7 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
         print("4.4")
            
 
-     elif opcionmenu == "4.5":
-        print("4.5")
-           
-
-
-     elif opcionmenu == "4.6":
-        print("4.6")
-        
-             
-
-     elif opcionmenu == "4.7":  
-        print("4.7")
-          
-              
-
-     elif opcionmenu == "4.8": 
-        print("4.8")
+     
          
              
   if opcionMenu == "5": 
@@ -1453,16 +1413,11 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
     print("\n\n")
     print(subtitulo.center(100," "))
     print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-    print("                                  \t5.1 - ")                  # se imprime registro de compras
-    print("                                  \t5.2 - ")              # se imprime registro total acumulado
-    print("                                  \t5.3 - ")  
-    print("                                  \t5.4 - ") 
-    print("                                  \t5.5 - ") 
-    print("                                  \t5.6 - ") 
-    print("                                  \t5.7 - ")
-    print("                                  \t5.8 - ")
-    print("                                  \t9   - ")              # se imprime finalizacón de menú
-          
+    print("                                  \t5.1 - Cambio de porcentaje de ganancia ")                  # se imprime registro de compras
+    print("                                  \t5.2 - Para llenar el mostrador con productos")              # se imprime registro total acumulado
+    print("                                  \t5.3 - Vencimiento de productos")  
+    print("                                  \t5.4 - Agotamiento de productos") 
+    print("                                  \t5.5 - Terminar con uso de menu") 
     opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
     if opcionmenu== "5.1":
       print("\n\nhola\n\n")                          # imprime mensaje de saludo
@@ -1490,17 +1445,7 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
       print("5.5")
               
 
-
-    elif opcionmenu == "5.6":  
-      print("5.6")
-             
-
-    elif opcionmenu == "5.7":   
-      print("5.7")  
-              
-
-    elif opcionmenu == "5.8": 
-      print("5.8") 
+    
              
   if opcionMenu == "6": 
     os.system('clear') #limpiar pantalla
@@ -1510,13 +1455,13 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
     print("\n\n")
     print(subtitulo.center(100," "))
     print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-    print("                                  \t6.1 - ")                  # se imprime registro de compras
-    print("                                  \t6.2 - ")              # se imprime registro total acumulado
-    print("                                  \t6.3 - ")  
-    print("                                  \t6.4 - ") 
-    print("                                  \t6.5 - ") 
+    print("                                  \t6.1 - Para generar venta")                  # se imprime registro de compras
+    print("                                  \t6.2 - Factura")              # se imprime registro total acumulado
+    print("                                  \t6.3 - Venta acumulada")  
+    print("                                  \t6.4 - Página de clientes") 
+    print("                                  \t6.5 - Página de Compras de cada cliente") 
     print("                                  \t6.6 - ") 
-    print("                                  \t6.7 - ")
+    print("                                  \t6.7 - Otras opciones")
     print("                                  \t9   - ")              # se imprime finalizacón de menú
           
     opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
@@ -1619,16 +1564,15 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
     print("\n\n")
     print(subtitulo.center(100," "))
     print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-    print("                                  \t8.1 - ")                  # se imprime registro de compras
-    print("                                  \t8.2 - ")              # se imprime registro total acumulado
-    print("                                  \t8.3 - ")  
-    print("                                  \t8.4 - ") 
-    print("                                  \t8.5 - ") 
-    print("                                  \t8.6 - ") 
-    print("                                  \t8.7 - ")
+    print("                                  \t8.1 - Ingreso de proveedores")                  # se imprime registro de compras
+    print("                                  \t8.2 - Base de datos de proveedores")              # se imprime registro total acumulado
+    print("                                  \t8.3 - Informe del valor de productos por paca")  
+    print("                                  \t8.4 - Informe del valor de las ventas diarias") 
+    print("                                  \t8.5 - Informe total de unidades en bodega") 
+    print("                                  \t8.6 - Informe total de contabilidad") 
+    print("                                  \t8.7 - Terminar con uso de menu")
     print("                                  \t8.8 - ")
     print("                                  \t9   - ")              # se imprime finalizacón de menú
-          
     opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
     if opcionmenu== "8.1": 
       print("\n\nhola\n\n")                          # imprime mensaje de saludo
