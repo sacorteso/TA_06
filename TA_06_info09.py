@@ -1,28 +1,30 @@
-from datetime import date as dt
-from datetime import datetime as dtt
-from datetime import timedelta
-import pandas as pd  # Librería para utilizar y manipular dataframe
-import numpy as np  # Librería para realizar operaciones matemáticas y manejo de matrices
-import os  # Librerías para realizar funciones internas del software
-import csv  # Librería para manipular archivos excel y con extensión .csv
-import time
-#import tkinter as tk
-import matplotlib.pyplot as plt
-import openpyxl
+from datetime import date as dt       #librería para manejar fechas
+from datetime import datetime as dtt  #librería para manejar el tiempo
+from datetime import timedelta        #librearía para realizar operaciones matemáticas con el tiempo
+import pandas as pd                   # Librería para utilizar y manipular dataframe
+import numpy as np                    # Librería para realizar operaciones matemáticas y manejo de matrices
+import os                             # Librerías para realizar funciones internas del software
+import csv                            # Librería para manipular archivos con extensión csv
+import time                           # Librería para manipular el tiempo
+import matplotlib.pyplot as plt       # Librería para generar gráficas
+import openpyxl                       # Librería para leer y escribir archivos excel
 
 
 
 
-os.system('clear') 
-print("\n\nPÁGINA PRINCIPAL DE ADMINISTRADOR")
-print("\n\n")
-today = dt.today()
-print(today)
-print("\n\n")
-# Para activar la autorización de claves para funcionamiento de la aplicación
-#with open('CLAVES/Clave.txt', 'r') as Cla:   # se lee base de datos con las claves de los empleados
-#       L2 = Cla.readlines()  
-#       print(L2) 
+os.system('clear')                    # Para limpiar pantalla
+titulo = "  PÁGINA PRINCIPAL DE ADMINISTRADOR  " # Para crear titulo principal de la aplicación
+print("\n\n")                                    # Salto de línea
+print(titulo.center(70,"="))                     # Para imprimir el titulo centrado
+today=dt.today()               # comando que muestra lafecha actual
+f5=today.strftime('%Y%m%d')    # para cambiar el formato de fecha y unirlo
+f55=int(f5)                    # para convertir la fecha en un entero para operaciones matemáticas
+print(f55)                     # para imprimir la hora
+#f56=time.strftime('%H:%M:%S') # para modificar el formato de la hora
+#print=(f56)                   # para imprimir la hora modificada
+print(today)                   # Para imprimir la fecha actual
+print("\n\n")                  # Salto de línea
+
 L2=pd.read_csv("CLAVES/Clave.csv")    # Lee el archivo csv donde están las claves guardadas
 L3=pd.DataFrame(L2)    # las claves leídas se covieten e dataframe para facilitar su uso
 L=0                    # se define constante axiliar para ser utilizada en while del menú principal 
@@ -42,155 +44,131 @@ while(z!=L4):          # ciclo para comparar las claves que se ingresan con la c
 
 #informe 3
 
-listacontras = [] 
-#funcion para en ingreso a la lista de contaseñas
-def creaciondecontrase():  
-    while True:   # ciclo while para comprobar las contraseñas
-        #contrainic= input("ingrese una nueva contraseña con al menos 8 a 15 caracteres: ")
-        contrainic = input("\nIngrese nueva contraseña de 8 a 15 caracteres:")
-        longitud1 = len(contrainic)
-        print("su contraseña tiene:", longitud1, "caracteres")
-        if longitud1 > 7 and longitud1 < 16 :
-          print("correcto") 
-          break
-        else:
-           contrainic = input("Presione cualquier tecla para reintentar: ")
-    contrainic2 = input("ingrese nuevamente su contraseña: ")
-    while (contrainic != contrainic2):
-        contrainic2 = input("error ingrese nuevamente su contraseña: ")
-    return str(contrainic)
-contrainic = ()
+listacontras = []         # Se crea lista para manipular la creación de contraseñas
 
-with open('CLAVES/Global.txt', 'r') as Ltexto:
-  L = Ltexto.readline()
-# inicio de la función menú
+def creaciondecontrase(): # se crea función para la creación de contraseñas
+    while True:           # ciclo while para comprobar las contraseñas
+        # Para ingresar la nueva contraseña
+        contrainic = input("\nIngrese nueva contraseña de 8 a 15 caracteres:") 
+        longitud1 = len(contrainic)               # Para medir la longitud de la contraseña
+        print("su contraseña tiene:", longitud1, "caracteres") # Se imprime la cantidad de caracteres de la contraseña
+        if longitud1 > 7 and longitud1 < 16 :     # Se crea sistema para verificar  si cumple las condiciones para la clave    
+          print("correcto")                       # Se imprime mensaje para confirmación de clave
+          break                                   # Se finaliza el ciclo
+        else:                                     # Otra opción si no se cumple la opción principal
+           contrainic = input("Presione cualquier tecla para reintentar: ") # mensaje para regresar al ciclo de generación de clave
+    contrainic2 = input("ingrese nuevamente su contraseña: ")               # Para ingresar nuevamente la clave
+    while (contrainic != contrainic2):                                      # Se crea un ciclo while para verificar la clave
+        contrainic2 = input("error ingrese nuevamente su contraseña: ")     # Mensaje de erroe cuando la clave no concuerda
+    return str(contrainic)                                                  # Retorna la cale correcta
+contrainic = ()                                                             # Regreso al ciclo de generación de claves
 
-
-def Global():
-  while True:
-    with open('CLAVES/Global.txt', 'r') as Ltexto:
-         L = Ltexto.readline()
-    Ltexto.close()
-      #if opcionMenu == "1": # Opción para cambiar la clave global
-    print("\nhola\n") # saludo
-    input("Se ha pulsado la opción 1...\n pulsa enter para continuar") #confirmación que lselecciono opción 1
-    T = input("\nIngrese clave Global: ") #solicitud de ingreso de clave global
-    if L == T: # Comparador de claves
-      K=input("\nIngrese nueva clave: ") # solicitud para nueva clave
-      K1=input("\nIngrese nuevamente la nueva clave: ") # Solicitud para nueva clave
-      if K == K1: # compara que la nueva clave si la recuerda el usuario
-        L = K1 # variable adicional
-        Ltexto=open("CLAVES/Global.txt","w+") # se activa la función para eliminar la clave vieja del archivo txt
-        Ltexto.write(L) # se escribe la nueva clave global en el archivo txt
-        Ltexto.close() # se cierra el archivo txt que guarda la clave global.
-        break      
-        print(" \n Clave Global modificada\n") # anuncio que la clave global fue modificada
-      else:
-        break               # opción si no se ingresa la clave global correcta.
-        print("\nregrese a menú e intentelo de nuevo\n")  
+with open('CLAVES/Global.txt', 'r') as Ltexto:     # Se lee la base de datos de la clave global
+  L = Ltexto.readline()                            # Se crea una variable con la clave global
 
 
-def login():
-  while True:
-      input("\nSe ha pulsado la opción 2...\n pulsa enter para continuar ") 
-      k= input("\nIngrese clave Global: ") # ingresa clave global para permiti hacer actualizaciones
-          
+
+def Global():                                      # Se crea función para crear la clave global                        
+  while True:                                      # Se crea el ciclo para activar la función para  crear la clave global
+    with open('CLAVES/Global.txt', 'r') as Ltexto: # Se lee la base de datos de clave global
+         L = Ltexto.readline()                     # Se crea una variable con la clave global
+
+    Ltexto.close()                                 # Se cierra la base de datos de clave global
+      
+    print("\n\nhola\n\n")                          # Menaje de saludo
+   
+    T = input("\nIngrese clave Global: ")          #solicitud de ingreso de clave global
+    if L == T:                                     # Comparador de claves
+      K=input("\nIngrese nueva clave: ")           # solicitud para nueva clave
+      K1=input("\nIngrese nuevamente la nueva clave: ") # Solicitud de verificación para nueva clave
+      if K == K1:                                  # compara que la nueva clave si la recuerda el usuario
+        L = K1                                     # variable adicional
+        Ltexto=open("CLAVES/Global.txt","w+")      # se activa la función para eliminar la clave vieja del archivo txt
+        Ltexto.write(L)                            # se escribe la nueva clave global en el archivo txt
+        Ltexto.close()                             # se cierra el archivo txt que guarda la clave global.
+        break                                      # Se finaliza este ciclo
+        print(" \n Clave Global modificada\n")     # anuncio que la clave global fue modificada
+      else:                                        # Otra opción si no se cumple la opción principal
+        break                                      # opción si no se ingresa la clave global correcta.
+        print("\nregrese a menú e intentelo de nuevo\n")  # Se imprime mensaje para regresar al ciclo de creación de clave global
+
+
+def login():                                       # Se crea función para ingreso de nuevos empleados
+  while True:                                      # Se crea el ciclo para activar la función ingreso de nuevos empleados
+      
+      k= input("\nIngrese clave Global: ")         # ingresa clave global para permitir hacer actualizaciones
+      nombre31=[]                                  # Se crea lista para nombre del empleado
+      apellido31=[]                                # Se crea lista para el apellido del empleado
+      usuario31=[]                                 # Se crea lista para usuario del empleado
+      clave31=[]                                   # Se crfea lista para clave de usuario
+
          
-      while(L==k):# permite crear un cilclo para ingresar nuevos empleados
-        for i in range(1):
+      while(L==k):                                 # permite crear un cilclo para ingresar nuevos empleados
+        for i in range(1):                         # Se crea un ciclo para ingrsar los datos del nuevo empleado
         
-          nombre= input("\ningrese el nombre: ")  # para ingresar nombre del empleado
-          apellido= input("\nIngrese el apellido: ")# para ingresar el apellido
-          clave = creaciondecontrase() # para ingresar una clave manual a gusto del empleado
-          usuario= nombre[0:3]+apellido[0:3] #+str(i) # permite creae el login de usuario
+          nombre= input("\ningrese el nombre: ")     # para ingresar nombre del empleado
+          apellido= input("\nIngrese el apellido: ") # para ingresar el apellido
+          clave = creaciondecontrase()               # para ingresar una clave manual a gusto del empleado
+          usuario= nombre[0:3]+apellido[0:3]         # permite creae el login de usuario
+         
           #os.system('clear') # limpia la pantalla
-          #listacontras.append(clave)
-               
+          
+          clave1=str(clave)                          # La clave se convirte en string 
+          
           # confirma visualmente los datos ingrsados por el administrador
-          print("\n",  "Su nombre es: ", nombre, "\n")
-          print("\n", "Su apellido es: ", apellido, "\n")
-          print("\n", "Su clave es: ", clave, "\n")
-          print("\n", "Su Login es: ", usuario,"\n")
-          emp=[nombre, apellido, usuario,clave]  
-          emp1=pd.DataFrame(emp)          # Se crea DataFrame con los datos del proveedor
-          emp2=pd.DataFrame.transpose(emp1)                     # se transpone el DataFrame
-          # Se agrega nombres a las columnas
-          emp2.columns=["Nombre","Apellido","Usuario","Clave"]
-          emp2.to_csv('BDATOS/empleados.csv', mode="a", index="", header="") # se graba la información en la base de datos de proveedor
-          #os.system('clear')                                                 # Para limpiar la pantalla
-          clave.to_csv('BDATOS/clave.csv', mode="a", index="", header="") # se graba la información en la base de datos de claves                                    
-          
-          # para crear bases datos (nombre) para dataframe
-          LNombre=open("BDATOS/Nombre.txt", "a+")
-          LNombre.write(nombre)
-          LNombre.write("\n")
-          LNombre.close()
-          with open('BDATOS/Nombre.txt', 'r') as Nom:
-               LN = Nom.readlines()
-          #print(LN)
-          LNombre.close()
-                            
-          # para crear bases datos (apellido) para dataframe                
-          LApellido=open("BDATOS/Apellido.txt", "a+")
-          LApellido.write(apellido)
-          LApellido.write('\n')
-          LApellido.close()
-          with open('BDATOS/Apellido.txt', 'r') as Ape:
-               LA = Ape.readlines()
-          # print(LA)
-          LApellido.close()
-                            
-          # para crear bases datos (clave de usuario) para dataframe
-          LClave=open("CLAVES/Clave.txt", "a+")
-          LClave.write(clave)
-          LClave.write("\n")
-          LClave.close()
-          with open('CLAVES/Clave.txt', 'r') as Cla:
-               LC = Cla.readlines()
-          # print(LC)
-          LClave.close()
+          print("\n",  "Su nombre es: ",   nombre, "\n")    # Se comprueba el nombre del nuevo empleado
+          print("\n", "Su apellido es: ",  apellido, "\n")  # Se comprueba el apellido del nuevo empleado
+          print("\n", "Su clave es: ",     clave, "\n")     # Se comprueba la clave del nuevo empleado
+          print("\n", "Su Login es: ",     usuario,"\n")    # Se comprueba el usuario del nuevo empleado
+          nombre31.append(nombre)                           # Se anexa el nombre del nuevo empleado a lista
+          apellido31.append(apellido)                       # Se anexa el apellido del nuevo empleado a lista
+          usuario31.append(usuario)                         # se anexa el usuario del nuevo empleado a lista
+          clave31.append(clave1)                            # Se anexa la clave del nuevo empleado a lista
 
-          # para crear bases datos (login de usuario) para dataframe
-          LUsuario=open("BDATOS/Usuario.txt", "a+")
-          LUsuario.write(usuario)
-          LUsuario.write("\n")
-          LUsuario.close()
-          with open('BDATOS/Usuario.txt', 'r') as Usu:
-               LU = Usu.readlines()
-          #print(LU,"\n")
-          print("\n")
-          LUsuario.close()
-          break
+
+          emp=[nombre31, apellido31, usuario31,clave31]     # Se crea lista principal con las anteriores listas
+
+          emp1=pd.DataFrame(emp)                            # Se crea DataFrame con los datos del nuevo empleado
+          emp2=pd.DataFrame.transpose(emp1)                 # se transpone el DataFrame
           
-def empleados():
-  while True:
+          emp2.columns=["Nombre","Apellido","Usuario","Clave"] # Se agrega nombres a las columnas
+          emp2.to_csv("BDATOS/empleado.csv", mode="a", index="", header="") # se graba la información en la base de datos de empleado
+          #os.system('clear')                                                # Para limpiar la pantalla
+          clave=pd.DataFrame(clave31)                                        # Se crea DataFrame para guardar la clave del nuevo empleado
+          clave.to_csv("CLAVES/Clave.csv", mode="a", index="", header="")    # se graba la información en la base de datos de claves                                    
+          return menu                                                        # Para regresar al menú principal
+          
+          
+      
+  
+          
+
+              
+def empleados():                             # Se crea función para leer la base de datos de empleado
+  while True:                                # Se crea el ciclo para activar la función para leer la base de datos de empleado
      os.system('clear')                      # Sirve para limpiar la pantalla
-     print("\t\t\t\t BASE DE DATOS CON LOS EMPLEADOS \n\n")   
-     '''         
-     with open('BDATOS/Nombre.txt', 'r') as Nom: # se lee base da datos con los nombres
-          LN = Nom.readlines()                   # lista con los nombres
-     with open('BDATOS/Apellido.txt', 'r') as Ape:# se lee base de datos con los apellidos
-          LA = Ape.readlines()                    # lista con los apellidos
-     with open('CLAVES/Clave.txt', 'r') as Cla:   # se lee base de datos con las claves de los empleados
-          LC = Cla.readlines()                    # lista con las claves
-     empleo=[LN, LA, LC]
-     print(empleo)
-     #emp=pd.DataFrame(empleo, columns =['Nombre','Apellido','Clave'])
-     #emp1=pd.DataFrame.transpose(emp)
-     
-     #Se crea DataFrame para los datos de los empleados           
-     #df= pd.DataFrame(list(zip(LN,LA,LC)), columns =['Nombre','Apellido','Clave'])
-     print(emp1)
-     '''
-     emp2= pd.read_csv('BDATOS/empleados.csv')      # se lee la base de datos de proveedor
-     print(emp2)          
-     break
+     print("\t\t\t\t BASE DE DATOS CON LOS EMPLEADOS \n\n")   # Se imprime el titulo de la página de empleado
+     emp2= pd.read_csv('BDATOS/empleado.csv')      # se lee la base de datos de empleado
+     print(emp2)                                    # Se imprime la base de datos de empleado
+     break                                          # Se finaliza el ciclo
 
-def opciones():
-  while True:
-     print("por el momento no hay opciones")
-     input("\nSe ha pulsado la opción 3...\n pulsa enter para finalizar")
-     break 
+def EE():                                          # Se cea base de datos para eliminar fila 
+  while True:                                      # Se crea el ciclo para eliminar fila
+      
+      k= input("\nIngrese clave Global: ")         # ingresa clave global para permitir hacer actualizaciones
+      while(L==k):                                 # permite crear un cilclo para eliminar filas
+        emp2= pd.read_csv('BDATOS/empleado.csv')   # se lee la base de datos de empleado
+        print(emp2)                                # Imprime la base de datos de empleado
+        CL= input("\n\nIngrese la clave del empleado: ") # Se solicita la clave del empleado a eliminar
+        
+        emp2=emp2.drop(emp2[emp2['Clave']==CL].index)    # Se crea un nuevo DataFrame para realizar las modificaciones en la base da datos de empleado
+        emp2.to_csv("BDATOS/empleado.csv", mode="w", index="", header="True") # Se graba las modificcaiones en la base de datos de empleado
+        print("\n\n empleado con clave:", CL, "Ha sido eliminado de la base de datos\n\n") # Se imprime mensaje de las modificaciones realizadas
+        emp2= pd.read_csv('BDATOS/empleado.csv')         # se lee la base de datos de empleado        
+        print("\n\n",emp2,"\n\n")                        # Se imprime la base de datos de empleado actualizada
+        break                                            # Finaliza el ciclo de while
+      break                                              #Finaliza el ciclo del while principal                                         
+        
 
 
 def fp():
@@ -198,22 +176,6 @@ def fp():
      print("fin del programa")
      input("\nSe ha pulsado la opción 9...\n pulsa enter para finalizar")
      break
-
-
-  
-  
-         
-
-
-
-
-
-
-
-  
-
-
-
 
 # informe 4
 def ingresoproductosbodega():  # Se crea función para ingresar los productos a la bodega
@@ -1341,7 +1303,7 @@ while True:
     print("                                  \t3.1 - Cambio de clave Global ")                  # se imprime registro de compras
     print("                                  \t3.2 - Login y clave para nuevo empleado")              # se imprime registro total acumulado
     print("                                  \t3.3 - Base de datos de empleados")  
-    print("                                  \t3.4 - Otras opciones ") 
+    print("                                  \t3.4 - Eliminar datos de empleado ") 
     print("                                  \t3.5 - terminar con uso de submenú") 
   
     opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
@@ -1363,8 +1325,8 @@ while True:
              empleados()
             
     elif opcionmenu == "3.4":                            # se activa la función bodega
-              print("3.4")
-              opciones()
+              EE()
+              
               
 
     elif opcionmenu == "3.5":                            # se activa la función bodega
