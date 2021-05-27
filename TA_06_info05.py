@@ -245,7 +245,7 @@ def menu():           # se crea un menu para el manejo operativo del negocio
     print("                  \t5.1 - Cambio de porcentaje de ganancia ")        # se imprime cambio de porcentaje de ganacia
     print("                  \t5.2 - Para llenar el mostrador con productos")   # se imprime para llenar el mostrador con productos
     print("                  \t5.3 - Vencimiento de productos")                 # se imprime vencimiento de productos
-    print("                  \t5.4 - Agotamiemnto de productos")                # se imprime agotamiento de productos
+    print("                  \t5.4 - Agotamiento de productos")                # se imprime agotamiento de productos
     print("                  \t9   - Terminar con uso de menu")                   # se imprime finalizacón de menú
           
 # Se crea un una iteración con while mientras se cumpla la condición
