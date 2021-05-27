@@ -41,136 +41,173 @@ while(z!=L4):          # ciclo para comparar las claves que se ingresan con la c
 
 
 #informe 3
+
+listacontras = [] 
+#funcion para en ingreso a la lista de contaseñas
+def creaciondecontrase():  
+    while True:   # ciclo while para comprobar las contraseñas
+        #contrainic= input("ingrese una nueva contraseña con al menos 8 a 15 caracteres: ")
+        contrainic = input("\nIngrese nueva contraseña de 8 a 15 caracteres:")
+        longitud1 = len(contrainic)
+        print("su contraseña tiene:", longitud1, "caracteres")
+        if longitud1 > 7 and longitud1 < 16 :
+          print("correcto") 
+          break
+        else:
+           contrainic = input("Presione cualquier tecla para reintentar: ")
+    contrainic2 = input("ingrese nuevamente su contraseña: ")
+    while (contrainic != contrainic2):
+        contrainic2 = input("error ingrese nuevamente su contraseña: ")
+    return str(contrainic)
+contrainic = ()
+
 with open('CLAVES/Global.txt', 'r') as Ltexto:
   L = Ltexto.readline()
 # inicio de la función menú
-def menu():
-    1
-    print("Selecciona una opción \n")
-    print("\t1   -   Cambio de clave Global")
-    print("\t2   -   Login y clave para nuevo empleado")
-    print("\t2.1 -   Base de dtos de empleados")
-    print("\t3   -   Otras opciones")
-    print("\t9   -   Terminar con uso de menu")
-          
-# Se crea un una iteración con wile mientras se cumpla la condición
-
-while True:
-      menu()
-      opcionMenu = input("\n Inserte el número de la opción: ")
-      
-      
-      Ltexto.close()
-      if opcionMenu == "1": # Opción para cambiar la clave global
-          print("\nhola\n") # saludo
-          input("Se ha pulsado la opción 1...\n pulsa enter para continuar") #confirmación que lselecciono opción 1
-          T = input("\nIngrese clave Global: ") #solicitud de ingreso de clave global
-          if L == T: # Comparador de claves
-            K=input("\nIngrese nueva clave: ") # solicitud para nueva clave
-            K1=input("\nIngrese nuevamente la nueva clave: ") # Solicitud para nueva clave
-            if K == K1: # compara que la nueva clave si la recuerda el usuario
-              L = K1 # variable adicional
-              Ltexto=open("CLAVES/Global.txt","w+") # se activa la función para eliminar la clave vieja del archivo txt
-              Ltexto.write(L) # se escribe la nueva clave global en el archivo txt
-              Ltexto.close() # se cierra el archivo txt que guarda la clave global.
-              
-              print(" \n Clave Global modificada\n") # anuncio que la clave global fue modificada
-          else:
-            break               # opción si no se ingresa la clave global correcta.
-            print("\nregrese a menú e intentelo de nuevo\n")  
 
 
-          
-      elif opcionMenu == "2": # Opción para ingresar los datos de los empleados, generar login de usuario y claves.
+def Global():
+  while True:
+    with open('CLAVES/Global.txt', 'r') as Ltexto:
+         L = Ltexto.readline()
+    Ltexto.close()
+      #if opcionMenu == "1": # Opción para cambiar la clave global
+    print("\nhola\n") # saludo
+    input("Se ha pulsado la opción 1...\n pulsa enter para continuar") #confirmación que lselecciono opción 1
+    T = input("\nIngrese clave Global: ") #solicitud de ingreso de clave global
+    if L == T: # Comparador de claves
+      K=input("\nIngrese nueva clave: ") # solicitud para nueva clave
+      K1=input("\nIngrese nuevamente la nueva clave: ") # Solicitud para nueva clave
+      if K == K1: # compara que la nueva clave si la recuerda el usuario
+        L = K1 # variable adicional
+        Ltexto=open("CLAVES/Global.txt","w+") # se activa la función para eliminar la clave vieja del archivo txt
+        Ltexto.write(L) # se escribe la nueva clave global en el archivo txt
+        Ltexto.close() # se cierra el archivo txt que guarda la clave global.
+        break      
+        print(" \n Clave Global modificada\n") # anuncio que la clave global fue modificada
+      else:
+        break               # opción si no se ingresa la clave global correcta.
+        print("\nregrese a menú e intentelo de nuevo\n")  
+
+
+def login():
+  while True:
+      input("\nSe ha pulsado la opción 2...\n pulsa enter para continuar ") 
+      k= input("\nIngrese clave Global: ") # ingresa clave global para permiti hacer actualizaciones
           
          
-          input("\nSe ha pulsado la opción 2...\n pulsa enter para continuar ") 
-          k= input("\nIngrese clave Global: ") # ingresa clave global para permiti hacer actualizaciones
+      while(L==k):# permite crear un cilclo para ingresar nuevos empleados
+        for i in range(1):
+        
+          nombre= input("\ningrese el nombre: ")  # para ingresar nombre del empleado
+          apellido= input("\nIngrese el apellido: ")# para ingresar el apellido
+          clave = creaciondecontrase() # para ingresar una clave manual a gusto del empleado
+          usuario= nombre[0:3]+apellido[0:3] #+str(i) # permite creae el login de usuario
+          #os.system('clear') # limpia la pantalla
+          #listacontras.append(clave)
+               
+          # confirma visualmente los datos ingrsados por el administrador
+          print("\n",  "Su nombre es: ", nombre, "\n")
+          print("\n", "Su apellido es: ", apellido, "\n")
+          print("\n", "Su clave es: ", clave, "\n")
+          print("\n", "Su Login es: ", usuario,"\n")
+          emp=[nombre, apellido, usuario,clave]  
+          emp1=pd.DataFrame(emp)          # Se crea DataFrame con los datos del proveedor
+          emp2=pd.DataFrame.transpose(emp1)                     # se transpone el DataFrame
+          # Se agrega nombres a las columnas
+          emp2.columns=["Nombre","Apellido","Usuario","Clave"]
+          emp2.to_csv('BDATOS/empleados.csv', mode="a", index="", header="") # se graba la información en la base de datos de proveedor
+          #os.system('clear')                                                 # Para limpiar la pantalla
+          clave.to_csv('BDATOS/clave.csv', mode="a", index="", header="") # se graba la información en la base de datos de claves                                    
           
+          # para crear bases datos (nombre) para dataframe
+          LNombre=open("BDATOS/Nombre.txt", "a+")
+          LNombre.write(nombre)
+          LNombre.write("\n")
+          LNombre.close()
+          with open('BDATOS/Nombre.txt', 'r') as Nom:
+               LN = Nom.readlines()
+          #print(LN)
+          LNombre.close()
+                            
+          # para crear bases datos (apellido) para dataframe                
+          LApellido=open("BDATOS/Apellido.txt", "a+")
+          LApellido.write(apellido)
+          LApellido.write('\n')
+          LApellido.close()
+          with open('BDATOS/Apellido.txt', 'r') as Ape:
+               LA = Ape.readlines()
+          # print(LA)
+          LApellido.close()
+                            
+          # para crear bases datos (clave de usuario) para dataframe
+          LClave=open("CLAVES/Clave.txt", "a+")
+          LClave.write(clave)
+          LClave.write("\n")
+          LClave.close()
+          with open('CLAVES/Clave.txt', 'r') as Cla:
+               LC = Cla.readlines()
+          # print(LC)
+          LClave.close()
+
+          # para crear bases datos (login de usuario) para dataframe
+          LUsuario=open("BDATOS/Usuario.txt", "a+")
+          LUsuario.write(usuario)
+          LUsuario.write("\n")
+          LUsuario.close()
+          with open('BDATOS/Usuario.txt', 'r') as Usu:
+               LU = Usu.readlines()
+          #print(LU,"\n")
+          print("\n")
+          LUsuario.close()
+          break
+          
+def empleados():
+  while True:
+     os.system('clear')                      # Sirve para limpiar la pantalla
+     print("\t\t\t\t BASE DE DATOS CON LOS EMPLEADOS \n\n")   
+     '''         
+     with open('BDATOS/Nombre.txt', 'r') as Nom: # se lee base da datos con los nombres
+          LN = Nom.readlines()                   # lista con los nombres
+     with open('BDATOS/Apellido.txt', 'r') as Ape:# se lee base de datos con los apellidos
+          LA = Ape.readlines()                    # lista con los apellidos
+     with open('CLAVES/Clave.txt', 'r') as Cla:   # se lee base de datos con las claves de los empleados
+          LC = Cla.readlines()                    # lista con las claves
+     empleo=[LN, LA, LC]
+     print(empleo)
+     #emp=pd.DataFrame(empleo, columns =['Nombre','Apellido','Clave'])
+     #emp1=pd.DataFrame.transpose(emp)
+     
+     #Se crea DataFrame para los datos de los empleados           
+     #df= pd.DataFrame(list(zip(LN,LA,LC)), columns =['Nombre','Apellido','Clave'])
+     print(emp1)
+     '''
+     emp2= pd.read_csv('BDATOS/empleados.csv')      # se lee la base de datos de proveedor
+     print(emp2)          
+     break
+
+def opciones():
+  while True:
+     print("por el momento no hay opciones")
+     input("\nSe ha pulsado la opción 3...\n pulsa enter para finalizar")
+     break 
+
+
+def fp():
+  while True:
+     print("fin del programa")
+     input("\nSe ha pulsado la opción 9...\n pulsa enter para finalizar")
+     break
+
+
+  
+  
          
-          while(L==k):# permite crear un cilclo para ingresar nuevos empleados
-            for i in range(1):
-               nombre= input("\ningrese el nombre: ")  # para ingresar nombre del empleado
-               apellido= input("\nIngrese el apellido: ") # para ingresar el apellido
-               clave = creaciondecontrase() # para ingresar una clave manual a gusto del empleado
-               usuario= nombre[0:3]+apellido[0:3] #+str(i) # permite creae el login de usuario
-               os.system('clear') # limpia la pantalla
-               listacontras.append(clave)
-               
-               # confirma visualmente los datos ingrsados por el administrador
-               print("\n", "Su nombre es: ", nombre,"\n")
-               print("\n", "Su apellido es: ", apellido, "\n")
-               print("\n", "Su clave es: ", clave, "\n")
-               print("\n", "Su Login es: ", usuario,"\n")
-               
-               # para crear bases datos (nombre) para dataframe
-               LNombre=open("BDATOS/Nombre.txt", "a+")
-               LNombre.write(nombre)
-               LNombre.write("\n")
-               LNombre.close()
-               with open('BDATOS/Nombre.txt', 'r') as Nom:
-                    LN = Nom.readlines()
-                    #print(LN)
-               LNombre.close()
-                            
-               # para crear bases datos (apellido) para dataframe                
-               LApellido=open("BDATOS/Apellido.txt", "a+")
-               LApellido.write(apellido)
-               LApellido.write('\n')
-               LApellido.close()
-               with open('BDATOS/Apellido.txt', 'r') as Ape:
-                    LA = Ape.readlines()
-                   # print(LA)
-               LApellido.close()
-                            
-               # para crear bases datos (clave de usuario) para dataframe
-               LClave=open("CLAVES/Clave.txt", "a+")
-               LClave.write(clave)
-               LClave.write("\n")
-               LClave.close()
-               with open('CLAVES/Clave.txt', 'r') as Cla:
-                    LC = Cla.readlines()
-                   # print(LC)
-               LClave.close()
 
-               # para crear bases datos (login de usuario) para dataframe
-               LUsuario=open("BDATOS/Usuario.txt", "a+")
-               LUsuario.write(usuario)
-               LUsuario.write("\n")
-               LUsuario.close()
-               with open('BDATOS/Usuario.txt', 'r') as Usu:
-                    LU = Usu.readlines()
-                    #print(LU,"\n")
-                    print("\n")
-               LUsuario.close()
-            break
-      elif opcionMenu == "2.1":      
-               os.system('clear')                      # Sirve para limpiar la pantalla
-               print("\t\t\t\t BASE DE DATOS CON LOS EMPLEADOS \n\n")   
-               
-               with open('BDATOS/Nombre.txt', 'r') as Nom: # se lee base da datos con los nombres
-                    LN = Nom.readlines()                   # lista con los nombres
-               with open('BDATOS/Apellido.txt', 'r') as Ape:# se lee base de datos con los apellidos
-                    LA = Ape.readlines()                    # lista con los apellidos
-               with open('CLAVES/Clave.txt', 'r') as Cla:   # se lee base de datos con las claves de los empleados
-                    LC = Cla.readlines()                    # lista con las claves
 
-               #Se crea DataFrame para los datos de los empleados           
-               df= pd.DataFrame(list(zip(LN,LA,LC)), columns =['Nombre','Apellido','Clave'])
-               print(df)
-               
-               break
 
-      elif opcionMenu == "3":
-              print("por el momento no hay opciones")
-              input("\nSe ha pulsado la opción 3...\n pulsa enter para finalizar")
-              break  
-               
-              # finalización del ciclo del menú
-      elif opcionMenu == "9":
-              print("fin del programa")
-              input("\nSe ha pulsado la opción 9...\n pulsa enter para finalizar")
-              break
+
+
 
 
   
@@ -718,33 +755,7 @@ def compra_cliente():
         print(LK2)                                   # Se imprime los resultados de las compras del cliente.
     break
 # Se crea un una iteración con while mientras se cumpla la condición
-while True:                                              # se activa el ciclo while para activar el menú
-      menu()                                             # se activa la función menú
-      opcionMenu = input("\n Inserte el número de la opción: ")   # sirve para ingresar el valor de la opción seleccionada
-                 
-      if opcionMenu == "6.1":               # Para activar la función compra
-          print("\n\nhola\n\n")             # imprime mensaje de saludo
-          venta()                          # la función venta se ejecuta
-     
-           
 
-        
-      elif opcionMenu == "6.2":              # Para activar la función factura
-             Factura()                       # se ejecuta la función factura
-      
-
-      elif opcionMenu == "6.3":              # se activa la función venta acunulada
-             Venta_acum()                    # se ejecuta la función venta acumulada
-
-      elif opcionMenu == "6.4":              # se activa la función clientes
-             clientes()                      # se ejecuta la función clients
-
-
-      elif opcionMenu == "6.5":              # Se activa la función compras de cada cliente
-             compra_cliente()                # se ejecuta la  función compra de clientes
-
-      elif opcionMenu == "6.7":    
-            break  
 
             
 # informe 7
@@ -1341,28 +1352,29 @@ while True:
       #os.system('clear') #limpiar pantalla
       print("\n\n")
       print("3.1".center(100," "))                                  # la función compra se ejecuta
-        
+      Global()   
 
        
-    elif opcionmenu == "3.2":
-          print("3.2")
-                                                 # se ejecuta la función total
-      
+    elif opcionmenu == "3.2":                            # se ejecuta la función total
+         login() 
 
     elif opcionmenu == "3.3":                            # se activa la función bodega
              print("3.3")
+             empleados()
             
     elif opcionmenu == "3.4":                            # se activa la función bodega
               print("3.4")
+              opciones()
               
 
     elif opcionmenu == "3.5":                            # se activa la función bodega
              print("3.5")
+             fp()
            
            
 
-os.system('clear')                                       # sirve para limpiar la pantalla
-print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
+#os.system('clear')                                       # sirve para limpiar la pantalla
+#print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
 
   if opcionMenu == "4": 
 
@@ -1373,7 +1385,7 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
      print("\n\n")
      print(subtitulo.center(100," "))
      print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
-    print("                                  \t4.1 - Registro de compras")                  # se imprime registro de compras
+     print("                                  \t4.1 - Registro de compras")                  # se imprime registro de compras
      print("                                  \t4.2 - Registro total acumulado")              # se imprime registro total acumulado
      print("                                  \t4.3 - Ingreso de bodega")  
      print("                                  \t4.4 - Terminar con uso de suubmenú") 
@@ -1386,21 +1398,20 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
        os.system('clear') #limpiar pantalla
        print("\n\n")
        print("Hola".center(100," "))                                  # la función compra se ejecuta
-          
-
+       ingresoproductosbodega() 
+       
         
-     elif opcionmenu == "4.2": 
-        sub72()
-                                                  # se ejecuta la función total
-      
+     elif opcionmenu == "4.2":                                # se ejecuta la función total
+           compra()
 
      elif opcionmenu == "4.3":
          print("4.3")
+         total()
          
         
      elif opcionmenu == "4.4": 
         print("4.4")
-           
+        break   
 
      
          
@@ -1426,23 +1437,24 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
       os.system('clear') #limpiar pantalla
       print("\n\n")
       print("Hola".center(100," "))                                  # la función compra se ejecuta
-           
+      ganancia()   
 
         
-    elif opcionmenu == "5.2": 
-       sub72()
-                                                  # se ejecuta la función total
-      
+    elif opcionmenu == "5.2":                            # se ejecuta la función total
+          unidades()  
 
     elif opcionmenu == "5.3": 
       print("5.3")
+      agotado()
         
     elif opcionmenu == "5.4":   
        print("5.4")
+       vencimiento()
              
 
     elif opcionmenu == "5.5":
       print("5.5")
+      break
               
 
     
@@ -1472,23 +1484,25 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
       os.system('clear') #limpiar pantalla
       print("\n\n")
       print("Hola".center(100," "))                                  # la función compra se ejecuta
-           
+      venta()           
 
         
-    elif opcionmenu == "6.2":
-      sub72()
-                                                  # se ejecuta la función total
-      
+    elif opcionmenu == "6.2":             # se ejecuta la función total
+           Factura()  
 
     elif opcionmenu == "6.3":
       print("6.3")
+      Venta_acum()
+      
         
     elif opcionmenu == "6.4": 
       print("6.4")
+      clientes()
              
 
     elif opcionmenu == "6.5":
       print("6.5")
+      compra_cliente()
               
 
 
@@ -1498,6 +1512,7 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
 
     elif opcionmenu == "6.7": 
       print("6.7")  
+      break
               
 
                                          
@@ -1525,36 +1540,42 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
      os.system('clear') #limpiar pantalla
      print("\n\n")
      print("Hola".center(100," "))                                  # la función compra se ejecuta
-           
+     bodegafecha()           
 
         
-   elif opcionmenu == "7.2":
-      sub72()
-                                                  # se ejecuta la función total
-      
+   elif opcionmenu == "7.2":                # se ejecuta la función total
+        ingcostosf()      
 
    elif opcionmenu == "7.3": 
       print("7.3")
+      costosf()
+
         
    elif opcionmenu == "7.4": 
       print("7.4")
+      costosff()
              
 
    elif opcionmenu == "7.5": 
      print("7.5")
+     ingventasT()
               
 
 
    elif opcionmenu == "7.6":
       print("7.6")
+      ingventasTF()
              
 
    elif opcionmenu == "7.7": 
-     print("7.7")  
+     print("7.7") 
+     contabilidad() 
               
 
-   elif opcionmenu == "7.8":
-      print("7.8") 
+   elif opcionmenu == "7.9":
+      print("7.9") 
+      break
+      
              
   if opcionMenu == "8": 
     os.system('clear') #limpiar pantalla
@@ -1570,9 +1591,7 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
     print("                                  \t8.4 - Informe del valor de las ventas diarias") 
     print("                                  \t8.5 - Informe total de unidades en bodega") 
     print("                                  \t8.6 - Informe total de contabilidad") 
-    print("                                  \t8.7 - Terminar con uso de menu")
-    print("                                  \t8.8 - ")
-    print("                                  \t9   - ")              # se imprime finalizacón de menú
+    print("                                  \t9   - Finalizar submenú")              # se imprime finalizacón de menú
     opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
     if opcionmenu== "8.1": 
       print("\n\nhola\n\n")                          # imprime mensaje de saludo
@@ -1580,40 +1599,39 @@ print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo
       #mensaje="HOLA"
       os.system('clear') #limpiar pantalla
       print("\n\n")
-      print("Hola".center(100," "))                                  # la función compra se ejecuta
-           
+      print("Hola".center(100," ")) 
+      proveedor()                                  # la función compra se ejecuta
+             
 
         
-    elif opcionmenu == "8.2": 
-        sub72()
-                                                  # se ejecuta la función total
-      
+    elif opcionmenu == "8.2":                           # se ejecuta la función total
+           Bproveedores()    
 
     elif opcionmenu == "8.3": 
-        print("7.3")
+           PRpaca()
         
-    elif opcionmenu == "7.4":
-        print("8.4")
+        
+    elif opcionmenu == "8.4":
+          Ifventas()
+        
              
 
     elif opcionmenu == "8.5":  
-         print("8.5")
+         Ubodega()  
               
 
 
     elif opcionmenu == "8.6": 
-         print("8.6")
+         infcontabilidad()  
+         
              
-
-    elif opcionmenu == "8.7":
-         print("8.7")  
-              
-
-    elif opcionmenu == "8.8":     
-         print("8.8") 
-             
+         
           
   elif opcionMenu == "9": 
+   
+   print("\n\n")
+   subtitulof = "Sistema finalizado"
+   print(subtitulof.center(100," ")) 
    print("\n\n\t\tSistema finalizado")
-  # break 
+   break 
     
