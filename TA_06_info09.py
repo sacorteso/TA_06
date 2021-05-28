@@ -1,6 +1,8 @@
 # Advertencia:
 # clave de usuario: gabrielawad
 # clave global: jefe
+# Desplazarse por la pantalla de la consola con el scroll del mouse 
+# Para ver todos los datos
 
 from datetime import date as dt       #librería para manejar fechas
 from datetime import datetime as dtt  #librería para manejar el tiempo
