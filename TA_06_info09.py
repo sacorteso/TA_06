@@ -293,6 +293,25 @@ def total():                    # se crea una función para manejar los producto
        break    
                                                 # se finaliza este ciclo while
 
+
+def EEE():                                          # Se cea base de datos para eliminar fila 
+  while True:                                      # Se crea el ciclo para eliminar fila
+      
+      k= input("\nIngrese clave Global: ")         # ingresa clave global para permitir hacer actualizaciones
+      while(L==k):                                 # permite crear un cilclo para eliminar filas
+        eemp2= pd.read_csv('BDATOS/bodega1.csv')   # se lee la base de datos de empleado
+        print(eemp2)                                # Imprime la base de datos de empleado
+        CP= input("\n\nIngrese la referencia de producto: ") # Se solicita la clave del empleado a eliminar
+        #CF=input("ingrese la fecha de compra de producto")
+        eemp2=eemp2.drop(eemp2[eemp2['Referencia']==CP].index )    # Se crea un nuevo DataFrame para realizar las modificaciones en la base da datos de empleado
+        eemp2.to_csv("BDATOS/bodega1.csv", mode="w", index="", header="True") # Se graba las modificcaiones en la base de datos de empleado
+        print("\n\n el producto con referencia:", CP, "Ha sido eliminado de la base de datos\n\n") # Se imprime mensaje de las modificaciones realizadas
+        eemp2= pd.read_csv('BDATOS/bodega1.csv')         # se lee la base de datos de empleado        
+        print("\n\n",eemp2,"\n\n")                        # Se imprime la base de datos de empleado actualizada
+        break                                            # Finaliza el ciclo de while
+      break                                     
+
+
 #informe 5
 # Para cambiar el porcentaje de forma individual
 def ganancia(): # Función para modificar el porcentaje de ganancia en las ventas de los productos.
@@ -1401,8 +1420,9 @@ while True:
      print("                                  \t4.1 - Registro de compras")                  # se imprime registro de compras
      print("                                  \t4.2 - Registro total acumulado")              # se imprime registro total acumulado
      print("                                  \t4.3 - Ingreso de bodega")  
-     print("                                  \t4.4 - Terminar con uso de suubmenú") 
-          
+     print("                                  \t4.4 - ") 
+     print("                                  \t4.5 - Eliminar producto vencido ó agotado")
+     print("                                  \t4.6 - Terminar con uso de suubmenú")     
      opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
      if opcionmenu== "4.1": 
        print("\n\nhola\n\n")                          # imprime mensaje de saludo
@@ -1422,11 +1442,12 @@ while True:
          total()
          
         
-     elif opcionmenu == "4.4": 
+     elif opcionmenu == "4.5": 
+         EEE()
+     elif opcionmenu == "4.6": 
         print("4.4")
         break   
-
-     
+         
          
              
   if opcionMenu == "5": 
