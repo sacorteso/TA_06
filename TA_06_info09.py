@@ -560,9 +560,10 @@ def venta():
           c6.append(f55)          # Se anexa a lista para almacenar la fecha
           c7.append(f56)          # Se anexa a lista para almacenar la hora
           
-          cedula=pd.DataFrame(ce)
-          
-          cedula.to_csv("BDATOS/cedula.csv",mode="w", index="", header="True")
+          cedula1=pd.DataFrame(ce)
+          cedula=pd.DataFrame.transpose(cedula1)
+          cedula.columns=['cedula']
+          cedula.to_csv("BDATOS/cedula.csv",mode="w", index="", header="True" )
 
          
           factura=(ce,c1,c2,c3,c4,c5,c6,c7) # se crea lista con los valores de las respectivas variables
@@ -644,7 +645,7 @@ def Factura():
                                   # variable para la identificcaión del cliente
                               # variable para el valor total de la compra
     ce=pd.read_csv("BDATOS/cedula.csv")
-    ce1=ce.iloc[1:1]
+    ce1=ce.iat[0,0]
     ventas=[ce1,Vtotal,f55,f56]                # Se crea lista para ventas totales
     #ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
     #ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
@@ -659,8 +660,9 @@ def Factura():
     #os.system('clear')                         # para limpiar la pantalla
     
     cont=pd.read_csv("BDATOS/contador.csv")    # Se lee la base  de datos contador
-    cont1=pd.to_numeric(cont['contador'])                     # Se halla el valor del contador de la factura
-    cont1= cont1+1                             # se incrementa el contador
+    #cont1=pd.to_numeric(cont['contador'])     # Se halla el valor del contador de la factura
+    
+    cont1= cont.iat[0,0]+1                     # se incrementa el contador
     c5=[cont1]                                 # Se crea una lista
     cont2=pd.DataFrame(c5)                     # Se crea un nuevo DataFrame
     cont22=pd.DataFrame.transpose(cont2)       # Se transpone el DataFrame
