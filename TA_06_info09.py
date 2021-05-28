@@ -561,7 +561,9 @@ def venta():
           c7.append(f56)          # Se anexa a lista para almacenar la hora
           
           cedula=pd.DataFrame(ce)
-          cedula.to_csv("BDATOS/cedula.csv",mode="w", index="", header="")
+          
+          cedula.to_csv("BDATOS/cedula.csv",mode="w", index="", header="True",columns=['cedula'])
+
          
           factura=(ce,c1,c2,c3,c4,c5,c6,c7) # se crea lista con los valores de las respectivas variables
           factura1=pd.DataFrame(factura)    # Se crea DataFrame para la factura
@@ -642,10 +644,10 @@ def Factura():
                                   # variable para la identificcaión del cliente
                               # variable para el valor total de la compra
     ce=pd.read_csv("BDATOS/cedula.csv")
-    ce1=ce.iloc[0,0]
+    ce1=ce['cedula']
     ventas=[ce1,Vtotal,f55,f56]                # Se crea lista para ventas totales
-    ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
-    ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
+    #ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
+    #ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
     #print(ventas2)
     #ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las columnas
     #ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
@@ -668,7 +670,7 @@ def Factura():
     os.system('clear')                        # para limpiar pantalla  
     print("\n\n\n\n\t\t\t\t\t                  FACTURA DE VENTA") # titulo de la página factura de venta
     print("\n\n\n\n")                          #salto de linea                    
-    print("Cédula: ",ce1, "\t\tFecha: " ,       f55,   "\t\tHora: ",        f56,     "\t\tFactura nro.: ", cont1) # para insertar cédula, fecha , hora
+    print("Cédula: ",ce1, "\t\tFecha: " ,       f55,   "\t\tHora: ",        f56, "\t\tFactura nro.: ", cont1) # para insertar cédula, fecha , hora
     print("\n\n\n\n")                          # salto de línea
     print(tem)                                 # Se imprime datos de la compra para la factura
     print("\n\n")                              # salto de linea
