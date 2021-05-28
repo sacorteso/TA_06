@@ -562,7 +562,7 @@ def venta():
           
           cedula=pd.DataFrame(ce)
           
-          cedula.to_csv("BDATOS/cedula.csv",mode="w", index="", header="True",columns=['cedula'])
+          cedula.to_csv("BDATOS/cedula.csv",mode="w", index="", header="True")
 
          
           factura=(ce,c1,c2,c3,c4,c5,c6,c7) # se crea lista con los valores de las respectivas variables
@@ -644,7 +644,7 @@ def Factura():
                                   # variable para la identificcaión del cliente
                               # variable para el valor total de la compra
     ce=pd.read_csv("BDATOS/cedula.csv")
-    ce1=ce['cedula']
+    ce1=ce.iloc[1:1]
     ventas=[ce1,Vtotal,f55,f56]                # Se crea lista para ventas totales
     #ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
     #ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
