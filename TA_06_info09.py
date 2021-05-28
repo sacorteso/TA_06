@@ -1,3 +1,7 @@
+# Advertencia:
+# clave de usuario: gabrielawad
+# clave global: jefe
+
 from datetime import date as dt       #librería para manejar fechas
 from datetime import datetime as dtt  #librería para manejar el tiempo
 from datetime import timedelta        #librearía para realizar operaciones matemáticas con el tiempo
@@ -503,6 +507,8 @@ def vencimiento():   # Función para avisar cuando hay un producto cercano para 
 
 
 #informe 6
+
+
 today=dt.today()            # comando que muestra la fecha actual
 f5=today.strftime('%Y%m%d') # para cambiar el formato de fecha y unirlo
 f55=int(f5)                 # para convertir la fecha en un entero para operciones matemáticas
@@ -525,7 +531,7 @@ def venta():
     cc= input("\n\nIngrese la identificación del cliente: ") # ingreso de la identificación del cliente
     cc=int(cc)                 # se convierte el valor de la identificación en un entero
     
-    z1= input("\n\ningrese la cantidad de ventas que se van a realizar: ") # para crear un ciclo en donde se estima la cantidad de productos que hay que registrar
+    z1= input("\n\ningrese la cantidad de referencias para la venta que se va a realizar: ") # para crear un ciclo en donde se estima la cantidad de productos que hay que registrar
     z=int(z1)                  # Se convierte el valor del ciclo en un entero
     zz1=0                      # para generar variable para el nombre
     zz2=0                      # para generar variable para el precio individual del producto
@@ -534,7 +540,7 @@ def venta():
 
     for k in range(z):  # se crea una iteración para registrar las los productos que se van a vender.
       L6 =pd.read_csv("BDATOS/mostrador.csv") # SE lee la base de datos mostrador
-      print(L6.iloc[:,0:2])    # se imprime el nombre y a referencia del producto
+      print("\n\n",L6.iloc[:,0:2])    # se imprime el nombre y a referencia del producto
       Ref1= input("\n\nIngrese la referencia del producto: ") # para ingresar la respectiva referencia del producto
   
       can= input("\n\nIngrese la cantidad de producto:  ") # Para ingresar la cantidad de productos que se van a comprar de la respectiva referencia
@@ -554,6 +560,8 @@ def venta():
           c6.append(f55)          # Se anexa a lista para almacenar la fecha
           c7.append(f56)          # Se anexa a lista para almacenar la hora
           
+          cedula=pd.DataFrame(ce)
+          cedula.to_csv("BDATOS/cedula.csv",mode="w", index="", header="")
          
           factura=(ce,c1,c2,c3,c4,c5,c6,c7) # se crea lista con los valores de las respectivas variables
           factura1=pd.DataFrame(factura)    # Se crea DataFrame para la factura
@@ -568,10 +576,10 @@ def venta():
           temporal.columns=['Cedula','Referencia','Nproducto','Punitario','Cantidad','Subtotal','Fecha','Hora']
       
          # Se graban los datos para la factura en la base de datos temporal
-          temporal.to_csv('BDATOS/temporal.csv', mode="a", index="", header="")
+          temporal.to_csv('BDATOS/temporal.csv', mode="a", index="", header="True")
       
          # Se graban los datos para la factura en la base de datos factura para consultas en el futuro
-          factura2.to_csv('BDATOS/factura.csv', mode="a", index="", header="")
+          factura2.to_csv('BDATOS/factura.csv', mode="a", index="", header="True")
      
          # Para actualizar las unidades en el mostrador
           mm2=pd.read_csv("BDATOS/mostrador.csv")
@@ -583,7 +591,7 @@ def venta():
             if (mm2.iloc[TM, 1]==Ref1):# Se crea un filtro para eliger la referencia correcta
                    
                mm2=pd.read_csv("BDATOS/mostrador.csv") # Se lee la base de datos de mostardor
-               print(mm2)                              # Se imprime la base de datos de mostardor antes de descontar las unidades del producto
+               #print("\n\n",mm2)                              # Se imprime la base de datos de mostardor antes de descontar las unidades del producto
                mt= mm2.iloc[TM, 7]                     # Se selecciona el acumulado disponible del producto ubicado en el mostrador
           
                mt=mt-mu1                               # se descuenta las respectivas unidades del producto
@@ -591,39 +599,76 @@ def venta():
                mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True") # se graba los nuevos datos en la base de datos de mostrador
                                    
                mm2=pd.read_csv("BDATOS/mostrador.csv") # se lee la base de datos de mostardor con los nuevos datos
-               print("\n\n\n\n")                       # salto de línea
-               print(mm2)                              # Se imprime la nueva base de datos mostrador
-             
-    break
-       
-   
+               #print("\n\n\n\n")                       # salto de línea
+               print("\n\n",mm2)                              # Se imprime la nueva base de datos mostrador
+  
+    z1=0                                               # Constante para operaciones
+    for TK in range(z):                                # Ciclo para recorrer la base de datosde temporal con las últimas ventas
+      temp=pd.read_csv("BDATOS/temporal.csv")          # Se lee la base de datos de temporal
+      long=len(temp)                                   # Se halla la cantidad de filas en la base de datos temporal
+      #print(long)                                     # Se imprime la cantidad de filas
+      z1=long-TK-1                                     # Se crea una variable para hallar la posición de la fila 
+      temp1=temp.iloc[z1,:]                            # Se extraen los datos de la fila en la posición determinada anteriormente
+      temp2=pd.DataFrame(temp1)                        # Se crea un nuevo DataFrame con los datos anteriores
+      temp22=pd.DataFrame.transpose(temp2)             # Se transpone el DataFrame
+      print("\n\n)")                                   # Salto de linea
+      print(temp22)                                    # Se imprime el Dataframe modificado
+      # Se agrega titulos a las columnas
+      temp22.columns=['Cedula','Referencia','Nproducto','Punitario','Cantidad','Subtotal','Fecha','Hora']
+      temp22.to_csv('BDATOS/temporal2.csv', mode="a", index="", header="")   # SE gaba las modifificaciones en la base de datos Temporal2
+
+    
+    break                                              # finalización del ciclo de esta función
+
+
+ 
     
                    
 
 
 
+
+   
+    
+
+
+
 def Factura():
   while True:
-    temporal22=pd.read_csv('BDATOS/temporal.csv')  # Para leer la base de datos temporal
-    factura22=pd.read_csv('BDATOS/factura.csv')   # Para leer la base de datos de factura
+    temporal22=pd.read_csv('BDATOS/temporal2.csv')  # Para leer la base de datos temporal
+    #factura22=pd.read_csv('BDATOS/factura.csv')   # Para leer la base de datos de factura
     Vtotal=temporal22['Subtotal'].sum()  # para sumar el valor total de la compra de productos
     tem=temporal22.drop(['Fecha','Hora'], axis=1) # Para eliminar columnas de la fecha y hora
                                   # variable para la identificcaión del cliente
                               # variable para el valor total de la compra
-    ventas=(ce,Vtotal,f55,f56)                     # Se crea lista para ventas totales
+    ce=pd.read_csv("BDATOS/cedula.csv")
+    ce1=ce.iloc[0,0]
+    ventas=[ce1,Vtotal,f55,f56]                # Se crea lista para ventas totales
     ventas1=pd.DataFrame(ventas)               # Se crea dataframe para ventas totales
     ventas2=pd.DataFrame.transpose(ventas1)    # se transpone el dataframe para organizar los datos
-    ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las columnas
-    ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
-    ventas2= pd.read_csv('BDATOS/ventas.csv')
+    #print(ventas2)
+    #ventas2.columns=['Cedula','Vtotal','Fecha','Hora'] # se coloca nombres a las columnas
+    #ventas2.to_csv('BDATOS/ventas.csv', mode="a", index="", header="") # Se graba los datos para ventas totales en el archivo ventas.csv
+    #ventas2= pd.read_csv('BDATOS/ventas.csv')
     #cont=pd.read_csv('BDATOS/contador.csv')
     #cont1=cont.iloc[0:0]
     #cont2=cont1+1
     #cont2.to_csv('BDATOS/contador.csv', mode="w", index="", header="") 
     #os.system('clear')                         # para limpiar la pantalla
+    
+    cont=pd.read_csv("BDATOS/contador.csv")    # Se lee la base  de datos contador
+    cont1=pd.to_numeric(cont['contador'])                     # Se halla el valor del contador de la factura
+    cont1= cont1+1                             # se incrementa el contador
+    c5=[cont1]                                 # Se crea una lista
+    cont2=pd.DataFrame(c5)                     # Se crea un nuevo DataFrame
+    cont22=pd.DataFrame.transpose(cont2)       # Se transpone el DataFrame
+    cont22.columns=['contador']                # Se coloca titulo a las columnas del DataFrame
+    cont22.to_csv("BDATOS/contador.csv",mode="w", index="", header="True") # Se graba las modificaciones en la base de datos de contador
+    
+    os.system('clear')                        # para limpiar pantalla  
     print("\n\n\n\n\t\t\t\t\t                  FACTURA DE VENTA") # titulo de la página factura de venta
     print("\n\n\n\n")                          #salto de linea                    
-    print("Cédula: ",ce, "\t\tFecha: " ,       f55,   "\t\tHora: ",        f56,     "Factura nro.: ") # para insertar cédula, fecha , hora
+    print("Cédula: ",ce1, "\t\tFecha: " ,       f55,   "\t\tHora: ",        f56,     "\t\tFactura nro.: ", cont1) # para insertar cédula, fecha , hora
     print("\n\n\n\n")                          # salto de línea
     print(tem)                                 # Se imprime datos de la compra para la factura
     print("\n\n")                              # salto de linea
@@ -1276,10 +1321,10 @@ def menu():
   print("\n\n")
   tituloG = "PÁGINA PRINCIPAL DE ADMINISTRADOR"
   print(tituloG.center(100," "))
-  print("\n\n")
+  #print("\n\n")
                                            # se crea un menu para el manejo operativo del negocio
     
-  print("\n\n\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
+  print("\n\nSelecciona una opción \n")                    # se imprime mendsaje del menú
   print("                                  \t3 - Empleados ")                  # se imprime registro de compras
   print("                                  \t4 - Compras y Bodega")              # se imprime registro total acumulado
   print("                                  \t5 - Mostrador")  
@@ -1444,8 +1489,8 @@ while True:
       #bodegacom()   
       #mensaje="HOLA"
       os.system('clear') #limpiar pantalla
-      print("\n\n")
-      print("Hola".center(100," "))                                  # la función compra se ejecuta
+      #print("\n\n")
+      #print("Hola".center(100," "))                                  # la función compra se ejecuta
       venta()           
 
         
