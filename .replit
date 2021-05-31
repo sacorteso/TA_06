@@ -24,3 +24,9 @@
 
 language = "python3"
 run = "python TA_06_info09.py"
+
+
+
+
+#language = "python3"
+#run = "python TA_06_info10.py"
