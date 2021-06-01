@@ -1,4 +1,5 @@
-manzana,m500ml,0,2500,50,30,3250.0,28
+Producto,Referencia,Ubodega,precioC,Uventas,ganancia,Pventa,Acum
+manzana,m500ml,0,2500,50,30,3250.0,18
 colombia,c500ml,0,2500,50,30,3250.0,29
 LECHE,CL1000,48,3000,1,50,3600.0,51
 GDUCALES,NGD,25,3333,20,50,4000.0,49
