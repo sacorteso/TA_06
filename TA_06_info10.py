@@ -448,35 +448,33 @@ def total():  # se crea una función para manejar los productos adquiridos
         # se finaliza este ciclo while
 
 
-def EEE():  # Se cea base de datos para eliminar fila
-    while True:  # Se crea el ciclo para eliminar fila
+def EEE():  # Se cea base de datos para eliminar producto de la base de datos de bodega
+    while True:  # Se crea el ciclo para eliminar producto de la base de datos de bodega
 
-        k = input("\nIngrese clave Global: "
-                  )  # ingresa clave global para permitir hacer actualizaciones
-        while (L == k):  # permite crear un cilclo para eliminar filas
-            eemp2 = pd.read_csv(
-                'BDATOS/bodega1.csv')  # se lee la base de datos de empleado
-            print(eemp2)  # Imprime la base de datos de empleado
-            CP = input("\n\nIngrese la referencia de producto: "
-                       )  # Se solicita la clave del empleado a eliminar
-            #CF=input("ingrese la fecha de compra de producto")
+        k = input("\nIngrese clave Global: ")  # ingresa clave global para permitir hacer actualizaciones
+        while (L == k):                        # permite crear un cilclo para eliminar filas
+            print("\n\n")                      # Salto de línea
+            eemp2 = pd.read_csv('BDATOS/bodega1.csv')  # se lee la base de datos de bodega
+            print(eemp2)                               # Imprime la base de datos de bodega
+            # mensaje para ingresar la respectiva posición de la fila del producto a eliminar de la base de datos de bodega
+            CP1 = input("\n\nIngrese la posición de la fila  del producto a eliminar de bodega: ") 
+            CP=int(CP1)               # la variable se covierte en entero
+            F1=eemp2.iloc[CP,1]       # Para hallar el respectivo nombre del producto a eliminar
+            F2=eemp2.iloc[CP,2]       # Para hallar la respectiva referencia del producto a eliminar
+            F3=eemp2.iloc[CP,6]       # Para hallar la respectiva fecha de compra del producto a eliminar
             
-            producto= eemp2[(eemp2['Referencia'] == CP) and (eemp2['Fcompra'] == CF)].index
-            eemp2 = eemp2.drop( producto, inplace=True)
-             # Se crea un nuevo DataFrame para realizar las modificaciones en la base da datos de empleado
-            eemp2.to_csv(
-                "BDATOS/bodega1.csv", mode="w", index="", header="True"
-            )  # Se graba las modificcaiones en la base de datos de empleado
-            print("\n\n el producto con referencia:", CP,
-                  "Ha sido eliminado de la base de datos\n\n"
-                  )  # Se imprime mensaje de las modificaciones realizadas
-            eemp2 = pd.read_csv(
-                'BDATOS/bodega1.csv')  # se lee la base de datos de empleado
-            print(
-                "\n\n", eemp2,
-                "\n\n")  # Se imprime la base de datos de empleado actualizada
-            break  # Finaliza el ciclo de while
-        break
+            eemp22= eemp2.drop([CP], axis=0) # comando para eliminar la respectiva fila seleccionada
+            
+            os.system('clear')  # Para limpiar la pantalla
+            # mensaje que confirma la eliminación del respectivo producto
+            print("\n\nEl producto con nombre:",F1, " con referencia: ",F2, "    y fecha de compra: ",F3)
+            print("\n")              # salto de línea
+            print("Ha sido eliminado de la bodega".center(100," ")) # mensaje de confirmación que se ha eliminado el producto
+            eemp22.to_csv("BDATOS/bodega1.csv", mode="w", index="", header="True")  # Se graba las modicaciones en la base de datos de bodega
+            eemp22 = pd.read_csv('BDATOS/bodega1.csv')  # se lee la base de datos de bodega
+            print("\n", eemp22,"\n\n")                  # Se imprime la base de datos actualizada de bodega
+            break                                       # Finaliza el ciclo de while
+        break                                           # Finaliza el ciclo de while principal
 
 
 #informe 5
