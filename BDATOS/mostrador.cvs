@@ -1,8 +1,8 @@
 Producto,Referencia,Ubodega,precioC,Uventas,ganancia,Pventa,Acum
-manzana,m500ml,0,2500,5,30,3250.0,30
-colombia,c500ml,0,2500,5,30,3250.0,29
-LECHE,CL1000,48,3000,1,20,3600.0,51
-GDUCALES,NGD,25,3333,20,20,4000.0,49
+manzana,m500ml,0,2500,50,30,3250.0,30
+colombia,c500ml,0,2500,50,30,3250.0,29
+LECHE,CL1000,48,3000,1,50,3600.0,51
+GDUCALES,NGD,25,3333,20,50,4000.0,49
 cocacola350,c350,30,1667,50,20,2000.0,97
-lecheklim,nlk480,20,6000,5,20,7200.0,100
-litronuva,plu1250,2,3333,8,35,4499.55,50
+lecheklim,nlk480,20,6000,50,20,7200.0,100
+litronuva,plu1250,2,3333,80,35,4499.55,50
