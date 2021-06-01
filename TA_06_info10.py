@@ -8,8 +8,8 @@ import csv  # Librería para manipular archivos con extensión csv
 import time  # Librería para manipular el tiempo
 import matplotlib.pyplot as plt  # Librería para generar gráficas
 import openpyxl  # Librería para leer y escribir archivos excel
-from tabulate import tabulate
-
+from tabulate import tabulate # Librería para tabular impresiones de pantalla
+import calendar as cl         # librería para manipular calendarios
 os.system('clear')  # Para limpiar pantalla
 titulo = "  PÁGINA PRINCIPAL DE ADMINISTRADOR  "  # Para crear titulo principal de la aplicación
 print("\n\n")  # Salto de línea
@@ -28,18 +28,24 @@ print("\n\n")  # Salto de línea
 ##print(f55)  # para imprimir la hora
 #f56 = time.strftime('%H:%M:%S')  # pra modificar el foramto de la hora
 #print(f56)  # para imprimir la hora
-fA=dtt.utcnow() +timedelta(hours=-5)
-f = fA.strftime('%Y-%m-%d')
+fA=dtt.utcnow() +timedelta(hours=-5) # Para actualizar la hora global a la hora de Colombia
+f = fA.strftime('%Y-%m-%d')          # Para cambiar el formato de la fecha
 #print(f)
-f5 = fA.strftime('%Y%m%d')
-f55 =int(f5)
-#print(f55)
-f56= fA.strftime('%H:%M:%S')  # pra modificar el foramto de la hora
-#print(f56)
-print("Fecha: ", f,              "\t\tLa hora en Colombia es: ",f56)
+f5 = fA.strftime('%Y%m%d')           # Para cambiar el foramato de ka fecha
+f55 =int(f5)                         # Para convertir ese formato de fecha en entero            
+#print(f55)                          # Para imprimir el nuevo formato de fecha
+f56= fA.strftime('%H:%M:%S')         # para modificar el foramto de la hora
+#print(f56)                          # Para imprimir el nuevo formato de la hora
+# Se imprime la fecha y la hora modifica en la página principal
+print("Fecha: ", f,              "\t\tLa hora en Colombia es: ",f56) 
+print("\n\n")                        # Salto de línea
+year=cl.month(2021,6)                # Para activar calendario en el año y mes específico
+print(year)                          # Se imprime el calendario
 
-ce = 0
-ff7 = 0
+
+
+ce = 0                               # Variable
+ff7 = 0                              # Variable
 
 L2 = pd.read_csv(
     "CLAVES/Clave.csv")  # Lee el archivo csv donde están las claves guardadas
