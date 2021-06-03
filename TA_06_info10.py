@@ -377,6 +377,40 @@ def EEE():  # Se cea base de datos para eliminar producto de la base de datos de
 
 
 #informe 5
+#Para anexar referencia de productos a mostrador
+
+def mostrador():
+  while True:
+    
+    os.system('clear')  # para limpiar la pantalla
+    print("\n")  # Salto de línea
+    titulo = "  PÁGINA PRINCIPAL DE MOSTRADOR "  # Para crear titulo principal de la aplicación
+    print(titulo.center(70, "="))  # Para imprimir el titulo centrado
+    L57 = pd.read_csv('BDATOS/bodega1.csv')  # lee la base datos de bodega
+    print("\n\n\n\n")                        # Salto de línea
+    print(L57.iloc[:,0:4])                   # Imprime la primer parte de la base de datos de bodega
+    print("\n\n\n\n")                        # Salto de línea
+    print(L57.iloc[:,4:8])                   # Imprime la segunda parte de la base de datos de bodega
+    F4 = input("\n\ningrese el número de la fila del producto a anexar a mostrador: ")  # Se ingresa la fecha de compra del producto
+    F5 = int( F4)  # Se convirta la variable anterior en una variable tipo entero
+    #F6 = L57.iloc[F5,:]   # Se buscan las referencias correspondientes en el DataFrame
+    Producto= L57.iloc[F5,1]
+    Referencia=  L57.iloc[F5,2]
+    Ubodega=0
+    precioC=L57.iloc[F5,5]
+    Uventas=0
+    ganancia=0
+    Pventa=0
+    Acum=0
+
+    mo=[Producto, Referencia, Ubodega, precioC, Uventas, ganancia, Pventa, Acum]
+    F7 = pd.DataFrame(mo)
+    F77 = pd.DataFrame.transpose(F7)
+    F77.columns=['Producto','Referencia','Ubodega','precioC','Uventas','ganancia','Pventa','Acum']  # Se anexan los titulos de las columnas del dataframe df2
+    F77.to_csv('BDATOS/mostrador.csv', mode="a", index="", header="True")  
+    print(F77)
+    break                                    # Se finaliza el ciclo de esta función
+   
 # Para cambiar el porcentaje de forma individual
 def ganancia():  # Función para modificar el porcentaje de ganancia en las ventas de los productos.
     while True:  # Activa el ciclo para modificar el porcentaje de ganancia en las ventas de los productos.
@@ -425,19 +459,6 @@ def ganancia():  # Función para modificar el porcentaje de ganancia en las vent
 # Para cambiar las unidades de forma individual
 def unidades():  # función para elegir la cantidad de productos para la venta según la referencia
     while True:  # Activar el ciclo para elegir la cantidad de productos para la venta según la referencia
-        
-       
-          
-        #and LL5.iloc[FF1, 4]> 0
-        # and  LL5.iat[FF1, 7]> f55
-        
-        #if(LL93.iloc[1,2]=='500ml' and LL93.iloc[1,7].min()):
-        #  LL933=LL93.iloc[1,2]=='500ml' and LL93.iloc[1,7].min()
-        #  print(LL933)  
-
-        
-
-        
         os.system('clear')  # para limpiar la pantalla
         print("\n\nPAGINA MOSTRADOR")  # Titulo para la página principal de mostrador
         print("\n\n\t\t PAGINA PARA CAMBIAR LAS UNIDADES EN FORMA INDIVIDUAL")  # subtitulos para cambiar las unidades en forma individual
@@ -457,35 +478,58 @@ def unidades():  # función para elegir la cantidad de productos para la venta s
         g5 = int( g4)  # Se convirta la variable anterior en una variable tipo entero
         m5 = LL5[LL5['Referencia'] == g3]  # Se buscan las referencias correspondientes en el DataFrame
         m6 = LL5[LL5['Fcompra'] == g5]  # Se buscan la fecha de compra en el DataFrame
-        os.system('clear')  # Se limpia la pantalla
-        print("\n\n\n\nDatos de la bodega \n\n",m5)  # Se imprime los resultados de las referencias encontradas
-
-        # Se ingresa la cantidad de productos de una referencia determinada que van para el mostrador de ventas
-        mu = input( "\n\n\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")
-        mu1 = int(mu)  # El anterior valor se convierte en entero
-
-        mt = 0  # Se crea variable para guardar la cantidad de productos acumulados en mostrador
-        for TM in range(len(mm2)):  # Se crea un ciclos para recorrer el DataFrame mostrador
-            if (LL5.iloc[TM, 2] == g3 and LL5.iloc[TM, 6] == g5):  # En la base de datos de bodega se busca la respectiva referencia  y fecha de compra del producto
-                LL5 = pd.read_csv('BDATOS/bodega1.csv')  # Al cumplir la condición anterior se lee nuevamente la base de datos de bodega
-                mm2 = pd.read_csv("BDATOS/mostrador.csv")  # Se lee la base de datos de mostrador
-
-                mt = mm2.iloc[TM,7]  # Se escoge el valor del acumulado en el mostrador y se crea una nueva variable
-                g6 = LL5.iloc[TM,4]  # Se escoge la cantidad de unidades disponibles en la bodega
-                mm2.iloc[TM, 4] = mu1  # Se actualiza la cantidad  de unidades en el mostrador
-                mt = mu1 + mt  # Se suma la nueva cantidad de unidades al acumulado
-                mm2.iloc[TM, 7] = mt  # Se actualiza el acumulado en la base de datos de mostrador
-                mm2.to_csv('BDATOS/mostrador.cvs', mode="w", index="", header="True")  # Se graba las nuevas modificaciones en la base de datos mostrador
-                g7 = g6 - mu1  # Las unidades que se llevan para el mostrador se descuentas al inventario de la bodega
-                LL5.iloc[TM,4] = g7  # Se actualiza las nuevas cantidades de unidades del producto en la bodega
-                mm2.iloc[TM,2] = g7  # La unidaes del productos actualizadas en la bodega se informa en la base de datos de mostrador
-                mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True" )  # Se graba las nuevas actualizaciones en la base de datos de mostrador
-                LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")  # Se graba las nuevas actualizaciones en la base decdatos de bodega
-                LL5 = pd.read_csv('BDATOS/bodega1.csv')  # Se lee la base de datos de bodega para confirmar los cambios
-                mm2 = pd.read_csv('BDATOS/mostrador.csv')  # Se lee la base de datos de mostardor para confirmar los cambios
-
-        print(
-            "\n\n\n\n***************   Bodega actualizada    *******************")  # Mensaje de confirmación de datos actualizados en bodega
+        #os.system('clear')  # Se limpia la pantalla
+        g6=0
+        g7=0
+        g71=0
+        for mm in range(len(LL5)):
+          if((LL5.iloc[mm,2]==g3) and (LL5.iloc[mm,6]==g5)):
+            print("\n\n\n\nDatos de la bodega \n\n",LL5.iloc[mm,:])  # Se imprime los resultados de las referencias encontradas
+          
+            # Se ingresa la cantidad de productos de una referencia determinada que van para el mostrador de ventas
+            mu = input( "\n\n\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")
+            mu1 = int(mu)  # El anterior valor se convierte en entero
+            return mu1
+            mt = 0  # Se crea variable para guardar la cantidad de productos acumulados en mostrador
+            g6 = LL5.iloc[mm,4]  # Se escoge la cantidad de unidades disponibles en la bodega
+            g71 = int(g6)
+            print(g71)
+            TM=0
+            TM1=0
+           # for TM in range(len(mm2)): 
+            #for TM in range(1): 
+              #if (mm2.iloc[TM, 2] == g3): 
+        #continue 
+            TM = mm2[mm2["Referencia"]==g3].index
+            TM1 = LL5[LL5["Referencia"]==g3].index
+            print("\n\n\n\n",TM)
+            print("\n\n",TM1)
+            mt = mm2.iloc[TM,7]  # Se escoge el valor del acumulado en el mostrador y se crea una nueva variable
+            mm2.iloc[TM, 4] = mu1  # Se actualiza la cantidad  de unidades en el mostrador
+            mt = mu1 + mt  # Se suma la nueva cantidad de unidades al acumulado
+            mm2.iloc[TM, 7] = mt  # Se actualiza el acumulado en la base de datos de mostrador
+            mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True")  # Se graba las nuevas modificaciones en la base de datos mostrador
+            g7 = g71 - mu1  # Las unidades que se llevan para el mostrador se descuentas al inventario de la bodega
+                  
+            print("\n\n\n\n",g7)
+        
+        
+          
+            LL5.iloc[TM1,4] = g7  # Se actualiza las nuevas cantidades de unidades del producto en la bodega
+            LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")  # Se graba las nuevas actualizaciones en la base decdatos de bodega
+       
+            mm2.iloc[TM,2] = g7  # La unidades del productos actualizadas en la bodega se informa en la base de datos de mostrador
+            mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True" )  # Se graba las nuevas actualizaciones en la base de datos de mostrador
+        
+                  #if(LL5[LL5['Referencia']==g5] and LL5[LL5['Fcompra']=g5]):
+                 # mm2 = pd.read_csv("BDATOS/mostrador.csv")  # Se lee base de datos mostrador
+                  #LL5 = pd.read_csv('BDATOS/bodega1.csv')  # Se lee la base de datos de bodega
+        
+       
+        LL5 = pd.read_csv('BDATOS/bodega1.csv')  # Se lee la base de datos de bodega para confirmar los cambios
+        mm2 = pd.read_csv('BDATOS/mostrador.csv')  # Se lee la base de datos de mostardor para confirmar los cambios
+                 
+        print("\n\n\n\n***************   Bodega actualizada    *******************")  # Mensaje de confirmación de datos actualizados en bodega
         print("\n\n\n\n", LL5)
         print("\n\n\n\n***************   Mostrador actualizado   ****************" )  # Mensaje de confirmación de datos de actualizados en mostrador
         print("\n\n", mm2)
@@ -1935,45 +1979,37 @@ while True:
         subtitulo = " SUBMENÚ DE MOSTRADOR"
         print("\n\n")
         print(subtitulo.center(100, " "))
-        print(
-            "\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print(
-            "                                  \t5.1 - Cambio de porcentaje de ganancia "
-        )  # se imprime registro de compras
-        print(
-            "                                  \t5.2 - Para llenar el mostrador con productos"
-        )  # se imprime registro total acumulado
-        print(
-            "                                  \t5.3 - Agotamiento de productos"
-        )
-        print(
-            "                                  \t5.4 - Vencimiento de productos"
-        )
-        print(
-            "                                  \t5.5 - Terminar con uso de menu"
-        )
+        print("\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
+        print("                                  \t5.1 - Para anexar referencias de productos a mostrador")  # se imprime registro de compras
+        print("                                  \t5.2 - Cambio de porcentaje de ganancia ")  # se imprime registro de compras
+        print("                                  \t5.3 - Para llenar el mostrador con productos" )  # se imprime registro total acumulado
+        print("                                  \t5.4 - Agotamiento de productos")
+        print("                                  \t5.5 - Vencimiento de productos")
+        print("                                  \t5.6 - Terminar con uso de menu")
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
         if opcionmenu == "5.1":
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            #bodegacom()
-            #mensaje="HOLA"
+            mostrador()            
+
+        elif opcionmenu == "5.2":  # se ejecuta la función total
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             ganancia()
-
         elif opcionmenu == "5.2":  # se ejecuta la función total
-            unidades()
+            ganancia()
 
         elif opcionmenu == "5.3":
-            print("5.3")
-            agotado()
+             unidades()
 
         elif opcionmenu == "5.4":
-            print("5.4")
-            vencimiento()
+             agotado()
+            
+            
 
         elif opcionmenu == "5.5":
+             vencimiento()
+        elif opcionmenu == "5.6":
             print("5.5")
             break
 
