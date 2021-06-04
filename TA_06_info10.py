@@ -53,26 +53,19 @@ print(year)                         # Se imprime el calendario
 ce = 0                               # Variable
 ff7 = 0                              # Variable
 
-L2 = pd.read_csv(
-    "CLAVES/Clave.csv")  # Lee el archivo csv donde están las claves guardadas
-L3 = pd.DataFrame(
-    L2)  # las claves leídas se covieten e dataframe para facilitar su uso
+L2 = pd.read_csv( "CLAVES/Clave.csv")  # Lee el archivo csv donde están las claves guardadas
+L3 = pd.DataFrame(L2)  # las claves leídas se covieten e dataframe para facilitar su uso
 L = 0  # se define constante axiliar para ser utilizada en while del menú principal
 L4 = 0  # se define constante axiliar para ser utilizada en while de ingreso de clave
 z = 5  #  se define constante axiliar para ser utilizada en while del menú principal
 while (z != L4):  # ciclo para comparar las claves que se ingresan con la calves guardadas en la base de datos
-    z = input("\n\n\n\ningrese la clave de usuario:  "  )  # ingreso de clave para ser comparada
-    print("\n\n\t\t\tclave de usuario no válida\n\n"
-          )  # mensaje para que se corrija la clave
+    z = input("\n\n\n\ningrese la clave de usuario: ")  # ingreso de clave para ser comparada
+    print("\n\n\t\t\tclave de usuario  válida\n\n"   )  # mensaje para que se corrija la clave
 
-    for T in range(
-            len(L3)
-    ):  # ciclo para comparar con todas las claves con la base de datos
-        L4 = L3.iloc[
-            T, 0]  # Permite hallar una clave  en una posición determinada
+    for T in range(len(L3)):  # ciclo para comparar con todas las claves con la base de datos
+        L4 = L3.iloc[T, 0]  # Permite hallar una clave  en una posición determinada
         if (z == L4):  # compara la clave del dataframe con la clave ingresada
-            print("usuario identificado"
-                  )  # si las claves coinciden imprime mensaje positivo
+            print("\n\nusuario identificado")  # si las claves coinciden imprime mensaje positivo
             L = 5  # constante auxiliar que servirá para activar el menú principal
             break
 
@@ -93,21 +86,15 @@ def creaciondecontrase():  # se crea función para la creación de contraseñas
         # Para ingresar la nueva contraseña
         contrainic = input("\nIngrese nueva contraseña de 8 a 15 caracteres:")
         longitud1 = len(contrainic)  # Para medir la longitud de la contraseña
-        print("su contraseña tiene:", longitud1, "caracteres"
-              )  # Se imprime la cantidad de caracteres de la contraseña
+        print("su contraseña tiene:", longitud1, "caracteres" )  # Se imprime la cantidad de caracteres de la contraseña
         if longitud1 > 7 and longitud1 < 16:  # Se crea sistema para verificar  si cumple las condiciones para la clave
             print("correcto")  # Se imprime mensaje para confirmación de clave
             break  # Se finaliza el ciclo
         else:  # Otra opción si no se cumple la opción principal
-            contrainic = input(
-                "Presione cualquier tecla para reintentar: "
-            )  # mensaje para regresar al ciclo de generación de clave
-    contrainic2 = input("ingrese nuevamente su contraseña: "
-                        )  # Para ingresar nuevamente la clave
-    while (contrainic !=
-           contrainic2):  # Se crea un ciclo while para verificar la clave
-        contrainic2 = input("error ingrese nuevamente su contraseña: "
-                            )  # Mensaje de erroe cuando la clave no concuerda
+            contrainic = input( "Presione cualquier tecla para reintentar: ")  # mensaje para regresar al ciclo de generación de clave
+    contrainic2 = input("ingrese nuevamente su contraseña: "  )  # Para ingresar nuevamente la clave
+    while (contrainic != contrainic2):  # Se crea un ciclo while para verificar la clave
+        contrainic2 = input("error ingrese nuevamente su contraseña: ")  # Mensaje de erroe cuando la clave no concuerda
     return str(contrainic)  # Retorna la cale correcta
 
 
@@ -217,59 +204,78 @@ def login():  # Se crea función para ingreso de nuevos empleados
 
 def empleados():  # Se crea función para leer la base de datos de empleado
     while True:  # Se crea el ciclo para activar la función para leer la base de datos de empleado
-        os.system('clear')  # Sirve para limpiar la pantalla
-        print("\t\t\t\t BASE DE DATOS CON LOS EMPLEADOS \n\n"
-              )  # Se imprime el titulo de la página de empleado
+        os.system('clear') #limpiar pantalla
+        print("\n\n")      # salto de línea
+        tituloG = "  BASE DE DATOS DE LOS EMPLEADOS  "  # Variable para titulo página principal de calendario
+        print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+        print("\n\n")      # salto de línea
         emp2 = pd.read_csv( 'BDATOS/empleado.csv')  # se lee la base de datos de empleado
         print(emp2)  # Se imprime la base de datos de empleado
-        break  # Se finaliza el ciclo
+        ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+        T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+        if(T==ff):                                   # Se verifica si cumple la condición
+          
+          break                                      # Finaliza primer ciclo
+        break                                        # Finaliza el segundo ciclo
 
 def modclave():
   while True:
+    os.system('clear') #limpiar pantalla
+    print("\n\n")      # salto de línea
+    tituloG = "  CAMBIO DE CLAVE DE USUARIO PARA EMPLEADO  "  # Variable para titulo página principal de calendario
+    print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+    print("\n\n")      # salto de línea
     k = input("\nIngrese clave Global: " )  # ingresa clave global para permitir hacer actualizaciones
         
     while (L == k ): 
       emp25 = pd.read_csv( 'BDATOS/empleado.csv')  # se lee la base de datos de empleado
       print("\n\n", emp25)  # Se imprime la base de datos de empleado
-      p=int(input("ingrese el número de la fila que tiene los datos del empleado: "))
-      Nclave = str(input("Ingrese la nueva clave: "))
+      p=int(input("\n\ningrese el número de la fila que tiene los datos del empleado: "))
+      Nclave = str(input("\n\nIngrese la nueva clave: "))
       emp25.iloc[p, 3]= Nclave
       emp25.to_csv( "BDATOS/empleado.csv", mode="w", index="", header="True")  # se graba la información en la base de datos de claves
       emp25 = pd.read_csv( 'BDATOS/empleado.csv')
       print("\n\n",emp25)
-      break
+      ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+      T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+      if(T==ff):                                   # Se verifica si cumple la condición
+         break                                     # Finaliza primer ciclo
+      break                                        # Finaliza segundo ciclo
+    break                                          # Finaliza tercer ciclo
         
 def EE():  # Se cea base de datos para eliminar fila
+    os.system('clear') #limpiar pantalla
+    print("\n\n")      # salto de línea
+    tituloG = "  ELIMINAR DATOS DE EMPLEADO  "  # Variable para titulo página principal de calendario
+    print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+    print("\n\n")      # salto de línea
     while True:  # Se crea el ciclo para eliminar fila
 
         k = input("\nIngrese clave Global: "
                   )  # ingresa clave global para permitir hacer actualizaciones
         while (L == k):  # permite crear un cilclo para eliminar filas
-            emp2 = pd.read_csv(
-                'BDATOS/empleado.csv')  # se lee la base de datos de empleado
+            print("\n\n")      # salto de línea
+            emp2 = pd.read_csv('BDATOS/empleado.csv')  # se lee la base de datos de empleado
             print(emp2)  # Imprime la base de datos de empleado
-            CL = input("\n\nIngrese la clave del empleado: "
-                       )  # Se solicita la clave del empleado a eliminar
+            CL = input("\n\nIngrese la clave del empleado: " )  # Se solicita la clave del empleado a eliminar
 
-            emp2 = emp2.drop(
-                emp2[emp2['Clave'] == CL].index
-            )  # Se crea un nuevo DataFrame para realizar las modificaciones en la base da datos de empleado
-            emp2.to_csv(
-                "BDATOS/empleado.csv", mode="w", index="", header="True"
-            )  # Se graba las modificcaiones en la base de datos de empleado
-            print("\n\n empleado con clave:", CL,
-                  "Ha sido eliminado de la base de datos\n\n"
-                  )  # Se imprime mensaje de las modificaciones realizadas
+            emp2 = emp2.drop(emp2[emp2['Clave'] == CL].index)  # Se crea un nuevo DataFrame para realizar las modificaciones en la base da datos de empleado
+            emp2.to_csv("BDATOS/empleado.csv", mode="w", index="", header="True")  # Se graba las modificcaiones en la base de datos de empleado
+            print("\n\n empleado con clave:", CL, "Ha sido eliminado de la base de datos\n\n")  # Se imprime mensaje de las modificaciones realizadas
             emp2 = pd.read_csv('BDATOS/empleado.csv')  # se lee la base de datos de empleado
             print( "\n\n", emp2,"\n\n")  # Se imprime la base de datos de empleado actualizada
-            break  # Finaliza el ciclo de while
+            ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+            T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+            if(T==ff):                                   # Se verifica si cumple la condición
+               break                                     # Finaliza primer ciclo
+            break 
         break  #Finaliza el ciclo del while principal
 
 
 def fp():
     while True:
-        print("fin del programa")
-        input("\nSe ha pulsado la opción 9...\n pulsa enter para finalizar")
+        print("\n\nOprima enter para finalizar submenú")
+        input()
         break
 
 
@@ -277,7 +283,11 @@ def fp():
 # 4.1
 def compras():  # Se crea función para ingresar los productos a la bodega
     while True:  # ciclo while para ingresar los productos con sus respectivos datos
-
+        os.system('clear') #limpiar pantalla
+        print("\n\n")      # salto de línea
+        tituloG = "  PÁGINA DE COMPRAS  "  # Variable para titulo página principal de calendario
+        print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+        print("\n\n")      # salto de línea
         ig = 1             # constante para validar variable
         #listas definidas para el dataframe de bodega
         distribuidor = []  # para crear lista vacía para distribuidor
@@ -312,58 +322,81 @@ def compras():  # Se crea función para ingresar los productos a la bodega
 
             #las listas se convierten en datafreme
             bodega1 = [distribuidor, producto, referencia, precio, unidad, valorxunidad, fecompra, fv]  # se crea una nueva lista para que sea interpretada por el dataframe df1
-            os.system('clear')  # Sirve para limpiar la pantalla
-            print("\t\t\t\t PÁGINA DE BODEGA \n\n" )  # para mostrae el titulo de la página bodega
+           # os.system('clear')  # Sirve para limpiar la pantalla
+           # print("\n\n")      # salto de línea
+           # tituloG = "  PÁGINA DE COMPRAS  "  # Variable para titulo página principal de calendario
+           # print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+           # print("\n\n")      # salto de línea
             df1 = pd.DataFrame( bodega1)  # se crea el dataframe Bodega para manipular operaciones con datos más facilmente.
-            print("\t\t PRODUCTOS EN BODEGA \n\n" )  # se crea el subtitulo de productos de bodega
+            #print("\t\t PRODUCTOS EN BODEGA \n\n" )  # se crea el subtitulo de productos de bodega
             df2 = pd.DataFrame.transpose(df1)  # se crea un nuevo dataframe para transponer los datos de df1, para una mejor visualización
             df2.columns = ['Empresa','Producto','Referencia','Ppaca','unidades','Punitario','Fcompra','Fv']  # Se anexan los titulos de las columnas del dataframe df2
             #print(df2)  # Se imprime los resultados del dataframe df2
             df2.to_csv('BDATOS/compras.csv', mode="a", index="", header="" )  # sirve para grabar los datos en la base de datos correspondiente
-            print("\n\n\t\tTOTAL ACUMULADO EN COMPRAS\n\n")  # se imprime titulo de  submenú acumulados de compras
+            print("\n\n")      # salto de línea
+            tituloG = "  TOTAL ACUMULADO EN COMPRAS  "  # Variable para titulo página principal de calendario
+            print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+            print("\n\n")      # salto de línea
+            
+            #print("\n\n\t\tTOTAL ACUMULADO EN COMPRAS\n\n")  # se imprime titulo de  submenú acumulados de compras
             L5 = pd.read_csv('BDATOS/compras.csv')  # lee la base datos de compras
             L55=pd.DataFrame(bodega1)               # Se crea DataFrame para bodega
             L55=pd.DataFrame.transpose(L55)         # Se transpone el anterior DataFrame
             L55.columns = ['Empresa','Producto','Referencia','Ppaca','unidades','Punitario','Fcompra','Fv']  # Se anexan los titulos de las columnas del dataframe LL5
             L55.to_csv('BDATOS/bodega1.csv', mode="a", index="", header="" )  # sirve para grabar los datos en la base de datos bodega
             print(L5)                               # Imprime la base de datos de compras
-            
-        else:  # Se crea la segunda opción alternativa
-            break  # fInaliza este ciclo con el for
-
+            ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+            T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+            if(T==ff):                                   # Se verifica si cumple la condición
+               break                                     # Finaliza primer ciclo
+            break 
+        break  
+        
 
 # función para crear la pnatalla de compras e ingreso de productos
 def bodega():  # se define la función para compras
-    while True:  # se crea un ciclo white para el ingreso de los productos
-     os.system('clear')  # para limpiar la pantalla
-     print("\n")  # Salto de línea
-     titulo = "  PÁGINA PRINCIPAL DE BODEGA "  # Para crear titulo principal de la aplicación
-     print(titulo.center(70, "="))  # Para imprimir el titulo centrado
-     L57 = pd.read_csv('BDATOS/bodega1.csv')  # lee la base datos de bodega
-     print("\n\n\n\n")                        # Salto de línea
-     print(L57.iloc[:,0:4])                   # Imprime la primer parte de la base de datos de bodega
-     print("\n\n\n\n")                        # Salto de línea
-     print(L57.iloc[:,4:8])                   # Imprime la segunda parte de la base de datos de bodega
-     break                                    # Se finaliza el ciclo de esta función
+    while True: # se crea un ciclo white para el ingreso de los productos
+      os.system('clear')  # para limpiar la pantalla
+      print("\n\n")      # salto de línea
+      tituloG = "  PÁGINA PRINCIPAL DE BODEGA  "  # Variable para titulo página principal de calendario
+      print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+      print("\n\n")      # salto de línea
+      L57 = pd.read_csv('BDATOS/bodega1.csv')  # lee la base datos de bodega
+      print("\n\n\n\n")                        # Salto de línea
+      print(L57.iloc[:,0:4])                   # Imprime la primer parte de la base de datos de bodega
+      print("\n\n\n\n")                        # Salto de línea
+      print(L57.iloc[:,4:8])                   # Imprime la segunda parte de la base de datos de bodega
+      ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+      T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+      if(T==ff):                                   # Se verifica si cumple la condición
+         break                                     # Finaliza primer ciclo
+      break 
+    
 
 # Función para manejar el total de productos adquiridos
 def total():  # se crea una función para manejar los productos adquiridos
     while True:  # se crea un ciclos while para mostrar la actualización del total de los productos comprados
-        print("\n\n\t\tTOTAL ACUMULADO EN COMPRAS\n\n")  # se imprime titulo de  submenú acumulados de compras
+        os.system('clear')  # para limpiar la pantalla
+        print("\n\n")      # salto de línea
+        tituloG = "  TOTAL ACUMULADO EN COMPRAS  "  # Variable para titulo página principal de calendario
+        print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+        print("\n\n")      # salto de línea
         L1 = pd.read_csv('BDATOS/compras.csv')  # lee la base datos de compras
         print(L1)  # imprime el dataframe de la base de datos de compras
-        #with open("compras.csv", newline="") as file:
-        #  reader=csv.reader(file,delimiter=",")
-        #  for row in reader:
-        #    print(row)
-        print("\n\n")  # se crea saltos de linea
-        break
-        # se finaliza este ciclo while
+        ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+        T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+        if(T==ff):                                   # Se verifica si cumple la condición
+           break                                     # Finaliza primer ciclo
+        break 
 
 
 def EEE():  # Se cea base de datos para eliminar producto de la base de datos de bodega
     while True:  # Se crea el ciclo para eliminar producto de la base de datos de bodega
-
+        os.system('clear') #limpiar pantalla
+        print("\n\n")      # salto de línea
+        tituloG = "  ELIMINAR PRODUCTOS DE BODEGA  "  # Variable para titulo página principal de calendario
+        print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+        print("\n\n")      # salto de línea
         k = input("\nIngrese clave Global: ")  # ingresa clave global para permitir hacer actualizaciones
         while (L == k):                        # permite crear un cilclo para eliminar filas
             print("\n\n")                      # Salto de línea
@@ -386,9 +419,11 @@ def EEE():  # Se cea base de datos para eliminar producto de la base de datos de
             eemp22.to_csv("BDATOS/bodega1.csv", mode="w", index="", header="True")  # Se graba las modicaciones en la base de datos de bodega
             eemp22 = pd.read_csv('BDATOS/bodega1.csv')  # se lee la base de datos de bodega
             print("\n", eemp22,"\n\n")                  # Se imprime la base de datos actualizada de bodega
-            break                                       # Finaliza el ciclo de while
-        break                                           # Finaliza el ciclo de while principal
-
+            ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+            T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+            if(T==ff):                                   # Se verifica si cumple la condición
+               break                                     # Finaliza primer ciclo
+            break   
 
 #informe 5
 #Para anexar referencia de productos a mostrador
@@ -1907,7 +1942,7 @@ while True:
     if opcionMenu == "2":
         calendario()
     if opcionMenu == "3":
-        #os.system('clear') #limpiar pantalla
+        os.system('clear') #limpiar pantalla
         print("\n\n")
 
         subtitulo = " SUBMENÚ DE EMPLEADOS"
@@ -1921,32 +1956,26 @@ while True:
         print("                                  \t3.4 - Modificación de clave de usuario")#se imprime modificacion de clave de usuario
         print("                                  \t3.5 - Eliminar datos de empleado ") #se imprime Eliminar datos de empleado
         print("                                  \t3.6 - terminar con uso de submenú") #se imprime terminar con uso de submenú
-       # print("                                  \t9   - terminar con uso de submenú")
-        
+      
 
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
         if opcionmenu == "3.1":    #se activa funcion global
-            print("\n\n")#salto de linea
             Global() #se ejecuta funcion global
 
         elif opcionmenu == "3.2":  # se activa la función login
             login()# se ejecuta la función login
 
         elif opcionmenu == "3.3":  # se activa la función empleados
-            print("3.3")
-            empleados()# se ejecuta la función empleados
+             empleados()           # se ejecuta la función empleados
         elif opcionmenu == "3.4":  # se activa la función modclave
-            modclave()# se ejecuta la función modclave
+            modclave()             # se ejecuta la función modclave
 
         elif opcionmenu == "3.5":  # se activa la función EE
-            EE()# Se ejecuta la función EE
+            EE()                   # Se ejecuta la función EE
 
-        elif opcionmenu == "3.6":  # se activa la función fp
-            print("3.5")
-            fp()# se ejecuta la función fp
-        elif opcionmenu == "3.7":  # se activa la función EE
-            EE()# se ejecuta la función EE
-
+        elif opcionmenu == "3.6":  # Se activa finalización de submenú
+             fp()                  # se ejecuta finalización de submenú
+        
 
 
     if opcionMenu == "4":
@@ -1978,14 +2007,13 @@ while True:
             bodega()
 
         elif opcionmenu == "4.3":
-            print("4.3")
-            total()
+             total()
 
         elif opcionmenu == "4.5":
             EEE()
         elif opcionmenu == "4.6":
-            print("4.4")
-            break
+             fp()                  # se ejecuta finalización de submenú
+           
 
     if opcionMenu == "5":
         os.system('clear')  #limpiar pantalla
@@ -2025,8 +2053,7 @@ while True:
         elif opcionmenu == "5.5":
              vencimiento()
         elif opcionmenu == "5.6":
-            print("5.5")
-            break
+             fp()                  # se ejecuta finalización de submenú
 
     if opcionMenu == "6":
         os.system('clear')  #limpiar pantalla
@@ -2073,13 +2100,9 @@ while True:
             compra_cliente()
 
         elif opcionmenu == "6.6":
-            print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
+             fp()                  # se ejecuta finalización de submenú
 
-        elif opcionmenu == "6.7":
-            print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
-            break
+ 
 
     if opcionMenu == "7":
         os.system('clear')  #limpiar pantalla
@@ -2155,12 +2178,11 @@ while True:
             
               
         elif opcionmenu == "7.9":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            break
-        elif opcionmenu == "9":
-             break
+             contabilidad()
+
+
+        elif opcionmenu == "7.10":
+              fp()                  # se ejecuta finalización de submenú
 
     if opcionMenu == "8":
         os.system('clear')  #limpiar pantalla
