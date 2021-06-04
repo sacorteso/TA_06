@@ -1863,6 +1863,16 @@ def musuario():
       print(linea)
     break
 
+
+
+
+# calendario
+def calendario():
+  while True:
+    year=int(input("Ingrese el año: "))
+    print(f"Este es el calendario del año: {year}")
+    cl.prcal(year)
+    break
 os.system('clear') #limpiar pantalla
 def menu():
     #os.system('clear') #limpiar pantalla
@@ -1894,7 +1904,7 @@ while True:
        print(tituloG.center(70, "="))
        musuario()
     if opcionMenu == "2":
-        break
+        calendario()
     if opcionMenu == "3":
         #os.system('clear') #limpiar pantalla
         print("\n\n")
