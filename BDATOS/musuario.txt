@@ -1,0 +1,115 @@
+                              MANUAL DE USUARIO
+
+introducción
+
+La aplicación ADMINISTRADOR fue diseñada con el objetivo de permitir manejar todo 
+lo relacionado con la administración  de un negocio tipo fami, micro y mediana empresa
+enfocado principalmente a los negocios que venden productos alimenticios como tiendas de
+comestibles, pero que también se puede usar en otros tipo de negocios comerciales.
+
+
+Tener en cuenta:
+
+Esta aplicación utiliza dos tipo de claves:
+
+* La primera (clave de usuario):
+  La cual es asignada a los empleados de la empresa o negocio para que manipulen
+  las utilidades de la aplicación.
+
+* La segunda (clave global):
+  La cual es asignada al dueño, gerente o administrador principal del negocio,
+  esta se usa para hacer cambios importantes en la información principal del
+  negocio como manipular los datos personales de los empleados, agregar, modificar o borrar
+  información, modificación de las bases contables.
+
+
+La fecha se debe ingresar junta sin guiones, comas, puntas, barras inclinadas.
+
+de esta forma añomesdia, un ejemplo:    20210603
+
+
+La aplicación ADMINISTRADOR en su página inicial presenta la fecha actual, la hora en colombia
+y el calendario del año con el mes actual y luego le solicita la clave de usuario para ingresar
+y activar todas de sus utilidades.
+
+Para ingresar escriba la clave de usuario asignada y oprima enter.
+
+después de esto se ingresa a la página principal en el cual va a encontrar el menú principal 
+con las siguientes opciones:
+
+3-Empleados
+4-Compras y Bodega
+5-Mostrador
+6-Ventas y Clientes
+7-Contabilidad
+8-Reportes
+9-Terminar con uso del menu
+
+el usuario de la aplicación deberá elegir el número de la opción que va a utilizar e escribirlo
+
+después del siguiente mensaje: 
+
+   Inserte el número de la opción del menú: ____   y oprimir enter
+
+
+Esto llevará al usuario a un submenú por cada item del menú principal.
+
+
+
+3-Empleados:
+             3.1- Cambio de clave Global
+             3.2- Login y clave para nuevo empleado
+             3.3- Base de datos de empleados
+             3.4- Eliminar datos de empleado
+             3.5- Terminar con uso de submenú
+
+
+
+
+4-Compras y Bodega:
+                   4.1- Compras de productos
+                   4.2- Bodega
+                   4.3- Base de datos de compras de productos
+                   4.4- 
+                   4.5- Eliminar producto vencido ó agotado
+                   4.6- Terminar con uso de submenú
+
+
+
+5-Mostrador:
+             5.1- Para anexar referencias de productos a mostrador
+             5.2- Cambio de porcentaje de ganancia
+             5.3- Para llenar el mostrador con productos
+             5.4- Agotamiento de productos
+             5.5- Vencimiento de productos
+             5.6- Terminar con uso de submenú
+
+6-Ventas y Clientes:
+                     6.1- Para generar venta
+                     6.2- Factura
+                     6.3- Venta acumulada
+                     6.4- Página de clientes
+                     6.5- Página de compras de cada cliente
+                     6.6- Terminar con uso de submenú
+                     9  - Regresa al menú principal
+
+
+7-Contabilidad:
+               7.1- Costos de bodega completa
+               7.2- Costos de bodega por fechas
+               7.3- Ingreso de datos para costos fijos
+               7.4- Costos fijos completos
+               7.5- Costos fijos por fecha
+               7.6- Ingresos por venta - completa
+               7.7- Ingresos por ventas - manejo por fechas
+               7.8- CONTABILIDAD
+               9  - Regresa al menú principal
+
+8-Reportes:
+           8.1- Ingreso de reportes
+           8.2- Base de datos de proveedores
+           8.3- Informe del valor de productos por paca
+           8.4- Informe del valor de las ventas diarias
+           8.5- Informe total de unidades de bodega
+           8.6- Informe total de contabilidad
+           9  - Regresa al menú principal
