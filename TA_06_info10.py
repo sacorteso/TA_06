@@ -1,3 +1,9 @@
+# Advertencia:
+# clave de usuario: gabrielawad
+# clave global: jefe
+# Desplazarse por la pantalla de la consola con el scroll del mouse 
+# Para ver todos los datos
+
 from datetime import date as dt  #librería para manejar fechas
 from datetime import datetime as dtt  #librería para manejar el tiempo
 from datetime import timedelta  #librearía para realizar operaciones matemáticas con el tiempo
@@ -54,11 +60,8 @@ L3 = pd.DataFrame(
 L = 0  # se define constante axiliar para ser utilizada en while del menú principal
 L4 = 0  # se define constante axiliar para ser utilizada en while de ingreso de clave
 z = 5  #  se define constante axiliar para ser utilizada en while del menú principal
-while (
-        z != L4
-):  # ciclo para comparar las claves que se ingresan con la calves guardadas en la base de datos
-    z = input("\n\n\n\ningrese la clave de usuario:  "
-              )  # ingreso de clave para ser comparada
+while (z != L4):  # ciclo para comparar las claves que se ingresan con la calves guardadas en la base de datos
+    z = input("\n\n\n\ningrese la clave de usuario:  "  )  # ingreso de clave para ser comparada
     print("\n\n\t\t\tclave de usuario no válida\n\n"
           )  # mensaje para que se corrija la clave
 
@@ -141,13 +144,10 @@ def Global():  # Se crea función para crear la clave global
                 Ltexto.close(
                 )  # se cierra el archivo txt que guarda la clave global.
                 break  # Se finaliza este ciclo
-                print(" \n Clave Global modificada\n"
-                      )  # anuncio que la clave global fue modificada
+                print(" \n Clave Global modificada\n" )  # anuncio que la clave global fue modificada
             else:  # Otra opción si no se cumple la opción principal
                 break  # opción si no se ingresa la clave global correcta.
-                print(
-                    "\nregrese a menú e intentelo de nuevo\n"
-                )  # Se imprime mensaje para regresar al ciclo de creación de clave global
+                print( "\nregrese a menú e intentelo de nuevo\n" )  # Se imprime mensaje para regresar al ciclo de creación de clave global
 
 
 def login():  # Se crea función para ingreso de nuevos empleados
@@ -490,17 +490,7 @@ def unidades():  # función para elegir la cantidad de productos para la venta s
 
     g2=input("\n\n\n\nIngrese la referencia del producto: ") # Se imprime mensaje para referencia de producto
     g3=str(g2)                                               # se crea una variable tipo string
-    '''
-    for ii in range(len(mm2)):                               # Se crea ciclo para verificar si referencia del rpoducto está en mostrador
-      if(mm2.iloc[ii,1]!=g3):                                # Se compara la referencia seleccionada con las ubicadas en el mostrador
-        print("\n\n La Referencia del producto NO está incluida en el mostrador ".center(70,"*"))         # Mensaje que confirma que la referencia está en el mostrador
-      break
-    break
-  
-  
-    #else:                                                  # Otra opción
-    print("\n\n La Referencia del producto SI está incluida en el mostrador ".center(70,"*"))      # Mensaje que confirma que la referencia NO está en el mostrador
-    '''                                              
+                                              
    
     g4=input("\n\ningrese la fecha de compra del producto: ")   # Se ingresa la fecha de compra del producto
     g5=int(g4)                                                  # Se convirta la variable anterior en una variable tipo entero
@@ -1793,15 +1783,10 @@ def infcontabilidad(
         print("\n\n")  # salto de línea
         print(G2)  # Se imprime los resultados en el informe estadístico
 
-        print(
-            "\n\n\n--------------------------------------------------------------------------------------"
-        )  # Decoración de pantalla
-        print(
-            "\n                         Informe estadístico de costos de bodega"
-        )  # Se imprime mensaje para informe estadístico
-        print(
-            "\n--------------------------------------------------------------------------------------"
-        )
+        print("\n\n\n--------------------------------------------------------------------------------------")  # Decoración de pantalla
+        print("\n                         Informe estadístico de costos de bodega" )  # Se imprime mensaje para informe estadístico
+        print("\n------------------------------------------------------------------------------------------")
+        
         G3 = inf3.describe(
         )  # Se crea el informe estadístico para costos de bodega
         print("\n\n")  # salto de línea
@@ -1856,26 +1841,42 @@ def infcontabilidad(
 
         break  # Se finaliza el ciclo para esta función
 
-def musuario():
-  while True:
-    archivo = open('BDATOS/musuario.txt','r')
-    for linea in archivo:
-      print(linea)
-    break
+def musuario(): # Se crea la función para leer manual de usuario
+  while True:   # Se crea el ciclo para activar la función de manual de usuario
+    os.system('clear') # Limpiar pantalla
+    print("\n\n")      # salto de linea
+    archivo = open('BDATOS/musuario.txt','r') # Para abrir el archivo musuario
+    for linea in archivo:                     # Para leer el archivo musuario            
+      print(linea)                            # Se imprime la información del documento
+    ff=5                                      # Se crea variable para finalizar ciclo de la opción
+    T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+    if(T==ff):                                # Se verifica si cumple la condición
+      break                                   # Finaliza primer ciclo
+    break                                     # Finaliza el segundo ciclo
 
 
 
 
 # calendario
-def calendario():
-  while True:
-    year=int(input("Ingrese el año: "))
-    print(f"Este es el calendario del año: {year}")
-    cl.prcal(year)
-    break
-os.system('clear') #limpiar pantalla
+def calendario(): # Se crea la función para ver calendario
+  while True:     # Se crea el ciclo para activar la función para ver calendario
+    os.system('clear') #limpiar pantalla
+    print("\n\n")      # salto de línea
+    tituloG = "  PÁGINA PRINCIPAL CALENDARIO  "  # Variable para titulo página principal de calendario
+    print(tituloG.center(70, "="))               # Para imprimir el titulo centrado
+    year=int(input("\n\n Ingrese el año: "))     # Variable para ingressar el año respectivo
+    print(f"\n\nEste es el calendario del año: ")# Se imprime mensaje del año seleccionado
+    cl.prcal(year)                               # Para imprimir completo el calendario seleccionado
+    ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+    T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+    if(T==ff):                                   # Se verifica si cumple la condición
+      break                                      # Finaliza primer ciclo
+    break                                        # Finaliza el segundo ciclo
+
+    
+# Para activar menú principal
 def menu():
-    #os.system('clear') #limpiar pantalla
+    os.system('clear') #limpiar pantalla
     print("\n\n")
     tituloG = "  PÁGINA PRINCIPAL DE ADMINISTRADOR  "
     print(tituloG.center(70, "="))
@@ -1883,14 +1884,14 @@ def menu():
     # se crea un menu para el manejo operativo del negocio
 
     print("\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-    print("                                  \t1 - Manual de usuario ")  # se imprime registro de compras
-    print("                                  \t2 - Calendario ")  # se imprime registro de compras
-    print("                                  \t3 - Empleados ")  # se imprime registro de compras
-    print("                                  \t4 - Compras y Bodega")  # se imprime registro total acumulado
-    print("                                  \t5 - Mostrador")
-    print("                                  \t6 - Ventas y Clientes")
-    print("                                  \t7 - Contabilidad")
-    print("                                  \t8 - Reportes")
+    print("                                  \t1 - Manual de usuario ")  # se imprime manual de usuario
+    print("                                  \t2 - Calendario ")         # se imprime calendario
+    print("                                  \t3 - Empleados ")          # se imprime empleados
+    print("                                  \t4 - Compras y Bodega")    # se imprime compras y bodega
+    print("                                  \t5 - Mostrador") #se imprime mostrador
+    print("                                  \t6 - Ventas y Clientes")#se imprime venta y clientes
+    print("                                  \t7 - Contabilidad")#se imprime contabilidad
+    print("                                  \t8 - Reportes")# se imprime reportes
     print("                                  \t9 - Terminar con uso de menu")  # se imprime finalizacón de menú
 
 
@@ -1914,44 +1915,37 @@ while True:
         print(subtitulo.center(100, " "))
         print(
             "\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print(
-            "                                  \t3.1 - Cambio de clave Global "
-        )  # se imprime registro de compras
-        print(
-            "                                  \t3.2 - Login y clave para nuevo empleado"
-        )  # se imprime registro total acumulado
-        print(
-            "                                  \t3.3 - Base de datos de empleados"
-        )
-        print("                                  \t3.4 - Modificación de clave de usuario")
-        print("                                  \t3.5 - Eliminar datos de empleado ")
+        print("                                  \t3.1 - Cambio de clave Global " )  # se imprime registro de compras
+        print("                                  \t3.2 - Login y clave para nuevo empleado")  # se imprime registro total acumulado
+        print("                                  \t3.3 - Base de datos de empleados" )# se imprime base de datos de empleados
+        print("                                  \t3.4 - Modificación de clave de usuario")#se imprime modificacion de clave de usuario
+        print("                                  \t3.5 - Eliminar datos de empleado ") #se imprime Eliminar datos de empleado
+        print("                                  \t3.6 - terminar con uso de submenú") #se imprime terminar con uso de submenú
+       # print("                                  \t9   - terminar con uso de submenú")
         
-        print(
-            "                                  \t3.5 - terminar con uso de submenú"
-        )
 
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-        if opcionmenu == "3.1":
-            print("\n\n")
-            Global()
+        if opcionmenu == "3.1":    #se activa funcion global
+            print("\n\n")#salto de linea
+            Global() #se ejecuta funcion global
 
-        elif opcionmenu == "3.2":  # se ejecuta la función total
-            login()
+        elif opcionmenu == "3.2":  # se activa la función login
+            login()# se ejecuta la función login
 
-        elif opcionmenu == "3.3":  # se activa la función bodega
+        elif opcionmenu == "3.3":  # se activa la función empleados
             print("3.3")
-            empleados()
-        elif opcionmenu == "3.4":  # se activa la función bodega
-            modclave()
+            empleados()# se ejecuta la función empleados
+        elif opcionmenu == "3.4":  # se activa la función modclave
+            modclave()# se ejecuta la función modclave
 
-        elif opcionmenu == "3.5":  # se activa la función bodega
-            EE()
+        elif opcionmenu == "3.5":  # se activa la función EE
+            EE()# Se ejecuta la función EE
 
-        elif opcionmenu == "3.6":  # se activa la función bodega
+        elif opcionmenu == "3.6":  # se activa la función fp
             print("3.5")
-            fp()
-        elif opcionmenu == "9":  # se activa la función bodega
-            EE()
+            fp()# se ejecuta la función fp
+        elif opcionmenu == "3.7":  # se activa la función EE
+            EE()# se ejecuta la función EE
 
 
 
