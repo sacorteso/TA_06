@@ -153,18 +153,14 @@ def Global():  # Se crea función para crear la clave global
 def login():  # Se crea función para ingreso de nuevos empleados
     while True:  # Se crea el ciclo para activar la función ingreso de nuevos empleados
 
-        k = input("\nIngrese clave Global: "
-                  )  # ingresa clave global para permitir hacer actualizaciones
+        k = input("\nIngrese clave Global: " )  # ingresa clave global para permitir hacer actualizaciones
         nombre31 = []  # Se crea lista para nombre del empleado
         apellido31 = []  # Se crea lista para el apellido del empleado
         usuario31 = []  # Se crea lista para usuario del empleado
         clave31 = []  # Se crfea lista para clave de usuario
 
-        while (L == k
-               ):  # permite crear un cilclo para ingresar nuevos empleados
-            for i in range(
-                    1
-            ):  # Se crea un ciclo para ingrsar los datos del nuevo empleado
+        while (L == k   ):  # permite crear un cilclo para ingresar nuevos empleados
+            for i in range(1 ):  # Se crea un ciclo para ingrsar los datos del nuevo empleado
 
                 nombre = input("\ningrese el nombre: "
                                )  # para ingresar nombre del empleado
@@ -1091,8 +1087,7 @@ print(f55)  # para imprimir la hora
 cce = 0  # constante para operaciones matemáticas
 
 
-def bodegacom(
-):  # Se crea una función para hallar el valor total en dinero de los productos de la bodega
+def bodegacom():  # Se crea una función para hallar el valor total en dinero de los productos de la bodega
     while True:  # Se crea un ciclo while que permite mantener la función activa
         print("\n\n\n\n Página de costos en dinero por compras en bodega"
               )  # Se imprime titulo de página de costos de bodega
@@ -1128,8 +1123,7 @@ def bodegacom(
         break  # Se termina el ciclo de la función
 
 
-def bodegafecha(
-):  # Se crea función para compras en la bodega con fecha específica
+def bodegafecha():  # Se crea función para compras en la bodega con fecha específica
     while True:  # Se crea ciclos para activar la función para compras en la bodega con fecha específica
         print("\n\n\n\n Pagina de costos en dinero por compra en bodega"
               )  # Titulo de la sección
@@ -1173,23 +1167,17 @@ def bodegafecha(
         break  # Finalización del ciclo de función
 
 
-def ingcostosf(
-):  # se crea función para ingresar datos adicionales para la base de datos de costos fijos
+def ingcostosf():  # se crea función para ingresar datos adicionales para la base de datos de costos fijos
     while True:  # Se crea un ciclo para activar esta función
-        print("\n\n\n\n Página de Ingreso de datos de costos fijos\n\n\n\n"
-              )  # se imprime Titulo de sección
+        print("\n\n\n\n Página de Ingreso de datos de costos fijos\n\n\n\n")  # se imprime Titulo de sección
 
-        g11 = input("\n\nIngrese el valor Total de nómina: "
-                    )  # Para ingresar los datos de pago de nómina
+        g11 = input("\n\nIngrese el valor Total de nómina: ")  # Para ingresar los datos de pago de nómina
 
-        g21 = input("\n\nIngrese el valor Total de servicios públicos: "
-                    )  # Para ingresar los datos de pago de servicios públicos
+        g21 = input("\n\nIngrese el valor Total de servicios públicos: ")  # Para ingresar los datos de pago de servicios públicos
 
-        g31 = input("\n\nIngrese el valor Total de arriendo: "
-                    )  # Para ingresar los datos de pago de arriendo
+        g31 = input("\n\nIngrese el valor Total de arriendo: ")  # Para ingresar los datos de pago de arriendo
 
-        g41 = input("\n\nIngrese el valor Total de seguros: "
-                    )  # Para ingresar los datos de pago de seguros
+        g41 = input("\n\nIngrese el valor Total de seguros: ")  # Para ingresar los datos de pago de seguros
 
         g51 = input("\n\nIngrese el valor Total de mantenimiento: "
                     )  # Para ingresar los datos de pago de mantenimiento
@@ -1326,8 +1314,7 @@ def costosff():  # Se crea función para costos fijos por fecha específica
         break  # Finalización del ciclo de esta función
 
 
-def ingventasT(
-):  # Se crea función para sumar el total ingresos en dinero por ventas por forma completa
+def ingventasT():  # Se crea función para sumar el total ingresos en dinero por ventas por forma completa
     while True:  # Se activa el ciclo para ejecutar la función de ingreso de dinero por ventas por forma completa
 
         print("\n\n\n\n Página de ingresos en dinero por ventas\n\n"
@@ -1360,8 +1347,7 @@ def ingventasT(
         break  # Finaliza el ciclo de esta función
 
 
-def ingventasTF(
-):  # Se crea función para sumar el total ingresos en dinero por ventas por fecha específica
+def ingventasTF():  # Se crea función para sumar el total ingresos en dinero por ventas por fecha específica
     while True:  # Se activa el ciclo para ejecutar la función de ingreso de dinero por ventas por fecha específica
         print("\n\n\n\n Página de ingresos en dinero por ventas\n\n"
               )  # Se imprime titulo de esta sección
@@ -1396,85 +1382,75 @@ def ingventasTF(
 
         break  # Se termina el ciclo de esta función
 
+def ganancia():
+  while True:
+     k = input("\nIngrese clave Global: " )  # ingresa clave global para permitir hacer actualizaciones
+     while (L == k   ):  # permite crear un cilclo para ingresar nuevos empleados
+            g5=[]
+            g = input("\n\nIngrese el nuevo valor para la ganancia neta: ")  # ingreso de la identificación del cliente
+            g5.append(g)  # se convierte el valor de la identificación en un entero
 
-def contabilidad(
-):  # se crea la función que controla toda la contabilidad general del negocio
+            g55 = pd.DataFrame(g5)
+            g55 = pd.DataFrame.transpose(g55)
+            g55.columns = ['cedula']
+            g55.to_csv("BDATOS/ganancia.csv", mode="w", index="", header="True")
+            print("\n\n\n\nganancia neta modificada")
+            break
+     break
+def contabilidad():  # se crea la función que controla toda la contabilidad general del negocio
     while True:  # Se activa el ciclo para que funcione la función contabilidad
-        print("\n\n\n\n PÁGINA PRINCIPAL DE CONTABILIDAD"
-              )  # Titulo de la sección completa de contabilidad
+        print("\n\n\n\n PÁGINA PRINCIPAL DE CONTABILIDAD")  # Titulo de la sección completa de contabilidad
         print("\n\n\n\n")  # Salto de linea
 
-        IF = int(input("\n\n\n\nIngrese la fecha de la operación contable: ")
-                 )  # Sirve para ingresar la fecha de operación contable diaria
+        IF = int(input("\n\n\n\nIngrese la fecha de la operación contable: "))  # Sirve para ingresar la fecha de operación contable diaria
 
-        Ent = int(input("\n\nIngrese otras entradas de dinero: ")
-                  )  # Sirve para ingresar dinero extra
+        Ent = int(input("\n\nIngrese otras entradas de dinero: "))  # Sirve para ingresar dinero extra
 
-        print("\n\n\n\n Página de costos en dinero por compra en bodega"
-              )  # Subtitulos de la páginas que se van a utilizar
-        print("\n\n Sistema por fechas\n\n\n\n"
-              )  # sistema de fechas para ser más específico
+        print("\n\n\n\n Página de costos en dinero por compra en bodega")  # Subtitulos de la páginas que se van a utilizar
+        print("\n\n Sistema por fechas\n\n\n\n" )  # sistema de fechas para ser más específico
 
-        co = pd.read_csv(
-            "BDATOS/bodega1.csv"
-        )  # Se crea un nuevo DataFrame con la base de datos de bodega
+        co = pd.read_csv( "BDATOS/bodega1.csv" )  # Se crea un nuevo DataFrame con la base de datos de bodega
         co2 = co.iloc[:, 3]  # Se extrae el precio de los productos por pacas
         co3 = co.iloc[:, 6]  # Se extrae la fecha de la compra
         F = [co2,
              co3]  # Se crea una lista con precio por paca y fecha de compra
-        F1 = pd.DataFrame(
-            F)  # Se crea un nuevo DataFarme con los datos anteriores
+        F1 = pd.DataFrame(F)  # Se crea un nuevo DataFarme con los datos anteriores
         F2 = F1.transpose()  # Se transpone el DataFrame anterior
         print(F2)  # Se imprime el nuevo DataFrame
 
         F3 = F2[(
-            F2['Fcompra'] == IF
-        )]  # Se crea un filtro para localizar las compras realizadas en una fecha específica
-        F4 = pd.DataFrame(
-            F3
-        )  # Se crea un nuevo DataFrame con los nuevos productos seleccionados
-        F5 = F4['Ppaca'].sum(
-        )  # Valor en dinero de compras en la bodega entre un intervalo de tiempo
+            F2['Fcompra'] == IF)]  # Se crea un filtro para localizar las compras realizadas en una fecha específica
+        F4 = pd.DataFrame( F3)  # Se crea un nuevo DataFrame con los nuevos productos seleccionados
+        F5 = F4['Ppaca'].sum()  # Valor en dinero de compras en la bodega entre un intervalo de tiempo
 
-        gb2 = pd.read_csv(
-            "BDATOS/costosm.csv")  # Se lee la base de datos de costos fijos
+        gb2 = pd.read_csv("BDATOS/costosm.csv")  # Se lee la base de datos de costos fijos
         print(gb2)  # Se lee la base de datos de costos fijos
 
-        F33 = gb2[(gb2['Fecha'] == IF
-                   )]  # Se crea un filtro que busca las fechas solicitadas
-        F7 = pd.DataFrame(
-            F33
-        )  # Se crea un nuevos DataFrame con los costos fijos en las respectivas fechas solicitadas
+        F33 = gb2[(gb2['Fecha'] == IF)]  # Se crea un filtro que busca las fechas solicitadas
+        F7 = pd.DataFrame(F33)  # Se crea un nuevos DataFrame con los costos fijos en las respectivas fechas solicitadas
 
         print("\n\n", F7)  # Se imprime los resultados
 
         st11 = F7['Nómina'].sum()  # Suma todos los costos de nómina
-        st21 = F7['Spúblicos'].sum(
-        )  # Suma tosdos los valores de servicios públicos
+        st21 = F7['Spúblicos'].sum()  # Suma tosdos los valores de servicios públicos
         st31 = F7['Arriendo'].sum()  # Suma todos los valores de arriendo
         st41 = F7['Seguros'].sum()  # Suma todos los valores de seguros
-        st51 = F7['mantenimiento'].sum(
-        )  # Suma todos los valores de mantenimiento
+        st51 = F7['mantenimiento'].sum()  # Suma todos los valores de mantenimiento
         st61 = F7['Impuestos'].sum()  # suma todos los valores de impuestos
         st71 = F7['Transporte'].sum()  # suma todos los valores de transporte
-        st81 = F7['Otroscostos'].sum(
-        )  # suma todos los valores de otros costos
+        st81 = F7['Otroscostos'].sum()  # suma todos los valores de otros costos
 
         TotalCFF = st11 + st21 + st31 + st41 + st51 + st61 + st71 + st81  # Se suman todas las variables de costos
 
-        ing = pd.read_csv(
-            "BDATOS/ventas.csv")  # Se lee la base de datos de ventas
+        ing = pd.read_csv("BDATOS/ventas.csv")  # Se lee la base de datos de ventas
         print(ing)  # Se imprime la base de datos de ventas
 
-        ing2 = ing[(
-            ing['Fecha'] == IF
-        )]  # En la base de datos de ventas se busca la información con referencia a una fecha especifica
+        ing2 = ing[(ing['Fecha'] == IF)]  # En la base de datos de ventas se busca la información con referencia a una fecha especifica
         ing3 = pd.DataFrame(
             ing2
         )  # Se crea un nuevo DataFrame con los datos encontardos anteriormente
 
-        ing5 = ing3['Vtotal'].sum(
-        )  # Se suman  el valor en dinero de todas las ventas entre un intervalo de tiempo
+        ing5 = ing3['Vtotal'].sum( )  # Se suman  el valor en dinero de todas las ventas entre un intervalo de tiempo
 
         cont2 = pd.read_csv("BDATOS/contabilidad1.csv"
                             )  # Se lee la base de datos de contabilidad
@@ -2064,33 +2040,36 @@ while True:
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
         if opcionmenu == "6.1":
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            #bodegacom()
-            #mensaje="HOLA"
             os.system('clear')  #limpiar pantalla
-            #print("\n\n")
-            #print("Hola".center(100," "))                                  # la función compra se ejecuta
             venta()
 
         elif opcionmenu == "6.2":  # se ejecuta la función total
+            print("\n\nhola\n\n")  # imprime mensaje de saludo
+            os.system('clear')  #limpiar pantalla
             Factura()
 
         elif opcionmenu == "6.3":
-            print("6.3")
+            print("\n\nhola\n\n")  # imprime mensaje de saludo
+            os.system('clear')  #limpiar pantalla
             Venta_acum()
 
         elif opcionmenu == "6.4":
-            print("6.4")
+            print("\n\nhola\n\n")  # imprime mensaje de saludo
+            os.system('clear')  #limpiar pantalla
             clientes()
 
         elif opcionmenu == "6.5":
-            print("6.5")
+            print("\n\nhola\n\n")  # imprime mensaje de saludo
+            os.system('clear')  #limpiar pantalla
             compra_cliente()
 
         elif opcionmenu == "6.6":
-            print("6.6")
+            print("\n\nhola\n\n")  # imprime mensaje de saludo
+            os.system('clear')  #limpiar pantalla
 
         elif opcionmenu == "6.7":
-            print("6.7")
+            print("\n\nhola\n\n")  # imprime mensaje de saludo
+            os.system('clear')  #limpiar pantalla
             break
 
     if opcionMenu == "7":
@@ -2100,66 +2079,79 @@ while True:
         subtitulo = " SUBMENÚ DE CONTABILIDAD"
         print("\n\n")
         print(subtitulo.center(100, " "))
-        print(
-            "\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print(
-            "                                  \t7.1 - Costos de Bodega completa "
-        )  # se imprime registro de compras
-        print(
-            "                                  \t7.2 - Costos de bodega por fechas"
-        )  # se imprime registro total acumulado
-        print(
-            "                                  \t7.3 - Ingreso de datos para costos fijos"
-        )
-        print(
-            "                                  \t7.4 - Costos fijos completos")
-        print(
-            "                                  \t7.5 - Costos fijos por fecha")
-        print(
-            "                                  \t7.6 - Ingresos por ventas - completa"
-        )
-        print(
-            "                                  \t7.7 - Ingresos por ventas - manejo por fechas"
-        )
-        print("                                  \t7.8 - CONTABILIDAD")
-        print(
-            "                                  \t9   - Terminar con uso de menu"
-        )  # se imprime finalizacón de menú
+        print("\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
+        print("                                  \t7.1 - Costos de Bodega completa ")         # se imprime registro de compras
+        print("                                  \t7.2 - Costos de bodega por fechas" )       # se imprime registro total acumulado
+        print("                                  \t7.3 - Ingreso de datos para costos fijos") # Se imprime el ingreso de datos para costos fijos
+        print("                                  \t7.4 - Costos fijos completos")             # Se emprime costos fijos completos
+        print("                                  \t7.5 - Costos fijos por fecha")             # Se imprime los costos fijos por fecha
+        print("                                  \t7.6 - Ingresos por ventas - completa")     # Se imprime ingresos por ventas - completos
+        print("                                  \t7.7 - Ingresos por ventas - manejo por fechas" ) # Se imprime ingresos por ventas - manejo de fechas
+        print("                                  \t7.8 - Para cambiar la ganancia neta")            # Se imprime para cambiar la ganancia neta
+        print("                                  \t7.9 - CONTABILIDAD")                             # Se imprime opción de contabilidad
+        print("                                  \t9   - Terminar con uso de submenu")                 # se imprime finalizacón de menú
 
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
         if opcionmenu == "7.1":
-            print("\n\nhola\n\n")  # imprime mensaje de saludo
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             bodegafecha()
 
         elif opcionmenu == "7.2":  # se ejecuta la función total
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
             ingcostosf()
 
         elif opcionmenu == "7.3":
-            print("7.3")
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
             costosf()
 
         elif opcionmenu == "7.4":
-            print("7.4")
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
             costosff()
 
         elif opcionmenu == "7.5":
-            print("7.5")
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
             ingventasT()
 
         elif opcionmenu == "7.6":
-            print("7.6")
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
             ingventasTF()
 
+
+
         elif opcionmenu == "7.7":
-            print("7.7")
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
             contabilidad()
 
-        elif opcionmenu == "7.9":
-            print("7.9")
+        
+        
+        elif opcionmenu == "7.8":
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
+            ganancia()
             break
+              
+        elif opcionmenu == "7.9":
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
+            break
+        elif opcionmenu == "9":
+             break
 
     if opcionMenu == "8":
         os.system('clear')  #limpiar pantalla
