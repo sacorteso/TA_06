@@ -211,9 +211,7 @@ def login():  # Se crea función para ingreso de nuevos empleados
                 clave = pd.DataFrame(
                     clave31
                 )  # Se crea DataFrame para guardar la clave del nuevo empleado
-                clave.to_csv(
-                    "CLAVES/Clave.csv", mode="a", index="", header=""
-                )  # se graba la información en la base de datos de claves
+                clave.to_csv( "CLAVES/Clave.csv", mode="a", index="", header="")  # se graba la información en la base de datos de claves
                 return menu  # Para regresar al menú principal
 
 
@@ -222,12 +220,25 @@ def empleados():  # Se crea función para leer la base de datos de empleado
         os.system('clear')  # Sirve para limpiar la pantalla
         print("\t\t\t\t BASE DE DATOS CON LOS EMPLEADOS \n\n"
               )  # Se imprime el titulo de la página de empleado
-        emp2 = pd.read_csv(
-            'BDATOS/empleado.csv')  # se lee la base de datos de empleado
+        emp2 = pd.read_csv( 'BDATOS/empleado.csv')  # se lee la base de datos de empleado
         print(emp2)  # Se imprime la base de datos de empleado
         break  # Se finaliza el ciclo
 
-
+def modclave():
+  while True:
+    k = input("\nIngrese clave Global: " )  # ingresa clave global para permitir hacer actualizaciones
+        
+    while (L == k ): 
+      emp25 = pd.read_csv( 'BDATOS/empleado.csv')  # se lee la base de datos de empleado
+      print("\n\n", emp25)  # Se imprime la base de datos de empleado
+      p=int(input("ingrese el número de la fila que tiene los datos del empleado: "))
+      Nclave = str(input("Ingrese la nueva clave: "))
+      emp25.iloc[p, 3]= Nclave
+      emp25.to_csv( "BDATOS/empleado.csv", mode="w", index="", header="True")  # se graba la información en la base de datos de claves
+      emp25 = pd.read_csv( 'BDATOS/empleado.csv')
+      print("\n\n",emp25)
+      break
+        
 def EE():  # Se cea base de datos para eliminar fila
     while True:  # Se crea el ciclo para eliminar fila
 
@@ -1902,9 +1913,9 @@ while True:
         print(
             "                                  \t3.3 - Base de datos de empleados"
         )
-        print(
-            "                                  \t3.4 - Eliminar datos de empleado "
-        )
+        print("                                  \t3.4 - Modificación de clave de usuario")
+        print("                                  \t3.5 - Eliminar datos de empleado ")
+        
         print(
             "                                  \t3.5 - terminar con uso de submenú"
         )
@@ -1925,13 +1936,18 @@ while True:
         elif opcionmenu == "3.3":  # se activa la función bodega
             print("3.3")
             empleados()
-
         elif opcionmenu == "3.4":  # se activa la función bodega
-            EE()
+            modclave()
 
         elif opcionmenu == "3.5":  # se activa la función bodega
+            EE()
+
+        elif opcionmenu == "3.6":  # se activa la función bodega
             print("3.5")
             fp()
+        elif opcionmenu == "9":  # se activa la función bodega
+            EE()
+
 
 #os.system('clear')                                       # sirve para limpiar la pantalla
 #print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
