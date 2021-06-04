@@ -1932,12 +1932,7 @@ while True:
 
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
         if opcionmenu == "3.1":
-            print("\n\nhola\n\n")  # imprime mensaje de saludo
-            #bodegacom()
-            #mensaje="HOLA"
-            #os.system('clear') #limpiar pantalla
             print("\n\n")
-            print("3.1".center(100, " "))  # la función compra se ejecuta
             Global()
 
         elif opcionmenu == "3.2":  # se ejecuta la función total
@@ -1959,8 +1954,6 @@ while True:
             EE()
 
 
-#os.system('clear')                                       # sirve para limpiar la pantalla
-#print("\t\t\t\t PÁGINA PRINCIPAL \n\n")                  # se imprime el titulo de la página del menu del manejo operativo del negocio
 
     if opcionMenu == "4":
 
@@ -2056,13 +2049,8 @@ while True:
               )  # se imprime registro total acumulado
         print("                                  \t6.3 - Venta acumulada")
         print("                                  \t6.4 - Página de clientes")
-        print(
-            "                                  \t6.5 - Página de Compras de cada cliente"
-        )
-        print("                                  \t6.6 - ")
-        print("                                  \t6.7 - Otras opciones")
-        print("                                  \t9   - "
-              )  # se imprime finalizacón de menú
+        print("                                  \t6.5 - Página de Compras de cada cliente")
+        print("                                  \t9   - ")  # se imprime finalizacón de menú
 
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
         if opcionmenu == "6.1":
@@ -2187,28 +2175,14 @@ while True:
         subtitulo = " SUBMENÚ DE REPORTES"
         print("\n\n")
         print(subtitulo.center(100, " "))
-        print(
-            "\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print(
-            "                                  \t8.1 - Ingreso de proveedores"
-        )  # se imprime registro de compras
-        print(
-            "                                  \t8.2 - Base de datos de proveedores"
-        )  # se imprime registro total acumulado
-        print(
-            "                                  \t8.3 - Informe del valor de productos por paca"
-        )
-        print(
-            "                                  \t8.4 - Informe del valor de las ventas diarias"
-        )
-        print(
-            "                                  \t8.5 - Informe total de unidades en bodega"
-        )
-        print(
-            "                                  \t8.6 - Informe total de contabilidad"
-        )
-        print("                                  \t9   - Finalizar submenú"
-              )  # se imprime finalizacón de menú
+        print("\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
+        print("                                  \t8.1 - Ingreso de proveedores" )  # se imprime registro de compras
+        print("                                  \t8.2 - Base de datos de proveedores")  # se imprime registro total acumulado
+        print("                                  \t8.3 - Informe del valor de productos por paca")
+        print("                                  \t8.4 - Informe del valor de las ventas diarias")
+        print("                                  \t8.5 - Informe total de unidades en bodega")
+        print("                                  \t8.6 - Informe total de contabilidad")
+        print("                                  \t9   - Finalizar submenú")  # se imprime finalizacón de menú
         opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
         if opcionmenu == "8.1":
             print("\n\nhola\n\n")  # imprime mensaje de saludo
