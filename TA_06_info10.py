@@ -1385,18 +1385,28 @@ def ingventasTF():  # Se crea función para sumar el total ingresos en dinero po
 def ganancia():
   while True:
      k = input("\nIngrese clave Global: " )  # ingresa clave global para permitir hacer actualizaciones
-     while (L == k   ):  # permite crear un cilclo para ingresar nuevos empleados
+     while(L == k   ):  # permite crear un cilclo para ingresar nuevos empleados
             g5=[]
-            g = input("\n\nIngrese el nuevo valor para la ganancia neta: ")  # ingreso de la identificación del cliente
+            g = int(input("\n\nIngrese el nuevo valor para la ganancia neta: "))  # ingreso de la identificación del cliente
             g5.append(g)  # se convierte el valor de la identificación en un entero
 
             g55 = pd.DataFrame(g5)
             g55 = pd.DataFrame.transpose(g55)
             g55.columns = ['cedula']
             g55.to_csv("BDATOS/ganancia.csv", mode="w", index="", header="True")
-            print("\n\n\n\nganancia neta modificada")
+            
+            cont22 = pd.read_csv("BDATOS/contabilidad1.csv")  # Se lee la base de datos de contabilidad
+            kq = len(cont22)  # se halla la cantidad de filas y se convierte en una constante
+            
+                      
+            cont22.iloc[kq-1, 6] = g  # se encuentra la ultima fila para el porcentaje de ganancia
+            cont22.to_csv("BDATOS/contabilidad1.csv", mode="w", index="", header="True")
+            print("\n\n\n\n                          ganancia neta modificada")
+
             break
+            
      break
+  
 def contabilidad():  # se crea la función que controla toda la contabilidad general del negocio
     while True:  # Se activa el ciclo para que funcione la función contabilidad
         print("\n\n\n\n PÁGINA PRINCIPAL DE CONTABILIDAD")  # Titulo de la sección completa de contabilidad
@@ -1452,21 +1462,12 @@ def contabilidad():  # se crea la función que controla toda la contabilidad gen
 
         ing5 = ing3['Vtotal'].sum( )  # Se suman  el valor en dinero de todas las ventas entre un intervalo de tiempo
 
-        cont2 = pd.read_csv("BDATOS/contabilidad1.csv"
-                            )  # Se lee la base de datos de contabilidad
-        kq = len(
-            cont2
-        )  # se halla la cantidad de filas y se convierte en una constante
+        cont2 = pd.read_csv("BDATOS/contabilidad1.csv")  # Se lee la base de datos de contabilidad
+        kq = len(cont2)  # se halla la cantidad de filas y se convierte en una constante
         print(kq)  # Se imprime la cantidad de filas
-        capbase = cont2.iloc[
-            kq - 1,
-            1]  # SE encuentra la última fila de la base de datos para la fecha
-        aux1 = cont2.iloc[
-            kq - 1,
-            5]  # Se encuentra la ultima fila de la base de datos para entradas de dinero extra
-        porc = cont2.iloc[
-            kq - 1,
-            6]  # se encuentra la ultima fila para el porcentaje de ganancia
+        capbase = cont2.iloc[kq - 1, 1]  # SE encuentra la última fila de la base de datos para la fecha
+        aux1 = cont2.iloc[kq - 1, 5]  # Se encuentra la ultima fila de la base de datos para entradas de dinero extra
+        porc = cont2.iloc[kq - 1, 6]  # se encuentra la ultima fila para el porcentaje de ganancia
         ganancianeta = ing5 * porc / 100  # operación matemática para hallar la ganancia diaria
 
         aux = ing5 - ganancianeta  # operación matemática para extraer el capital para reinvertir
@@ -2143,7 +2144,7 @@ while True:
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             ganancia()
-            break
+            
               
         elif opcionmenu == "7.9":
             os.system('clear')  #limpiar pantalla
