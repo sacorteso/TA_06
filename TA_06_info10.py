@@ -60,19 +60,19 @@ L4 = 0  # se define constante axiliar para ser utilizada en while de ingreso de 
 z = 5  #  se define constante axiliar para ser utilizada en while del menú principal
 while (z != L4):  # ciclo para comparar las claves que se ingresan con la calves guardadas en la base de datos
     z = input("\n\n\n\ningrese la clave de usuario: ")  # ingreso de clave para ser comparada
-    print("\n\n\t\t\tclave de usuario  válida\n\n"   )  # mensaje para que se corrija la clave
+    #print("\n\n\t\t\tclave de usuario no válida\n\n"   )  # mensaje para que se corrija la clave
 
     for T in range(len(L3)):  # ciclo para comparar con todas las claves con la base de datos
         L4 = L3.iloc[T, 0]  # Permite hallar una clave  en una posición determinada
         if (z == L4):  # compara la clave del dataframe con la clave ingresada
-            print("\n\nusuario identificado")  # si las claves coinciden imprime mensaje positivo
+            print("\n\n                  usuario identificado")  # si las claves coinciden imprime mensaje positivo
             L = 5  # constante auxiliar que servirá para activar el menú principal
             break
 
 
 
 
-# MANUAL DE USUARIO
+
 
 
 
@@ -423,7 +423,8 @@ def EEE():  # Se cea base de datos para eliminar producto de la base de datos de
             T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
             if(T==ff):                                   # Se verifica si cumple la condición
                break                                     # Finaliza primer ciclo
-            break   
+            break                                        # Finaliza el segundo ciclo
+        break                                           # Finaliza el tercer ciclo
 
 #informe 5
 #Para anexar referencia de productos a mostrador
@@ -456,19 +457,31 @@ def mostrador():
     F7 = pd.DataFrame(mo)
     F77 = pd.DataFrame.transpose(F7)
     F77.columns=['Producto','Referencia','Ubodega','precioC','Uventas','ganancia','Pventa','Acum']  # Se anexan los titulos de las columnas del dataframe df2
-    F77.to_csv('BDATOS/mostrador.csv', mode="a", index="", header="True")  
-    print(F77)
-    break                                    # Se finaliza el ciclo de esta función
+    F77.to_csv('BDATOS/mostrador.csv', mode="a", index="", header="")  
+    print("\n\n",F77)
+    ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+    T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+    if(T==ff):                                   # Se verifica si cumple la condición
+        break                                     # Finaliza primer ciclo
+    break                                        # Finaliza el segundo ciclo
+       
    
 # Para cambiar el porcentaje de forma individual
-def ganancia():  # Función para modificar el porcentaje de ganancia en las ventas de los productos.
+def mganancia():  # Función para modificar el porcentaje de ganancia en las ventas de los productos.
     while True:  # Activa el ciclo para modificar el porcentaje de ganancia en las ventas de los productos.
-        print("\n\n\t\tPÁGINA PARA CAMBIAR EL PORCENTAJE DE GANANCIA EN FORMA INDIVIDUAL")  # Titulo para cambiar el porcentaje de ganancia del producto
-        print("\n\n\t\tReferencia en productos en Bodega\n\n")  # Subtitulo para ver las referencia de los productos
+        os.system('clear')  # para limpiar la pantalla
+        print("\n")  # Salto de línea
+        titulo = ("  PÁGINA PARA CAMBIAR EL PORCENTAJE DE GANANCIA EN FORMA INDIVIDUAL ") # Titulo para cambiar el porcentaje de ganancia del producto
+        print(titulo.center(70, "="))  # Para imprimir el titulo centrado
+        
+        print("\n")  # Salto de línea
+        titulo5 = ("  Referencia en productos en Bodega ") # Titulo para cambiar el porcentaje de ganancia del producto
+        print(titulo5.center(70, "="))  # Para imprimir el titulo centrado
+        
 
         m2 = pd.read_csv("BDATOS/mostrador.csv")  # Para leer la base de datos mostrador
         m22 = m2.iloc[:, 0:2]  # De la base de datos mostrador se escoge los nombres y las referencias de los productos
-        print(m22)  # Se imprime el nombre y la referencia de los productos
+        print("\n\n",m22)  # Se imprime el nombre y la referencia de los productos
 
         g2 = input("\n\n\n\ningrese la referencia del producto: ")  # mensaje para ingresar la referencia del producto
         g3 = str(g2)  # se transforma el tipo de datos a string
@@ -478,7 +491,7 @@ def ganancia():  # Función para modificar el porcentaje de ganancia en las vent
 
         mg = input("\n\n\n\nIngrese el nuevo porcentaje de ganancia del producto: ")  # Mensaje para ingresar el nuevo porcentaje
         mg1 = (mg)  # Se crea una lista con el nuevo porcentaje
-        print("\n\n\n\n            Porcentaje de ganancia ingresado:", mg1)  # Confirma que el porcentaje de ganancia ingresado es seleccionado
+        print("\n\n             Porcentaje de ganancia ingresado:", mg1)  # Confirma que el porcentaje de ganancia ingresado es seleccionado
 
         float()  # se tranforma los datos a tipo float
         z1 = 97  # Se crea una variable para operaciones matemáticas
@@ -499,26 +512,37 @@ def ganancia():  # Función para modificar el porcentaje de ganancia en las vent
                 #print(zz)
 
                 aa5 = pd.read_csv( "BDATOS/mostrador.csv")  # Se lee la base de datos mostardor con la información actualizada
-                print(aa5)  # Se imprime la base de datos mostrador actualizada
-                # otra opción en el ciclo
-        break  # cierra el ciclo
+                print("\n\n",aa5)  # Se imprime la base de datos mostrador actualizada
+                ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+                T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+                if(T==ff):                                   # Se verifica si cumple la condición
+                   break                                     # Finaliza primer ciclo
+                break                                        # Finaliza el segundo ciclo
+        break                                           # Finaliza el tercer ciclo
+
+       
 
 
 
 
 #listo para funcionamiento
 # Para cambiar las unidades de forma individual
+'''
 def unidades():  # función para elegir la cantidad de productos para la venta según la referencia
   while True:    # Activar el ciclo para elegir la cantidad de productos para la venta según la referencia
     os.system('clear') # para limpiar la pantalla
-    print("\n\nPAGINA MOSTRADOR") # Titulo para la página principal de mostrador
+    print("\n")  # Salto de línea
+    titulo = ("  PAGINA MOSTRADOR ") # Titulo para cambiar el porcentaje de ganancia del producto
+    print(titulo.center(70, "="))  # Para imprimir el titulo centrado
+    print("\n")  # Salto de línea
+    
     print("\n\n\t\t PAGINA PARA CAMBIAR LAS UNIDADES EN FORMA INDIVIDUAL") # subtitulos para cambiar las unidades en forma individual
     print("\n\n\t\t Referencia en productos en Bodega\n\n")   # Subtitulos para referencia
 
     mm2=pd.read_csv("BDATOS/mostrador.csv")   # Se lee base de datos mostrador
     LL5=pd.read_csv('BDATOS/bodega1.csv')     # Se lee la base de datos de bodega
     print(LL5)                                # Se imprime la bese de datos de bodega
-
+    
     print("\n\n\n\n Mostrador actual")        # Se imprime mensaje
     print("\n\n",mm2)                         # Se imprime los productos que están listos para la venta
 
@@ -531,16 +555,16 @@ def unidades():  # función para elegir la cantidad de productos para la venta s
     g5=int(g4)                                                  # Se convirta la variable anterior en una variable tipo entero
     m5= LL5[LL5['Referencia']==g3]                              # Se buscan las referencias correspondientes en el DataFrame
     m6= LL5[LL5['Fcompra']==g5]                                 # Se buscan la fecha de compra en el DataFrame
-    os.system('clear')                                          # Se limpia la pantalla
+    #os.system('clear')                                          # Se limpia la pantalla
     print("\n\n\n\nDatos de la bodega \n\n", m5)                # Se imprime los resultados de las referencias encontradas
     
     
 
     TM = mm2[mm2["Referencia"]==g3].index                       # Para hallar la posición de la fila del producto en el DataFrame de mostrador
     TMM= input("\n\ningrese el número de fila del producto con la referencia y fecha especifica: ") # Para ingresar la posición de la fila del producto del DataFrame bodega
-    TMM1=int(TMM)
+    TMM1= int(TMM)
     # Se ingresa la cantidad de productos de una referencia determinada que van para el mostrador de ventas
-    mu=input("\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")  
+    mu= input("\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")  
     mu1= int(mu)                                   # El anterior valor se convierte en entero
     
     
@@ -561,44 +585,96 @@ def unidades():  # función para elegir la cantidad de productos para la venta s
         print("\n\n La Referencia del producto SI está incluida en el mostrador ".center(70,"*"))      # Mensaje que confirma que la referencia NO está en el mostrador
           
         if(LL5.iloc[TMM1,4]==0):                      # Se compara la referencia seleccionada con las ubicadas en el mostrador
-         os.system('clear') 
+         #os.system('clear') 
          print("\n\n  La bodega NO tiene unidades disponibles para mostrador  ".center(70,"*"))   # Mensaje que confirma que la bodega NO tiene unidaes disponibles
          break
         #break
         else:                                                  # Otra opción
-          os.system('clear') 
+          #os.system('clear') 
           print("\n\n  La bodega SI tiene unidades disponibles para mostrador  ".center(100,"*"))    # Mensaje que confirma que la bodega tiene unidaes disponibles
-         
-    
-       
-       
-    
           mt= mm2.iloc[TM, 7]                            # Se escoge el valor del acumulado en el mostrador y se crea una nueva variable
           g6= LL5.iloc[TMM1, 4]                          # Se escoge la cantidad de unidades disponibles en la bodega 
-          mm2.iloc[TM, 4]=mu1                            # Se actualiza la cantidad  de unidades en el mostrador
+          mm2.iloc[TM, 4]= mu1                            # Se actualiza la cantidad  de unidades en el mostrador
           mt=mu1+mt                                      # Se suma la nueva cantidad de unidades al acumulado
-          mm2.iloc[TM, 7]=mt                             # Se actualiza el acumulado en la base de datos de mostrador
+          mm2.iloc[TM, 7]= mt                             # Se actualiza el acumulado en la base de datos de mostrador
           mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True") # Se graba las nuevas modificaciones en la base de datos mostrador
           g7=g6-mu1                                      # Las unidades que se llevan para el mostrador se descuentas al inventario de la bodega
-          LL5.iloc[TMM1, 4]=g7                           # Se actualiza las nuevas cantidades de unidades del producto en la bodega
-          mm2.iloc[TM, 2]=g7                             # La unidaes del productos actualizadas en la bodega se informa en la base de datos de mostrador
-          mm2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True") # Se graba las nuevas actualizaciones en la base de datos de mostrador
+          LL5.iloc[TMM1, 4]= g7                           # Se actualiza las nuevas cantidades de unidades del producto en la bodega
           LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")  # Se graba las nuevas actualizaciones en la base decdatos de bodega
+          mm2.iloc[TM, 2]= g7                             # La unidaes del productos actualizadas en la bodega se informa en la base de datos de mostrador
+          mm2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True") # Se graba las nuevas actualizaciones en la base de datos de mostrador
           LL5=pd.read_csv('BDATOS/bodega1.csv')          # Se lee la base de datos de bodega para confirmar los cambios
           mm2=pd.read_csv('BDATOS/mostrador.csv')        # Se lee la base de datos de mostardor para confirmar los cambios
         
 
 
+          print("\n\n\n\n***************   Bodega actualizada    *******************") # Mensaje de confirmación de datos actualizados en bodega
+          print("\n\n\n\n", LL5)                                                       # Se muestra la base datos de bodega
+          print("\n\n\n\n***************   Mostrador actualizado   ****************")  # Mensaje de confirmación de datos de actualizados en mostrador
+          print("\n\n",mm2)                                                            # Se muestra la base e datos de mostrador
+      break                                                                        # Se finaliza ciclo de esta función   
+'''
+def unidades():  # función para elegir la cantidad de productos para la venta según la referencia
+  while True:    # Activar el ciclo para elegir la cantidad de productos para la venta según la referencia
+    os.system('clear') # para limpiar la pantalla
+    print("\n\nPAGINA MOSTRADOR") # Titulo para la página principal de mostrador
+    print("\n\n\t\t PAGINA PARA CAMBIAR LAS UNIDADES EN FORMA INDIVIDUAL") # subtitulos para cambiar las unidades en forma individual
+    print("\n\n\t\t Referencia en productos en Bodega\n\n")   # Subtitulos para referencia
+
+    mm2=pd.read_csv("BDATOS/mostrador.csv")   # Se lee base de datos mostrador
+    LL5=pd.read_csv('BDATOS/bodega1.csv')     # Se lee la base de datos de bodega
+    print(LL5)                                # Se imprime la bese de datos de bodega
+
+    print("\n\n\n\n Mostrador actual")        # Se imprime mensaje
+    print("\n\n",mm2)                         # Se imprime los productos que están listos para la venta
+
+
+    g2=input("\n\n\n\nIngrese la referencia del producto: ") # Se imprime mensaje para referencia de producto
+    g3=str(g2)                                               # se crea una variable tipo string
+
+
+    g4=input("\n\ningrese la fecha de compra del producto: ")   # Se ingresa la fecha de compra del producto
+    g5=int(g4)                                                  # Se convirta la variable anterior en una variable tipo entero
+    m5= LL5[LL5['Referencia']==g3]                              # Se buscan las referencias correspondientes en el DataFrame
+    m6= LL5[LL5['Fcompra']==g5]                                 # Se buscan la fecha de compra en el DataFrame
+    os.system('clear')                                          # Se limpia la pantalla
+    print("\n\n\n\nDatos de la bodega \n\n", m5)                # Se imprime los resultados de las referencias encontradas
+
+    # Se ingresa la cantidad de productos de una referencia determinada que van para el mostrador de ventas
+    mu=input("\n\n\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")  
+    mu1= int(mu)                                # El anterior valor se convierte en entero
+
+
+    mt=0                                        # Se crea variable para guardar la cantidad de productos acumulados en mostrador                                                                
+    for TM in range (len(mm2)):                 # Se crea un ciclos para recorrer el DataFrame mostrador
+      if (LL5.iloc[TM,2]==g3 and LL5.iloc[TM,6]==g5):  # En la base de datos de bodega se busca la respectiva referencia  y fecha de compra del producto
+        LL5=pd.read_csv('BDATOS/bodega1.csv')          # Al cumplir la condición anterior se lee nuevamente la base de datos de bodega
+        mm2=pd.read_csv("BDATOS/mostrador.csv")        # Se lee la base de datos de mostrador
+
+        mt= mm2.iloc[TM, 7]                            # Se escoge el valor del acumulado en el mostrador y se crea una nueva variable
+        g6= LL5.iloc[TM, 4]                            # Se escoge la cantidad de unidades disponibles en la bodega 
+        mm2.iloc[TM, 4]=mu1                            # Se actualiza la cantidad  de unidades en el mostrador
+        mt=mu1+mt                                      # Se suma la nueva cantidad de unidades al acumulado
+        mm2.iloc[TM, 7]=mt                             # Se actualiza el acumulado en la base de datos de mostrador
+        mm2.to_csv('BDATOS/mostrador.cvs', mode="w", index="", header="True") # Se graba las nuevas modificaciones en la base de datos mostrador
+        g7=g6-mu1                                      # Las unidades que se llevan para el mostrador se descuentas al inventario de la bodega
+        LL5.iloc[TM, 4]=g7                             # Se actualiza las nuevas cantidades de unidades del producto en la bodega
+        mm2.iloc[TM, 2]=g7                             # La unidaes del productos actualizadas en la bodega se informa en la base de datos de mostrador
+        mm2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True") # Se graba las nuevas actualizaciones en la base de datos de mostrador
+        LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")  # Se graba las nuevas actualizaciones en la base decdatos de bodega
+        LL5=pd.read_csv('BDATOS/bodega1.csv')          # Se lee la base de datos de bodega para confirmar los cambios
+        mm2=pd.read_csv('BDATOS/mostrador.csv')        # Se lee la base de datos de mostardor para confirmar los cambios
+        
+
+
     print("\n\n\n\n***************   Bodega actualizada    *******************") # Mensaje de confirmación de datos actualizados en bodega
-    print("\n\n\n\n", LL5)                                                       # Se muestra la base datos de bodega
+    print("\n\n\n\n", LL5)
     print("\n\n\n\n***************   Mostrador actualizado   ****************")  # Mensaje de confirmación de datos de actualizados en mostrador
-    print("\n\n",mm2)                                                            # Se muestra la base e datos de mostrador
-    break                                                                        # Se finaliza ciclo de esta función   
+    print("\n\n",mm2)
+    break
 
-
-
-def agotado(
-):  # Se crea función para controlar el agotamiento de productos en la bodega
+'''
+def agotado():  # Se crea función para controlar el agotamiento de productos en la bodega
     while True:  # Se activa función para controlar el agotamiento de productos en la bodega
         os.system('clear')  # para limpiar pantalla
         print("\n\n*******************************************************************************************************")  # Decoración de titulo de pantalla
@@ -640,6 +716,49 @@ def agotado(
 
         break  # Finalización de este ciclo
 
+'''
+
+def agotado():  # Se crea función para controlar el agotamiento de productos en la bodega
+  while True:   # Se activa función para controlar el agotamiento de productos en la bodega
+    os.system('clear')  # para limpiar pantalla 
+    print("\n\n*******************************************************************************************************") # Decoración de titulo de pantalla
+    print("\n\n******************************        ALERTA DE PRODUCTO AGOTADO         ******************************") # Titulo de alerta de producto agotado
+    print("\n\n*******************************************************************************************************") # Decoración de titulo de pantalla
+    L5=pd.read_csv('BDATOS/bodega1.csv')   # Se lee la base de datos de bodega
+    for i in range(len(L5)):               # Se crea un ciclo para recorrer la base de datos bodega
+       if(L5.iloc[i,4]==0):                # Se activa el ciclo con la condición que la cantidad de los productos están agotados
+
+         #print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"       con fecha de compra: ",L5.iloc[i,6] )
+         #print("\n\n")
+         #print("\n\n                                                                             Está agotado")
+         print("\nProducto con nombre: ", L5.iloc[i,1])  # Se muestra el nombre del producto que está agotado
+         print("\n         referencia: ", L5.iloc[i,2])  # Se muestra la referencia del producto que está agotado
+         print("\ncon fecha de compra: ", L5.iloc[i,6])  # Se muestra la fecha de compra del producto que está agotado
+         print("\n\n                                   Está agotado")  # Mensaje que confirma que está agotado
+         print("\n\n------------------------------------------------------------------------------------------------")  # Decoración de pantalla para la sección
+         
+         
+    break    # Finalización de este ciclo
+
+
+
+  while True: # Se activa función para controlar el agotamiento de productos en la bodega
+    print("\n\n*******************************************************************************************************") # Decoración de titulo de pantalla
+    print("\n\n*******************************************************************************************************") # Decoración de titulo de pantalla
+    print("\n\n************************      ALERTA DE PRODUCTO CERCANO A AGOTARSE    ********************************") # Titulo de alerta de producto cercano a agotarse
+    print("\n\n*******************************************************************************************************") # Decoración de titulo de pantalla
+    L5=pd.read_csv('BDATOS/bodega1.csv')   # Se lee la base de datos de bodega 
+    for i in range(len(L5)):               # Se crea un ciclo para recorrer la base de datos bodega
+        if(L5.iloc[i,4]==2):               # Se activa el ciclo con la condición que la cantidad de los productos están agotados
+          #print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"       con fecha de compra: ",L5.iloc[i,6] )
+          #print("\n\n                                                                                      Está cercano a agotarse  ")
+          print("\nProducto con nombre: ", L5.iloc[i,1]) # Se muestra el nombre del producto que está cercano a agotarse
+          print("\n         referencia: ", L5.iloc[i,2]) # Se muestra la referencia del producto que está cercano a agotarse
+          print("\ncon fecha de compra: ", L5.iloc[i,6]) # Se muestra la fecha de compra del producto que está cercano a agotarse
+          print("\n\n                                    Está cercano a agotarse") # Mensaje que confirma que está cercano a agotarse
+          print("\n\n-------------------------------------------------------------------------------------------------") # Decoración de pantalla para la sección
+                                                                                     
+    break   # Finalización de este ciclo
 
 def vencimiento():  # Función para avisar cuando hay un producto cercano para vencerse  o  vencido
     while True:  # Activa el ciclo para avisar cuando hay un producto cercano para vencerse  o  vencido
@@ -1125,80 +1244,53 @@ cce = 0  # constante para operaciones matemáticas
 
 def bodegacom():  # Se crea una función para hallar el valor total en dinero de los productos de la bodega
     while True:  # Se crea un ciclo while que permite mantener la función activa
-        print("\n\n\n\n Página de costos en dinero por compras en bodega"
-              )  # Se imprime titulo de página de costos de bodega
-        print("\n\n Sistema completo\n\n"
-              )  # Se imprime subtitulo para costos de bodega
+        print("\n\n\n\n Página de costos en dinero por compras en bodega")  # Se imprime titulo de página de costos de bodega
+        print("\n\n Sistema completo\n\n" )  # Se imprime subtitulo para costos de bodega
 
         # Para Bodega
-        co = pd.read_csv(
-            "BDATOS/bodega1.csv"
-        )  # Se lee el archivo con la base de datos de la bodega
+        co = pd.read_csv("BDATOS/bodega1.csv")  # Se lee el archivo con la base de datos de la bodega
         print(co)  # Se imprime la base de datos de la bodega
-        co1 = co.iloc[:,
-                      0]  # Se crea una lista con los nombres de las empresas
-        co2 = co.iloc[:,
-                      3]  # Se crea una lista con los valores de los productos por pacas
+        co1 = co.iloc[:,0]  # Se crea una lista con los nombres de las empresas
+        co2 = co.iloc[:,3]  # Se crea una lista con los valores de los productos por pacas
         co3 = co.iloc[:, 6]  # Se crea una lista con la fecha de compra
 
         T = [co1, co2, co3]  # Se unen todas las listas en una sola lista.
 
-        cce = pd.DataFrame(
-            T)  # Se crea un DataFrame para manejar las listas antes escogidas
-        cce1 = cce.transpose(
-        )  # Se transpone el DataFrame para mejorar la presentación de la información
+        cce = pd.DataFrame(T)  # Se crea un DataFrame para manejar las listas antes escogidas
+        cce1 = cce.transpose()  # Se transpone el DataFrame para mejorar la presentación de la información
 
-        Vtotalbodega = int(
-            cce1['Ppaca'].sum()
-        )  # Se selecciona la fila precio paca y se suman todos los valores para hallar el costo total de los productos comprados
+        Vtotalbodega = int(cce1['Ppaca'].sum())  # Se selecciona la fila precio paca y se suman todos los valores para hallar el costo total de los productos comprados
 
         # print("\n\n\n\nHasta fecha actual: ", f55)  # Se imprime  la fecha
 
-        print("\n\n\n\nEl total pagado por bodega es: $", Vtotalbodega,
-              "\n\n\n\n")  # Se imprime el resultado total con enunciado.
+        print("\n\n\n\nEl total pagado por bodega es: $", Vtotalbodega,"\n\n\n\n")  # Se imprime el resultado total con enunciado.
         break  # Se termina el ciclo de la función
 
 
 def bodegafecha():  # Se crea función para compras en la bodega con fecha específica
     while True:  # Se crea ciclos para activar la función para compras en la bodega con fecha específica
-        print("\n\n\n\n Pagina de costos en dinero por compra en bodega"
-              )  # Titulo de la sección
+        print("\n\n\n\n Pagina de costos en dinero por compra en bodega")  # Titulo de la sección
         print("\n\n Sistema por fechas \n\n\n\n")  # Subtitulo de la sección
 
-        co = pd.read_csv(
-            "BDATOS/bodega1.csv"
-        )  # Se lee la base de datos de Bodega y se crea DataFrame
-        co2 = co.iloc[:,
-                      3]  # Se crea una lista con los valores de los productos por paca
-        co3 = co.iloc[:,
-                      6]  # secrea una lista con la fecha de compras de los productos
+        co = pd.read_csv( "BDATOS/bodega1.csv")  # Se lee la base de datos de Bodega y se crea DataFrame
+        co2 = co.iloc[:,3]  # Se crea una lista con los valores de los productos por paca
+        co3 = co.iloc[:,6]  # secrea una lista con la fecha de compras de los productos
         F = [co2, co3]  # Se crea una nueva lista con los datos anteriores
-        F1 = pd.DataFrame(
-            F)  # Se crea un nuevo dataFrame con los valores anteriores
+        F1 = pd.DataFrame(F)  # Se crea un nuevo dataFrame con los valores anteriores
         F2 = F1.transpose()  # Se transpone el DataFrame anterior
         print(F2)  # Se imprime el nuevo DataFrame
 
-        f1 = int(
-            input("\n\n\n\nIngrese la fecha inicial: ")
-        )  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
-        f2 = int(
-            input("\n\nIngrese la fecha final: ")
-        )  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
+        f1 = int(input("\n\n\n\nIngrese la fecha inicial: "))  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
+        f2 = int(input("\n\nIngrese la fecha final: "))  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
 
-        F3 = F2[(F2['Fcompra'] >= f1) & (
-            F2['Fcompra'] <= f2
-        )]  # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
-        F4 = pd.DataFrame(
-            F3)  # Se crea un nuevo DataFrame con los datos encontrados
+        F3 = F2[(F2['Fcompra'] >= f1) & ( F2['Fcompra'] <= f2)]  # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
+        F4 = pd.DataFrame(F3)  # Se crea un nuevo DataFrame con los datos encontrados
 
-        F5 = F4['Ppaca'].sum(
-        )  # valor en dinero de compras en la bodega entre un intervalo de tiempo
+        F5 = F4['Ppaca'].sum()  # valor en dinero de compras en la bodega entre un intervalo de tiempo
 
-        print("\n\n\n\nEntre las fechas  ", f1, " y ",
-              f2)  # se imprime el intervalo de la fechas
+        print("\n\n\n\nEntre las fechas  ", f1, " y ",f2)  # se imprime el intervalo de la fechas
 
-        print("\n\n\n\nEl total pagado por bodega es:     $", F5,
-              "\n\n\n\n")  # Total de costos por compras para bodega
+        print("\n\n\n\nEl total pagado por bodega es:     $", F5, "\n\n\n\n")  # Total de costos por compras para bodega
 
         break  # Finalización del ciclo de función
 
@@ -1215,75 +1307,50 @@ def ingcostosf():  # se crea función para ingresar datos adicionales para la ba
 
         g41 = input("\n\nIngrese el valor Total de seguros: ")  # Para ingresar los datos de pago de seguros
 
-        g51 = input("\n\nIngrese el valor Total de mantenimiento: "
-                    )  # Para ingresar los datos de pago de mantenimiento
+        g51 = input("\n\nIngrese el valor Total de mantenimiento: ")  # Para ingresar los datos de pago de mantenimiento
 
-        g61 = input("\n\nIngrese el valor Total de impuestos: "
-                    )  # Para ingresar los datos de pago de impuestos
+        g61 = input("\n\nIngrese el valor Total de impuestos: " )  # Para ingresar los datos de pago de impuestos
 
-        g71 = input("\n\nIngrese el valor Total de transporte: "
-                    )  # Para ingresar los datos de pago de transporte
+        g71 = input("\n\nIngrese el valor Total de transporte: ")  # Para ingresar los datos de pago de transporte
 
-        g81 = input("\n\nIngrese el valor Total de otros gastos: "
-                    )  # Para ingresar los datos de pago de otros gastos
-
-        g = [f55, g11, g21, g31, g41, g51, g61, g71,
-             g81]  # se crea una lista con los valores antes mencionados
+        g81 = input("\n\nIngrese el valor Total de otros gastos: ")  # Para ingresar los datos de pago de otros gastos
+        os.system('clear')  #limpiar pantalla
+        g = [f55, g11, g21, g31, g41, g51, g61, g71, g81]  # se crea una lista con los valores antes mencionados
         gb = pd.DataFrame(g)  # Se crea un DataFrame con estos avlores
         gb1 = pd.DataFrame.transpose(gb)  # Se transpone el DataFrame
         # Se coloca nombres a las columnas
-        gb1.columns = [
-            'Fecha', 'Nómina', 'Spúblicos', 'Arriendo', 'Seguros',
-            'mantenimiento', 'Impuestos', 'Transporte', 'Otroscostos'
-        ]
-        gb1.to_csv(
-            "BDATOS/costosm.csv", mode="a", index="",
-            header="")  # Se graba los nuevos datos en la base costos fijos
-        gb2 = pd.read_csv(
-            "BDATOS/costosm.csv"
-        )  # Se lee la base de datos de costos fijos con los nuevos cambios
-        print(
-            "\n\n\n\n                Página de Ingreso de datos de costos fijos\n"
-        )  # Se imprime titulo de l sección
-        print("\n\n",
-              gb2.iloc[:, 0:5])  # Se imprime la primer parte de los resultados
-        print("\n\n",
-              gb2.iloc[:,
-                       5:9])  # Se imprime la segunada parte de los resultados
+        gb1.columns = ['Fecha', 'Nómina', 'Spúblicos', 'Arriendo', 'Seguros','mantenimiento', 'Impuestos', 'Transporte', 'Otroscostos']
+        gb1.to_csv("BDATOS/costosm.csv", mode="a", index="", header="")  # Se graba los nuevos datos en la base costos fijos
+        gb2 = pd.read_csv("BDATOS/costosm.csv")  # Se lee la base de datos de costos fijos con los nuevos cambios
+        print("\n\n\n\n                Página de Ingreso de datos de costos fijos\n")  # Se imprime titulo de l sección
+        print("\n\n", gb2.iloc[:, 0:5])  # Se imprime la primer parte de los resultados
+        print("\n\n", gb2.iloc[:, 5:9])  # Se imprime la segunada parte de los resultados
         break  # Se finaliza el ciclo de esta función
-
+       
 
 def costosf():  # SE crea una función para los costos fijos completos
     while True:  # Se crea un ciclo para activar la función de costos fijos completos
         ## Informe mensual
         #para costos fijos
-        print("\n\n\n\n              Página de costos fijos en dinero"
-              )  # Titulo de la sección
-        print("\n\n                   Sistema completo\n\n\n\n"
-              )  # subtitulo de la sección
-        gb2 = pd.read_csv(
-            "BDATOS/costosm.csv"
-        )  # se lee la base de datos de costos fijos y se crea un DataFrame
+        print("\n\n\n\n              Página de costos fijos en dinero" )  # Titulo de la sección
+        print("\n\n                   Sistema completo\n\n\n\n" )  # subtitulo de la sección
+        gb2 = pd.read_csv("BDATOS/costosm.csv")  # se lee la base de datos de costos fijos y se crea un DataFrame
         print(gb2)  # Se imprime la base de datos
 
         st1 = gb2['Nómina'].sum()  # Suma todos los costos de nómina
-        st2 = gb2['Spúblicos'].sum(
-        )  # Suma tosdos los valores de servicios públicos
+        st2 = gb2['Spúblicos'].sum()  # Suma tosdos los valores de servicios públicos
         st3 = gb2['Arriendo'].sum()  # Suma todos los valores de arriendo
         st4 = gb2['Seguros'].sum()  # Suma todos los valores de seguros
-        st5 = gb2['mantenimiento'].sum(
-        )  # Suma todos los valores de mantenimiento
+        st5 = gb2['mantenimiento'].sum()  # Suma todos los valores de mantenimiento
         st6 = gb2['Impuestos'].sum()  # suma todos los valores de impuestos
         st7 = gb2['Transporte'].sum()  # suma todos los valores de transporte
-        st8 = gb2['Otroscostos'].sum(
-        )  # suma todos los valores de otros costos
+        st8 = gb2['Otroscostos'].sum()  # suma todos los valores de otros costos
 
         TotalCF = st1 + st2 + st3 + st4 + st5 + st6 + st7 + st8  # Suma el valor en dinero de todos los costos fijos
 
         print("\n\n\n\n Subtotales")  # mensaje de subtitulos
 
-        print("\n\n\n\nHasta la Fecha: ",
-              f55)  # fecha en el momento del reporte
+        print("\n\n\n\nHasta la Fecha: ", f55)  # fecha en el momento del reporte
         print("\n\nEstos son los costos fijos")  # mensaje
         # totales por área en costos fijos
         print("\n\nNómina: $", st1, "\n\nSpúblicos: $", st2, "\n\nArriendo: $",
@@ -1291,51 +1358,41 @@ def costosf():  # SE crea una función para los costos fijos completos
               "\n\nImpuestos: $", st6, "\n\nTransporte: $", st7,
               "\n\nOtros costos: $", st8)
 
-        print("\n\n\n\n Total de costos fijos: $",
-              TotalCF)  # Total de costos fijos
-        break  # Se finaliza el ciclo de esta función
-
+        print("\n\n\n\n Total de costos fijos: $", TotalCF)  # Total de costos fijos
+        #break  # Se finaliza el ciclo de esta función
+        ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+        T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+        if(T==ff):                                   # Se verifica si cumple la condición
+            break                                     # Finaliza primer ciclo
+        break                                        # Finaliza el segundo ciclo
+           
 
 def costosff():  # Se crea función para costos fijos por fecha específica
     while True:  # Se cre ciclo para activar la función de costsos fijos por fecha específica
-        print("\n\n\n\n             Página de costos fijos en dinero"
-              )  # Título de esta sección
-        print("\n\n                   Sistema por fechas\n\n\n\n"
-              )  # Subtitulos de esta función
-        gb2 = pd.read_csv(
-            "BDATOS/costosm.csv")  # Se lee la base de datos de costos fijos
+        print("\n\n\n\n             Página de costos fijos en dinero" )  # Título de esta sección
+        print("\n\n                   Sistema por fechas\n\n\n\n")  # Subtitulos de esta función
+        gb2 = pd.read_csv("BDATOS/costosm.csv")  # Se lee la base de datos de costos fijos
         print(gb2)  # se imprime la base de datos de ventas
-        fc1 = int(
-            input("\n\ningrese la fecha inicial:  ")
-        )  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
-        fc2 = int(
-            input("\n\ningrese la fecha final:  ")
-        )  # Sirve para ingresar la fecha final para crear un intervalo de búsqueda
+        fc1 = int(input("\n\ningrese la fecha inicial:  "))  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
+        fc2 = int(input("\n\ningrese la fecha final:  "))  # Sirve para ingresar la fecha final para crear un intervalo de búsqueda
 
-        F33 = gb2[(gb2['Fecha'] >= fc1) & (
-            gb2['Fecha'] <= fc2
-        )]  # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
-        F7 = pd.DataFrame(
-            F33)  # Se crea un nuevo DataFrame con los datos encontrados
+        F33 = gb2[(gb2['Fecha'] >= fc1) & (gb2['Fecha'] <= fc2)]  # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
+        F7 = pd.DataFrame(F33)  # Se crea un nuevo DataFrame con los datos encontrados
 
         print("\n\n", F7)  # Seimprime el nuevo Dataframe
 
         st11 = F7['Nómina'].sum()  # Suma todos los costos de nómina
-        st21 = F7['Spúblicos'].sum(
-        )  # Suma tosdos los valores de servicios públicos
+        st21 = F7['Spúblicos'].sum()  # Suma tosdos los valores de servicios públicos
         st31 = F7['Arriendo'].sum()  # Suma todos los valores de arriendo
         st41 = F7['Seguros'].sum()  # Suma todos los valores de seguros
-        st51 = F7['mantenimiento'].sum(
-        )  # Suma todos los valores de mantenimiento
+        st51 = F7['mantenimiento'].sum()  # Suma todos los valores de mantenimiento
         st61 = F7['Impuestos'].sum()  # suma todos los valores de impuestos
         st71 = F7['Transporte'].sum()  # suma todos los valores de transporte
-        st81 = F7['Otroscostos'].sum(
-        )  # suma todos los valores de otros costos
+        st81 = F7['Otroscostos'].sum()  # suma todos los valores de otros costos
 
         print("\n\n\n\n Subtotales")  # Se imprime menasje de Subtotales
 
-        print("\n\n\n\nEntre las fechas: ", fc1, " y ",
-              fc2)  # se imprime el intervalo de la fechas
+        print("\n\n\n\nEntre las fechas: ", fc1, " y ",  fc2)  # se imprime el intervalo de la fechas
         # Se imprime el valor de dinero localizado por costos fijos
         print("\n\nNómina: $", st11, "\n\nSpúblicos: $", st21,
               "\n\nArriendo: $", st31, "\n\nSeguros: $", st41,
@@ -1344,8 +1401,7 @@ def costosff():  # Se crea función para costos fijos por fecha específica
 
         TotalCFF = st11 + st21 + st31 + st41 + st51 + st61 + st71 + st81  # Suma el valor en dinero de costos fijos entre un intervalo de tiempo
 
-        print("\n\n\n\n Total de costos fijos: ",
-              TotalCFF)  # Total de costos fijos por fecha específica
+        print("\n\n\n\n Total de costos fijos: ", TotalCFF)  # Total de costos fijos por fecha específica
 
         break  # Finalización del ciclo de esta función
 
@@ -1353,68 +1409,46 @@ def costosff():  # Se crea función para costos fijos por fecha específica
 def ingventasT():  # Se crea función para sumar el total ingresos en dinero por ventas por forma completa
     while True:  # Se activa el ciclo para ejecutar la función de ingreso de dinero por ventas por forma completa
 
-        print("\n\n\n\n Página de ingresos en dinero por ventas\n\n"
-              )  # Se imprime titulo de esta sección
-        print("\n\n Sistema completo\n\n\n\n"
-              )  # Se imprime subtitulo de esta scción
+        print("\n\n\n\n Página de ingresos en dinero por ventas\n\n")  # Se imprime titulo de esta sección
+        print("\n\n Sistema completo\n\n\n\n")  # Se imprime subtitulo de esta scción
 
-        cv = pd.read_csv(
-            "BDATOS/ventas.csv")  # Se lee l base de datos de ventas
+        cv = pd.read_csv("BDATOS/ventas.csv")  # Se lee l base de datos de ventas
         print(cv)  # Se imprimen los datos
-        cv1 = cv.iloc[:,
-                      1]  # Se crea una lista con los valores en dinero por ventas
+        cv1 = cv.iloc[:, 1]  # Se crea una lista con los valores en dinero por ventas
         cv2 = cv.iloc[:, 2]  # Se crea una lista con las fechas
 
         CE = [cv1, cv2]  # Se crea una lista principal con las antriores listas
 
-        cce2 = pd.DataFrame(
-            CE)  # Se crea una nuevo DataFrame con los datos anteriores
+        cce2 = pd.DataFrame(CE)  # Se crea una nuevo DataFrame con los datos anteriores
         cce3 = cce2.transpose()  # Se transpone el DataFrame
 
-        Vtotalventas = cce3['Vtotal'].sum(
-        )  # Se suma todos los valores de la ventas
+        Vtotalventas = cce3['Vtotal'].sum()  # Se suma todos los valores de la ventas
 
-        print("\n\n\n\nHasta fecha actual ",
-              f55)  # Se imprime la fecha del informe
+        print("\n\n\n\nHasta fecha actual ", f55)  # Se imprime la fecha del informe
 
-        print(
-            "\n\nEl total de dinero ingresado por ventas: $", Vtotalventas,
-            "\n\n")  # Se imprime el valor total en dinero de todas las ventas
+        print("\n\nEl total de dinero ingresado por ventas: $", Vtotalventas,"\n\n")  # Se imprime el valor total en dinero de todas las ventas
         break  # Finaliza el ciclo de esta función
 
 
 def ingventasTF():  # Se crea función para sumar el total ingresos en dinero por ventas por fecha específica
     while True:  # Se activa el ciclo para ejecutar la función de ingreso de dinero por ventas por fecha específica
-        print("\n\n\n\n Página de ingresos en dinero por ventas\n\n"
-              )  # Se imprime titulo de esta sección
-        print("\n\n Sistema para fechas\n\n\n\n"
-              )  # Se imprime subtitulo de esta scción
+        print("\n\n\n\n Página de ingresos en dinero por ventas\n\n")  # Se imprime titulo de esta sección
+        print("\n\n Sistema para fechas\n\n\n\n")  # Se imprime subtitulo de esta scción
 
-        ing = pd.read_csv(
-            "BDATOS/ventas.csv")  # Se lee la base de datos de ventas
+        ing = pd.read_csv("BDATOS/ventas.csv")  # Se lee la base de datos de ventas
         print(ing)  # Se imprime la base de datos de ventas
 
-        if1 = int(
-            input("\n\n\n\nIngrese la fecha inicial: ")
-        )  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
-        if2 = int(
-            input("\n\n\n\nIngrese la fecha final: ")
-        )  # Sirve para ingresar la fecha final para crear un intervalo de búsqueda
+        if1 = int(input("\n\n\n\nIngrese la fecha inicial: "))  # Sirve para ingresar la fecha inicial para crear un intervalo de búsqueda
+        if2 = int(input("\n\n\n\nIngrese la fecha final: "))  # Sirve para ingresar la fecha final para crear un intervalo de búsqueda
 
-        ing2 = ing[(ing['Fecha'] >= if1) & (
-            ing['Fecha'] <= if2
-        )]  # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
-        ing3 = pd.DataFrame(
-            ing2)  # Se crea un nuevo DataFrame con los datos encontrados
+        ing2 = ing[(ing['Fecha'] >= if1) & ( ing['Fecha'] <= if2 )]  # Se crea un filtro para localizar los datos en el intervalo de tiempo específicado
+        ing3 = pd.DataFrame(ing2)  # Se crea un nuevo DataFrame con los datos encontrados
 
-        ing5 = ing3['Vtotal'].sum(
-        )  # Suma el valor en dinero de ventas entre un intervalo de tiempo
+        ing5 = ing3['Vtotal'].sum()  # Suma el valor en dinero de ventas entre un intervalo de tiempo
 
-        print("\n\n\n\nEntre las fechas ", if1, " y ",
-              if2)  # Se imprime las fechas del intervalo
+        print("\n\n\n\nEntre las fechas ", if1, " y ",if2)  # Se imprime las fechas del intervalo
         print(
-            "\n\nEl total de dinero ingresado por ventas es: $", ing5,
-            "\n\n\n\n")  # Se imprime el valor de dinero localizado por ventas
+            "\n\nEl total de dinero ingresado por ventas es: $", ing5,"\n\n\n\n")  # Se imprime el valor de dinero localizado por ventas
 
         break  # Se termina el ciclo de esta función
 
@@ -1911,7 +1945,7 @@ def calendario(): # Se crea la función para ver calendario
     
 # Para activar menú principal
 def menu():
-    os.system('clear') #limpiar pantalla
+    #os.system('clear') #limpiar pantalla
     print("\n\n")
     tituloG = "  PÁGINA PRINCIPAL DE ADMINISTRADOR  "
     print(tituloG.center(70, "="))
@@ -2016,7 +2050,7 @@ while True:
            
 
     if opcionMenu == "5":
-        os.system('clear')  #limpiar pantalla
+        #os.system('clear')  #limpiar pantalla
         print("\n\n")
 
         subtitulo = " SUBMENÚ DE MOSTRADOR"
@@ -2035,12 +2069,7 @@ while True:
             mostrador()            
 
         elif opcionmenu == "5.2":  # se ejecuta la función total
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            ganancia()
-        elif opcionmenu == "5.2":  # se ejecuta la función total
-            ganancia()
+             mganancia()
 
         elif opcionmenu == "5.3":
              unidades()
@@ -2128,33 +2157,41 @@ while True:
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
+            bodegacom()
+
+        
+        
+        elif opcionmenu == "7.2":
+            os.system('clear')  #limpiar pantalla
+            print("\n\n")
+            print("Hola".center(100, " "))  # la función compra se ejecuta
             bodegafecha()
 
-        elif opcionmenu == "7.2":  # se ejecuta la función total
+        elif opcionmenu == "7.3":  # se ejecuta la función total
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             ingcostosf()
 
-        elif opcionmenu == "7.3":
+        elif opcionmenu == "7.4":
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             costosf()
 
-        elif opcionmenu == "7.4":
+        elif opcionmenu == "7.5":
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             costosff()
 
-        elif opcionmenu == "7.5":
+        elif opcionmenu == "7.6":
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             ingventasT()
 
-        elif opcionmenu == "7.6":
+        elif opcionmenu == "7.7":
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
@@ -2162,27 +2199,23 @@ while True:
 
 
 
-        elif opcionmenu == "7.7":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            contabilidad()
-
-        
-        
         elif opcionmenu == "7.8":
             os.system('clear')  #limpiar pantalla
             print("\n\n")
             print("Hola".center(100, " "))  # la función compra se ejecuta
             ganancia()
-            
-              
+
+        
+        
         elif opcionmenu == "7.9":
+             os.system('clear')  #limpiar pantalla
+             print("\n\n")
+             print("Hola".center(100, " "))  # la función compra se ejecuta
              contabilidad()
+              
+        elif opcionmenu == "9":
+             fp()  
 
-
-        elif opcionmenu == "7.10":
-              fp()                  # se ejecuta finalización de submenú
 
     if opcionMenu == "8":
         os.system('clear')  #limpiar pantalla

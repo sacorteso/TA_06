@@ -1,5 +1,7 @@
                               MANUAL DE USUARIO
 
+MANUAL DE USUARIO
+
 introducción
 
 La aplicación ADMINISTRADOR fue diseñada con el objetivo de permitir manejar todo 
@@ -22,10 +24,20 @@ Esta aplicación utiliza dos tipo de claves:
   negocio como manipular los datos personales de los empleados, agregar, modificar o borrar
   información, modificación de las bases contables.
 
+** Para poder utilizar la aplicación por primera vez utilice las siguientes claves
+
+   clave de usuario: gabrielawad
+
+   clave global: jefe
 
 La fecha se debe ingresar junta sin guiones, comas, puntas, barras inclinadas.
 
 de esta forma añomesdia, un ejemplo:    20210603
+
+* Lostes de los productos se controlan o clasifican por la fecha de compra
+
+* Desplazarse por la pantalla de la consola con el scroll del mouse para ver todos los datos
+
 
 
 La aplicación ADMINISTRADOR en su página inicial presenta la fecha actual, la hora en colombia
@@ -37,6 +49,8 @@ Para ingresar escriba la clave de usuario asignada y oprima enter.
 después de esto se ingresa a la página principal en el cual va a encontrar el menú principal 
 con las siguientes opciones:
 
+1-Manual de usuario
+2-Calnedario
 3-Empleados
 4-Compras y Bodega
 5-Mostrador
@@ -55,6 +69,13 @@ después del siguiente mensaje:
 Esto llevará al usuario a un submenú por cada item del menú principal.
 
 
+1-Manual de usuario:
+                    No tiene submenú
+
+2-Calendario:
+           
+            No tiene submenú  
+          
 
 3-Empleados:
              3.1- Cambio de clave Global
@@ -84,6 +105,10 @@ Esto llevará al usuario a un submenú por cada item del menú principal.
              5.5- Vencimiento de productos
              5.6- Terminar con uso de submenú
 
+
+
+
+
 6-Ventas y Clientes:
                      6.1- Para generar venta
                      6.2- Factura
@@ -105,6 +130,8 @@ Esto llevará al usuario a un submenú por cada item del menú principal.
                7.8- CONTABILIDAD
                9  - Regresa al menú principal
 
+
+
 8-Reportes:
            8.1- Ingreso de reportes
            8.2- Base de datos de proveedores
@@ -113,3 +140,369 @@ Esto llevará al usuario a un submenú por cada item del menú principal.
            8.5- Informe total de unidades de bodega
            8.6- Informe total de contabilidad
            9  - Regresa al menú principal
+
+
+
+
+* Funcionamiento:
+
+  Después de ingresar con la respectiva clave de usuario y oprimir enter aparecerá el menú principal
+  
+
+1-Manual de usuario:
+ 
+ En esta opción se presenta el manual que explica el funcionamiento de la aplicación administrador.
+ 
+ al finalizar el documento principal aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+ Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+2-Calendario:
+  
+  En está opción tiene la posibilidad de ver un calenadrio completo con el respectivo año seleccionado.
+  
+  Al activar esta opción aparece el siguiente mensaje:
+                                                      ingrese el año:
+
+ aquí se escribe el año con cuatro cifras, ejemplo: 2020
+
+ al finalizar el documento principal aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+ Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+3-Empleados:
+  Está opción del menú principal permite cambiar la clave global, crear login y clave para nuevo empleado,
+  Leer la base de datos con la información de los empleados, modificación de la clave de usuario,
+  elimiminar datos de empleado y terminar submenú.
+  
+  Se escribe 3 y enter y se activa el submenú
+
+3.1-Cambio de clave global:
+    
+    Se escribe 3.1 se activa la opción y muestra el siguiente mensaje:
+    
+    ingrese clave global (La actual) y enter
+    ingrese la nueva clave global  y enter
+    ingrese nuevamente la neva clave y enter
+
+    La clave habrá sido modificada y la aplicación automaticamente regresa al menú principal.
+
+3.2-Login y clave para nuevo empleado:
+    
+    Se escribe 3.2 se activa la opción y muestra el siguiente mensaje:
+
+    Ingrese clave global
+    ingrese el nombre 
+    ingrese el apellido
+    se completa los datos anteriores y luego se ingresa la contraseña
+
+    ingrese contraseña de 8 a 15 caracteres
+    se confirma la cantidad de caracteres
+    se solicita que ingrese nuevamente la contraseña
+    lo cual la valida todos los datos y esto registra al nuevo empleado.
+
+    Al finalizar esta operación el sistema regresa al menú principal.
+
+3.3- Base de datos de empleados:
+     
+     En esta opción al activarla imprime una tabla con los datos de los empleados.
+     
+     al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+     Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+3.4- Modificación de clave de usuario:
+     
+     en esta opción el empleado puede cambiar su clave de usuario pero debe ser autorizada
+     por el dueño, gerente o administrador.
+     
+     Al activar esta opción aperece los siguientes mensajes:
+     
+     ingrese clave global: se coloca la respectiva clave
+
+     aparece la lista con los datos y claves de los empleados
+
+     aparece el siguiente mensaje:
+     ingrese el número de la fila que tiene los datos del empleado:
+     ingrese la nueva clave:
+     Al completar los anteriores datos y oprimuir enter aparece una nueva lista de empleados 
+     con la clave actualizada.
+
+     al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+     Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+3.5- Eliminar datos de empleado:
+
+     En esta opción se elimina todos los datos de un empleado en especifico
+     
+     al activarla se solicita la clave global
+     
+     Luego se imprime la lista con los datos de los empleados
+     
+     Después se solicita que ingrese la clave del empleado
+     
+     la aplicación elimina los datos del respectivo empleado y muestra mensaje de confirmación.
+    
+     Imprime una nueva lista actualizada de empleados. 
+     
+    
+    al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+3.6-Terminar con uso de submenú:
+
+    Al activar esta opción la aplicación regresa al menú principal.
+
+
+4- Compras y Bodega:
+   En esta opción del menú principal va permitir a los usuarios registrar las compras de los productos,
+   verificar el estado de la bodega y eliminar productos vencidos o agotados.
+
+4.1- Compras de productos:
+     Al activar esta opción del submenú aparecerá los siguientes mensajes:
+
+     ingrese el nombre del distribuidor
+     ingrese el nombre del producto
+     ingrese la referencia del producto
+     ingrese el precio de la paca
+     ingrese la cantidad de unidades de la paca
+     ingrese la fecha de compra
+     ingrese la fecha de vencimiento
+     
+     Después de ingresar loa nateriores datos son grabados en la base de datos de compras y
+     se imprime la base de datos actualizada.
+
+     al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+4.2- Bodega:
+     
+     Al activar esta opción la aplicación imprime una tabla con los productos registrados en bodega.
+
+     al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+
+4.3-Base de datos de compras de productos:
+
+    Al activar esta opción la aplicación imprime una tabla con los productos registrados en la base de
+    datos de compras.
+
+     al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+
+4.5- Eliminar producto vencido ó agotado:
+     
+     Esta opción permite eliminar un producto que este vencido o agotado en la bodega
+
+     muestra los siguientes menasjes:
+     
+     ingrese clave global al ingresar la respectiva clave y oprimir enter se imprime una lista
+     con todos los productos de bodega.
+
+     Luego aparece el siguiente mensaje:
+     Ingrese la posición de la fila del producto a liminar de bodega:
+     se escribe la posición del producto a eliminar y se oprime enter
+     aparece un mensaje que confirma la eliminación del producto y se imprime nuevamente la base de datos actualizados 
+     de bodega.
+
+     al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+4.6-Terminar con uso de submenú:
+    Al activar esta opción la aplicación regresa al menú principal.
+
+5- Mostrador:
+   En esta opción la aplicación va a sacar productos de la bodega y los lleva a los estantes para la venta
+   permite cambiar el porcentaje de ganancia individual a cada producto, permite anexar referencias
+   de productos a los estantes, avisa sobre productos agotados o vencidos en la bodega.
+
+5.1- Para anexar referencias de productos a mostrador:
+     al activar esta opción se imprime la base de datos de bodega y aparece este mensaje:
+     
+     ingrese el número de la fila del producto a anexar a mostrador:
+     
+     al ingresar el número de la fila la aplicación cargará al mostrador la respectiva referencia
+     del producto escogido, luego  Se muestra todos los datos del producto seleccionado
+    
+      al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+5.2- Cambio de porcentaje de ganancia:
+     Al activar esta opción el dueño, administrador o gerente del negocio podrá cambiar el porcentaje de ganancia de cada 
+     producto.
+     
+     Aparece un resumen de las diferentes referencias de los productos en bodega
+     La aplicación solicita el ingreso de la referencia del producto
+     se muestra un resumen de los datos del producto
+     solicita el nuevo porcentaje de ganancia del producto
+     la aplicación actualizala base de datos de mostardor y por último imprime la base de datos mostrador actualizada.
+     
+  al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+
+5.3-Para llenar el mostrador con productos:
+    
+    Al activar esta opción se imprime los productos en bodega y en el mostrador,
+    Luego solicita la referencia del producto y la fecha de compra, luego se muestra
+    el producto seleccionado con las características antes solicitadas.
+
+    Luego se solicita el número de la fila del producto seleccionado, luego se solicita la cantidad
+    de unidades del producto para  mostrador. se oprime enter, la aplicación actualiza los datos y por últimp imprime la
+    base de datos mostrador actualizados
+    
+
+5.4-Agotamiento de productos:
+    Al activar esta opción se imprime los productos en bodega que no tienen unidades disponibles 
+    para la venta.
+
+    
+
+5.5-Vencimiento de productos:
+    Al activar esta opción se imprime los productos en bodega que están vencidos por fecha 
+    para la venta.
+
+5.6 Terminar con uso de menú:
+    Al activar esta opción la aplicación regresa al menú principal.
+
+
+
+6-  Ventas y Clientes:
+    En esta opción encontramos la opción para registrar las ventas, crear la factura, ver la base de datos
+    de venta acumulada, registrar los datos personales de los clientes y llevar el registro de compras de cada cliente.
+
+6.1- Para generar ventas:
+     aquí se le solicita la identificación del cliente
+    solicita la cantidad de referencias para la venta que se va a realizar
+    luego se imprime una tablas con los nombres de los productos y las referencias respectivamente
+    luego la referencia del producto
+    la cantidad de productos de esta referencia que se van a vender, se realiza las respectivas operaciones
+    y se imprime los productos vendidos.
+
+6.2-Factura:
+    Al activar esta opción se imprime la factura de la última venta
+    en ella está la cédula del cliente, fecha y hora de la venta, el consecutivo de la factura,
+    los datos y cantidades de los productos vendidos y el valor total de la venta.
+
+
+6.3-Venta acumulada:
+    al activar esta opción la apliación imprime la base de datos con todas las ventas totales,
+    en donde aparece la cédula del cliente, el valor total comprado, la fecha y la hora.
+    
+    Esta opción lleva automáticamente al menú principal.
+
+
+6.4 Página de clientes:
+
+    Al activar esta opción se puede ingresar los clientes a una base de datos para diferentes
+    actividades, una forma de comunicarse con ellos, realizar actividades estadísticas para el
+    negocio.
+    
+    La aplicación solicita el número de cédula, nombre, primer appellido, segundo apellido, celular,
+    numero del teléfono fijo.
+    
+   al ingresar los anteriores datos y oprimer enter la aplicación anexa al cleinte a la base de datos.
+   e imprime una lista con los datos actualizados. 
+
+
+6.5 Página de compras de cada cliente:
+    al activar esta opción muestra todas las ventas que ha hecho cada cliente.
+    
+    En ella la aplicación solicita el número de la cédula del cliente e imprime todos los datos d
+    las ventas relacionadas con este cliente.
+
+    Esta opción lleva automáticamente al menú principal.    
+
+9   Para finalizar este submenú:
+
+    Está opción finaliza el submenú de esta sección.
+
+
+7- Contabilidad:
+  
+  Esta opción permite administrar las operaciones contables del negocio, en ella se manejan
+  los costos de bodega y los cosos fijos administartivos, los ingresos en dinero por ventas, 
+  para administrar el porcentaje de ganancia neta total del negocio y los registros y operaciones
+  contables generales que tienen un negocio.
+
+7.1- Costos de Bodega completa:
+     Al activar esta opción la aplicación  imprime el costo de las compras por cada producto
+     en bodega con su respectiva fecha
+
+7.2-Costos de bodega por fechas:
+    Al activar esta opción la aplicación  imprime el costo de las compras por cada producto
+    en bodega con su respectiva fecha, aquí se puede seleccionar una fecha especifica para 
+    encontrar los productos comprados en esa fecha con sus respectivos valores. y genera el valor 
+   total pagado entre dos fechas.
+
+   Al finalizar, la aplicación regresa al menú principal.
+
+7.3- Ingreso de datos para costos fijos:
+     Al activar esta opción permite ingresar todos los costos fijos administartivos
+     como valor total de nómina, valor total de servicios públicos, valor total de arriendo,
+     valor total  de seguros, valor total de mantenimiento, valor total de impuestos,
+     valor total de transporte, y otros gastos.
+     
+    al ingresar los anteriores datos, se registran en la base de datos de costos y la aplicación 
+    imprime esta base de datos actualizada.
+
+    Al finalizar, la aplicación regresa al menú principal.
+
+7.4-Costos fijos completos:
+    Al activar esta aplicación muestra la suma total de cada item de costos fijos y luego muestra la
+    suma total de todos los costos fijos 
+    
+    al final de la página  aparecerá el siguiente mensaje: 
+     
+        escriba ff para finalizar esta opción:
+
+    Se escribe ff y  finaliza totalemente esta opción y la aplicación regresa al menú principal.
+
+
+7.5-costos fijos por fecha:
+    Al activar esta opción la aplicación muestra los costos fijos por fecha
+    al principio se imprime la base  des costos, y luego se solicita la fecha inicial y final 
+    para mostrar la suma total de esos datos por item en un determinado intervalo de tiempo.
+
+   
