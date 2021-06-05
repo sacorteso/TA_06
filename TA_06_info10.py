@@ -4,7 +4,7 @@
 # Desplazarse por la pantalla de la consola con el scroll del mouse 
 # Para ver todos los datos
 # Para ver el manual del usuario hay que ingresar al menú de opciones
-
+# BDATOS/musuario.txt: (manual de usuario)
 
 from datetime import date as dt  #librería para manejar fechas
 from datetime import datetime as dtt  #librería para manejar el tiempo
@@ -22,23 +22,9 @@ os.system('clear')  # Para limpiar pantalla
 titulo = "  PÁGINA PRINCIPAL DE ADMINISTRADOR  "  # Para crear titulo principal de la aplicación
 print("\n\n")  # Salto de línea
 print(titulo.center(70, "="))  # Para imprimir el titulo centrado
-##today = dt.today()  # comando que muestra lafecha actual
-##f5 = today.strftime('%Y%m%d')  # para cambiar el formato de fecha y unirlo
-##f55 = int(  f5)  # para convertir la fecha en un entero para operaciones matemáticas
-#print(f55)  # para imprimir la hora
-#f56=time.strftime('%H:%M:%S') # para modificar el formato de la hora
-#print=(f56)                   # para imprimir la hora modificada
-##print(today)  # Para imprimir la fecha actual
 print("\n\n")  # Salto de línea
-##today = dt.today()  # comando que muestra la fecha actual
-##f5 = today.strftime('%Y%m%d')  # para cambiar el formato de fecha y unirlo
-##f55 = int( f5)  # para convertir la fecha en un entero para operciones matemáticas
-##print(f55)  # para imprimir la hora
-#f56 = time.strftime('%H:%M:%S')  # pra modificar el foramto de la hora
-#print(f56)  # para imprimir la hora
 fA=dtt.utcnow() +timedelta(hours=-5) # Para actualizar la hora global a la hora de Colombia
 f = fA.strftime('%Y-%m-%d')          # Para cambiar el formato de la fecha
-#print(f)
 f5 = fA.strftime('%Y%m%d')           # Para cambiar el foramato de ka fecha
 f55 =int(f5)                         # Para convertir ese formato de fecha en entero            
 #print(f55)                          # Para imprimir el nuevo formato de fecha
@@ -48,7 +34,7 @@ f56= fA.strftime('%H:%M:%S')         # para modificar el foramto de la hora
 print("Fecha: ", f,              "\t\tLa hora en Colombia es: ",f56) 
 print("\n\n")                        # Salto de línea
 year=cl.month(2021,6)                # Para activar calendario en el año y mes específico
-print(year)                         # Se imprime el calendario
+print(year)                          # Se imprime el calendario
 
 
 
@@ -151,55 +137,34 @@ def login():  # Se crea función para ingreso de nuevos empleados
         while (L == k   ):  # permite crear un cilclo para ingresar nuevos empleados
             for i in range(1 ):  # Se crea un ciclo para ingrsar los datos del nuevo empleado
 
-                nombre = input("\ningrese el nombre: "
-                               )  # para ingresar nombre del empleado
-                apellido = input(
-                    "\nIngrese el apellido: ")  # para ingresar el apellido
-                clave = creaciondecontrase(
-                )  # para ingresar una clave manual a gusto del empleado
-                usuario = nombre[0:3] + apellido[
-                    0:3]  # permite creae el login de usuario
+                nombre = input("\ningrese el nombre: ")  # para ingresar nombre del empleado
+                apellido = input("\nIngrese el apellido: ")  # para ingresar el apellido
+                clave = creaciondecontrase()  # para ingresar una clave manual a gusto del empleado
+                usuario = nombre[0:3] + apellido[0:3]  # permite creae el login de usuario
 
                 #os.system('clear') # limpia la pantalla
 
                 clave1 = str(clave)  # La clave se convirte en string
 
                 # confirma visualmente los datos ingrsados por el administrador
-                print("\n", "Su nombre es: ", nombre,
-                      "\n")  # Se comprueba el nombre del nuevo empleado
-                print("\n", "Su apellido es: ", apellido,
-                      "\n")  # Se comprueba el apellido del nuevo empleado
-                print("\n", "Su clave es: ", clave,
-                      "\n")  # Se comprueba la clave del nuevo empleado
-                print("\n", "Su Login es: ", usuario,
-                      "\n")  # Se comprueba el usuario del nuevo empleado
-                nombre31.append(
-                    nombre)  # Se anexa el nombre del nuevo empleado a lista
-                apellido31.append(
-                    apellido
-                )  # Se anexa el apellido del nuevo empleado a lista
-                usuario31.append(
-                    usuario)  # se anexa el usuario del nuevo empleado a lista
-                clave31.append(
-                    clave1)  # Se anexa la clave del nuevo empleado a lista
+                print("\n", "Su nombre es: ", nombre,"\n")  # Se comprueba el nombre del nuevo empleado
+                print("\n", "Su apellido es: ", apellido, "\n")  # Se comprueba el apellido del nuevo empleado
+                print("\n", "Su clave es: ", clave, "\n")  # Se comprueba la clave del nuevo empleado
+                print("\n", "Su Login es: ", usuario, "\n")  # Se comprueba el usuario del nuevo empleado
+                nombre31.append( nombre)  # Se anexa el nombre del nuevo empleado a lista
+                apellido31.append( apellido)  # Se anexa el apellido del nuevo empleado a lista
+                usuario31.append( usuario)  # se anexa el usuario del nuevo empleado a lista
+                clave31.append(clave1)  # Se anexa la clave del nuevo empleado a lista
 
-                emp = [nombre31, apellido31, usuario31, clave31
-                       ]  # Se crea lista principal con las anteriores listas
+                emp = [nombre31, apellido31, usuario31, clave31]  # Se crea lista principal con las anteriores listas
 
-                emp1 = pd.DataFrame(
-                    emp)  # Se crea DataFrame con los datos del nuevo empleado
-                emp2 = pd.DataFrame.transpose(
-                    emp1)  # se transpone el DataFrame
+                emp1 = pd.DataFrame(emp)  # Se crea DataFrame con los datos del nuevo empleado
+                emp2 = pd.DataFrame.transpose(emp1)  # se transpone el DataFrame
 
-                emp2.columns = ["Nombre", "Apellido", "Usuario",
-                                "Clave"]  # Se agrega nombres a las columnas
-                emp2.to_csv(
-                    "BDATOS/empleado.csv", mode="a", index="", header=""
-                )  # se graba la información en la base de datos de empleado
+                emp2.columns = ["Nombre", "Apellido", "Usuario", "Clave"]  # Se agrega nombres a las columnas
+                emp2.to_csv("BDATOS/empleado.csv", mode="a", index="", header="")  # se graba la información en la base de datos de empleado
                 #os.system('clear')                                                # Para limpiar la pantalla
-                clave = pd.DataFrame(
-                    clave31
-                )  # Se crea DataFrame para guardar la clave del nuevo empleado
+                clave = pd.DataFrame( clave31 )  # Se crea DataFrame para guardar la clave del nuevo empleado
                 clave.to_csv( "CLAVES/Clave.csv", mode="a", index="", header="")  # se graba la información en la base de datos de claves
                 return menu  # Para regresar al menú principal
 
@@ -274,11 +239,11 @@ def EE():  # Se cea base de datos para eliminar fila
         break  #Finaliza el ciclo del while principal
 
 
-def fp():
-    while True:
-        print("\n\nOprima enter para finalizar submenú")
-        input()
-        break
+def fp():  # Se crea función para regresar al menú principal
+    while True: # Se activa la función para regresar al menú principal
+        print("\n\nOprima enter para finalizar submenú") # Mensaje para finalizar menú
+        input() # se confirma finalización de menú
+        break   # Finaliza el ciclo
 
 
 # informe 4
@@ -431,8 +396,8 @@ def EEE():  # Se cea base de datos para eliminar producto de la base de datos de
 #informe 5
 #Para anexar referencia de productos a mostrador
 
-def mostrador():
-  while True:
+def mostrador(): # Se crea función para extraer un porcentaje de productos de bodega
+  while True:    # Se activa la función mostardor
     
     os.system('clear')  # para limpiar la pantalla
     print("\n")  # Salto de línea
@@ -446,25 +411,27 @@ def mostrador():
     F4 = input("\n\ningrese el número de la fila del producto a anexar a mostrador: ")  # Se ingresa la fecha de compra del producto
     F5 = int( F4)  # Se convirta la variable anterior en una variable tipo entero
     #F6 = L57.iloc[F5,:]   # Se buscan las referencias correspondientes en el DataFrame
-    Producto= L57.iloc[F5,1]
-    Referencia=  L57.iloc[F5,2]
-    Ubodega=0
-    precioC=L57.iloc[F5,5]
-    Uventas=0
-    ganancia=0
-    Pventa=0
-    Acum=0
-
+    Producto= L57.iloc[F5,1]    # Para hallar el nombre del producto
+    Referencia=  L57.iloc[F5,2] # Para hallar la referencia del rpoducto
+    Ubodega=0                   # Se crea variable para unidades en bodega
+    precioC=L57.iloc[F5,5]      # Se extrae el precio individual de compra por unidad
+    Uventas=0                   # Se crea variable para el conteo de unidades en el mostrador
+    ganancia=0                  # Se crea variable para la ganancia
+    Pventa=0                    # Se crea variable par el precio de venta
+    Acum=0                      # Se crea varriable para las unidades acumuldas en el mostardor
+    # Se crea lista con las anteriores variables
     mo=[Producto, Referencia, Ubodega, precioC, Uventas, ganancia, Pventa, Acum]
-    F7 = pd.DataFrame(mo)
-    F77 = pd.DataFrame.transpose(F7)
+    F7 = pd.DataFrame(mo) # Se crea un DataFrame con la lista anterior
+    F77 = pd.DataFrame.transpose(F7) # Se transpone el anterior DataFrame
+    # Se coloca nombres a las columnas
     F77.columns=['Producto','Referencia','Ubodega','precioC','Uventas','ganancia','Pventa','Acum']  # Se anexan los titulos de las columnas del dataframe df2
-    F77.to_csv('BDATOS/mostrador.csv', mode="a", index="", header="")  
-    print("\n\n",F77)
-    ff=5                                         # Se crea variable para finalizar ciclo de la opción  
+    F77.to_csv('BDATOS/mostrador.csv', mode="a", index="", header="") # Se graba los datos modificados en la base de datos mostrador
+    F77 = pd.read_csv("BDATOS/mostrador.csv") # se lee la base de datos actualizada
+    print("\n\n",F77)                         # SE imprime la base da datos actualizada
+    ff=5                                      # Se crea variable para finalizar ciclo de la opción  
     T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
     if(T==ff):                                   # Se verifica si cumple la condición
-        break                                     # Finaliza primer ciclo
+        break                                    # Finaliza primer ciclo
     break                                        # Finaliza el segundo ciclo
        
    
@@ -529,7 +496,7 @@ def mganancia():  # Función para modificar el porcentaje de ganancia en las ven
 
 #listo para funcionamiento
 # Para cambiar las unidades de forma individual
-'''
+
 def unidades():  # función para elegir la cantidad de productos para la venta según la referencia
   while True:    # Activar el ciclo para elegir la cantidad de productos para la venta según la referencia
     os.system('clear') # para limpiar la pantalla
@@ -615,58 +582,8 @@ def unidades():  # función para elegir la cantidad de productos para la venta s
           print("\n\n\n\n***************   Mostrador actualizado   ****************")  # Mensaje de confirmación de datos de actualizados en mostrador
           print("\n\n",mm2)                                                            # Se muestra la base e datos de mostrador
       break                                                                        # Se finaliza ciclo de esta función   
-'''
-def unidades():  # función para elegir la cantidad de productos para la venta según la referencia
-  while True:    # Activar el ciclo para elegir la cantidad de productos para la venta según la referencia
-    os.system('clear') # para limpiar la pantalla
-    print("\n\nPAGINA MOSTRADOR") # Titulo para la página principal de mostrador
-    print("\n\n\t\t PAGINA PARA CAMBIAR LAS UNIDADES EN FORMA INDIVIDUAL") # subtitulos para cambiar las unidades en forma individual
-    print("\n\n\t\t Referencia en productos en Bodega\n\n")   # Subtitulos para referencia
-
-    mm2=pd.read_csv("BDATOS/mostrador.csv")   # Se lee base de datos mostrador
-    LL5=pd.read_csv('BDATOS/bodega1.csv')     # Se lee la base de datos de bodega
-    print(LL5)                                # Se imprime la bese de datos de bodega
-
-    print("\n\n\n\n Mostrador actual")        # Se imprime mensaje
-    print("\n\n",mm2)                         # Se imprime los productos que están listos para la venta
 
 
-    g2=input("\n\n\n\nIngrese la referencia del producto: ") # Se imprime mensaje para referencia de producto
-    g3=str(g2)                                               # se crea una variable tipo string
-
-
-    g4=input("\n\ningrese la fecha de compra del producto: ")   # Se ingresa la fecha de compra del producto
-    g5=int(g4)                                                  # Se convirta la variable anterior en una variable tipo entero
-    m5= LL5[LL5['Referencia']==g3]                              # Se buscan las referencias correspondientes en el DataFrame
-    m6= LL5[LL5['Fcompra']==g5]                                 # Se buscan la fecha de compra en el DataFrame
-    os.system('clear')                                          # Se limpia la pantalla
-    print("\n\n\n\nDatos de la bodega \n\n", m5)                # Se imprime los resultados de las referencias encontradas
-
-    # Se ingresa la cantidad de productos de una referencia determinada que van para el mostrador de ventas
-    mu=input("\n\n\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")  
-    mu1= int(mu)                                # El anterior valor se convierte en entero
-
-
-    mt=0                                        # Se crea variable para guardar la cantidad de productos acumulados en mostrador                                                                
-    for TM in range (len(mm2)):                 # Se crea un ciclos para recorrer el DataFrame mostrador
-      if (LL5.iloc[TM,2]==g3 and LL5.iloc[TM,6]==g5):  # En la base de datos de bodega se busca la respectiva referencia  y fecha de compra del producto
-        LL5=pd.read_csv('BDATOS/bodega1.csv')          # Al cumplir la condición anterior se lee nuevamente la base de datos de bodega
-        mm2=pd.read_csv("BDATOS/mostrador.csv")        # Se lee la base de datos de mostrador
-
-        mt= mm2.iloc[TM, 7]                            # Se escoge el valor del acumulado en el mostrador y se crea una nueva variable
-        g6= LL5.iloc[TM, 4]                            # Se escoge la cantidad de unidades disponibles en la bodega 
-        mm2.iloc[TM, 4]=mu1                            # Se actualiza la cantidad  de unidades en el mostrador
-        mt=mu1+mt                                      # Se suma la nueva cantidad de unidades al acumulado
-        mm2.iloc[TM, 7]=mt                             # Se actualiza el acumulado en la base de datos de mostrador
-        mm2.to_csv('BDATOS/mostrador.cvs', mode="w", index="", header="True") # Se graba las nuevas modificaciones en la base de datos mostrador
-        g7=g6-mu1                                      # Las unidades que se llevan para el mostrador se descuentas al inventario de la bodega
-        LL5.iloc[TM, 4]=g7                             # Se actualiza las nuevas cantidades de unidades del producto en la bodega
-        mm2.iloc[TM, 2]=g7                             # La unidaes del productos actualizadas en la bodega se informa en la base de datos de mostrador
-        mm2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True") # Se graba las nuevas actualizaciones en la base de datos de mostrador
-        LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")  # Se graba las nuevas actualizaciones en la base decdatos de bodega
-        LL5=pd.read_csv('BDATOS/bodega1.csv')          # Se lee la base de datos de bodega para confirmar los cambios
-        mm2=pd.read_csv('BDATOS/mostrador.csv')        # Se lee la base de datos de mostardor para confirmar los cambios
-        
 
 
     print("\n\n\n\n***************   Bodega actualizada    *******************") # Mensaje de confirmación de datos actualizados en bodega
@@ -1884,30 +1801,20 @@ def infcontabilidad(
         print(
             "\n-------------------------------------------------------------------------------------"
         )
-        G5 = inf5.describe(
-        )  # Se crea el informe estadístico para ganancia neta
+        G5 = inf5.describe()  # Se crea el informe estadístico para ganancia neta
         print("\n\n")  # salto de línea
         print(G5)  # Se imprime los resultados en el informe estadístico
 
-        C41 = [inf1, inf2, inf3, inf4,
-               inf5]  # Se crea una lista con los datos anteriores
+        C41 = [inf1, inf2, inf3, inf4, inf5]  # Se crea una lista con los datos anteriores
 
-        C411 = pd.DataFrame(
-            C41
-        )  # Se crea un DataFrame con los datos anteriormente seleccionados
+        C411 = pd.DataFrame(C41)  # Se crea un DataFrame con los datos anteriormente seleccionados
 
-        C43 = pd.DataFrame.transpose(
-            C411)  # Se transpone el DataFrame anterior
-        C43.plot(x="IF",
-                 y=["capitalbase", "CBodega", "Cfijos", "ganancianeta"],
-                 kind='bar'
-                 )  # Se crea gráfica en barras para el Dataframe modificado
-        plt.title(
-            "INFORME DE CONTABILIDAD\n ")  # Se agrega titulo a la gráfica
+        C43 = pd.DataFrame.transpose(C411)  # Se transpone el DataFrame anterior
+        C43.plot(x="IF", y=["capitalbase", "CBodega", "Cfijos", "ganancianeta"],  kind='bar')  # Se crea gráfica en barras para el Dataframe modificado
+        plt.title("INFORME DE CONTABILIDAD\n ")  # Se agrega titulo a la gráfica
         plt.ylabel('DINERO EN MILLONES')  # se agrega titulo al eje Y
         plt.xlabel('\nFECHA')  # Se agrega titulo al eje X
-        plt.legend(loc="lower left", bbox_to_anchor=(
-            0.8, 0.9))  # Se agrega legenda para explicación de la gráfica
+        plt.legend(loc="lower left", bbox_to_anchor=(0.8, 0.9))  # Se agrega legenda para explicación de la gráfica
         plt.show()  # Se muestra la gráfica generada
 
         break  # Se finaliza el ciclo para esta función
@@ -1946,11 +1853,11 @@ def calendario(): # Se crea la función para ver calendario
 
     
 # Para activar menú principal
-def menu():
-    #os.system('clear') #limpiar pantalla
-    print("\n\n")
-    tituloG = "  PÁGINA PRINCIPAL DE ADMINISTRADOR  "
-    print(tituloG.center(70, "="))
+def menu():             # Se crea función para menú principal
+    #os.system('clear') # limpiar pantalla
+    print("\n\n")       # Salto de linea
+    tituloG = "  PÁGINA PRINCIPAL DE ADMINISTRADOR  " # Titulo principal para el menú principal
+    print(tituloG.center(70, "="))                    # Para centrar el título
     #print("\n\n")
     # se crea un menu para el manejo operativo del negocio
 
@@ -1959,47 +1866,46 @@ def menu():
     print("                                  \t2 - Calendario ")         # se imprime calendario
     print("                                  \t3 - Empleados ")          # se imprime empleados
     print("                                  \t4 - Compras y Bodega")    # se imprime compras y bodega
-    print("                                  \t5 - Mostrador") #se imprime mostrador
-    print("                                  \t6 - Ventas y Clientes")#se imprime venta y clientes
-    print("                                  \t7 - Contabilidad")#se imprime contabilidad
-    print("                                  \t8 - Reportes")# se imprime reportes
+    print("                                  \t5 - Mostrador")           # se imprime mostrador
+    print("                                  \t6 - Ventas y Clientes")   # se imprime venta y clientes
+    print("                                  \t7 - Contabilidad")        # se imprime contabilidad
+    print("                                  \t8 - Reportes")            # se imprime reportes
     print("                                  \t9 - Terminar con uso de menu")  # se imprime finalizacón de menú
 
 
 # Se crea un una iteración con while mientras se cumpla la condición
-while True:
+while True: # Se crea ciclo para la función menú
     menu()  # se activa la función menú
     opcionMenu = input( "\n Inserte el número de la opción del menú: " )  # sirve para ingresar el valor de la opción seleccionada
-    if opcionMenu == "1":
-       print("\n\n")
-       tituloG = " PÁGINA PARA MANUAL DE USUARIO  "
-       print(tituloG.center(70, "="))
-       musuario()
-    if opcionMenu == "2":
-        calendario()
-    if opcionMenu == "3":
-        os.system('clear') #limpiar pantalla
-        print("\n\n")
+    if opcionMenu == "1":  # Se activa función manual de usuario
+       print("\n\n")       # Salto de línea
+       tituloG = " PÁGINA PARA MANUAL DE USUARIO  "  # Titulo principal para manual de usuario
+       print(tituloG.center(70, "="))                # Para centrar titulo
+       musuario()                                    # Se ejecuta la función para leer manual de usuario
+    if opcionMenu == "2":                            # Se activa la función para calendario
+        calendario()                                 # Se ejecuta la función calendario    
+    if opcionMenu == "3":                            # Se activa la función empleados
+        os.system('clear')                           # limpiar pantalla
+        print("\n\n")                                # Salto de línea
 
-        subtitulo = " SUBMENÚ DE EMPLEADOS"
-        print("\n\n")
-        print(subtitulo.center(100, " "))
-        print(
-            "\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print("                                  \t3.1 - Cambio de clave Global " )  # se imprime registro de compras
+        subtitulo = " SUBMENÚ DE EMPLEADOS"          # subtitulo submenú de empleados
+        print("\n\n")                                # Salto de línea
+        print(subtitulo.center(100, " "))            # Para centar el subtitulo
+        print("\n\n\n\nSelecciona una opción \n")    # se imprime mendsaje del menú
+        print("                                  \t3.1 - Cambio de clave Global " )           # se imprime registro de compras
         print("                                  \t3.2 - Login y clave para nuevo empleado")  # se imprime registro total acumulado
-        print("                                  \t3.3 - Base de datos de empleados" )# se imprime base de datos de empleados
-        print("                                  \t3.4 - Modificación de clave de usuario")#se imprime modificacion de clave de usuario
-        print("                                  \t3.5 - Eliminar datos de empleado ") #se imprime Eliminar datos de empleado
-        print("                                  \t3.6 - terminar con uso de submenú") #se imprime terminar con uso de submenú
+        print("                                  \t3.3 - Base de datos de empleados" )        # se imprime base de datos de empleados
+        print("                                  \t3.4 - Modificación de clave de usuario")   # se imprime modificacion de clave de usuario
+        print("                                  \t3.5 - Eliminar datos de empleado ")        # se imprime Eliminar datos de empleado
+        print("                                  \t3.6 - terminar con uso de submenú")        # se imprime terminar con uso de submenú
       
 
-        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-        if opcionmenu == "3.1":    #se activa funcion global
-            Global() #se ejecuta funcion global
+        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ") # Se imprime mensaje de submenú
+        if opcionmenu == "3.1":     # se activa funcion global
+            Global()                # se ejecuta funcion global
 
         elif opcionmenu == "3.2":  # se activa la función login
-            login()# se ejecuta la función login
+            login()                # se ejecuta la función login
 
         elif opcionmenu == "3.3":  # se activa la función empleados
              empleados()           # se ejecuta la función empleados
@@ -2014,137 +1920,132 @@ while True:
         
 
 
-    if opcionMenu == "4":
+    if opcionMenu == "4":          # Se ejecuta la función de compras y Bodega
 
-        os.system('clear')  #limpiar pantalla
-        print("\n\n")
+        os.system('clear')         # Limpiar pantalla
+        print("\n\n")              # Salto de línea
 
-        subtitulo = " SUBMENÚ DE COMPRAS Y BODEGA"
-        print("\n\n")
-        print(subtitulo.center(100, " "))
-        print(
-            "\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print("                                  \t4.1 - Compras de productos")  # se imprime registro de compras
-        print("                                  \t4.2 - Bodega")  # se imprime registro total acumulado
-        print("                                  \t4.3 - Base de datos de compras de productos")
+        subtitulo = " SUBMENÚ DE COMPRAS Y BODEGA"  # Subtitulo  para submenú de compra y bodega
+        print("\n\n")                               # salto de línea
+        print(subtitulo.center(100, " "))           # Se centra subtitulo
+        print("\n\n\n\nSelecciona una opción \n")   # se imprime mendsaje del menú
+        print("                                  \t4.1 - Compras de productos")  # se imprime registro de compras de productos
+        print("                                  \t4.2 - Bodega")  # se imprime opción bodega
+        print("                                  \t4.3 - Base de datos de compras de productos") #Se imprime opción bas de datos de compras de productos
         print("                                  \t4.4 - ")
-        print("                                  \t4.5 - Eliminar producto vencido ó agotado")
-        print("                                  \t4.6 - Terminar con uso de suubmenú"
-        )
-        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-        if opcionmenu == "4.1":
+        print("                                  \t4.5 - Eliminar producto vencido ó agotado") # Se imprime opción de producto vencido ó agotado
+        print("                                  \t4.6 - Terminar con uso de submenú" )         # Se imprime opción para terminar con uso de submenú
+        
+        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ") # Se imprime mensaje
+        if opcionmenu == "4.1":    # Se activa  la función compras de productos                
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
+            os.system('clear')     # limpiar pantalla
+            print("\n\n")          # Salto de línea
             print("Hola".center(100, " "))  # la función compra se ejecuta
-            compras()
+            compras()              # Se ejecuta la función compras
 
-        elif opcionmenu == "4.2":  # se ejecuta la función total
-            bodega()
+        elif opcionmenu == "4.2":  # se activa función bodega
+            bodega()               # Se ejecuta función bodega
 
-        elif opcionmenu == "4.3":
-             total()
+        elif opcionmenu == "4.3":  # se activa función total
+             total()               # Se ejecuta función total
 
-        elif opcionmenu == "4.5":
-            EEE()
-        elif opcionmenu == "4.6":
+        elif opcionmenu == "4.5":  # se activa función para eliminar productos vencidos ó agotados
+            EEE()                  # Se ejecuta función productos vencidos ó agotados
+        elif opcionmenu == "4.6":  # se activa finalización de submenú
              fp()                  # se ejecuta finalización de submenú
            
 
-    if opcionMenu == "5":
-        #os.system('clear')  #limpiar pantalla
-        print("\n\n")
+    if opcionMenu == "5":          # se activa función mostrador
+        os.system('clear')         # limpiar pantalla
+        print("\n\n")              # Slato de línea
 
-        subtitulo = " SUBMENÚ DE MOSTRADOR"
-        print("\n\n")
-        print(subtitulo.center(100, " "))
+        subtitulo = " SUBMENÚ DE MOSTRADOR" # Subtitulo para submenu de mostardos
+        print("\n\n")                       # Salto de linea
+        print(subtitulo.center(100, " "))   # se centra el subtitulo
         print("\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print("                                  \t5.1 - Para anexar referencias de productos a mostrador")  # se imprime registro de compras
-        print("                                  \t5.2 - Cambio de porcentaje de ganancia ")  # se imprime registro de compras
+        print("                                  \t5.1 - Para anexar referencias de productos a mostrador")  # se imprime anexar referencias de productos a mostrador
+        print("                                  \t5.2 - Cambio de porcentaje de ganancia ")  # se  imprime cambio de porcentaje de ganancia
         print("                                  \t5.3 - Para llenar el mostrador con productos" )  # se imprime registro total acumulado
-        print("                                  \t5.4 - Agotamiento de productos")
-        print("                                  \t5.5 - Vencimiento de productos")
-        print("                                  \t5.6 - Terminar con uso de menu")
-        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-        if opcionmenu == "5.1":
+        print("                                  \t5.4 - Agotamiento de productos")                 # Se imprime agotamiento de productos
+        print("                                  \t5.5 - Vencimiento de productos")                 # Se imprime vencimiento de productos
+        print("                                  \t5.6 - Terminar con uso de menu")                 # SE imprime terminar con uso de menú
+        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")                     # se imprime mensaje para elegir opciones
+        if opcionmenu == "5.1":    # se activa la función mostrador
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            mostrador()            
+            mostrador()            # se ejecuta la función mostardor 
 
-        elif opcionmenu == "5.2":  # se ejecuta la función total
-             mganancia()
+        elif opcionmenu == "5.2":  # se activa la función para cambiar la ganancia de cada producto
+             mganancia()           # se ejecuta la función para cambiar la ganancia de cada producto
 
-        elif opcionmenu == "5.3":
-             unidades()
+        elif opcionmenu == "5.3":  # se activa función para agregar productos al mostrador
+             unidades()            # se ejecuta función para agregar productos al mostrador
 
-        elif opcionmenu == "5.4":
-             agotado()
-            
-            
-
-        elif opcionmenu == "5.5":
-             vencimiento()
-        elif opcionmenu == "5.6":
+        elif opcionmenu == "5.4":  # se activa función para detectar productos agotados
+             agotado()             # se ejecuta función para detectar productos agotados
+          
+        elif opcionmenu == "5.5":  # se activa función para detectar productos vencidos
+             vencimiento()         # se ejecuta función para detectar productos vencidos
+       
+        elif opcionmenu == "5.6":  # se activa finalización de submenú
              fp()                  # se ejecuta finalización de submenú
 
-    if opcionMenu == "6":
-        os.system('clear')  #limpiar pantalla
-        print("\n\n")
+    if opcionMenu == "6":          # Se activa la función ventas y clientes
+        os.system('clear')         # limpiar pantalla
+        print("\n\n")              # Salto de línea
 
-        subtitulo = " SUBMENÚ DE VENTAS Y CLIENTES"
-        print("\n\n")
-        print(subtitulo.center(100, " "))
-        print(
-            "\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print("                                  \t6.1 - Para generar venta"
-              )  # se imprime registro de compras
-        print("                                  \t6.2 - Factura"
-              )  # se imprime registro total acumulado
-        print("                                  \t6.3 - Venta acumulada")
-        print("                                  \t6.4 - Página de clientes")
-        print("                                  \t6.5 - Página de Compras de cada cliente")
+        subtitulo = " SUBMENÚ DE VENTAS Y CLIENTES"  # Se imprime submenú de ventas y clientes
+        print("\n\n")                                # salto de línea
+        print(subtitulo.center(100, " "))            # se centra el subtitulo
+        print("\n\n\n\nSelecciona una opción \n")    # se imprime mensaje del menú
+        print("                                  \t6.1 - Para generar venta")  # se imprime registro de compras
+        print("                                  \t6.2 - Factura")             # se imprime registro total acumulado
+        print("                                  \t6.3 - Venta acumulada")     # se imprime opción de venta acumulada
+        print("                                  \t6.4 - Página de clientes")  # se imprime opción clientes
+        print("                                  \t6.5 - Página de Compras de cada cliente") # se imprime opción compras de cada cliente
         print("                                  \t9   - ")  # se imprime finalizacón de menú
 
-        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-        if opcionmenu == "6.1":
+        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ") # Se imprime mensaje para seleccionar opción
+        if opcionmenu == "6.1":    # se activa la función generar venta
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
-            venta()
+            os.system('clear')     # limpiar pantalla
+            venta()                # se ejecuta la función generar venta
 
-        elif opcionmenu == "6.2":  # se ejecuta la función total
+        elif opcionmenu == "6.2":  # se activa la función factura
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
-            Factura()
+            os.system('clear')     #limpiar pantalla
+            Factura()              # se ejecuta la función factura
 
-        elif opcionmenu == "6.3":
+        elif opcionmenu == "6.3":  # se activa la función venta acumulada
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
-            Venta_acum()
+            os.system('clear')     # limpiar pantalla
+            Venta_acum()           # se activa la función venta acumulada
 
-        elif opcionmenu == "6.4":
+        elif opcionmenu == "6.4":  # se activa función clientes
             print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
-            clientes()
+            os.system('clear')     # limpiar pantalla
+            clientes()             # se ejecuta función clientes
 
-        elif opcionmenu == "6.5":
-            print("\n\nhola\n\n")  # imprime mensaje de saludo
-            os.system('clear')  #limpiar pantalla
-            compra_cliente()
+        elif opcionmenu == "6.5":   # se activa función compra de clientes
+            print("\n\nhola\n\n")   # imprime mensaje de saludo
+            os.system('clear')      # limpiar pantalla
+            compra_cliente()        # se ejecuta función compra de clientes
 
-        elif opcionmenu == "6.6":
-             fp()                  # se ejecuta finalización de submenú
+        elif opcionmenu == "6.6":   # se activa finalización de submenú
+             fp()                   # se ejecuta finalización de submenú
 
  
 
-    if opcionMenu == "7":
-        os.system('clear')  #limpiar pantalla
-        print("\n\n")
+    if opcionMenu == "7":           # se activa función contabilidad
+        os.system('clear')          # limpiar pantalla
+        print("\n\n")               # salto de linea
 
-        subtitulo = " SUBMENÚ DE CONTABILIDAD"
-        print("\n\n")
-        print(subtitulo.center(100, " "))
+        subtitulo = " SUBMENÚ DE CONTABILIDAD"     # Se imprime mensaje submenú de contabilidad
+        print("\n\n")                              # Slato de línea
+        print(subtitulo.center(100, " "))          # Para centrar el subtitulo
         print("\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print("                                  \t7.1 - Costos de Bodega completa ")         # se imprime registro de compras
-        print("                                  \t7.2 - Costos de bodega por fechas" )       # se imprime registro total acumulado
+        print("                                  \t7.1 - Costos de Bodega completa ")         # se imprime registro de costos de bodega completa
+        print("                                  \t7.2 - Costos de bodega por fechas" )       # se imprime registro de costos de bodega por fecha
         print("                                  \t7.3 - Ingreso de datos para costos fijos") # Se imprime el ingreso de datos para costos fijos
         print("                                  \t7.4 - Costos fijos completos")             # Se emprime costos fijos completos
         print("                                  \t7.5 - Costos fijos por fecha")             # Se imprime los costos fijos por fecha
@@ -2152,117 +2053,117 @@ while True:
         print("                                  \t7.7 - Ingresos por ventas - manejo por fechas" ) # Se imprime ingresos por ventas - manejo de fechas
         print("                                  \t7.8 - Para cambiar la ganancia neta")            # Se imprime para cambiar la ganancia neta
         print("                                  \t7.9 - CONTABILIDAD")                             # Se imprime opción de contabilidad
-        print("                                  \t9   - Terminar con uso de submenu")                 # se imprime finalizacón de menú
+        print("                                  \t9   - Terminar con uso de submenu")              # se imprime finalizacón de menú
 
-        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-        if opcionmenu == "7.1":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            bodegacom()
-
-        
-        
-        elif opcionmenu == "7.2":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            bodegafecha()
-
-        elif opcionmenu == "7.3":  # se ejecuta la función total
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            ingcostosf()
-
-        elif opcionmenu == "7.4":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            costosf()
-
-        elif opcionmenu == "7.5":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            costosff()
-
-        elif opcionmenu == "7.6":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            ingventasT()
-
-        elif opcionmenu == "7.7":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            ingventasTF()
-
-
-
-        elif opcionmenu == "7.8":
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))  # la función compra se ejecuta
-            ganancia()
-
-        
-        
-        elif opcionmenu == "7.9":
-             os.system('clear')  #limpiar pantalla
-             print("\n\n")
+        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ") # Se imprime mensaje para elegir opción
+        if opcionmenu == "7.1":           # Se activa función para costos de bodega completa
+             os.system('clear')              # limpiar pantalla
+             print("\n\n")                   # salto de ínea
              print("Hola".center(100, " "))  # la función compra se ejecuta
-             contabilidad()
-              
-        elif opcionmenu == "9":
-             fp()  
+             bodegacom()                     # Se ejecuta función para costos de bodega completa
+
+        
+        
+        elif opcionmenu == "7.2":           # Se activa función para costos de bodega por fecha
+            os.system('clear')              # limpiar pantalla
+            print("\n\n")                   # salto de línea
+            print("Hola".center(100, " "))  # la función compra se ejecuta
+            bodegafecha()                   # Se ejecuta función para costos de bodega por fecha 
+
+        elif opcionmenu == "7.3":           # se activa la función ingresos de datos para costsos fijos
+            os.system('clear')              # limpiar pantalla
+            print("\n\n")                   # slato delínea
+            print("Hola".center(100, " "))  # la función compra se ejecuta
+            ingcostosf()                    # se ejecuta la función ingresos de datos para costsos fijos
+
+        elif opcionmenu == "7.4":           # se activa función costos fijos completos
+            os.system('clear')              # limpiar pantalla
+            print("\n\n")                   # Salto de línea
+            print("Hola".center(100, " "))  # Mensaje de saludo
+            costosf()                       # se ejecuta función costos fijos completo
+
+        elif opcionmenu == "7.5":           # se activa función costos fijos por fecha
+            os.system('clear')              # limpiar pantalla
+            print("\n\n")                   # Salto de línea
+            print("Hola".center(100, " "))  # Mensaje de saludo
+            costosff()                      # se ejecuta función costos fijos por fecha
+
+        elif opcionmenu == "7.6":           # se activa función ingresos por ventas
+            os.system('clear')              # limpiar pantalla
+            print("\n\n")                   # salto de línea
+            print("Hola".center(100, " "))  # Mensaje de saludo
+            ingventasT()                    # se ejecuta función ingresos por ventas
+
+        elif opcionmenu == "7.7":           # se activa función ingresos por ventas por fechas
+            os.system('clear')              # limpiar pantalla
+            print("\n\n")                   # salto de línea
+            print("Hola".center(100, " "))  # Mensaje de saludo
+            ingventasTF()                   # se ejecuta función ingresos por ventas por fechas
 
 
-    if opcionMenu == "8":
-        os.system('clear')  #limpiar pantalla
-        print("\n\n")
 
-        subtitulo = " SUBMENÚ DE REPORTES"
-        print("\n\n")
-        print(subtitulo.center(100, " "))
-        print("\n\n\n\nSelecciona una opción \n")  # se imprime mendsaje del menú
-        print("                                  \t8.1 - Ingreso de proveedores" )  # se imprime registro de compras
-        print("                                  \t8.2 - Base de datos de proveedores")  # se imprime registro total acumulado
-        print("                                  \t8.3 - Informe del valor de productos por paca")
-        print("                                  \t8.4 - Informe del valor de las ventas diarias")
-        print("                                  \t8.5 - Informe total de unidades en bodega")
-        print("                                  \t8.6 - Informe total de contabilidad")
-        print("                                  \t9   - Finalizar submenú")  # se imprime finalizacón de menú
-        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ")
-        if opcionmenu == "8.1":
-            print("\n\nhola\n\n")  # imprime mensaje de saludo
-            #bodegacom()
-            #mensaje="HOLA"
-            os.system('clear')  #limpiar pantalla
-            print("\n\n")
-            print("Hola".center(100, " "))
-            proveedor()  # la función compra se ejecuta
+        elif opcionmenu == "7.8":           # se activa función para modificar la ganancia neta
+            os.system('clear')              # limpiar pantalla
+            print("\n\n")                   # salto de línea
+            print("Hola".center(100, " "))  # mensaje de saludo
+            ganancia()                      # se ejecuta función para modificar la ganancia neta    
 
-        elif opcionmenu == "8.2":  # se ejecuta la función total
-            Bproveedores()
+        
+        
+        elif opcionmenu == "7.9":           # se activa función contabilidad
+             os.system('clear')             # limpiar pantalla
+             print("\n\n")                  # salto de línea
+             print("Hola".center(100, " ")) # Mensaje de saludo
+             contabilidad()                 # se ejecuta función contabilidad
 
-        elif opcionmenu == "8.3":
-            PRpaca()
+        elif opcionmenu == "9":             # se activa finalizaión del submenú
+             fp()                           # se ejecuta finalizaión del submenú
 
-        elif opcionmenu == "8.4":
-            Ifventas()
+    if opcionMenu == "8":                   # se activa función reportes
+        os.system('clear')                  # limpiar pantalla
+        print("\n\n")                       # Salto de línea
 
-        elif opcionmenu == "8.5":
-            Ubodega()
+        subtitulo = " SUBMENÚ DE REPORTES"  # Subtitulo para submenú reportes 
+        print("\n\n")                       # salto de línea
+        print(subtitulo.center(100, " "))   # Se centra el subtitulo
+        print("\n\n\n\nSelecciona una opción \n")  # se imprime mensaje para elegir opciones del menú
+        print("                                  \t8.1 - Ingreso de proveedores" )       # se imprime ingreso de proveedores
+        print("                                  \t8.2 - Base de datos de proveedores")  # se imprime base de datos de proveedores
+        print("                                  \t8.3 - Informe del valor de productos por paca") # Se imprime Informe del valor de productos por paca
+        print("                                  \t8.4 - Informe del valor de las ventas diarias") # Se imprime Informe del valor de las ventas diarias
+        print("                                  \t8.5 - Informe total de unidades en bodega")     # Se imprime Informe total de unidades en bodega
+        print("                                  \t8.6 - Informe total de contabilidad")           # Se imprime Informe total de contabilidad
+        print("                                  \t9   - Finalizar submenú")                       # se imprime finalizacón de menú
+        
+        opcionmenu = input("\n\n Inserte el número de la opción del submenú: ") # Mensaje para elegir opciones del submenú
+       
+        if opcionmenu == "8.1":            # Se activa la función ingreso de proveedores
+            print("\n\nhola\n\n")          # imprime mensaje de saludo
+            os.system('clear')             # limpiar pantalla
+            print("\n\n")                  # salto de línea
+            print("Hola".center(100, " ")) # mensaje de saludo
+            proveedor()                    # Se activa la función ingreso de proveedores
 
-        elif opcionmenu == "8.6":
-            infcontabilidad()
+        elif opcionmenu == "8.2":          # se activa la función Base de datos de proveedores
+            Bproveedores()                 # se ejecuta la función Base de datos de proveedores
 
-    elif opcionMenu == "9":
+        elif opcionmenu == "8.3":          # se activa función  Informe del valor de productos por paca
+            PRpaca()                       # se activa función  Informe del valor de productos por paca
 
-        print("\n\n")
-        subtitulof = "Sistema finalizado"
-        print(subtitulof.center(100, " "))
-        print("\n\n\t\tSistema finalizado")
-        break
+        elif opcionmenu == "8.4":          # se activa función Informe del valor de las ventas diarias
+            Ifventas()                     # se activa función Informe del valor de las ventas diarias
+
+        elif opcionmenu == "8.5":          # se activa función Informe total de unidades en bodega
+            Ubodega()                      # se activa función Informe total de unidades en bodega
+
+        elif opcionmenu == "8.6":          # se activa función Informe total de contabilidad
+            infcontabilidad()              # se activa función Informe total de contabilidad 
+
+    elif opcionMenu == "9":                # se activa función Finalizar submenú
+        print("\n\n")                      # Salto de línea
+        subtitulof = "Sistema finalizado"  # subtitulo
+        print(subtitulof.center(100, " ")) # Se imprime subtitulo centrado
+        print("\n\n\t\tSistema finalizado") # Se imprime mensaje 
+        break                               # Se finaliza el ciclo de la función
+
+
