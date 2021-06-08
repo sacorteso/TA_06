@@ -518,20 +518,23 @@ def unidades():  # función para elegir la cantidad de productos para la venta s
 
     g2=input("\n\n\n\nIngrese la referencia del producto: ") # Se imprime mensaje para referencia de producto
     g3=str(g2)                                               # se crea una variable tipo string
-                                              
-   
+    
+        
     g4=input("\n\ningrese la fecha de compra del producto: ")   # Se ingresa la fecha de compra del producto
     g5=int(g4)                                                  # Se convirta la variable anterior en una variable tipo entero
-    m5= LL5[LL5['Referencia']==g3]                              # Se buscan las referencias correspondientes en el DataFrame
-    m6= LL5[LL5['Fcompra']==g5]                                 # Se buscan la fecha de compra en el DataFrame
-    #os.system('clear')                                          # Se limpia la pantalla
+    
+    m5= LL5[LL5['Referencia']==g3 ]                             # Se buscan las referencias correspondientes en la base de datos de bodega
+    m6= LL5[LL5['Fcompra']==g5   ]                              # Se buscan las referencias correspondientes en la base de datos de bodega              
+
+    
+    os.system('clear')                                          # Se limpia la pantalla
     print("\n\n\n\nDatos de la bodega \n\n", m5)                # Se imprime los resultados de las referencias encontradas
     
     
 
     TM = mm2[mm2["Referencia"]==g3].index                       # Para hallar la posición de la fila del producto en el DataFrame de mostrador
     TMM= input("\n\ningrese el número de fila del producto con la referencia y fecha especifica: ") # Para ingresar la posición de la fila del producto del DataFrame bodega
-    TMM1= int(TMM)
+    TMM1= int(TMM)                                              # Se convierte la variable en un entero
     # Se ingresa la cantidad de productos de una referencia determinada que van para el mostrador de ventas
     mu= input("\n\nIngrese la nueva cantidad de unidades del producto para mostrador: ")  
     mu1= int(mu)                                   # El anterior valor se convierte en entero
@@ -539,103 +542,35 @@ def unidades():  # función para elegir la cantidad de productos para la venta s
     
     mt=0                                           # Se crea variable para guardar la cantidad de productos acumulados en mostrador                                                                
    
-    LL5=pd.read_csv('BDATOS/bodega1.csv')          # Al cumplir la condición anterior se lee nuevamente la base de datos de bodega
-    mm2=pd.read_csv("BDATOS/mostrador.csv")        # Se lee la base de datos de mostrador
-    
-
-    for ii in range(len(mm2)):                               # Se crea ciclo para verificar si referencia del rpoducto está en mostrador
-      if(mm2.iloc[ii,1]!=g3):                                # Se compara la referencia seleccionada con las ubicadas en el mostrador
-        print("\n\n La Referencia del producto NO está incluida en el mostrador ".center(70,"*"))         # Mensaje que confirma que la referencia está en el mostrador
-        break
-      #break
   
-  
-      else:                                                  # Otra opción
-        print("\n\n La Referencia del producto SI está incluida en el mostrador ".center(70,"*"))      # Mensaje que confirma que la referencia NO está en el mostrador
-          
-        if(LL5.iloc[TMM1,4]==0):                      # Se compara la referencia seleccionada con las ubicadas en el mostrador
-         #os.system('clear') 
-         print("\n\n  La bodega NO tiene unidades disponibles para mostrador  ".center(70,"*"))   # Mensaje que confirma que la bodega NO tiene unidaes disponibles
-         break
-        #break
-        else:                                                  # Otra opción
-          #os.system('clear') 
-          print("\n\n  La bodega SI tiene unidades disponibles para mostrador  ".center(100,"*"))    # Mensaje que confirma que la bodega tiene unidaes disponibles
-          mt= mm2.iloc[TM, 7]                            # Se escoge el valor del acumulado en el mostrador y se crea una nueva variable
-          g6= LL5.iloc[TMM1, 4]                          # Se escoge la cantidad de unidades disponibles en la bodega 
-          mm2.iloc[TM, 4]= mu1                            # Se actualiza la cantidad  de unidades en el mostrador
-          mt=mu1+mt                                      # Se suma la nueva cantidad de unidades al acumulado
-          mm2.iloc[TM, 7]= mt                             # Se actualiza el acumulado en la base de datos de mostrador
-          mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True") # Se graba las nuevas modificaciones en la base de datos mostrador
-          g7=g6-mu1                                      # Las unidades que se llevan para el mostrador se descuentas al inventario de la bodega
-          LL5.iloc[TMM1, 4]= g7                           # Se actualiza las nuevas cantidades de unidades del producto en la bodega
-          LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")  # Se graba las nuevas actualizaciones en la base decdatos de bodega
-          mm2.iloc[TM, 2]= g7                             # La unidaes del productos actualizadas en la bodega se informa en la base de datos de mostrador
-          mm2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True") # Se graba las nuevas actualizaciones en la base de datos de mostrador
-          LL5=pd.read_csv('BDATOS/bodega1.csv')          # Se lee la base de datos de bodega para confirmar los cambios
-          mm2=pd.read_csv('BDATOS/mostrador.csv')        # Se lee la base de datos de mostardor para confirmar los cambios
+    mt= mm2.iloc[TM, 7]                            # Se escoge el valor del acumulado en el mostrador y se crea una nueva variable
+    g6= LL5.iloc[TMM1, 4]                          # Se escoge la cantidad de unidades disponibles en la bodega 
+    mm2.iloc[TM, 4]= mu1                           # Se actualiza la cantidad  de unidades en el mostrador
+    mt=mu1+mt                                      # Se suma la nueva cantidad de unidades al acumulado
+    mm2.iloc[TM, 7]= mt                            # Se actualiza el acumulado en la base de datos de mostrador
+    mm2.to_csv('BDATOS/mostrador.csv', mode="w", index="", header="True") # Se graba las nuevas modificaciones en la base de datos mostrador
+    g7=g6-mu1                                      # Las unidades que se llevan para el mostrador se descuentas al inventario de la bodega
+    LL5.iloc[TMM1, 4]= g7                          # Se actualiza las nuevas cantidades de unidades del producto en la bodega
+    LL5.to_csv('BDATOS/bodega1.csv', mode="w", index="", header="True")  # Se graba las nuevas actualizaciones en la base decdatos de bodega
+    mm2.iloc[TM, 2]= g7                            # La unidaes del productos actualizadas en la bodega se informa en la base de datos de mostrador
+    mm2.to_csv('BDATOS/mostrador.csv',mode="w", index="", header="True") # Se graba las nuevas actualizaciones en la base de datos de mostrador
+    LL5=pd.read_csv('BDATOS/bodega1.csv')          # Se lee la base de datos de bodega para confirmar los cambios
+    mm2=pd.read_csv('BDATOS/mostrador.csv')        # Se lee la base de datos de mostardor para confirmar los cambios
         
 
 
-          print("\n\n\n\n***************   Bodega actualizada    *******************") # Mensaje de confirmación de datos actualizados en bodega
-          print("\n\n\n\n", LL5)                                                       # Se muestra la base datos de bodega
-          print("\n\n\n\n***************   Mostrador actualizado   ****************")  # Mensaje de confirmación de datos de actualizados en mostrador
-          print("\n\n",mm2)                                                            # Se muestra la base e datos de mostrador
-      break                                                                        # Se finaliza ciclo de esta función   
-
-
-
-
     print("\n\n\n\n***************   Bodega actualizada    *******************") # Mensaje de confirmación de datos actualizados en bodega
-    print("\n\n\n\n", LL5)
+    print("\n\n\n\n", LL5)                                                       # Se muestra la base datos de bodega
     print("\n\n\n\n***************   Mostrador actualizado   ****************")  # Mensaje de confirmación de datos de actualizados en mostrador
-    print("\n\n",mm2)
-    break
+    print("\n\n",mm2)                                                            # Se muestra la base e datos de mostrador
+    ff=5                                      # Se crea variable para finalizar ciclo de la opción
+    T= str(input("\n\nescriba ff para finalizar esta opción: ")) # Mensaje de confirmación para finalizar ciclo de la opción manual de usuario 
+    if(T==ff):                                # Se verifica si cumple la condición
+      break                                   # Finaliza primer ciclo
+    break                                     # Finaliza segundo ciclo
+ 
 
-'''
-def agotado():  # Se crea función para controlar el agotamiento de productos en la bodega
-    while True:  # Se activa función para controlar el agotamiento de productos en la bodega
-        os.system('clear')  # para limpiar pantalla
-        print("\n\n*******************************************************************************************************")  # Decoración de titulo de pantalla
-        print("\n\n******************************        ALERTA DE PRODUCTO AGOTADO         ******************************")  # Titulo de alerta de producto agotado
-        print("\n\n*******************************************************************************************************")  # Decoración de titulo de pantalla
-        L5 = pd.read_csv('BDATOS/bodega1.csv')  # Se lee la base de datos de bodega
-        for i in range(len(L5)):  # Se crea un ciclo para recorrer la base de datos bodega
-            if (L5.iloc[i, 4] == 0):  # Se activa el ciclo con la condición que la cantidad de los productos están agotados
 
-                #print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"       con fecha de compra: ",L5.iloc[i,6] )
-                #print("\n\n")
-                #print("\n\n                                                                             Está agotado")
-                print("\nProducto con nombre: ", L5.iloc[i,1])  # Se muestra el nombre del producto que está agotado
-                print("\n         referencia: ", L5.iloc[i, 2])  # Se muestra la referencia del producto que está agotado
-                print("\ncon fecha de compra: ", L5.iloc[i, 6])  # Se muestra la fecha de compra del producto que está agotado
-                print("\n\n                                   Está agotado" )  # Mensaje que confirma que está agotado
-                print("\n\n------------------------------------------------------------------------------------------------")  # Decoración de pantalla para la sección
-
-        break  # Finalización de este ciclo
-
-    while True:  # Se activa función para controlar el agotamiento de productos en la bodega
-        print(
-            "\n\n*******************************************************************************************************" )  # Decoración de titulo de pantalla
-        print("\n\n*******************************************************************************************************")  # Decoración de titulo de pantalla
-        print(
-            "\n\n************************      ALERTA DE PRODUCTO CERCANO A AGOTARSE    ********************************")  # Titulo de alerta de producto cercano a agotarse
-        print(
-            "\n\n*******************************************************************************************************")  # Decoración de titulo de pantalla
-        L5 = pd.read_csv('BDATOS/bodega1.csv')  # Se lee la base de datos de bodega
-        for i in range(len(L5)):  # Se crea un ciclo para recorrer la base de datos bodega
-            if (L5.iloc[i, 4] == 2 ):  # Se activa el ciclo con la condición que la cantidad de los productos están agotados
-                #print("\n\nProducto con nombre: ", L5.iloc[i,1], " y referencia: ",L5.iloc[i,2],"       con fecha de compra: ",L5.iloc[i,6] )
-                #print("\n\n                                                                                      Está cercano a agotarse  ")
-                print("\nProducto con nombre: ", L5.iloc[i, 1])  # Se muestra el nombre del producto que está cercano a agotarse
-                print("\n         referencia: ", L5.iloc[i, 2])  # Se muestra la referencia del producto que está cercano a agotarse
-                print("\ncon fecha de compra: ", L5.iloc[i, 6])  # Se muestra la fecha de compra del producto que está cercano a agotarse
-                print("\n\n                                    Está cercano a agotarse")  # Mensaje que confirma que está cercano a agotarse
-                print("\n\n-------------------------------------------------------------------------------------------------")  # Decoración de pantalla para la sección
-
-        break  # Finalización de este ciclo
-
-'''
 
 def agotado():  # Se crea función para controlar el agotamiento de productos en la bodega
   while True:   # Se activa función para controlar el agotamiento de productos en la bodega
